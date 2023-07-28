@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml",
                 "rerun:target/failedRerun.txt"
         },
-        features = "src/test/resources",
-        glue = {"stepDefinitions"},
-        tags = "@query4",
+        features = "src/test/resources/homepage",
+        glue = {"stepdefinitions"},
+        tags = "@ab",
         dryRun = false
 )
 
