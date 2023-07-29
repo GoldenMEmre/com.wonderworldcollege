@@ -5,10 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class ParentStudentPage {
-    public ParentStudentPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+public class ParentStudentPage extends Base{
 
     //admin login >email
     @FindBy(xpath = "//input[@name='login']")
