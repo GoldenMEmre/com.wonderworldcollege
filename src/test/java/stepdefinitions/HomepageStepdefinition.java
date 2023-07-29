@@ -55,4 +55,22 @@ public class HomepageStepdefinition {
 
 
 
+
+
+    @Given("Click the course menu title")
+    public void click_the_course_menu_title() {
+
+    }
+    @Given("Verify that you have been to the course page")
+    public void verify_that_you_have_been_to_the_course_page() {
+
+
+    }
+    @Given("Verifies that the {string} course title is visible")
+    public void verifies_that_the_course_title_is_visible(String string) {
+
+    }
+
+
+
 }
