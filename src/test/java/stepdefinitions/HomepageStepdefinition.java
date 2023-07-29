@@ -52,7 +52,12 @@ public class HomepageStepdefinition {
         homepage.examResultPageResultText.isDisplayed();
 
     }
+    @Given("Go to {string}")
+    public void go_to_url(String Url) {
 
+        Driver.getDriver().get(ConfigReader.getProperty(Url));
+
+    }
 
 
 

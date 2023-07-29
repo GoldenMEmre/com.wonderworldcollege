@@ -1,4 +1,5 @@
 package pages;
 
-public class AdminPage {
+public class AdminPage extends Base {
+
 }

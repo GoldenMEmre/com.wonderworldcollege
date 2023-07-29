@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage  {
+public class HomePage extends Base {
 
     //Homepage>ExamResultButton
     @FindBy(xpath =" a[normalize-space()='Exam Result']")
