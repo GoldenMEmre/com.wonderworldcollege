@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import pages.HomePage;
 import utilities.ConfigReader;
@@ -24,6 +25,7 @@ public class HomepageStepdefinition {
 
         homepage.examResultButton.click();
     }
+
 
     @Then("user verifies that the exam result page is opened")
     public void verifiesThatTheExamResultPageIsOpened() {
@@ -76,6 +78,26 @@ public class HomepageStepdefinition {
 
     }
 
+    @Given("User go to Url")
+    public void user_go_to_Url (String Url) {
+        Driver.getDriver().get(ConfigReader.getProperty(Url));
+    }
+    @Then("user test if the images change at regular intervals")
+    public void user_test_if_the_images_change_at_regular_intervals() {
+        Assert.assertTrue(homepage.preparingImg.isDisplayed()||
+                homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed()||
+                homepage.studentsImg.isDisplayed()||homepage.nurturingImg.isDisplayed());
 
+    }
+    @Then("wait {int} seconds")
+    public void wait_seconds() {
+        ReusableMethods.bekle(5);
+
+    }
+    @Then("user close the browser")
+    public void user_close_the_browser() {
+        Driver.closeDriver();
+
+    }
 
 }
