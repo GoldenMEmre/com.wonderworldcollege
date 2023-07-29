@@ -19,8 +19,6 @@ public class ParentStudentPage extends Base{
     @FindBy (xpath = "//input[@id='Address']")
     public WebElement adressBoxOnTheNewAdressPage;
 
-    // PhoneNumber Box On The New Adress Page
-    @FindBy (xpath = "//input[@id='customer_phn']")
-    public WebElement phoneNumberBoxOntheNewAdressPage;
+
 
 }
