@@ -24,11 +24,14 @@ public class HomePage extends Base {
     public WebElement examResultPageSearchButton;
 
     @FindBy(xpath = "//div[@class='alert alert-danger']")
-    public  WebElement examResultPageResultText;
+    public  WebElement examResultPageResultText;   
 
+<<<<<<< HEAD
 
     //-------------------------------------------------------------
 
+=======
+>>>>>>> main
       //Homepage >"login" butonu
     @FindBy(xpath = "//*[@class='complainbtn']")
     public WebElement loginButonu;
@@ -61,6 +64,12 @@ public class HomePage extends Base {
     public  WebElement nurturingImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> main
 
 
 }

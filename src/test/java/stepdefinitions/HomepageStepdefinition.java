@@ -86,6 +86,7 @@ public class HomepageStepdefinition {
     public void user_close_the_browser() {
         Driver.closeDriver();
     }
+
     @Then("The homepage was reached on the website")
     public void the_homepage_was_reached_on_the_website() throws InterruptedException {
         Assert.assertTrue(homepage.CallUsText.isDisplayed());
@@ -98,7 +99,7 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
     }
-    @Then("Close the page.")
+    @And("Close the page.")
     public void close_the_page() {
            Driver.quitDriver();
 
@@ -106,6 +107,7 @@ public class HomepageStepdefinition {
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
+
          Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     }
 
