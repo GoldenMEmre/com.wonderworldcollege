@@ -19,14 +19,13 @@ import org.junit.runner.RunWith;
                 "src/test/resources/teacherpage",
                 "src/test/resources/parent_studentpage"},
 
-        features = {"src/test/resources/adminpage",
-                "src/test/resources/homepage",
-                "src/test/resources/parent_studentpage",
-                "src/test/resources/teacherpage"},
 
         glue = {"stepdefinitions"},
-        tags = "@ab",
-        dryRun =false
+
+        tags = "@dem",
+        dryRun = true
+
+
 )
 
 public class Runner {
