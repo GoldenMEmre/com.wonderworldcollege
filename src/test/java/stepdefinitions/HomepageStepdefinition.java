@@ -95,7 +95,7 @@ public class HomepageStepdefinition {
     @Then("The Achievements  section was displayed as the page was scrolled down.")
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
        ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
-        Thread.sleep(5000);
+       // Thread.sleep(5000);
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
     }
@@ -107,9 +107,8 @@ public class HomepageStepdefinition {
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
-            Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
-        }
 
+         Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+    }
 
-
-}
+    }
