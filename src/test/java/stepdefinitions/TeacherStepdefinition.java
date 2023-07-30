@@ -4,12 +4,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.interactions.Actions;
 import pages.TeacherPage;
+import utilities.Driver;
 import utilities.ReusableMethods;
+
 
 public class TeacherStepdefinition {
 
     TeacherPage teacherPage = new TeacherPage();
+    Actions actions = new Actions(Driver.getDriver());
     @Given("go to login page")
     public void go_to_login_page() {
         ReusableMethods.goToLoginPage();
@@ -31,10 +35,7 @@ public class TeacherStepdefinition {
     public void click_signin_button() {
        teacherPage.clickSignIn();
     }
-    @And("wait {int} seconds")
-    public void waitSeconds(int seconds) {
-        ReusableMethods.bekle(seconds);
-    }
+
     @Then("click human resources on side bar")
     public void click_human_resources_on_side_bar() {
         teacherPage.clickHumanResources();
@@ -70,5 +71,10 @@ public class TeacherStepdefinition {
     @Then("click on save button")
     public void clickOnSaveButton() {
         teacherPage.clickOnSaveAddDetails();
+    }
+
+    @Then("wait for {int} seconds")
+    public void waitForSeconds(int warte) {
+        ReusableMethods.bekle(warte);
     }
 }

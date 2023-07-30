@@ -1,15 +1,19 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 
+
+import javax.swing.*;
 import java.text.DateFormat;
+import java.util.List;
 
 public class TeacherPage extends Base {
-
+    Actions actions = new Actions(Driver.getDriver());
     // Login Page Teacher Login Button
     @FindBy(xpath = "//*[text()='Teacher Login ']")
     private WebElement loginPageTeacherLoginButton;
@@ -128,7 +132,9 @@ public class TeacherPage extends Base {
     public void enterLeaveFromDate(String date){
         addDetailsLeaveFromDateBox.isDisplayed();
         addDetailsLeaveFromDateBox.isEnabled();
-        addDetailsLeaveFromDateBox.sendKeys(date);
+        addDetailsLeaveFromDateBox.click();
+
+
     }
 
     //Enters Leave To Date on Add details page

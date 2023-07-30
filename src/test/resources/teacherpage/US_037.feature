@@ -4,11 +4,11 @@ Feature:As an administrator (teacher),
   Scenario: TC_001 'Leaves'(Teacher) Page - Redirection, Visibility, Enability Tests
     Given go to login page
     When click teacher login button
-    And wait 3 seconds
+    And wait for 3 seconds
     Then enter "ogun.erdogan@teacher.wonderworldcollege.com" as username
     Then enter "wonderworld123" as password
     And click signin button
-    Then wait 3 seconds
+    Then wait for 3 seconds
     And click human resources on side bar
     And click apply leave on side bar
     And click on apply leave on leaves page
