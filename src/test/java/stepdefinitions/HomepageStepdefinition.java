@@ -107,8 +107,13 @@ public class HomepageStepdefinition {
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
+            Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
 
          Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     }
 
+
+}
+
     }
+

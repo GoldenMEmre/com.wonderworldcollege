@@ -8,8 +8,10 @@ public class AdminPage extends Base {
 
 
     // Admin fees collection section
-    @FindBy(xpath = "//a[@class='btn btn-lg btn-admin']")
-    public WebElement adminLoginButton;
+    @FindBy(xpath = "//a[@class='btn btn-default btn-lg']")
+    public WebElement teacherLoginButton;
+   // @FindBy(xpath = "//a[@class='btn btn-lg btn-admin']")
+  //  public WebElement adminLoginButton;
 
     @FindBy(id ="//input[@id='form-username']")
       //@FindBy(xpath = "//input[@placeholder='Username']")

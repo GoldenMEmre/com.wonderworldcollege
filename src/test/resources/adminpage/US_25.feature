@@ -7,7 +7,7 @@ Feature: admin school fees
     * enter password
     * click sign in button
     * Click fees collection
-    * verif that the fees master displayed
+    * verif that the fees master is displayed
 
 
 
