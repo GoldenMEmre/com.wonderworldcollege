@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import pages.HomePage;
 import utilities.ConfigReader;
@@ -11,6 +12,8 @@ import utilities.ReusableMethods;
 
 
 public class HomepageStepdefinition {
+
+
 
     HomePage homepage = new HomePage();
     @Given("user goes to url")
@@ -77,5 +80,30 @@ public class HomepageStepdefinition {
     }
 
 
+    @Then("The homepage was reached on the website")
+    public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+        Assert.assertTrue(homepage.CallUsText.isDisplayed());
+         Thread.sleep(2000);
+    }
+    @Then("The Achievements  section was displayed as the page was scrolled down.")
+    public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
+       ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
+        Thread.sleep(5000);
+        Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
+    }
+    @Then("Close the page.")
+    public void close_the_page() {
+           Driver.quitDriver();
+
+    }
+
+
+    @Then("The visibility of the boards in the Achievements section has been confirmed.")
+    public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
+
+
+
+        Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+    }
 }
