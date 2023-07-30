@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
         glue = {"stepdefinitions"},
 
         tags = "@dem",
-        dryRun = true
+        dryRun = false
 
 
 )
