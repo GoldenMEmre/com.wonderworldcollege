@@ -1,6 +1,5 @@
 package runners;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -13,17 +12,18 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml",
                 "rerun:target/failedRerun.txt"
         },
-  
+
         features = {"src/test/resources/homepage",
                 "src/test/resources/adminpage",
                 "src/test/resources/teacherpage",
                 "src/test/resources/parent_studentpage"},
 
-
-
         glue = {"stepdefinitions"},
-        tags = "@ab",
-        dryRun =false
+
+        tags = "@dem",
+        dryRun = true
+
+
 )
 
 public class Runner {
