@@ -139,5 +139,11 @@ public class ReusableMethods {
         js.executeScript("window.scrollBy(0,"+scrollBy+")");
     }
 
+    //goes to login page
+    public static void goToLoginPage(){
+
+        Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
+    }
+
 
 }
