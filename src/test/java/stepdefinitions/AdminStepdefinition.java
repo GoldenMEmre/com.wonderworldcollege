@@ -8,14 +8,15 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class AdminStepdefinition {
-    ReusableMethods wonder=new ReusableMethods();
+
     AdminPage adminPage = new AdminPage();
 
 
     @Given("click admin login")
     public void click_admin_login() {
-        adminPage.adminLoginButton.click();
-       ReusableMethods.switchToWindow("What's New In Wonder World College");
+        adminPage.teacherLoginButton.click();
+
+       ReusableMethods.switchToWindow("Login : Wonder World College");
 
     }
     @Given("enter username")
@@ -40,8 +41,8 @@ public class AdminStepdefinition {
 
     }
 
-    @Given("verif that the fees master displayed")
-    public void verif_that_the_fees_master_displayed() {
+    @Given("verif that the fees master is displayed")
+    public void verif_that_the_fees_master_is_displayed() {
 
     }
 
