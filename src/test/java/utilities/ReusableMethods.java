@@ -138,6 +138,13 @@ public class ReusableMethods {
         JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
         js.executeScript("window.scrollBy(0,"+scrollBy+")");
     }
+    // A function that scrolls the page up to the specified element.
+    public static void scrollToElement(WebDriver driver, WebElement element) throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+        Thread.sleep(3000);
+    }
+
 
     //goes to login page
     public static void goToLoginPage(){
