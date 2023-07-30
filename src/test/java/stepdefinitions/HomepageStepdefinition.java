@@ -68,6 +68,7 @@ public class HomepageStepdefinition {
 
     @Given("User go to Url")
     public void user_go_to_Url (String Url) {
+
         Driver.getDriver().get(ConfigReader.getProperty(Url));
     }
     @Then("user test if the images change at regular intervals")
@@ -115,5 +116,5 @@ public class HomepageStepdefinition {
 
 }
 
-    }
+
 

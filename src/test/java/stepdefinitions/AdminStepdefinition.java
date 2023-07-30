@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import org.junit.Assert;
 import pages.AdminPage;
 import pages.Base;
 import utilities.ConfigReader;
@@ -14,7 +15,7 @@ public class AdminStepdefinition {
 
     @Given("click admin login")
     public void click_admin_login() {
-        adminPage.teacherLoginButton.click();
+        adminPage.adminLoginButton.click();
 
        ReusableMethods.switchToWindow("Login : Wonder World College");
 
@@ -24,30 +25,53 @@ public class AdminStepdefinition {
         adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
 
     }
-
     @Given("enter password")
     public void enter_password() {
         adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
 
     }
-
     @Given("click sign in button")
     public void click_sign_in_button() {
+        adminPage.signInButton.click();
 
     }
-
     @Given("Click fees collection")
     public void click_fees_collection() {
+        adminPage.feesCollection.click();
+
+    }
+    @Given("Click fees master")
+    public void click_fees_master() {
+        adminPage.feesMasterButton.click();
 
     }
 
-    @Given("verif that the fees master is displayed")
-    public void verif_that_the_fees_master_is_displayed() {
+    @Given("verify that fees Master  displayed")
+    public void verify_that_fees_master_displayed() {
+        Assert.assertTrue(adminPage.feesCollection.isDisplayed());
+
+
+    }
+    @Given("verify  all title that related with Fees Master are displayed")
+    public void verify_all_title_that_related_with_fees_master_are_displayed() {
+        Assert.assertTrue(adminPage.feesGroup.isDisplayed());
 
     }
 
 
+
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
