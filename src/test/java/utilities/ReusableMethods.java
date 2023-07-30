@@ -146,5 +146,11 @@ public class ReusableMethods {
     }
 
 
+    //goes to login page
+    public static void goToLoginPage(){
+
+        Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
+    }
+
 
 }
