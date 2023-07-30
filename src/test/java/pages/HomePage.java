@@ -24,6 +24,7 @@ public class HomePage extends Base {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     public  WebElement examResultPageResultText;
 
+    //-------------------------------------------------------------
 
 
 
