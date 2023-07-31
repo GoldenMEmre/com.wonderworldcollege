@@ -121,6 +121,15 @@ public class HomePage extends Base {
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
 
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+    //User Login Page
+    @FindBy(xpath = "//*[text()='User Login']")
+    public WebElement userLoginText;
+
+    @FindBy(xpath = "//div[@class='messages']")
+    public WebElement userLoginMessages;
+
 
 
 }
