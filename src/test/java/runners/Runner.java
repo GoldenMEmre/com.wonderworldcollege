@@ -1,6 +1,5 @@
 package runners;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -19,11 +18,12 @@ import org.junit.runner.RunWith;
                 "src/test/resources/teacherpage",
                 "src/test/resources/parent_studentpage"},
 
-
         glue = {"stepdefinitions"},
 
-        tags = "@dem",
-        dryRun = true
+
+        tags = "@ab",
+        dryRun = false
+
 
 
 )
