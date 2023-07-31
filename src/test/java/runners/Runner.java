@@ -13,11 +13,11 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml",
                 "rerun:target/failedRerun.txt"
         },
-<<<<<<< HEAD
 
-=======
+
+
   
->>>>>>> main
+
         features = {"src/test/resources/homepage",
                 "src/test/resources/adminpage",
                 "src/test/resources/teacherpage",
@@ -26,8 +26,8 @@ import org.junit.runner.RunWith;
 
         glue = {"stepdefinitions"},
 
-        tags = "@dem",
-        dryRun = false
+        tags = "@ttt",
+        dryRun = true
 
 
 )
