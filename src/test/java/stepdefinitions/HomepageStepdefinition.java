@@ -112,7 +112,18 @@ public class HomepageStepdefinition {
 
          Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     }
+    @Then("Verify that Login Button is visible")
+    public void verify_that_login_button_is_visible() {
+        Assert.assertTrue(homepage.loginButonu.isDisplayed());
+    }
+    @Then("Click the Login Button")
+    public void click_the_login_button() {
+    }
 
+    @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
+    public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {
+    Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
+    }
 
 }
 
