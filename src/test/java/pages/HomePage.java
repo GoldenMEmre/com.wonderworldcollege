@@ -26,6 +26,8 @@ public class HomePage extends Base {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     public  WebElement examResultPageResultText;   
 
+    //-------------------------------------------------------------
+
     @FindBy(xpath = "(//a[text()='Course'])[1]")
     public WebElement coursePage;
 
@@ -83,10 +85,7 @@ public class HomePage extends Base {
     @FindBy(xpath = "(//a[@class='btn-read'])[9]")
     public WebElement coursePageComputerScienceDetailsButton;
 
-
-
     //-------------------------------------------------------------
-
 
       //Homepage >"login" butonu
     @FindBy(xpath = "//*[@class='complainbtn']")
@@ -108,8 +107,10 @@ public class HomePage extends Base {
     //Homepage > "ACHEIVEMENTS" section >   STUDENT CAMPUSES BOARDS
     @FindBy(xpath = "//*[text()='Student Campuses']")
     public WebElement studentCampusesBoard;
+  
     // **********************************************************//
-    // Homepage>SliderImg
+  
+  // Homepage>SliderImg
     @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/top-banner2-2.jpg']")
     public  WebElement diverseImg;
     @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner3-3.jpg']")
@@ -129,7 +130,5 @@ public class HomePage extends Base {
 
     @FindBy(xpath = "//div[@class='messages']")
     public WebElement userLoginMessages;
-
-
 
 }

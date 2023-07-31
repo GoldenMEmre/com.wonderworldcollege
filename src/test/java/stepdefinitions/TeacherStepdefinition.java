@@ -22,6 +22,7 @@ public class TeacherStepdefinition {
     public void click_teacher_login_button() {
         teacherPage.clickTeacherLoginButton();
         ReusableMethods.switchToWindow("Login : Wonder World College");
+        ReusableMethods.bekle(3);
     }
     @Then("enter {string} as username")
     public void enterAsUsername(String username) {
@@ -34,6 +35,7 @@ public class TeacherStepdefinition {
     @Then("click signin button")
     public void click_signin_button() {
        teacherPage.clickSignIn();
+        ReusableMethods.bekle(3);
     }
 
     @Then("click human resources on side bar")
@@ -48,18 +50,7 @@ public class TeacherStepdefinition {
     public void click_on_apply_leave_on_leaves_page() {
         teacherPage.clickApplyLeaveButtonLeavesPage();
     }
-    @Then("enter {string} on apply date")
-    public void enterOnApplyDate(String datum) {
-        teacherPage.enterApplyDateAddDetails(datum);
-    }
-    @Then("enter {string} on leave from date")
-    public void enterOnLeaveFromDate(String datum) {
-        teacherPage.enterLeaveFromDate(datum);
-    }
-    @Then("enter {string} on leave to date")
-    public void enterOnLeaveToDate(String datum) {
-        teacherPage.enterLeaveToDate(datum);
-    }
+
     @Then("select available leave")
     public void selectAvailableLeave() {
         teacherPage.selectAvailableLeave();
@@ -71,10 +62,56 @@ public class TeacherStepdefinition {
     @Then("click on save button")
     public void clickOnSaveButton() {
         teacherPage.clickOnSaveAddDetails();
+        ReusableMethods.bekle(2);
     }
 
-    @Then("wait for {int} seconds")
-    public void waitForSeconds(int warte) {
-        ReusableMethods.bekle(warte);
+    @Then("enter date on leave from date")
+    public void enterDateOnLeaveFromDate() {
+        teacherPage.enterLeaveFromDate();
+    }
+
+    @Then("enter date on leave to date")
+    public void enterDateOnLeaveToDate() {
+        teacherPage.enterLeaveToDate();
+    }
+
+    @And("verify that leave request has been created")
+    public void verifyThatLeaveRequestHasBeenCreated() {
+        teacherPage.verifyLeaveRequest();
+    }
+
+    @Then("verify the columns on leaves list page")
+    public void verify_the_columns_on_leaves_list_page() {
+            teacherPage.verifyColumnsLeavesList();
+    }
+    @Then("verify the status of created leave request")
+    public void verify_the_status_of_created_leave_request() {
+        teacherPage.verifyStatusLeavesList();
+    }
+
+    @Then("verify view button and click on it")
+    public void verifyViewButtonAndClickOnIt() {
+        teacherPage.verifyViewButton();
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("verify that details window is accessible")
+    public void verifyThatDetailsWindowIsAccessible() {
+        teacherPage.verifyDetailsWindow();
+    }
+
+    @Then("verify that leave request has been deleted")
+    public void verifyThatLeaveRequestHasBeenDeleted() {
+
+    }
+
+    @Then("verify and click on delete button")
+    public void verifyAndClickOnDeleteButton() {
+        teacherPage.clickOnDeleteButtonLeavesPage();
+    }
+
+    @Then("close details window")
+    public void closeDetailsWindow() {
+        teacherPage.closeDetailsWindow();
     }
 }
