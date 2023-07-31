@@ -62,7 +62,7 @@ public class HomepageStepdefinition {
     @Given("Click the course menu title")
     public void click_the_course_menu_title(){
 
-        homepage.coursePage.click()
+        homepage.coursePage.click();
 
     }
 
@@ -189,11 +189,11 @@ public class HomepageStepdefinition {
     }
 
 
-    @Given("Close the page")
-    public void close_the_page() {
+    //@Given("Close the page")
+    //public void close_the_page() {
 
-        Driver.closeDriver();
-    }
+      //  Driver.closeDriver();
+    //}
 
     @Given("User go to Url")
     public void user_go_to_Url (String Url) {
