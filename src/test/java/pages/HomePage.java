@@ -85,8 +85,6 @@ public class HomePage extends Base {
 
 
 
-
-
     //-------------------------------------------------------------
 
 
@@ -122,7 +120,6 @@ public class HomePage extends Base {
     public  WebElement nurturingImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
-
 
 
 

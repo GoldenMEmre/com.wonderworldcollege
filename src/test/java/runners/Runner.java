@@ -20,8 +20,13 @@ import org.junit.runner.RunWith;
 
         glue = {"stepdefinitions"},
 
+
+        tags = "@ttt",
+        dryRun = true
+
         tags = "@ab",
         dryRun = false
+
 
 
 )
