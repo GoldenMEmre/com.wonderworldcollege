@@ -1,6 +1,5 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import pages.AdminPage;
 import pages.Base;
