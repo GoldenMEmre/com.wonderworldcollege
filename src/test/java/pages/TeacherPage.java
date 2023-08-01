@@ -130,9 +130,8 @@ public class TeacherPage extends Base {
     @FindBy(xpath = "//i[@class='fa fa-remove']")
     private WebElement leavesPageDeleteButton;
 
-    // Staff ID Leaves Page (For verifying Deletion of Leave Request)
-    @FindBy(xpath = "//*[text()='Staff ID: 9091']")
-    private WebElement leavesPageStaffID;
+    @FindBy(xpath = "//*[text()='Records: 0 to 0 of 0']")
+    private WebElement leavesListRecords;
 
     //
 
@@ -276,6 +275,6 @@ public class TeacherPage extends Base {
     }
     //Verifies that created Leave Request has been deleted
     public void deleteTestLeaveRequest(){
-        Assert.assertFalse(leavesPageStaffID.isDisplayed());
+        Assert.assertTrue(leavesListRecords.isDisplayed());
     }
 }
