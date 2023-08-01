@@ -22,8 +22,17 @@ import org.junit.runner.RunWith;
                 "src/test/resources/teacherpage",
                 "src/test/resources/parent_studentpage"},
 
+
         tags = "@ww",
         dryRun = true
+
+        glue = {"stepdefinitions"},
+
+
+        tags = "@ab",
+        dryRun = true
+
+
 
 
 )
