@@ -248,6 +248,9 @@ public class HomePage extends Base {
     @FindBy(xpath = "//input[@name='mother_name']")
     private WebElement motherNameParentDetail;
 
+    //Online Admission Page Guardian Details Section
+
+
     //------------------------------ Ogun Methods -------------------------------
 
     // Verifies that Complain button is visible and enable, and clicks on it
