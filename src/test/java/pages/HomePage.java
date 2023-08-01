@@ -1,18 +1,14 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class HomePage extends Base {
 
-    Actions actions = new Actions(Driver.getDriver());
     //Homepage>ExamResultButton
     @FindBy(xpath =" a[normalize-space()='Exam Result']")
     public WebElement examResultButton;
@@ -130,6 +126,9 @@ public class HomePage extends Base {
     @FindBy(xpath="right carousel-control")
      public  WebElement sliderPanel;
 
+
+
+
     //--------------------------- Ogun Locates ----------------------------------------
     // Home Page Complain Title
     @FindBy(xpath = "//*[text()='Complain']")
@@ -164,6 +163,7 @@ public class HomePage extends Base {
     //Home Page Online Admission Title
     @FindBy(xpath = "//*[text()='Online Admission']")
     private WebElement homePageOnlineAdmissionTitle;
+
 
     //Online Admission PAge Instructions Text
     @FindBy(xpath = "//*[text()='In order to enroll in our school, it is necessary to have completed the age of 6 and reside in Brooklyn.']")
@@ -272,6 +272,8 @@ public class HomePage extends Base {
     @FindBy(xpath = "(//button[@class='dropify-clear'])[1]")
     private WebElement verifyGuardianPhotoUploaded;
 
+
+
     //------------------------------ Ogun Methods -------------------------------
 
     // Verifies that Complain button is visible and enable, and clicks on it
@@ -320,6 +322,7 @@ public class HomePage extends Base {
     public void verifiyComplainSend(){
         Assert.assertTrue(complainPageSuccessAlert.isDisplayed());
     }
+
     //**********************************************
     //Clicks on Online Admission Title on Home page
     public void clickOnlineAdmissionHomePage(){
@@ -459,4 +462,7 @@ public class HomePage extends Base {
     public void verifyGuardianPhotoUpload(){
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
     }
+
+
+
 }

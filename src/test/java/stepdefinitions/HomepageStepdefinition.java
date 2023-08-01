@@ -299,6 +299,9 @@ public class HomepageStepdefinition {
         homepage.verifiyComplainSend();
     }
 
+
+
+
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
         homepage.clickOnlineAdmissionHomePage();
@@ -334,6 +337,8 @@ public class HomepageStepdefinition {
         homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
     }
 
+
+
     @Then("verify and fill the fields under Guardian Details Section")
     public void verifyAndFillTheFieldsUnderGuardianDetailsSection() {
         homepage.verifyEnterGuardianDetailsOnlineAdmissionPage();
@@ -343,6 +348,8 @@ public class HomepageStepdefinition {
     public void verifyThatGuardianPhotoHasBeenUploaded() {
         homepage.verifyGuardianPhotoUpload();
     }
+
+
 }
 
 
