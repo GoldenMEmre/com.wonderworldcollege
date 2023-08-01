@@ -298,7 +298,6 @@ public class HomepageStepdefinition {
     public void verifyThatTheCreatedComplainRequestHasBeenSend() {
         homepage.verifiyComplainSend();
     }
-
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
         homepage.clickOnlineAdmissionHomePage();
@@ -333,6 +332,7 @@ public class HomepageStepdefinition {
     public void verifyMandatoryFieldsUnderBasicDetailsAndParentDetailsSection() {
         homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
     }
+
 }
 
 
