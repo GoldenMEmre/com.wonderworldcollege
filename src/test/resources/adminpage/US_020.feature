@@ -1,5 +1,7 @@
 Feature: Chat Functionality
 
+  @ab
+
   Scenario: TC01 Sending a Message
 
   Scenario: TC03 message page is displayed
