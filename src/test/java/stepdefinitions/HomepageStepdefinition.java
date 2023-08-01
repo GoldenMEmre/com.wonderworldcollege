@@ -299,7 +299,7 @@ public class HomepageStepdefinition {
         homepage.verifiyComplainSend();
     }
 
-<<<<<<<<< Temporary merge branch 1
+
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
         homepage.clickOnlineAdmissionHomePage();
@@ -334,9 +334,7 @@ public class HomepageStepdefinition {
     public void verifyMandatoryFieldsUnderBasicDetailsAndParentDetailsSection() {
         homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
     }
-=========
 
->>>>>>>>> Temporary merge branch 2
 }
 
 
