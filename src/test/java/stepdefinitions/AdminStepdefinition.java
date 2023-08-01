@@ -1,6 +1,9 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+
 import org.junit.Assert;
 
 import org.openqa.selenium.By;
@@ -20,7 +23,6 @@ public class AdminStepdefinition {
 
     AdminPage adminPage = new AdminPage();
 
-
     @Given("click admin login")
     public void click_admin_login() {
         adminPage.adminLoginButton.click();
@@ -30,32 +32,26 @@ public class AdminStepdefinition {
     @Given("enter username")
     public void enter_username() {
         adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
-
     }
     @Given("enter password")
     public void enter_password() {
         adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
-
     }
     @Given("click sign in button")
     public void click_sign_in_button() {
         adminPage.signInButton.click();
-
     }
     @Given("Click fees collection")
     public void click_fees_collection() {
         adminPage.feesCollection.click();
-
     }
     @Given("Click fees master")
     public void click_fees_master() {
         adminPage.feesMasterButton.click();
-
     }
     @Given("verify that fees Master  displayed")
     public void verify_that_fees_master_displayed() {
         assertTrue(adminPage.feesCollection.isDisplayed());
-
     }
     @Given("verify  all title that related with Fees Master are displayed")
     public void verify_all_title_that_related_with_fees_master_are_displayed() {
@@ -72,8 +68,12 @@ public class AdminStepdefinition {
         assertTrue(adminPage.radioFixButton.isDisplayed());
         ReusableMethods.bekle(2);
         assertTrue(adminPage.searchBox.isEnabled());
-
     }
+    @Given("Verify that the title of the Admin Panel is displayed")
+    public void verify_that_the_title_of_the_admin_panel_is_displayed() {
+        Assert.assertTrue(adminPage.adminLoginButton.isDisplayed());
+    }
+
     @Given("verify  all section title that related with Fees Master can be select by clicking")
     public void verify_all_section_title_that_related_with_fees_master_can_be_select_by_clicking() {
         Select select=new Select(adminPage.feesGroupDropDown);
@@ -88,7 +88,6 @@ public class AdminStepdefinition {
        adminPage.percentageSelect.sendKeys(ConfigReader.getProperty("Percentage"));
        adminPage.fixAmountSelect.click();
         adminPage.saveButton.click();
-
     }
     @Given("Verify Record Saved Successfully displayed after clicking save button")
     public void verify_record_saved_successfully_displayed_after_clicking_save_button() {
@@ -132,26 +131,17 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(3);
         Driver.closeDriver();
     }
-
-
     @Given("Click on the Collect Fees button")
     public void click_on_the_collect_fees_button() {
        ReusableMethods.bekle(2);
         adminPage.collectFees.click();
         ReusableMethods.bekle(2);
-
-
     }
     @Given("The Student Fees page was displayed")
     public void the_student_fees_page_was_displayed() {
         WebElement feesPageElement =Driver.getDriver().findElement(By.xpath("//h3[@class='box-title']"));
         Assert.assertTrue(feesPageElement.isDisplayed());
-
-
-
     }
-
-
     @Given("Choose class button")
     public void choose_class_button() {
         WebElement dropdownMenuSelect =Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
@@ -169,7 +159,6 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(2);
         select.selectByVisibleText("A");
         ReusableMethods.bekle(2);
-
     }
     @Given("Click  on  the Seach button")
     public void click_on_the_seach_button() {
@@ -178,27 +167,20 @@ public class AdminStepdefinition {
     @Given("Click on the Collect Fees")
     public void click_on_the_collect_fees() {
         adminPage.collectFeesChoose.click();
-
     }
-
     @Given("It has been confirmed that the sudent fee list is displayed with columns")
     public void ıt_has_been_confirmed_that_the_sudent_fee_list_is_displayed_with_columns() {
             Assert.assertTrue(adminPage.studentFeesWrite.isDisplayed());
     }
-
-
-
     @Given("When the Currency button is clicked, change the currency")
     public void when_the_currency_button_is_clicked_change_the_currency() {
         WebElement  euro=Driver.getDriver().findElement(By.xpath("(//*[@class='filter-option pull-left'])[1]"));
-
+      
         euro.click();
         ReusableMethods.bekle(8);
         adminPage.uSDCurrency.click();
         ReusableMethods.bekle(9);
     }
-
-
     @Given("Click on the + Sign under the Action column")
     public void click_on_the_sign_under_the_action_column() {
         adminPage.addFessButonu.click();
@@ -209,17 +191,10 @@ public class AdminStepdefinition {
         adminPage.collectFeesPayButton.click();
         ReusableMethods.bekle(1);
     }
-
-
-
-
     @Given("Click on the Revert icon under the Action column to revert the payment")
     public void click_on_the_revert_icon_under_the_action_column_to_revert_the_payment() {
         adminPage.revertButton.click();
     }
-
-
-
     @Given("Status section was viewed and the students Fees list section displayed their payment histories")
     public void status_section_was_viewed_and_the_students_fees_list_section_displayed_their_payment_histories() {
         ReusableMethods.bekle(2);
