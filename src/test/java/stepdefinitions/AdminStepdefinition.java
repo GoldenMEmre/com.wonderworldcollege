@@ -1,5 +1,8 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.AdminPage;
 import pages.Base;
@@ -56,10 +59,11 @@ public class AdminStepdefinition {
         Assert.assertTrue(adminPage.feesGroup.isDisplayed());
 
     }
-
-
-
+    @Given("Verify that the title of the Admin Panel is displayed")
+    public void verify_that_the_title_of_the_admin_panel_is_displayed() {
+        Assert.assertTrue(adminPage.adminLoginButton.isDisplayed());
     }
+}
 
 
 

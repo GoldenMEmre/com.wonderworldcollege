@@ -1,0 +1,8 @@
+Feature: US_18 As an administrator (admin),I want to be able to log in to the admin panel with registered email and password.
+  @ab
+  Scenario: TC_001 The School Panels Url Test
+
+    Given Go to "loginurl"
+    And Verify that the title of the Admin Panel is displayed
+    And Close the page.
+
