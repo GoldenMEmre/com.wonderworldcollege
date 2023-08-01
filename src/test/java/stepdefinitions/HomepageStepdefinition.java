@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.HomePage;
 import utilities.ConfigReader;
@@ -111,4 +113,101 @@ public class HomepageStepdefinition {
          Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     }
 
+
+
+    @Given("The visibility of the site logo is tested")
+    public void the_visibility_of_the_site_logo_is_tested() {
+
+        Assert.assertTrue(homepage.homeBar.isDisplayed());
+
     }
+
+
+        @Then("Headings in the top bar are clicked")
+        public void headings_in_the_top_bar_are_clicked() {
+
+        homepage.homeBar.click();
+
+
+
+        }
+
+
+    @Then("The site logo in the top bar of the home page is clicked")
+    public void the_site_logo_in_the_top_bar_of_the_home_page_is_clicked() {
+
+        homepage.siteLogo.click();
+        ReusableMethods.bekle(2);
+    }
+
+
+    @Then("click on Academics section on the  page bar")
+    public void click_on_academics_section_on_the_page_bar() {
+
+        homepage.academicsButton.click();
+        ReusableMethods.bekle(2);
+
+    }
+
+        @Then("The visibility of the pages")
+        public void the_visibility_of_the_pages() {
+
+            homepage.facilitiesDropDown.click();
+            ReusableMethods.bekle(2);
+            homepage.academicsButton.click();
+            homepage.schoolUniformDropDown.click();
+            ReusableMethods.bekle(2);
+            homepage.academicsButton.click();
+            homepage.principalMessageDropDown.click();
+            ReusableMethods.bekle(2);
+            homepage.academicsButton.click();
+            homepage.knowUsDropDown.click();
+            ReusableMethods.bekle(2);
+            homepage.academicsButton.click();
+            homepage.approachDropDown.click();
+            ReusableMethods.bekle(2);
+            homepage.academicsButton.click();
+            homepage.teacherDropDown.click();
+            ReusableMethods.bekle(2);
+
+        Assert.assertTrue(homepage.academicsButton.isDisplayed());
+
+        }
+
+
+    @Then("Access to the page is tested")
+    public void access_to_the_page_is_tested() {
+
+        homepage.schoolUniformDropDown.click();
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,12 +26,12 @@ public class HomePage extends Base {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     public  WebElement examResultPageResultText;   
 
-<<<<<<< HEAD
 
-    //-------------------------------------------------------------
 
-=======
->>>>>>> main
+
+
+
+
       //Homepage >"login" butonu
     @FindBy(xpath = "//*[@class='complainbtn']")
     public WebElement loginButonu;
@@ -64,12 +64,36 @@ public class HomePage extends Base {
     public  WebElement nurturingImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
-<<<<<<< HEAD
-=======
+
+   @FindBy(xpath = "//*[@id='navbar-collapse-3']")
+    public WebElement homeBar;
+
+   @FindBy(xpath = "//a[@class='logo']")
+    public WebElement siteLogo;
+
+   @FindBy(xpath="//a[@data-toggle='dropdown']")
+    public WebElement academicsButton;
 
 
+    @FindBy(xpath = "//a[text()='School Uniform']")
+    public WebElement schoolUniformDropDown;
 
->>>>>>> main
+    @FindBy(xpath = "//a[text()='Facilities']")
+    public WebElement facilitiesDropDown;
+
+
+    @FindBy(xpath = "//a[text()='Principal Message']")
+    public WebElement principalMessageDropDown;
+
+    @FindBy(xpath = "//a[text()='Know Us']")
+
+    public WebElement knowUsDropDown;
+
+    @FindBy(xpath = "//a[text()='Approach']")
+    public WebElement approachDropDown;
+
+    @FindBy(xpath = "//a[text()='Teacher']")
+    public WebElement teacherDropDown;
 
 
 }
