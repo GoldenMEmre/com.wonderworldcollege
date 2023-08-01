@@ -130,9 +130,6 @@ public class HomePage extends Base {
     @FindBy(xpath="right carousel-control")
      public  WebElement sliderPanel;
 
-
-
-
     //--------------------------- Ogun Locates ----------------------------------------
     // Home Page Complain Title
     @FindBy(xpath = "//*[text()='Complain']")
