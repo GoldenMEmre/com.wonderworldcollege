@@ -1,5 +1,5 @@
 
-
+ @ww
   Feature:US046 .I should be able to verify the visibility and active clickability of the Profile, Fees, Exam, and Documents buttons via the My Profile button.
 
     Scenario:The user reaches the "My Profile" button.
