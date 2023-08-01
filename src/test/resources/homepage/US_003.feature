@@ -11,3 +11,5 @@ Feature: As a user I want an Online Admission page on the homepage so that I can
     Then verify that student photo has been uploaded
     Then verify and fill the fields under Parent Details
 
+
+
