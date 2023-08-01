@@ -73,7 +73,7 @@ public class AdminStepdefinition {
     public void verify_that_the_title_of_the_admin_panel_is_displayed() {
         Assert.assertTrue(adminPage.adminLoginButton.isDisplayed());
     }
-}
+
     @Given("verify  all section title that related with Fees Master can be select by clicking")
     public void verify_all_section_title_that_related_with_fees_master_can_be_select_by_clicking() {
         Select select=new Select(adminPage.feesGroupDropDown);

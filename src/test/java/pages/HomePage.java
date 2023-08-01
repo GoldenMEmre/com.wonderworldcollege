@@ -123,14 +123,8 @@ public class HomePage extends Base {
     public  WebElement preparingImg;
     @FindBy(xpath="right carousel-control")
      public  WebElement sliderPanel;
-    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
-    //HomePage/User Login Page
-    @FindBy(xpath = "//*[text()='User Login']")
-    public WebElement userLoginText;
 
-    @FindBy(xpath = "//div[@class='messages']")
-    public WebElement userLoginMessages;
 
 
 }
