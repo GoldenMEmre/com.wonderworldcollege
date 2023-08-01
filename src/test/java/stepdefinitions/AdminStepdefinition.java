@@ -228,47 +228,60 @@ public class AdminStepdefinition {
 
     @Given("Login to dashboard with admin name and admin password as admin")
     public void login_to_dashboard_with_admin_name_and_admin_password_as_admin() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
+        adminPage.adminLoginButton.sendKeys(ConfigReader.getProperty("adminMelike"));
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        adminPage.adminLoginButton.click();
     }
 
     @Then("Click the Chat page")
     public void click_the_chat_page() {
-
+        adminPage.adminLoginButton.click();
     }
 
     @When("click on a chat from the left bar")
     public void click_on_a_chat_from_the_left_bar() {
+        adminPage.adminDashboardChatButton.click();
 
     }
 
     @Then("The message page is displayed on the right side")
     public void the_message_page_is_displayed_on_the_right_side() {
-        /
+        Assert.assertTrue(adminPage.adminDashboardChatPage.isDisplayed());
+
     }
 
-    @Then("The {string} TextBox is visible")
-    public void the_text_box_is_visible(String string) {
+    @Then("The TextBox is visible")
+    public void the_text_box_is_visible() {
+        Assert.assertTrue(adminPage.adminDasbhoardChatPageMessageTextBox.isDisplayed());
+
 
     }
 
     @When("Type a message in the TextBox")
     public void type_a_message_in_the_text_box() {
+        adminPage.adminDasbhoardChatPageMessageTextBox.sendKeys("Hello, this is a test message.");
+
 
     }
 
     @Then("The send icon becomes active")
     public void the_send_icon_becomes_active() {
+        Assert.assertTrue(adminPage.adminDashboardMessageTextBoxSendButton.isDisplayed());
+
 
     }
 
     @Then("Click on the send icon")
     public void click_on_the_send_icon() {
+        adminPage.adminDashboardMessageTextBoxSendButton.click();
 
     }
 
     @Then("The message is sent successfully")
     public void the_message_is_sent_successfully() {
+        Assert.assertTrue(adminPage.getAdminDashboardSentMessageText.isDisplayed());
+
 
     }
 }
