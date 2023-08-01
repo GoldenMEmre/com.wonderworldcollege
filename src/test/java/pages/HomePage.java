@@ -1,9 +1,11 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class HomePage extends Base {
 
@@ -131,5 +133,83 @@ public class HomePage extends Base {
 
     @FindBy(xpath = "//div[@class='messages']")
     public WebElement userLoginMessages;
+
+    //--------------------------- Ogun Locates ----------------------------------------
+    // Home Page Complain Title
+    @FindBy(xpath = "//*[text()='Complain']")
+    private WebElement homepageComplain;
+
+    // Complain Page Name Textbox
+    @FindBy(xpath = "(//input[@name='name'])[2]")
+    private WebElement complainPageNameTextBox;
+
+    // Complain Page EMail Textbox
+    @FindBy(xpath = "(//input[@name='email'])[2]")
+    private WebElement complainPageEmailTextBox;
+
+    // Complain Page Contact No. Textbox
+    @FindBy(xpath = "//input[@name='contact_no']")
+    private WebElement complainPageContactNoTextBox;
+
+    // Complain Page Description Textbox
+    @FindBy(xpath = "//textarea[@name='description']")
+    private WebElement complainPageDescriptionTextBox;
+
+    // Complain Page Submit Button
+    @FindBy(xpath = "//input[@type='submit']")
+    private WebElement complainPageSubmitButton;
+
+    // Complain Page Successful Alert
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    private WebElement complainPageSuccessAlert;
+
+    //------------------------------ Ogun Methods -------------------------------
+
+    // Verifies that Complain button is visible and enable, and clicks on it
+    public void verifyClickComplain(){
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),homepageComplain);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue(homepageComplain.isDisplayed());
+        Assert.assertTrue(homepageComplain.isEnabled());
+        homepageComplain.click();
+    }
+
+    //Verifies that Complain page
+    public void verifyComplainPage(){
+        String expectedTitle = "Complain";
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle,actualTitle);
+    }
+
+    // Verifies Name, Email, contact No and Description TextBoxes on Complain Page
+    public void verifyTextBoxesComplainPage(){
+        Assert.assertTrue(complainPageNameTextBox.isDisplayed());
+        Assert.assertTrue(complainPageEmailTextBox.isDisplayed());
+        Assert.assertTrue(complainPageContactNoTextBox.isDisplayed());
+        Assert.assertTrue(complainPageDescriptionTextBox.isDisplayed());
+    }
+
+    // Enters required datas in required textBoxes
+    public void enterDataComplainPage(){
+        complainPageNameTextBox.sendKeys("Ogün Erdogan");
+        complainPageEmailTextBox.sendKeys("ogun.erdogan@hotmail.com");
+        complainPageContactNoTextBox.sendKeys("0123 4567 890");
+        complainPageDescriptionTextBox.sendKeys("Classes are Dirty");
+    }
+
+    //Clicks on submit button on Complain Page
+    public void clickOnSubmitComplainPage(){
+        Assert.assertTrue(complainPageSubmitButton.isDisplayed());
+        Assert.assertTrue(complainPageSubmitButton.isEnabled());
+        complainPageSubmitButton.click();
+    }
+
+    // Verifies that Complain has been send
+    public void verifiyComplainSend(){
+        Assert.assertTrue(complainPageSuccessAlert.isDisplayed());
+    }
 
 }

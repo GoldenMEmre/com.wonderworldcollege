@@ -254,6 +254,37 @@ public class HomepageStepdefinition {
     Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
     }
 
+    @Given("go to home page")
+    public void go_to_home_page() {
+        ReusableMethods.goToHomePage();
+
+    }
+    @Then("go to features section and click on Complain")
+    public void goToFeaturesSectionAndClickOnComplain() {
+        homepage.verifyClickComplain();
+    }
+    @Then("verify the textboxes on complain page")
+    public void verify_the_textboxes_on_complain_page() {
+        homepage.verifyTextBoxesComplainPage();
+    }
+    @Then("fill the required felds")
+    public void fill_the_required_felds() {
+        homepage.enterDataComplainPage();
+    }
+    @Then("click on submit")
+    public void click_on_submit() {
+        homepage.clickOnSubmitComplainPage();
+    }
+
+    @Then("verify Complain page")
+    public void verifyComplainPage() {
+        homepage.verifyComplainPage();
+    }
+
+    @Then("verify that the created complain request has been send")
+    public void verifyThatTheCreatedComplainRequestHasBeenSend() {
+        homepage.verifiyComplainSend();
+    }
 }
 
 
