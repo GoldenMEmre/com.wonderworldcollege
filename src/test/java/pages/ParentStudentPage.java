@@ -188,7 +188,26 @@ public class ParentStudentPage extends Base{
     @FindBy(xpath = "(//button[@type='submit'])[2]")
     public  WebElement EditSaveButton;
 
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
+    //HomePage/User Login Page
+    @FindBy(xpath = "//*[text()='User Login']")
+    public WebElement userLoginText;
+
+    @FindBy(xpath = "//div[@class='messages']")
+    public WebElement userLoginMessages;
+
+    @FindBy(xpath = "//input[@name='username']")
+    public WebElement usernameTextBoxElement;
+
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement passwordTextBoxElement;
+
+    @FindBy(xpath = "//div[@class='col-lg-3 col-md-3 col-sm-3']")
+    public WebElement noImageStudentPanel;
+
+    @FindBy(xpath = "//div[text()='Invalid Username Or Password']")
+    public WebElement invalidCredentialsTextElement;
 
 
 
