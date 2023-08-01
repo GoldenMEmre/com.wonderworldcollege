@@ -300,6 +300,8 @@ public class HomepageStepdefinition {
     }
 
 
+
+
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
         homepage.clickOnlineAdmissionHomePage();
@@ -334,6 +336,7 @@ public class HomepageStepdefinition {
     public void verifyMandatoryFieldsUnderBasicDetailsAndGuardianDetailsSection() {
         homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
     }
+
 
 
     @Then("verify and fill the fields under Guardian Details Section")
