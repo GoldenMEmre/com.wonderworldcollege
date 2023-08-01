@@ -390,12 +390,29 @@ public class HomePage extends Base {
 
     //Verifies required Fields on Online Admission Page under Basic Details Section
     public void verifyMandatoryFieldsBasicDetailsParentDetails(){
+
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),guardianAdressOnlineAdmissionPage);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         onlineAdmissionPageSubmitButton.click();
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),onlineAdmissionPageInstructionsText);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(requiredFieldAlertClass.isDisplayed());
         Assert.assertTrue(requiredFieldAlertFirstName.isDisplayed());
         Assert.assertTrue(requiredFieldAlertGender.isDisplayed());
         Assert.assertTrue(requiredFieldAlertDateOfBirth.isDisplayed());
         Assert.assertTrue(requiredFieldAlertEmail.isDisplayed());
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),fatherNameParentDetail);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         Assert.assertTrue(requiredFieldAlertGuardian.isDisplayed());
         Assert.assertTrue(requiredFieldAlertGuardianName.isDisplayed());
         Assert.assertTrue(requiredFieldAlertGuardianRelation.isDisplayed());
