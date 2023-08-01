@@ -298,7 +298,40 @@ public class HomepageStepdefinition {
     public void verifyThatTheCreatedComplainRequestHasBeenSend() {
         homepage.verifiyComplainSend();
     }
+    @Then("click on online admission title")
+    public void clickOnOnlineAdmissionTitle() {
+        homepage.clickOnlineAdmissionHomePage();
+    }
 
+    @Then("verify online admission page")
+    public void verifyOnlineAdmissionPage() {
+        homepage.verifyOnlineAdmissionPage();
+    }
+
+    @Then("verify that school admission criteria text")
+    public void verifyThatSchoolAdmissionCriteriaText() {
+        homepage.verifySchoolAdmissionCriteria();
+    }
+
+    @Then("verify and fill the fields under Basic Details")
+    public void verifyAndFillTheFieldsUnderBasicDetails() {
+        homepage.enterVerifyBasicDetails();
+    }
+
+    @Then("verify that student photo has been uploaded")
+    public void verifyThatStudentPhotoHasBeenUploaded() {
+        homepage.verifyUploadStudentPhoto();
+    }
+
+    @Then("verify and fill the fields under Parent Details")
+    public void verifyAndFillTheFieldsUnderParentDetails() {
+        homepage.verifyEnterDataParentDetails();
+    }
+
+    @Then("verify mandatory fields under Basic Details and Parent Details section")
+    public void verifyMandatoryFieldsUnderBasicDetailsAndParentDetailsSection() {
+        homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
+    }
 
 }
 
