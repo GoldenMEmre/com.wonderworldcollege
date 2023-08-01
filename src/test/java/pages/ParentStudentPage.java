@@ -188,7 +188,7 @@ public class ParentStudentPage extends Base{
     @FindBy(xpath = "(//button[@type='submit'])[2]")
     public  WebElement EditSaveButton;
 
-    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*MEMRE LOCATES-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
     //HomePage/User Login Page
     @FindBy(xpath = "//*[text()='User Login']")
@@ -208,6 +208,9 @@ public class ParentStudentPage extends Base{
 
     @FindBy(xpath = "//div[text()='Invalid Username Or Password']")
     public WebElement invalidCredentialsTextElement;
+
+    @FindBy (xpath = "//a[@class='forgot']")
+    public WebElement userLoginForgotPasswordLinkElement;
 
 
 
