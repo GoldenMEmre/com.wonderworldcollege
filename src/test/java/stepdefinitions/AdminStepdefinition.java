@@ -228,7 +228,7 @@ public class AdminStepdefinition {
 
     @Given("Login to dashboard with admin name and admin password as admin")
     public void login_to_dashboard_with_admin_name_and_admin_password_as_admin() {
-        Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
+        Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
         adminPage.adminLoginButton.sendKeys(ConfigReader.getProperty("adminMelike"));
         adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
         adminPage.adminLoginButton.click();
