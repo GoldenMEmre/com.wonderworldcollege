@@ -330,10 +330,22 @@ public class HomepageStepdefinition {
         homepage.verifyEnterDataParentDetails();
     }
 
-    @Then("verify mandatory fields under Basic Details and Parent Details section")
-    public void verifyMandatoryFieldsUnderBasicDetailsAndParentDetailsSection() {
+    @Then("verify mandatory fields under Basic Details and Guardian Details section")
+    public void verifyMandatoryFieldsUnderBasicDetailsAndGuardianDetailsSection() {
         homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
     }
+
+
+    @Then("verify and fill the fields under Guardian Details Section")
+    public void verifyAndFillTheFieldsUnderGuardianDetailsSection() {
+        homepage.verifyEnterGuardianDetailsOnlineAdmissionPage();
+    }
+
+    @Then("verify that guardian photo has been uploaded")
+    public void verifyThatGuardianPhotoHasBeenUploaded() {
+        homepage.verifyGuardianPhotoUpload();
+    }
+
 
 }
 
