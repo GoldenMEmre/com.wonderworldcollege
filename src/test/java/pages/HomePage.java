@@ -163,6 +163,12 @@ public class HomePage extends Base {
     @FindBy(xpath = "//div[@class='alert alert-success']")
     private WebElement complainPageSuccessAlert;
 
+    //********************************************
+
+    //Home Page Online Admission Title
+    @FindBy(xpath = "//*[text()='Online Admission']")
+    private WebElement homePageOnlineAdmissionTitle;
+
     //------------------------------ Ogun Methods -------------------------------
 
     // Verifies that Complain button is visible and enable, and clicks on it
