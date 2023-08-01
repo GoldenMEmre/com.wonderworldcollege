@@ -1,5 +1,8 @@
 package pages;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +12,7 @@ import utilities.Driver;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.text.DateFormat;
 import java.util.List;
 
@@ -54,9 +58,25 @@ public class TeacherPage extends Base {
     @FindBy(id = "leave_from_date")
     private WebElement addDetailsLeaveFromDateBox;
 
+    // Leave From Date Box Date Picker Next Month
+    @FindBy(xpath = "(//th[@class='next'])[1]")
+    private WebElement leaveFromDateBoxNextMonth;
+
+    //Leave From Date Box Day
+    @FindBy(xpath = "(//td[text()='10'])[1]")
+    private WebElement leaveFromDateBoxDate;
+
     // Apply Leave Add Details page Leave To Date Box
     @FindBy(id = "leave_to_date")
     private WebElement addDetailsLeaveToDateBox;
+
+    // Leave To Date Date Picker Next Month
+    @FindBy(xpath = "(//th[@class='next'])[1]")
+    private WebElement leaveToDateBoxNextMonth;
+
+    //Leave To Date Box Day
+    @FindBy(xpath = "(//td[text()='10'])[1]")
+    private WebElement leaveToDateBoxDate;
 
     // Apply Leave Add Details page Available Leave Box
     @FindBy(xpath = "//select[@id='leave_type']")
@@ -69,6 +89,52 @@ public class TeacherPage extends Base {
     // Apply Leave Add Details Save Button
     @FindBy(id = "submitbtn")
     private WebElement addDetailsSaveButton;
+
+    // Leave Request Staff Name
+    @FindBy(xpath = "//*[text()='ogun.erdogan ']")
+    private WebElement leaveRequestStaffName;
+
+    // Leaves List Columns : Staff, Leave Type, Leave Date, Days, Apply Date, Status and Action
+    @FindBy(xpath = "//*[text()='Staff']")
+    private WebElement columnsLeavesListStaff;
+    @FindBy(xpath = "(//*[text()='Leave Type'])[1]")
+    private WebElement columnsLeavesListLeaveType;
+    @FindBy(xpath = "//*[text()='Leave Date']")
+    private WebElement columnsLeavesListLeaveDate;
+    @FindBy(xpath = "//*[text()='Days']")
+    private WebElement columnsLeavesListDays;
+    @FindBy(xpath = "(//*[text()='Apply Date'])[1]")
+    private WebElement columnsLeavesListApplyDate;
+    @FindBy(xpath = "//*[text()='Status']")
+    private WebElement columnsLeavesListStatus;
+    @FindBy(xpath = "//*[text()='Action']")
+    private WebElement columnsLeavesListAction;
+
+    //Status of Created Leave Request
+    @FindBy(xpath = "(//span[@data-toggle='popover'])[2]")
+    private WebElement statusLeaveRequest;
+
+    //Leaves List View Button
+    @FindBy(xpath = "(//a[@role='button'])[3]")
+    private WebElement viewButtonLeavesList;
+
+    //Details window after clicking view Button
+    @FindBy(xpath = "//*[text()='Details']")
+    private WebElement detailsWindow;
+
+    // Details Window Close Button
+    @FindBy(xpath = "(//button[@class='close'])[1]")
+    private WebElement detailsWindowCloseButton;
+
+    // Leaves Page Delete Button
+    @FindBy(xpath = "//i[@class='fa fa-remove']")
+    private WebElement leavesPageDeleteButton;
+
+    // Staff ID Leaves Page (For verifying Deletion of Leave Request)
+    @FindBy(xpath = "//*[text()='Staff ID: 9091']")
+    private WebElement leavesPageStaffID;
+
+    //
 
     //***************** METHODS ********************
 
@@ -121,27 +187,22 @@ public class TeacherPage extends Base {
         leavesPageApplyLeaveButton.click();
     }
 
-    //Enters Apply Date on Add Details Page
-    public void enterApplyDateAddDetails(String date){ //???????
-        addDetailsApplyDateBox.isDisplayed();
-        addDetailsApplyDateBox.isEnabled();
-        addDetailsApplyDateBox.sendKeys(date);
-    }
-
     //Enters Leave From Date on Add details page
-    public void enterLeaveFromDate(String date){
+    public void enterLeaveFromDate(){
         addDetailsLeaveFromDateBox.isDisplayed();
         addDetailsLeaveFromDateBox.isEnabled();
-        addDetailsLeaveFromDateBox.click();
-
-
+        actions.click(addDetailsLeaveFromDateBox).perform();
+        actions.click(leaveFromDateBoxNextMonth).perform();
+        actions.moveToElement(leaveFromDateBoxDate).click().perform();
     }
 
     //Enters Leave To Date on Add details page
-    public void enterLeaveToDate(String date){
+    public void enterLeaveToDate(){
         addDetailsLeaveToDateBox.isDisplayed();
         addDetailsLeaveToDateBox.isEnabled();
-        addDetailsLeaveToDateBox.sendKeys(date);
+        actions.click(addDetailsLeaveToDateBox).perform();
+        actions.click(leaveToDateBoxNextMonth).perform();
+        actions.moveToElement(leaveToDateBoxDate).click().perform();
     }
 
     //Selects Available Leave on Add Details
@@ -164,5 +225,57 @@ public class TeacherPage extends Base {
         addDetailsSaveButton.isDisplayed();
         addDetailsSaveButton.isEnabled();
         addDetailsSaveButton.click();
+    }
+
+    //Verifies the created Leave Request
+    public void verifyLeaveRequest(){
+        leaveRequestStaffName.isDisplayed();
+    }
+
+    //Verifies the Columns on Leaves List Page
+    public void verifyColumnsLeavesList(){
+        columnsLeavesListStaff.isDisplayed();
+        columnsLeavesListLeaveType.isDisplayed();
+        columnsLeavesListLeaveDate.isDisplayed();
+        columnsLeavesListDays.isDisplayed();
+        columnsLeavesListApplyDate.isDisplayed();
+        columnsLeavesListStatus.isDisplayed();
+        columnsLeavesListAction.isDisplayed();
+    }
+
+    // Verifies the Status of Created Leave Request
+    public void verifyStatusLeavesList(){
+        statusLeaveRequest.isDisplayed();
+        String status = statusLeaveRequest.getText();
+        Assert.assertFalse(status.isEmpty());
+    }
+
+    //Verifies view Button on Leaves Page
+    public void verifyViewButton(){
+        viewButtonLeavesList.isDisplayed();
+        viewButtonLeavesList.isEnabled();
+        viewButtonLeavesList.click();
+    }
+
+    //Verifies Details Window After Clicking View Button
+    public void verifyDetailsWindow(){
+        Assert.assertTrue(detailsWindow.isDisplayed());
+    }
+
+    // Closes Details Window
+    public void closeDetailsWindow(){
+        detailsWindowCloseButton.click();
+    }
+
+    // Verifies and Clicks on Delete Button on Leaves Page
+    public void clickOnDeleteButtonLeavesPage(){
+        leavesPageDeleteButton.isDisplayed();
+        leavesPageDeleteButton.isEnabled();
+        leavesPageDeleteButton.click();
+        Driver.getDriver().switchTo().alert().accept();
+    }
+    //Verifies that created Leave Request has been deleted
+    public void deleteTestLeaveRequest(){
+        Assert.assertFalse(leavesPageStaffID.isDisplayed());
     }
 }

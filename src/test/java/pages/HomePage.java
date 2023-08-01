@@ -27,10 +27,64 @@ public class HomePage extends Base {
     public  WebElement examResultPageResultText;   
 
 
+    //-------------------------------------------------------------
 
+    @FindBy(xpath = "(//a[text()='Course'])[1]")
+    public WebElement coursePage;
 
+    @FindBy(xpath = "(//div[@class='course-inner'])[1]")
+    public WebElement coursePageEnglishAndLiteratureTitle;
 
+    @FindBy(xpath = "(//div[@class='course-inner'])[2]")
+    public WebElement coursePageMathematicsTitle;
 
+    @FindBy(xpath = "(//div[@class='course-inner'])[3]")
+    public WebElement coursePageSciencesTitle;
+
+    @FindBy(xpath = "(//div[@class='course-inner'])[4]")
+    public WebElement coursePageSocialSciencesTitle;
+
+    @FindBy(xpath = "(//div[@class='course-inner'])[5]")
+    public WebElement coursePageHistoryTitle;
+
+    @FindBy(xpath = "(//div[@class='course-inner'])[6]")
+    public WebElement coursePageArtsAndMusicTitle;
+
+    @FindBy(xpath = "(//div[@class='course-inner'])[7]")
+    public WebElement coursePageHealthAndExerciseSciencesTitle;
+
+    @FindBy(xpath = "(//div[@class='course-inner'])[8]")
+    public WebElement coursePageForeignLanguageTitle;
+
+    @FindBy(xpath = "(//div[@class='course-inner'])[9]")
+    public WebElement coursePageComputerScienceTitle;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[1]")
+    public WebElement coursePageEnglishAndLiteratureDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[2]")
+    public WebElement coursePageMathematicsDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[3]")
+    public WebElement coursePageSciencesDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[4]")
+    public WebElement coursePageSocialSciencesDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[5]")
+    public WebElement coursePageHistoryDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[6]")
+    public WebElement coursePageArtsAndMusicDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[7]")
+    public WebElement coursePageHealthAndExerciseSciencesDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[8]")
+    public WebElement coursePageForeignLanguageDetailsButton;
+
+    @FindBy(xpath = "(//a[@class='btn-read'])[9]")
+    public WebElement coursePageComputerScienceDetailsButton;
 
       //Homepage >"login" butonu
     @FindBy(xpath = "//*[@class='complainbtn']")
@@ -52,13 +106,15 @@ public class HomePage extends Base {
     //Homepage > "ACHEIVEMENTS" section >   STUDENT CAMPUSES BOARDS
     @FindBy(xpath = "//*[text()='Student Campuses']")
     public WebElement studentCampusesBoard;
-
-    // Homepage>SliderImg
-    @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/top-banner2-2.jpg']")
-    public  WebElement diverseImg;
+  
+    // **********************************************************//
+  
+  // Homepage>SliderImg
+  @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/top-banner2-2.jpg']")
+  public  WebElement diverseImg;
     @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner3-3.jpg']")
     public  WebElement wonderImg;
-    @FindBy(xpath ="https://qa.wonderworldcollege.com/uploads/gallery/media/1674040621-203862736463c7d52d312c6!DCC Sports Day (3).jfif")
+    @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/1674040621-203862736463c7d52d312c6!DCC Sports Day (3).jfif']")
     public  WebElement studentsImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner1.jpg']")
     public  WebElement nurturingImg;
@@ -73,7 +129,6 @@ public class HomePage extends Base {
 
    @FindBy(xpath="//a[@data-toggle='dropdown']")
     public WebElement academicsButton;
-
 
     @FindBy(xpath = "//a[text()='School Uniform']")
     public WebElement schoolUniformDropDown;
@@ -94,6 +149,17 @@ public class HomePage extends Base {
 
     @FindBy(xpath = "//a[text()='Teacher']")
     public WebElement teacherDropDown;
+
+    @FindBy(xpath="right carousel-control")
+     public  WebElement sliderPanel;
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+    //HomePage/User Login Page
+    @FindBy(xpath = "//*[text()='User Login']")
+    public WebElement userLoginText;
+
+    @FindBy(xpath = "//div[@class='messages']")
+    public WebElement userLoginMessages;
 
 
 }
