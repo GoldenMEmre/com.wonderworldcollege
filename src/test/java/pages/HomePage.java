@@ -1,14 +1,18 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class HomePage extends Base {
 
+    Actions actions = new Actions(Driver.getDriver());
     //Homepage>ExamResultButton
     @FindBy(xpath =" a[normalize-space()='Exam Result']")
     public WebElement examResultButton;
@@ -126,9 +130,6 @@ public class HomePage extends Base {
     @FindBy(xpath="right carousel-control")
      public  WebElement sliderPanel;
 
-
-
-
     //--------------------------- Ogun Locates ----------------------------------------
     // Home Page Complain Title
     @FindBy(xpath = "//*[text()='Complain']")
@@ -163,6 +164,86 @@ public class HomePage extends Base {
     //Home Page Online Admission Title
     @FindBy(xpath = "//*[text()='Online Admission']")
     private WebElement homePageOnlineAdmissionTitle;
+
+    //Online Admission PAge Instructions Text
+    @FindBy(xpath = "//*[text()='In order to enroll in our school, it is necessary to have completed the age of 6 and reside in Brooklyn.']")
+    private WebElement onlineAdmissionPageInstructionsText;
+
+    //Online Admission Page Class Dropdown under BasicDetails
+    @FindBy(xpath = "//select[@id='class_id']")
+    private WebElement onlineAdmissionPageClassDropDown;
+
+    //Online Admission Page Firstname Textbox under BasicDetails
+    @FindBy(xpath = "//input[@id='firstname']")
+    private WebElement onlineAdmissionPageFirstnameTextBox;
+
+    //Online Admission Page Lastname TextBox under BasicDetails
+    @FindBy(xpath = "//input[@id='lastname']")
+    private WebElement onlineAdmissionPageLastNameTextBox;
+
+    //Online Admission Page Gender Dropdown under BasicDetails
+    @FindBy(xpath = "//select[@name='gender']")
+    private WebElement onlineAdmissionPageGenderDropDown;
+
+    //Online Admission Page Date Of Birth DatePicker under BasicDetails
+    @FindBy(xpath = "//input[@name='dob']")
+    private WebElement onlineAdmissionPageDateOfBirth;
+
+    //Online Admission Page Mobile Number TextBox under BasicDetails
+    @FindBy(xpath = "//input[@name='mobileno']")
+    private WebElement onlineAdmissionPageMobileNumber;
+
+    //Online Admission Page Email TextBox under BasicDetails
+    @FindBy(xpath = "(//input[@name='email'])[2]")
+    private WebElement onlineAdmissionPageEmail;
+
+    //Online Admission Page Student Photo under BasicDetails
+    @FindBy(xpath = "(//input[@id='file'])[1]")
+    private WebElement onlineAdmissionPageStudentPhoto;
+
+    // Online Admission PAge Date of birth previous button
+    @FindBy(xpath = "(//th[@class='prev'])[2]")
+    private WebElement previousDateOfBirth;
+
+    // Online Admission PAge Date of birth mounth button
+    @FindBy(xpath = "//*[text()='Oct']")
+    private WebElement mounthDateOfBirth;
+    // Online Admission PAge Date of birth day button
+    @FindBy(xpath = "//*[text()='26']")
+    private WebElement dayDateOfBirth;
+    //Student Photo remove Button
+    @FindBy(xpath = "(//button[@type='button'])[9]")
+    private WebElement removeButtonStudentPhoto;
+
+    //required field alerts
+    @FindBy(xpath = "//*[text()='The Class field is required.']")
+    private WebElement requiredFieldAlertClass;
+    @FindBy(xpath = "//*[text()='The First Name field is required.']")
+    private WebElement requiredFieldAlertFirstName;
+    @FindBy(xpath = "//*[text()='The Gender field is required.']")
+    private WebElement requiredFieldAlertGender;
+    @FindBy(xpath = "//*[text()='The Date Of Birth field is required.']")
+    private WebElement requiredFieldAlertDateOfBirth;
+    @FindBy(xpath = "//*[text()='The Email field is required.']")
+    private WebElement requiredFieldAlertEmail;
+    @FindBy(xpath = "//*[text()='The Guardian field is required.']")
+    private WebElement requiredFieldAlertGuardian;
+    @FindBy(xpath = "//*[text()='The Guardian Name field is required.']")
+    private WebElement requiredFieldAlertGuardianName;
+    @FindBy(xpath = "//*[text()='The Guardian Relation field is required.']")
+    private WebElement requiredFieldAlertGuardianRelation;
+
+    //Online Admission Page Submit Button
+    @FindBy(xpath = "(//button[@type='submit'])[5]")
+    private WebElement onlineAdmissionPageSubmitButton;
+
+    //Online Admission Page Parent details Section Father Name TextBox
+    @FindBy(xpath = "//input[@name='father_name']")
+    private WebElement fatherNameParentDetail;
+
+    //Online Admission Page Parent details Section Father Name TextBox
+    @FindBy(xpath = "//input[@name='mother_name']")
+    private WebElement motherNameParentDetail;
 
     //------------------------------ Ogun Methods -------------------------------
 
@@ -212,5 +293,95 @@ public class HomePage extends Base {
     public void verifiyComplainSend(){
         Assert.assertTrue(complainPageSuccessAlert.isDisplayed());
     }
+    //**********************************************
+    //Clicks on Online Admission Title on Home page
+    public void clickOnlineAdmissionHomePage(){
+        Assert.assertTrue(homePageOnlineAdmissionTitle.isDisplayed());
+        Assert.assertTrue(homePageOnlineAdmissionTitle.isEnabled());
+        homePageOnlineAdmissionTitle.click();
+    }
+    // Verifies Online Admission Page
+    public void verifyOnlineAdmissionPage(){
+        String expectedTitle = "Online Admission Form";
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle,actualTitle);
+    }
+    // Verifies that school admission criteria is displayed
+    public void verifySchoolAdmissionCriteria(){
+        String expectedText ="In order to enroll in our school, " +
+                "it is necessary to have completed the age of 6 and reside in Brooklyn.";
+        String actualText = onlineAdmissionPageInstructionsText.getText();
+        Assert.assertEquals(expectedText,actualText);
+    }
+    //Verifies Class, First Name, Last Name, Gender, Date of Birth,
+    //Mobile number, Email and Student Photo Webelements and fills these fields
+    public void enterVerifyBasicDetails(){
+        Assert.assertTrue(homepageComplain.isDisplayed()); //negatif test
+        Assert.assertTrue(onlineAdmissionPageClassDropDown.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageClassDropDown.isEnabled());
+        Assert.assertTrue(onlineAdmissionPageFirstnameTextBox.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageFirstnameTextBox.isEnabled());
+        Assert.assertTrue(onlineAdmissionPageLastNameTextBox.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageLastNameTextBox.isEnabled());
+        Assert.assertTrue(onlineAdmissionPageGenderDropDown.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageGenderDropDown.isEnabled());
+        Assert.assertTrue(onlineAdmissionPageDateOfBirth.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageDateOfBirth.isEnabled());
+        Assert.assertTrue(onlineAdmissionPageMobileNumber.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageMobileNumber.isEnabled());
+        Assert.assertTrue(onlineAdmissionPageEmail.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageEmail.isEnabled());
+        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isEnabled());
 
+        Select select = new Select(onlineAdmissionPageClassDropDown);
+        select.selectByIndex(1);
+        onlineAdmissionPageFirstnameTextBox.sendKeys("Ogün");
+        onlineAdmissionPageLastNameTextBox.sendKeys("Erdogan");
+        Select select1 = new Select(onlineAdmissionPageGenderDropDown);
+        select1.selectByIndex(1);
+        actions.click(onlineAdmissionPageDateOfBirth).perform();
+        actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.click(mounthDateOfBirth).perform();
+        actions.click(dayDateOfBirth).perform();
+        onlineAdmissionPageMobileNumber.sendKeys("0123 456 78 90");
+        onlineAdmissionPageEmail.sendKeys("muster.mustermann@gmail.com");
+       // onlineAdmissionPageStudentPhoto.click();
+        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\com.wonderworldcollege" +
+                "\\src\\test\\java\\.jpg\\4432b9bcacc2ed45b9bef8d8475a6030.jpg";
+        onlineAdmissionPageStudentPhoto.sendKeys(dosyaYolu);
+    }
+    //verifies that student photo has been uploaded
+    public void verifyUploadStudentPhoto(){
+        removeButtonStudentPhoto.isDisplayed();
+    }
+
+    //Verifies required Fields on Online Admission Page under Basic Details Section
+    public void verifyMandatoryFieldsBasicDetailsParentDetails(){
+        onlineAdmissionPageSubmitButton.click();
+        Assert.assertTrue(requiredFieldAlertClass.isDisplayed());
+        Assert.assertTrue(requiredFieldAlertFirstName.isDisplayed());
+        Assert.assertTrue(requiredFieldAlertGender.isDisplayed());
+        Assert.assertTrue(requiredFieldAlertDateOfBirth.isDisplayed());
+        Assert.assertTrue(requiredFieldAlertEmail.isDisplayed());
+        Assert.assertTrue(requiredFieldAlertGuardian.isDisplayed());
+        Assert.assertTrue(requiredFieldAlertGuardianName.isDisplayed());
+        Assert.assertTrue(requiredFieldAlertGuardianRelation.isDisplayed());
+    }
+
+    //verifies and fills FatherName and MotherName textBoxes under Parent details Section
+    public void verifyEnterDataParentDetails(){
+        Assert.assertTrue(fatherNameParentDetail.isDisplayed());
+        Assert.assertTrue(motherNameParentDetail.isDisplayed());
+        Assert.assertTrue(fatherNameParentDetail.isEnabled());
+        Assert.assertTrue(motherNameParentDetail.isEnabled());
+
+        fatherNameParentDetail.sendKeys("Hasan");
+        motherNameParentDetail.sendKeys("Nimet");
+    }
 }
