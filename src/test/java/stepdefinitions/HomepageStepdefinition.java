@@ -229,11 +229,11 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
     }
-    @And("Close the page.")
-    public void close_the_page() {
-           Driver.quitDriver();
+    //@And("Close the page.")
+    //public void close_the_page() {
+           //Driver.quitDriver();
 
-    }
+    //}
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
