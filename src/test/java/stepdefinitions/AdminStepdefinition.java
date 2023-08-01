@@ -15,7 +15,7 @@ public class AdminStepdefinition {
 
     AdminPage adminPage = new AdminPage();
 
-
+  // ********************************************************** //
     @Given("click admin login")
     public void click_admin_login() {
         adminPage.adminLoginButton.click();
@@ -60,6 +60,7 @@ public class AdminStepdefinition {
         Assert.assertTrue(adminPage.feesGroup.isDisplayed());
 
     }
+
 
 
     @Given("Click on the Collect Fees button")

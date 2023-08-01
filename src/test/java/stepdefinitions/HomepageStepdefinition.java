@@ -189,11 +189,7 @@ public class HomepageStepdefinition {
     }
 
 
-    //@Given("Close the page")
-    //public void close_the_page() {
-
-      //  Driver.closeDriver();
-    //}
+   //**********************************************************************//
 
     @Given("User go to Url")
     public void user_go_to_Url (String Url) {
@@ -216,6 +212,7 @@ public class HomepageStepdefinition {
     public void user_close_the_browser() {
         Driver.closeDriver();
     }
+    // **********************************************************************************//
 
     @Then("The homepage was reached on the website")
     public void the_homepage_was_reached_on_the_website() throws InterruptedException {
