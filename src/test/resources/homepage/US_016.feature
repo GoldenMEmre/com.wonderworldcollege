@@ -15,6 +15,8 @@ Feature: US_016 As a user (student/parent), I want to have access to the login p
     And Enter  Correct user name  "studentusername"
     And Enter Correct password "studentpassword"
     And Click on the Sign In button
+    And Verify the login into the panel
+    And Close the page.
     
   Scenario: TC_002 Negative Login Test
     
@@ -25,6 +27,14 @@ Feature: US_016 As a user (student/parent), I want to have access to the login p
     And Click on the Sign In button
     And Verify not log into the Panel
     And Close the page.
+
+  Scenario: TC_003 Userlogin Page Forgot Password Test
+
+    Given user goes to url
+    Then Click the Login Button
+    And Verify Forgot Password Link
+
+
 
     
 

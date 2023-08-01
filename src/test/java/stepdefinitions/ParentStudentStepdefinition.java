@@ -264,10 +264,12 @@ public class ParentStudentStepdefinition {
     public void verify_the_login_into_the_panel() {
         Assert.assertTrue(parentStudentPage.myProfileButton.isDisplayed());
     }
+
     @Then("Enter wrong user name")
     public void enter_wrong_user_name() {
         parentStudentPage.userloginuserNameTextBoxElement.sendKeys("hfffgfg");
     }
+
     @Then("Enter wrong password")
     public void enter_wrong_password() {
         parentStudentPage.userloginpasswordTextBoxElement.sendKeys("sdsdnghg");
@@ -280,5 +282,13 @@ public class ParentStudentStepdefinition {
     }
 
 
+
+    @Then("Verify Forgot Password Link")
+    public void verify_forgot_password_link() {
+        Assert.assertTrue(parentStudentPage.userLoginForgotPasswordLinkElement.isDisplayed());
+
+
+
+    }
 }
 
