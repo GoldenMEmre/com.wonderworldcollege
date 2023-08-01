@@ -6,10 +6,12 @@ Feature: As a user I want an Online Admission page on the homepage so that I can
     Then click on online admission title
     Then verify online admission page
     Then verify that school admission criteria text
-    Then verify mandatory fields under Basic Details and Parent Details section
+    Then verify mandatory fields under Basic Details and Guardian Details section
     Then verify and fill the fields under Basic Details
     Then verify that student photo has been uploaded
     Then verify and fill the fields under Parent Details
+    Then verify and fill the fields under Guardian Details Section
+    Then verify that guardian photo has been uploaded
 
 
 

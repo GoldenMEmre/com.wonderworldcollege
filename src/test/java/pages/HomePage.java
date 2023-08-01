@@ -246,7 +246,31 @@ public class HomePage extends Base {
     private WebElement motherNameParentDetail;
 
     //Online Admission Page Guardian Details Section
+    //Guardian Name Online Admission Page
+    @FindBy(xpath = "//input[@id='guardian_name']")
+    private WebElement guardianNameOnlineAdmissionPage;
+    //Guardian Relation Online Admission Page
+    @FindBy(xpath = "//input[@id='guardian_relation']")
+    private WebElement guardianRelationOnlineAdmissionPage;
+    //Guardian EMail Online Admission Page
+    @FindBy(xpath = "//input[@id='guardian_email']")
+    private WebElement guardianEmailOnlineAdmissionPage;
+    //Guardian Photo Online Admission Page
+    @FindBy(xpath = "(//input[@id='file'])[2]")
+    private WebElement guardianPhotoOnlineAdmissionPage;
+    //Guardian Phone Online Admission Page
+    @FindBy(xpath = "//input[@id='guardian_phone']")
+    private WebElement guardianPhoneOnlineAdmissionPage;
+    //Guardian Occupation Online Admission Page
+    @FindBy(xpath = "//input[@id='guardian_occupation']")
+    private WebElement guardianOccupationOnlineAdmissionPage;
+    //Guardian Adress Online Admission Page
+    @FindBy(xpath = "//textarea[@id='guardian_address']")
+    private WebElement guardianAdressOnlineAdmissionPage;
 
+    // Remove button on Guardian Photo
+    @FindBy(xpath = "(//button[@class='dropify-clear'])[1]")
+    private WebElement verifyGuardianPhotoUploaded;
 
     //------------------------------ Ogun Methods -------------------------------
 
@@ -339,8 +363,8 @@ public class HomePage extends Base {
 
         Select select = new Select(onlineAdmissionPageClassDropDown);
         select.selectByIndex(1);
-        onlineAdmissionPageFirstnameTextBox.sendKeys("Ogün");
-        onlineAdmissionPageLastNameTextBox.sendKeys("Erdogan");
+        onlineAdmissionPageFirstnameTextBox.sendKeys("Timur");
+        onlineAdmissionPageLastNameTextBox.sendKeys("Lenk");
         Select select1 = new Select(onlineAdmissionPageGenderDropDown);
         select1.selectByIndex(1);
         actions.click(onlineAdmissionPageDateOfBirth).perform();
@@ -385,6 +409,37 @@ public class HomePage extends Base {
         Assert.assertTrue(motherNameParentDetail.isEnabled());
 
         fatherNameParentDetail.sendKeys("Hasan");
-        motherNameParentDetail.sendKeys("Nimet");
+        motherNameParentDetail.sendKeys("Fatma");
+    }
+    //Verifies and Enters data of WebElements on Guardian Details Section
+    public void verifyEnterGuardianDetailsOnlineAdmissionPage(){
+        Assert.assertTrue(guardianNameOnlineAdmissionPage.isDisplayed());
+        Assert.assertTrue(guardianNameOnlineAdmissionPage.isEnabled());
+        Assert.assertTrue(guardianRelationOnlineAdmissionPage.isDisplayed());
+        Assert.assertTrue(guardianRelationOnlineAdmissionPage.isEnabled());
+        Assert.assertTrue(guardianEmailOnlineAdmissionPage.isDisplayed());
+        Assert.assertTrue(guardianEmailOnlineAdmissionPage.isEnabled());
+        Assert.assertTrue(guardianPhoneOnlineAdmissionPage.isDisplayed());
+        Assert.assertTrue(guardianPhoneOnlineAdmissionPage.isEnabled());
+        Assert.assertTrue(guardianOccupationOnlineAdmissionPage.isDisplayed());
+        Assert.assertTrue(guardianOccupationOnlineAdmissionPage.isEnabled());
+        Assert.assertTrue(guardianAdressOnlineAdmissionPage.isDisplayed());
+        Assert.assertTrue(guardianAdressOnlineAdmissionPage.isEnabled());
+        Assert.assertTrue(guardianPhotoOnlineAdmissionPage.isDisplayed());
+        Assert.assertTrue(guardianPhotoOnlineAdmissionPage.isEnabled());
+
+        guardianNameOnlineAdmissionPage.sendKeys("Tarik Erdogan");
+        guardianRelationOnlineAdmissionPage.sendKeys("Brother");
+        guardianEmailOnlineAdmissionPage.sendKeys("muster.mustermann2@hotmail.com");
+        guardianPhoneOnlineAdmissionPage.sendKeys("01234 56 789");
+        guardianOccupationOnlineAdmissionPage.sendKeys("Big Boss");
+        guardianAdressOnlineAdmissionPage.sendKeys("Bochum, Germany");
+        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\" +
+                "com.wonderworldcollege\\src\\test\\java\\.jpg\\IMG_20211022_124748.jpg";
+        guardianPhotoOnlineAdmissionPage.sendKeys(dosyaYolu);
+    }
+    //Verify that Guardian Photo has been uploaded
+    public void verifyGuardianPhotoUpload(){
+        Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
     }
 }
