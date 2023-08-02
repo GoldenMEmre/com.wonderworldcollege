@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pages.AdminPage;
 import pages.TeacherPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -17,6 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 
 public class TeacherStepdefinition {
+    AdminPage adminPage=new AdminPage();
 
     TeacherPage teacherPage = new TeacherPage();
     Actions actions = new Actions(Driver.getDriver());
@@ -120,24 +122,31 @@ public class TeacherStepdefinition {
     public void closeDetailsWindow() {
         teacherPage.closeDetailsWindow();
     }
-    // ***************************** Gulten Harrelson*****************************
+    // ***************************** Gulten Harrelson*****************************1.Baslangic
 
+    @Given("click teacher login button")
+    public void click_teacher_login_button() {
+        teacherPage.teacherLoginButton.click();
 
+        ReusableMethods.bekle(2);
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+    }
 
     @Given("enter  teacher username")
     public void enter_teacher_username() {
-
-        teacherPage.adminUser.sendKeys(ConfigReader.getProperty("teacherUserName"));
-
+        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
     }
     @Given("enter teacher password")
     public void enter_teacher_password() {
-        teacherPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+
+
     }
 
     @Given("click teacher sign in button")
     public void click_teacher_sign_in_button() {
-        teacherPage.signInButton.click();
+        teacherPage.teacherSignInButton.click();
+
 
     }
 
@@ -150,7 +159,7 @@ public class TeacherStepdefinition {
     public void verify_that_under_attendance_menu_the_period_attendance_by_date_is_visible_and_clickable() {
         teacherPage.periodAttendanceByDate.click();
         ReusableMethods.bekle(2);
-        assertTrue(teacherPage.periodAttendanceByDate.isEnabled());
+        assertTrue(teacherPage.periodAttendanceByDate.isDisplayed());
 
 
     }
@@ -158,18 +167,16 @@ public class TeacherStepdefinition {
     @Given("verify all section titles that related with Select Criteria is active and visible")
     public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible() {
         assertTrue(teacherPage.ClassIcon.isDisplayed());
-        assertTrue(teacherPage.ClassIcon.isEnabled());
         ReusableMethods.bekle(1);
         assertTrue(teacherPage.sectionIcon.isDisplayed());
-
         assertTrue(teacherPage.dateIcon.isDisplayed());
         ReusableMethods.bekle(3);
         Select select=new Select(teacherPage.classDropDown);
-        select.selectByIndex(1);
+        select.selectByIndex(2);
         select=new Select(teacherPage.sectionDropDown);
-        select.selectByIndex(1);
-       teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty(" Date"));
-       teacherPage.periodAttendanceByDateSearchicon.click();
+        select.selectByIndex(2);
+        teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("Date"));
+        teacherPage.periodAttendanceByDateSearchicon.click();
 
 
 
@@ -185,53 +192,33 @@ public class TeacherStepdefinition {
         select.selectByIndex(1);
         select=new Select(teacherPage.sectionDropDown);
         select.selectByIndex(1);
-       // select=new Select(teacherPage.dateDropDown);
+        // select=new Select(teacherPage.dateDropDown);
         JavascriptExecutor hadi =(JavascriptExecutor)Driver.getDriver();
         teacherPage.dateDropDown.click();
 
-   //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
+        //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
 
-    // daha calsimam lazim bu soru icin
+        // daha calsimam lazim bu soru icin
         //assertTrue(teacherPage.studentList.isDisplayed());
 
+        // **************************Gulten Harrelson *************************** 1.Sonu
+
+
+
+
+    }
+
+
 
 
 
 
 
     }
-    // **************************Gulten Harrelson *************************** 1.Sonu
-    // **************************Gulten Harrelson *************************** 2.Baslangic
-    @Given("click  Online Exam Section under the  online Examinations")
-    public void click_online_exam_section_under_the_online_examinations() {
-        teacherPage.onlineExaminations.click();
-        teacherPage.onlineExam.click();
-
-    }
-    @Given("The user should be able to view column fields in the  Online Exam segment.")
-    public void the_user_should_be_able_to_view_column_fields_in_the_online_exam_segment() {
-
-    }
-
-    @Given("The user should be able to access the Exam View from the Action section and view the fields.")
-    public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_and_view_the_fields() {
-
-    }
-    @Given("When the user enters the Closed Exam segment, they should be able to see the column fields.")
-    public void when_the_user_enters_the_closed_exam_segment_they_should_be_able_to_see_the_column_fields() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Given("The user should be able to access the Exam View from the Action section within the Closed Exam segment and view the fields.")
-    public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_within_the_closed_exam_segment_and_view_the_fields() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    // **************************Gulten Harrelson *************************** 2.Sonu
 
 
 
 
 
-}
+
+

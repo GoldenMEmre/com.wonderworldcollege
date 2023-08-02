@@ -324,6 +324,8 @@ public class AdminStepdefinition {
     public void verifyThatForgotPasswordLinkIsActive() {
         Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
     }
+
+
     //*************************************************************************************************
 }
 
@@ -333,6 +335,7 @@ public class AdminStepdefinition {
 
 
     }
+
 }
 
 
