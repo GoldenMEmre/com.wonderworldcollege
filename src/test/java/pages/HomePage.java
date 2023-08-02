@@ -95,5 +95,34 @@ public class HomePage extends Base {
     @FindBy(xpath = "//a[text()='Teacher']")
     public WebElement teacherDropDown;
 
+    @FindBy(xpath = "//*[@id=\"navbar-collapse-3\"]/ul/li[9]/a")
+    public WebElement contackButton;
+
+    @FindBy(xpath = "(//input[@type='text'])[5]")
+    public WebElement nameButton;
+
+    @FindBy(xpath = "(//input[@type='email'])[2]")
+    public WebElement emailButton;
+
+    @FindBy(xpath = "(//input[@type='text'])[6]")
+    public WebElement subjectButton;
+
+    @FindBy(xpath = "//textarea[@name='description']")
+    public WebElement descriptionButton;
+    @FindBy(xpath = "//input[@value='Submit']")
+    public WebElement submitButton;
+
+
+    @FindBy(xpath = "//*[text()='Our Location']")
+    public WebElement ourLocation;
+
+    @FindBy(xpath = "//*[text()='CALL US']")
+    public WebElement callUs;
+
+    @FindBy (xpath = "//h3[text()='Working Hours']")
+    public WebElement workingHours;
+
+   @FindBy(xpath ="//*[text()='Feedback']" )
+    public WebElement feedBack;
 
 }
