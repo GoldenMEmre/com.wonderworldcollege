@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -346,6 +347,26 @@ public class HomePage extends Base {
     private WebElement submittedFormStatusREDaS;
 
     private String eMail = "muster.mustermann11@gmail.com";
+    //**************************************************
+    //What People Says title on homepage
+    @FindBy(xpath = "//*[text()='WHAT PEOPLE SAYS']")
+    private WebElement whatPeopleSaysTitleHomePage;
+    //What People Says Sidney W. Yarber
+    @FindBy(xpath = "(//*[text()='Sidney W. Yarber'])[2]")
+    private WebElement person1WhatPeopleSays;
+    //What People Says Kayla H. Seaman
+    @FindBy(xpath = "(//*[text()='Kayla H. Seaman'])[2]")
+    private WebElement person2WhatPeopleSays;
+    //What People Says Terence M. Witzel
+    @FindBy(xpath = "(//*[text()='Terence M. Witzel'])[2]")
+    private WebElement person3WhatPeopleSays;
+    //What People Says Loura Williamson
+    @FindBy(xpath = "(//*[text()='Loura Williamson'])[2]")
+    private WebElement person4WhatPeopleSays;
+    //Our Experienced Stuff Title Home Page
+    @FindBy(xpath = "//*[text()='OUR EXPERIENCED STAFFS']")
+    public WebElement ourExperiencedStaffHomePage;
+
     //------------------------------ Ogun Methods -------------------------------
 
     // Verifies that Complain button is visible and enable, and clicks on it
@@ -604,5 +625,44 @@ public class HomePage extends Base {
         submitREDaS.click();
         Assert.assertTrue(successfulAlertAfterSubmitREDaS.isDisplayed());
         Assert.assertTrue(submittedFormStatusREDaS.isDisplayed());
+    }
+    //Verifies What People Says Section
+    public void whatPeopleSaysSectionVerify(){
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),ourExperiencedStaffHomePage);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue(whatPeopleSaysTitleHomePage.isDisplayed());
+    }
+    //verifies that the comments are from different individuals under What People Says section
+    public void whatPeopleSaysCommentsVerification(){
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),whatPeopleSaysTitleHomePage);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+      do {
+          ReusableMethods.bekle(1);
+      }
+      while (!person1WhatPeopleSays.isDisplayed());
+      Assert.assertTrue(person1WhatPeopleSays.isDisplayed());
+
+        do {
+            ReusableMethods.bekle(1);
+        }
+        while (!person4WhatPeopleSays.isDisplayed());
+        Assert.assertTrue(person4WhatPeopleSays.isDisplayed());
+
+        String personName1 = person1WhatPeopleSays.getText();
+        String personName2 = person2WhatPeopleSays.getText();
+        String personName3 = person3WhatPeopleSays.getText();
+        String personName4 = person4WhatPeopleSays.getText();
+        String[] names = {personName1,personName2,personName3,personName4};
+        for (int i = 1; i < 5; i++) {
+            for (int j = i+1; j < 4; j++) {
+                Assert.assertNotEquals(i,j);
+            }
+        }
     }
 }
