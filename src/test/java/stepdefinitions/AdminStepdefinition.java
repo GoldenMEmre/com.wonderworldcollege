@@ -23,6 +23,10 @@ public class AdminStepdefinition {
 
     AdminPage adminPage = new AdminPage();
 
+
+  //************************************** Gulten Harrelson********************
+
+
     @Given("click admin login")
     public void click_admin_login() {
         adminPage.adminLoginButton.click();
@@ -232,6 +236,12 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(3);
         Driver.closeDriver();
     }
+
+    //************************************** Gulten Harrelson********************
+
+
+
+
     @Given("Click on the Collect Fees button")
     public void click_on_the_collect_fees_button() {
        ReusableMethods.bekle(2);
@@ -302,7 +312,12 @@ public class AdminStepdefinition {
         Assert.assertTrue(adminPage.studentFeesWrite.isDisplayed());
         ReusableMethods.bekle(2);
     }
+
+
+
+
     }
+
 
 
 

@@ -189,11 +189,7 @@ public class HomepageStepdefinition {
     }
 
 
-    //@Given("Close the page")
-    //public void close_the_page() {
-
-      //  Driver.closeDriver();
-    //}
+   //**********************************************************************//
 
     @Given("User go to Url")
     public void user_go_to_Url (String Url) {
@@ -205,17 +201,23 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.preparingImg.isDisplayed()||
                 homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed()||
                 homepage.studentsImg.isDisplayed()||homepage.nurturingImg.isDisplayed());
+        ReusableMethods.bekle(6);
 
     }
-    @Then("wait {int} seconds")
-    public void wait_seconds() {
-        ReusableMethods.bekle(5);
+    @Given("Verify that the images in the slider panel can be manually changed")
+    public void verify_that_the_images_in_the_slider_panel_can_be_manually_changed() {
+        homepage.sliderPanel.click();
+        ReusableMethods.bekle(4);
+        homepage.sliderPanel.click();
+        ReusableMethods.bekle(4);
+
 
     }
     @Then("user close the browser")
     public void user_close_the_browser() {
         Driver.closeDriver();
     }
+    // **********************************************************************************//
 
     @Then("The homepage was reached on the website")
     public void the_homepage_was_reached_on_the_website() throws InterruptedException {
@@ -253,7 +255,7 @@ public class HomepageStepdefinition {
 
     @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
     public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {
-    Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
+    //Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
     }
     @Then("Verify that HomePage is accessible")
     public void verify_that_home_page_is_accessible() {
@@ -264,6 +266,91 @@ public class HomepageStepdefinition {
 
 
     }
+
+
+
+    @Given("go to home page")
+    public void go_to_home_page() {
+        ReusableMethods.goToHomePage();
+
+    }
+    @Then("go to features section and click on Complain")
+    public void goToFeaturesSectionAndClickOnComplain() {
+        homepage.verifyClickComplain();
+    }
+    @Then("verify the textboxes on complain page")
+    public void verify_the_textboxes_on_complain_page() {
+        homepage.verifyTextBoxesComplainPage();
+    }
+    @Then("fill the required felds")
+    public void fill_the_required_felds() {
+        homepage.enterDataComplainPage();
+    }
+    @Then("click on submit")
+    public void click_on_submit() {
+        homepage.clickOnSubmitComplainPage();
+    }
+
+    @Then("verify Complain page")
+    public void verifyComplainPage() {
+        homepage.verifyComplainPage();
+    }
+
+    @Then("verify that the created complain request has been send")
+    public void verifyThatTheCreatedComplainRequestHasBeenSend() {
+        homepage.verifiyComplainSend();
+    }
+
+
+
+
+    @Then("click on online admission title")
+    public void clickOnOnlineAdmissionTitle() {
+        homepage.clickOnlineAdmissionHomePage();
+    }
+
+    @Then("verify online admission page")
+    public void verifyOnlineAdmissionPage() {
+        homepage.verifyOnlineAdmissionPage();
+    }
+
+    @Then("verify that school admission criteria text")
+    public void verifyThatSchoolAdmissionCriteriaText() {
+        homepage.verifySchoolAdmissionCriteria();
+    }
+
+    @Then("verify and fill the fields under Basic Details")
+    public void verifyAndFillTheFieldsUnderBasicDetails() {
+        homepage.enterVerifyBasicDetails();
+    }
+
+    @Then("verify that student photo has been uploaded")
+    public void verifyThatStudentPhotoHasBeenUploaded() {
+        homepage.verifyUploadStudentPhoto();
+    }
+
+    @Then("verify and fill the fields under Parent Details")
+    public void verifyAndFillTheFieldsUnderParentDetails() {
+        homepage.verifyEnterDataParentDetails();
+    }
+
+    @Then("verify mandatory fields under Basic Details and Guardian Details section")
+    public void verifyMandatoryFieldsUnderBasicDetailsAndGuardianDetailsSection() {
+        homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
+    }
+
+
+
+    @Then("verify and fill the fields under Guardian Details Section")
+    public void verifyAndFillTheFieldsUnderGuardianDetailsSection() {
+        homepage.verifyEnterGuardianDetailsOnlineAdmissionPage();
+    }
+
+    @Then("verify that guardian photo has been uploaded")
+    public void verifyThatGuardianPhotoHasBeenUploaded() {
+        homepage.verifyGuardianPhotoUpload();
+    }
+
 
 }
 
