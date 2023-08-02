@@ -108,7 +108,7 @@ public class TeacherStepdefinition {
 
     @Then("verify that leave request has been deleted")
     public void verifyThatLeaveRequestHasBeenDeleted() {
-
+        teacherPage.deleteTestLeaveRequest();
     }
 
     @Then("verify and click on delete button")

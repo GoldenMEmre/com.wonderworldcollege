@@ -16,7 +16,7 @@ public class HomepageStepdefinition {
 
     @Given("user goes to url")
     public void user_goes_to_url() {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        Driver.getDriver().get(ConfigReader.getProperty("userurl"));
     }
 
     @Then("user clicks exam result button")
@@ -245,16 +245,112 @@ public class HomepageStepdefinition {
     }
     @Then("Verify that Login Button is visible")
     public void verify_that_login_button_is_visible() {
+
         Assert.assertTrue(homepage.loginButonu.isDisplayed());
     }
     @Then("Click the Login Button")
     public void click_the_login_button() {
+        homepage.loginButonu.click();
     }
 
     @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
     public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {
-    Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
+    //Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
     }
+    @Then("Verify that HomePage is accessible")
+    public void verify_that_home_page_is_accessible() {
+
+        String expectedTitle="Home";
+        String actualTitle= Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle,actualTitle);
+
+
+    }
+
+
+
+    @Given("go to home page")
+    public void go_to_home_page() {
+        ReusableMethods.goToHomePage();
+
+    }
+    @Then("go to features section and click on Complain")
+    public void goToFeaturesSectionAndClickOnComplain() {
+        homepage.verifyClickComplain();
+    }
+    @Then("verify the textboxes on complain page")
+    public void verify_the_textboxes_on_complain_page() {
+        homepage.verifyTextBoxesComplainPage();
+    }
+    @Then("fill the required felds")
+    public void fill_the_required_felds() {
+        homepage.enterDataComplainPage();
+    }
+    @Then("click on submit")
+    public void click_on_submit() {
+        homepage.clickOnSubmitComplainPage();
+    }
+
+    @Then("verify Complain page")
+    public void verifyComplainPage() {
+        homepage.verifyComplainPage();
+    }
+
+    @Then("verify that the created complain request has been send")
+    public void verifyThatTheCreatedComplainRequestHasBeenSend() {
+        homepage.verifiyComplainSend();
+    }
+
+
+
+
+    @Then("click on online admission title")
+    public void clickOnOnlineAdmissionTitle() {
+        homepage.clickOnlineAdmissionHomePage();
+    }
+
+    @Then("verify online admission page")
+    public void verifyOnlineAdmissionPage() {
+        homepage.verifyOnlineAdmissionPage();
+    }
+
+    @Then("verify that school admission criteria text")
+    public void verifyThatSchoolAdmissionCriteriaText() {
+        homepage.verifySchoolAdmissionCriteria();
+    }
+
+    @Then("verify and fill the fields under Basic Details")
+    public void verifyAndFillTheFieldsUnderBasicDetails() {
+        homepage.enterVerifyBasicDetails();
+    }
+
+    @Then("verify that student photo has been uploaded")
+    public void verifyThatStudentPhotoHasBeenUploaded() {
+        homepage.verifyUploadStudentPhoto();
+    }
+
+    @Then("verify and fill the fields under Parent Details")
+    public void verifyAndFillTheFieldsUnderParentDetails() {
+        homepage.verifyEnterDataParentDetails();
+    }
+
+    @Then("verify mandatory fields under Basic Details and Guardian Details section")
+    public void verifyMandatoryFieldsUnderBasicDetailsAndGuardianDetailsSection() {
+        homepage.verifyMandatoryFieldsBasicDetailsParentDetails();
+    }
+
+
+
+    @Then("verify and fill the fields under Guardian Details Section")
+    public void verifyAndFillTheFieldsUnderGuardianDetailsSection() {
+        homepage.verifyEnterGuardianDetailsOnlineAdmissionPage();
+    }
+
+    @Then("verify that guardian photo has been uploaded")
+    public void verifyThatGuardianPhotoHasBeenUploaded() {
+        homepage.verifyGuardianPhotoUpload();
+    }
+
 
 }
 

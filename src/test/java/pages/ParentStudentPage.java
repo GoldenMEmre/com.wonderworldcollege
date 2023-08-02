@@ -188,8 +188,37 @@ public class ParentStudentPage extends Base{
     @FindBy(xpath = "(//button[@type='submit'])[2]")
     public  WebElement EditSaveButton;
 
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*MEMRE LOCATES-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
+    //HomePage/User Login Page
+    @FindBy(xpath = "//*[text()='User Login']")
+    public WebElement userLoginText;
 
+    @FindBy(xpath = "//div[@class='messages']")
+    public WebElement userLoginMessages;
+
+    @FindBy(xpath = "//input[@name='username']")
+    public WebElement usernameTextBoxElement;
+
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement passwordTextBoxElement;
+
+    @FindBy(xpath = "//div[@class='col-lg-3 col-md-3 col-sm-3']")
+    public WebElement noImageStudentPanel;
+
+    @FindBy(xpath = "//div[text()='Invalid Username Or Password']")
+    public WebElement invalidCredentialsTextElement;
+
+    @FindBy (xpath = "//a[@class='forgot']")
+    public WebElement userLoginForgotPasswordLinkElement;
+
+    @FindBy(xpath = "//*[@class='fa fa-empire']")
+    public WebElement userLoginFrontSiteLinkElement;
+    //a[@href = 'https://qa.wonderworldcollege.com/']
+    //*[@class='forgot pull-right']
+
+    @FindBy(xpath = "//a[@class='btn btn-lg btn-admin']")
+    public WebElement adminLoginButton;
 
 
 
