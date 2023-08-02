@@ -264,10 +264,7 @@ public class HomepageStepdefinition {
         String actualTitle= Driver.getDriver().getTitle();
         Assert.assertEquals(expectedTitle,actualTitle);
 
-
     }
-
-
 
     @Given("go to home page")
     public void go_to_home_page() {
@@ -300,9 +297,6 @@ public class HomepageStepdefinition {
     public void verifyThatTheCreatedComplainRequestHasBeenSend() {
         homepage.verifiyComplainSend();
     }
-
-
-
 
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
@@ -352,6 +346,20 @@ public class HomepageStepdefinition {
     }
 
 
+    @Then("verify RadioBoxes under Guardian Details Section")
+    public void verifyRadioBoxesUnderGuardianDetailsSection() {
+        homepage.verifyRadioBoxesGuardianDetails();
+    }
+
+    @Then("verify and fill the fields under Miscellaneous Details")
+    public void verifyAndFillTheFieldsUnderMiscellaneousDetails() {
+        homepage.miscellaneousDetailsVerifyEnter();
+    }
+
+    @Then("upload a document on Upload Document Section and verify that")
+    public void uploadADocumentOnUploadDocumentSectionAndVerifyThat() {
+        homepage.uploadVerifyDocumentOnlineAdmissionPage();
+    }
 }
 
 
