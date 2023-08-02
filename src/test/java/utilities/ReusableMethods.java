@@ -19,6 +19,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
+import static utilities.Driver.driver;
+
 public class ReusableMethods {
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
@@ -151,6 +153,21 @@ public class ReusableMethods {
 
         Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
     }
+
+    // goes to home page
+    public static void goToHomePage(){
+        Driver.getDriver().get(ConfigReader.getProperty("userurl"));
+    }
+
+       //Alert
+
+    public static void switchToAlert(WebDriver driver) {
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
+
+
 
 
 }
