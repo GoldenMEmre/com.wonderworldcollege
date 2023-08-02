@@ -29,7 +29,7 @@ public class HomepageStepdefinition {
     @Then("user verifies that the exam result page is opened")
     public void verifiesThatTheExamResultPageIsOpened() {
       
-        homepage.examResultText.isDisplayed();
+        Assert.assertTrue(homepage.examResultText.isDisplayed());
     }
     @And("User enters admission number")
     public void enterAdmissionNumber() {
@@ -49,7 +49,9 @@ public class HomepageStepdefinition {
 
     @And("user verifies that result text appears")
     public void examResultPageResultText() {
-        homepage.examResultPageResultText.isDisplayed();
+
+        Assert.assertTrue(homepage.examResultPageResultText.isDisplayed());
+
 
     }
 
@@ -265,6 +267,7 @@ public class HomepageStepdefinition {
         String expectedTitle="Home";
         String actualTitle= Driver.getDriver().getTitle();
         Assert.assertEquals(expectedTitle,actualTitle);
+
     }
     @And("Click Forgot Password Link")
     public void clickForgotPasswordLink() {
@@ -295,6 +298,10 @@ public class HomepageStepdefinition {
     homepage.userLoginFrontSiteLink.click();
     }
     //*************************************************************************************************
+
+
+
+    }
 
 
     @Given("go to home page")
@@ -328,9 +335,6 @@ public class HomepageStepdefinition {
     public void verifyThatTheCreatedComplainRequestHasBeenSend() {
         homepage.verifiyComplainSend();
     }
-
-
-
 
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
@@ -380,6 +384,23 @@ public class HomepageStepdefinition {
     }
 
 
+
+
+
+    @Then("verify RadioBoxes under Guardian Details Section")
+    public void verifyRadioBoxesUnderGuardianDetailsSection() {
+        homepage.verifyRadioBoxesGuardianDetails();
+    }
+
+    @Then("verify and fill the fields under Miscellaneous Details")
+    public void verifyAndFillTheFieldsUnderMiscellaneousDetails() {
+        homepage.miscellaneousDetailsVerifyEnter();
+    }
+
+    @Then("upload a document on Upload Document Section and verify that")
+    public void uploadADocumentOnUploadDocumentSectionAndVerifyThat() {
+        homepage.uploadVerifyDocumentOnlineAdmissionPage();
+    }
 
 }
 

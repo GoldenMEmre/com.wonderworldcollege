@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 import org.openqa.selenium.By;
@@ -147,7 +148,14 @@ public class AdminStepdefinition {
         Driver.closeDriver();
     }
 
+
     //************************************** Gulten Harrelson********************
+
+
+
+
+
+
 
 
     @Given("Click on the Collect Fees button")
@@ -233,6 +241,7 @@ public class AdminStepdefinition {
     }
 
 
+
     //************************************EMRE ADMIN STEP DEFINITIONS********************************
 
     @And("Click the Admin Login Button")
@@ -258,6 +267,59 @@ public class AdminStepdefinition {
         Assert.assertTrue(adminPage.adminLoginText.isDisplayed());
     }
 
+    @Given("Login to dashboard with admin name and admin password as admin")
+    public void login_to_dashboard_with_admin_name_and_admin_password_as_admin() {
+        Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
+        adminPage.adminLoginButton.sendKeys(ConfigReader.getProperty("adminMelike"));
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        adminPage.adminLoginButton.click();
+    }
+
+    @Then("Click the Chat page")
+    public void click_the_chat_page() {
+        adminPage.adminLoginButton.click();
+    }
+
+    @When("click on a chat from the left bar")
+    public void click_on_a_chat_from_the_left_bar() {
+        adminPage.adminDashboardChatButton.click();
+
+    }
+
+    @Then("The message page is displayed on the right side")
+    public void the_message_page_is_displayed_on_the_right_side() {
+        Assert.assertTrue(adminPage.adminDashboardChatPage.isDisplayed());
+
+    }
+
+    @Then("The TextBox is visible")
+    public void the_text_box_is_visible() {
+        Assert.assertTrue(adminPage.adminDasbhoardChatPageMessageTextBox.isDisplayed());
+
+
+    }
+
+    @When("Type a message in the TextBox")
+    public void type_a_message_in_the_text_box() {
+        adminPage.adminDasbhoardChatPageMessageTextBox.sendKeys("Hello, this is a test message.");
+
+
+
+
+    }
+
+    @Then("The send icon becomes active")
+    public void the_send_icon_becomes_active() {
+        Assert.assertTrue(adminPage.adminDashboardMessageTextBoxSendButton.isDisplayed());
+
+
+    }
+
+    @Then("Click on the send icon")
+    public void click_on_the_send_icon() {
+        adminPage.adminDashboardMessageTextBoxSendButton.click();
+
+
     @And("Verify that Forgot Password Link is active")
     public void verifyThatForgotPasswordLinkIsActive() {
         Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
@@ -265,6 +327,13 @@ public class AdminStepdefinition {
     //*************************************************************************************************
 }
 
+    @Then("The message is sent successfully")
+    public void the_message_is_sent_successfully() {
+        Assert.assertTrue(adminPage.getAdminDashboardSentMessageText.isDisplayed());
+
+
+    }
+}
 
 
 

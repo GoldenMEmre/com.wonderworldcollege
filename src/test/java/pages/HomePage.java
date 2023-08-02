@@ -3,6 +3,7 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -10,7 +11,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class HomePage extends Base {
-
+    Actions actions = new Actions(Driver.getDriver());
     //Homepage>ExamResultButton
     @FindBy(xpath =" a[normalize-space()='Exam Result']")
     public WebElement examResultButton;
@@ -271,10 +272,35 @@ public class HomePage extends Base {
     private WebElement guardianAdressOnlineAdmissionPage;
 
     // Remove button on Guardian Photo
-    @FindBy(xpath = "(//button[@class='dropify-clear'])[1]")
+    @FindBy(xpath = "(//button[@type='button'])[10]")
     private WebElement verifyGuardianPhotoUploaded;
 
+    //Online Admission title
+    @FindBy(xpath = "(//*[text()='Online Admission'])[2]")
+    private WebElement onlineAdmissionTitle;
 
+    //Guardian Details Radio Box Father
+    @FindBy(xpath = "//div/div/div/label[2]/input")
+    private WebElement fatherRadioBoxGuardianDetails;
+    //Guardian Details Radio Box Mother
+    @FindBy(xpath = "//div/div/div/label[3]/input")
+    private WebElement motherRadioBoxGuardianDetails;
+    //Guardian Details Radio Box Other
+    @FindBy(xpath = "//div/div/div/label[4]/input")
+    private WebElement otherRadioBoxGuardianDetails;
+
+    //Miscellaneous Details Section National Identification Number TextBox
+    @FindBy(xpath = "//input[@id='adhar_no']")
+    private WebElement nationalINMiscellaneousDetails;
+    //Miscellaneous Details Section Previous School Details TextBox
+    @FindBy(xpath = "(//textarea[@class='form-control'])[2]")
+    private WebElement previousSchoolDetailsMiscellaneousDetails;
+    //Upload Dokument Online Admission Page
+    @FindBy(xpath = "//input[@id='document']")
+    private WebElement uploadDocumentOnlineAdmissionPage;
+    //Uplaod Document Remove Button
+    @FindBy(xpath = "(//button[@type='button'])[11]")
+    private WebElement uploadDocumentRemoveButton;
 
     //------------------------------ Ogun Methods -------------------------------
 
@@ -348,7 +374,7 @@ public class HomePage extends Base {
     //Verifies Class, First Name, Last Name, Gender, Date of Birth,
     //Mobile number, Email and Student Photo Webelements and fills these fields
     public void enterVerifyBasicDetails(){
-        Assert.assertTrue(homepageComplain.isDisplayed()); //negatif test
+
         Assert.assertTrue(onlineAdmissionPageClassDropDown.isDisplayed());
         Assert.assertTrue(onlineAdmissionPageClassDropDown.isEnabled());
         Assert.assertTrue(onlineAdmissionPageFirstnameTextBox.isDisplayed());
@@ -363,8 +389,6 @@ public class HomePage extends Base {
         Assert.assertTrue(onlineAdmissionPageMobileNumber.isEnabled());
         Assert.assertTrue(onlineAdmissionPageEmail.isDisplayed());
         Assert.assertTrue(onlineAdmissionPageEmail.isEnabled());
-        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isDisplayed());
-        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isEnabled());
 
         Select select = new Select(onlineAdmissionPageClassDropDown);
         select.selectByIndex(1);
@@ -383,7 +407,7 @@ public class HomePage extends Base {
         //actions.click(dayDateOfBirth).perform();
         onlineAdmissionPageMobileNumber.sendKeys("0123 456 78 90");
         onlineAdmissionPageEmail.sendKeys("muster.mustermann@gmail.com");
-       // onlineAdmissionPageStudentPhoto.click();
+
         String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\com.wonderworldcollege" +
                 "\\src\\test\\java\\.jpg\\4432b9bcacc2ed45b9bef8d8475a6030.jpg";
         onlineAdmissionPageStudentPhoto.sendKeys(dosyaYolu);
@@ -395,12 +419,29 @@ public class HomePage extends Base {
 
     //Verifies required Fields on Online Admission Page under Basic Details Section
     public void verifyMandatoryFieldsBasicDetailsParentDetails(){
+
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),guardianAdressOnlineAdmissionPage);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         onlineAdmissionPageSubmitButton.click();
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),onlineAdmissionTitle);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(requiredFieldAlertClass.isDisplayed());
         Assert.assertTrue(requiredFieldAlertFirstName.isDisplayed());
         Assert.assertTrue(requiredFieldAlertGender.isDisplayed());
         Assert.assertTrue(requiredFieldAlertDateOfBirth.isDisplayed());
         Assert.assertTrue(requiredFieldAlertEmail.isDisplayed());
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),fatherNameParentDetail);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         Assert.assertTrue(requiredFieldAlertGuardian.isDisplayed());
         Assert.assertTrue(requiredFieldAlertGuardianName.isDisplayed());
         Assert.assertTrue(requiredFieldAlertGuardianRelation.isDisplayed());
@@ -418,6 +459,11 @@ public class HomePage extends Base {
     }
     //Verifies and Enters data of WebElements on Guardian Details Section
     public void verifyEnterGuardianDetailsOnlineAdmissionPage(){
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),motherNameParentDetail);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(guardianNameOnlineAdmissionPage.isDisplayed());
         Assert.assertTrue(guardianNameOnlineAdmissionPage.isEnabled());
         Assert.assertTrue(guardianRelationOnlineAdmissionPage.isDisplayed());
@@ -430,9 +476,8 @@ public class HomePage extends Base {
         Assert.assertTrue(guardianOccupationOnlineAdmissionPage.isEnabled());
         Assert.assertTrue(guardianAdressOnlineAdmissionPage.isDisplayed());
         Assert.assertTrue(guardianAdressOnlineAdmissionPage.isEnabled());
-        Assert.assertTrue(guardianPhotoOnlineAdmissionPage.isDisplayed());
-        Assert.assertTrue(guardianPhotoOnlineAdmissionPage.isEnabled());
 
+        otherRadioBoxGuardianDetails.click();
         guardianNameOnlineAdmissionPage.sendKeys("Tarik Erdogan");
         guardianRelationOnlineAdmissionPage.sendKeys("Brother");
         guardianEmailOnlineAdmissionPage.sendKeys("muster.mustermann2@hotmail.com");
@@ -442,11 +487,13 @@ public class HomePage extends Base {
         String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\" +
                 "com.wonderworldcollege\\src\\test\\java\\.jpg\\IMG_20211022_124748.jpg";
         guardianPhotoOnlineAdmissionPage.sendKeys(dosyaYolu);
+        ReusableMethods.bekle(5);
     }
     //Verify that Guardian Photo has been uploaded
     public void verifyGuardianPhotoUpload(){
+        actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
-    }
+
 
     //******************************EMRE HOME PAGE LOCATES*****************************************
     @FindBy(xpath = "//*[@class='forgot']")
@@ -466,5 +513,36 @@ public class HomePage extends Base {
 
     @FindBy(xpath = "//*[@class='forgot pull-right']")
     public WebElement userLoginFrontSiteLink;
+
+    }
+
+    // Verify Radio Boxes under Guardian Details
+    public void verifyRadioBoxesGuardianDetails(){
+
+        Assert.assertTrue(fatherRadioBoxGuardianDetails.isDisplayed());
+        Assert.assertTrue(fatherRadioBoxGuardianDetails.isEnabled());
+        Assert.assertTrue(motherRadioBoxGuardianDetails.isDisplayed());
+        Assert.assertTrue(motherRadioBoxGuardianDetails.isEnabled());
+        Assert.assertTrue(otherRadioBoxGuardianDetails.isDisplayed());
+        Assert.assertTrue(otherRadioBoxGuardianDetails.isEnabled());
+    }
+    //Verifies and fills Miscellaneous Details Section
+    public void miscellaneousDetailsVerifyEnter(){
+        Assert.assertTrue(nationalINMiscellaneousDetails.isDisplayed());
+        Assert.assertTrue(previousSchoolDetailsMiscellaneousDetails.isDisplayed());
+        Assert.assertTrue(nationalINMiscellaneousDetails.isEnabled());
+        Assert.assertTrue(previousSchoolDetailsMiscellaneousDetails.isEnabled());
+        nationalINMiscellaneousDetails.sendKeys("0123456789");
+        previousSchoolDetailsMiscellaneousDetails.sendKeys("Boston Collage");
+    }
+    //Uploads Document and verifies that the Document has been uploaded
+    public void uploadVerifyDocumentOnlineAdmissionPage(){
+        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\" +
+                "com.wonderworldcollege\\src\\test\\java\\.jpg\\Student.txt";
+        uploadDocumentOnlineAdmissionPage.sendKeys(dosyaYolu);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(uploadDocumentRemoveButton.isDisplayed());
+    }
+
 }
     //*******************************************************************************************
