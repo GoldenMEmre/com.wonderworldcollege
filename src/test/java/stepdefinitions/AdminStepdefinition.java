@@ -320,10 +320,12 @@ public class AdminStepdefinition {
         adminPage.adminDashboardMessageTextBoxSendButton.click();
 
 
+
     @And("Verify that Forgot Password Link is active")
     public void verifyThatForgotPasswordLinkIsActive() {
         Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
     }
+
 
 
     //*************************************************************************************************
@@ -336,7 +338,12 @@ public class AdminStepdefinition {
 
     }
 
+
 }
+
+    }
+
+
 
 
 

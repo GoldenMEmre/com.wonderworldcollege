@@ -402,6 +402,33 @@ public class HomepageStepdefinition {
         homepage.uploadVerifyDocumentOnlineAdmissionPage();
     }
 
+
+    @Then("click on Submit and verify Reference Number and Review entered Details and Status Page")
+    public void clickOnSubmitAndVerifyReferenceNumberAndReviewEnteredDetailsAndStatusPage() {
+        homepage.verifyREDaS_ReferenceNo();
+    }
+
+    @Then("verify form status and application Date")
+    public void verifyFormStatusAndApplicationDate() {
+        homepage.verifyFormStatusAndApplicationDate();
+    }
+
+    @Then("verifiy entered informations")
+    public void verifiyEnteredInformations() {
+        homepage.controlInformations();
+    }
+
+    @Then("verify and click on I agree to the terms and conditions checkbox")
+    public void verifyAndClickOnIAgreeToTheTermsAndConditionsCheckbox() {
+        homepage.checkBoxVerifyEnter();
+    }
+
+    @Then("click on submit and verify form status and success alert")
+    public void clickOnSubmitAndVerifyFormStatusAndSuccessAlert() {
+        homepage.submitVerifyFormStatusAndAlert();
+    }
+
+
 }
 
 
