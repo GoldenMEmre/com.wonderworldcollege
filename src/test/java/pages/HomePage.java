@@ -348,6 +348,7 @@ public class HomePage extends Base {
 
     private String eMail = "muster.mustermann11@gmail.com";
     //**************************************************
+
     //What People Says title on homepage
     @FindBy(xpath = "//*[text()='WHAT PEOPLE SAYS']")
     private WebElement whatPeopleSaysTitleHomePage;
