@@ -7,7 +7,11 @@ public class AdminPage extends Base {
 
 
 
-    // Admin fees collection section
+    // Admin fees collection section **************Gulten Harrelson***********************
+
+
+
+
     @FindBy(xpath = "//a[@class='btn btn-lg btn-admin']")
     public WebElement adminLoginButton;
     @FindBy(xpath ="//input[@placeholder='Username']")
@@ -64,6 +68,7 @@ public class AdminPage extends Base {
     public  WebElement editButton;
    @FindBy(xpath="(//i[@class='fa fa-remove'])[1]")
     public WebElement deleteButton;
+    // Admin fees collection section **************Gulten Harrelson***********************
 
 
 
@@ -109,6 +114,47 @@ public class AdminPage extends Base {
     // Admin Fees Collection > Collect Fees >Student Collect fees >Student Fees >Add Fees Butonu > Student Fees Lıst
      @FindBy(xpath = "//*[text()='Student Fees']")
     public  WebElement StudentFeesLıstWrite;
+
+    //***********************************EMRE ADMINPAGE LOCATES***************************************
+    //Admin Login Panel
+    @FindBy(xpath = "//*[@class='messages']")
+    public WebElement adminPanelMessageBoard;
+
+    @FindBy(xpath = "//*[@class='forgot']")
+    public WebElement adminPanelForgotPasswordElement;
+
+    @FindBy(xpath = "//*[@class='loginright mCustomScrollbar _mCS_1']")
+    public WebElement adminUserPanelMessagePanel;
+
+    @FindBy(xpath = "//*[text()='Admin Login']")
+    public WebElement adminLoginText;
+
+    @FindBy(xpath = "//*[@class='forgot']")
+    public WebElement adminPasswordForgotLink;
+    //************************************************************************************************
+
+    //--------------------------
+
+    //Admin dashboard/chat section
+
+    @FindBy(xpath = "//a[@class='todoicon']")
+    public WebElement adminDashboardChatButton;
+
+    @FindBy(xpath="//div[@class='messages']")
+    public WebElement adminDashboardChatPage;
+
+    @FindBy (xpath ="//input[@placeholder='Write Your Message...']")
+    public WebElement adminDasbhoardChatPageMessageTextBox;
+
+    @FindBy(xpath = "//i[@class='fa fa-paper-plane']")
+    public WebElement adminDashboardMessageTextBoxSendButton;
+
+    @FindBy(xpath = "//p[normalize-space()='Hello, this is a test message.']")
+    public WebElement getAdminDashboardSentMessageText;
+
+
+
+
 
 
 

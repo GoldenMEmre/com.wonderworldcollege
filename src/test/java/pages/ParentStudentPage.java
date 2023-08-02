@@ -212,6 +212,11 @@ public class ParentStudentPage extends Base{
     @FindBy (xpath = "//a[@class='forgot']")
     public WebElement userLoginForgotPasswordLinkElement;
 
+    @FindBy(xpath = "//*[@class='fa fa-empire']")
+    public WebElement userLoginFrontSiteLinkElement;
+    //a[@href = 'https://qa.wonderworldcollege.com/']
+    //*[@class='forgot pull-right']
+
 
 
 

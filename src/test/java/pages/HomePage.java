@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -120,7 +121,7 @@ public class HomePage extends Base {
   
     // **********************************************************//
   
-  // Homepage>SliderImg
+  // Homepage>SliderImg Gulten Harrelson**************************
   @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/top-banner2-2.jpg']")
   public  WebElement diverseImg;
     @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner3-3.jpg']")
@@ -131,7 +132,7 @@ public class HomePage extends Base {
     public  WebElement nurturingImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
-    @FindBy(xpath="right carousel-control")
+    @FindBy(xpath = "(//*[@class='fa fa-angle-left'])[1]")
      public  WebElement sliderPanel;
 
 
@@ -462,15 +463,15 @@ public class HomePage extends Base {
         onlineAdmissionPageLastNameTextBox.sendKeys("Lenk");
         Select select1 = new Select(onlineAdmissionPageGenderDropDown);
         select1.selectByIndex(1);
-        actions.click(onlineAdmissionPageDateOfBirth).perform();
-        actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.click(mounthDateOfBirth).perform();
-        actions.click(dayDateOfBirth).perform();
+       // actions.click(onlineAdmissionPageDateOfBirth).perform();
+        //actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.click(mounthDateOfBirth).perform();
+        //actions.click(dayDateOfBirth).perform();
         onlineAdmissionPageMobileNumber.sendKeys("0123 456 78 90");
 
         onlineAdmissionPageEmail.sendKeys(eMail);
@@ -557,11 +558,31 @@ public class HomePage extends Base {
         ReusableMethods.bekle(5);
     }
     //Verify that Guardian Photo has been uploaded
-    public void verifyGuardianPhotoUpload(){
+    public void verifyGuardianPhotoUpload() {
         actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
-
     }
+
+    //******************************EMRE HOME PAGE LOCATES*****************************************
+    @FindBy(xpath = "//*[@class='forgot']")
+    public WebElement userLoginForgotPasswordLink;
+
+    @FindBy(xpath = "//*[@name='username']")
+    public WebElement userLoginForgotPasswordEmailTextBox;
+
+    @FindBy(xpath = "(//*[@type='radio'])[1]")
+    public WebElement userLoginForgotPasswordStudentRadioButton;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    public WebElement UserLoginForgotPasswordSubmitButton;
+
+    @FindBy(xpath = "//*[text()='Invalid Email Or User Type']")
+    public WebElement userLoginForgotPasswordInvalidCredentialsText;
+
+    @FindBy(xpath = "//*[@class='forgot pull-right']")
+    public WebElement userLoginFrontSiteLink;
+
+
 
     // Verify Radio Boxes under Guardian Details
     public void verifyRadioBoxesGuardianDetails(){
@@ -592,6 +613,7 @@ public class HomePage extends Base {
         ReusableMethods.bekle(1);
         Assert.assertTrue(uploadDocumentRemoveButton.isDisplayed());
     }
+
     //Verifes Review Entered Details and Status Page and Student Reference No
     public void verifyREDaS_ReferenceNo(){
         onlineAdmissionPageSubmitButton.click();
@@ -627,6 +649,7 @@ public class HomePage extends Base {
         Assert.assertTrue(successfulAlertAfterSubmitREDaS.isDisplayed());
         Assert.assertTrue(submittedFormStatusREDaS.isDisplayed());
     }
+
     //Verifies What People Says Section
     public void whatPeopleSaysSectionVerify(){
         try {
@@ -666,4 +689,6 @@ public class HomePage extends Base {
             }
         }
     }
+
 }
+    //*******************************************************************************************

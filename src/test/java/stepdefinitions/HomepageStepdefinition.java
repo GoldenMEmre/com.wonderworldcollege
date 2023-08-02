@@ -29,7 +29,7 @@ public class HomepageStepdefinition {
     @Then("user verifies that the exam result page is opened")
     public void verifiesThatTheExamResultPageIsOpened() {
       
-        homepage.examResultText.isDisplayed();
+        Assert.assertTrue(homepage.examResultText.isDisplayed());
     }
     @And("User enters admission number")
     public void enterAdmissionNumber() {
@@ -49,7 +49,9 @@ public class HomepageStepdefinition {
 
     @And("user verifies that result text appears")
     public void examResultPageResultText() {
-        homepage.examResultPageResultText.isDisplayed();
+
+        Assert.assertTrue(homepage.examResultPageResultText.isDisplayed());
+
 
     }
 
@@ -189,11 +191,7 @@ public class HomepageStepdefinition {
     }
 
 
-    //@Given("Close the page")
-    //public void close_the_page() {
-
-      //  Driver.closeDriver();
-    //}
+   //**********************************************************************//
 
     @Given("User go to Url")
     public void user_go_to_Url (String Url) {
@@ -205,17 +203,23 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.preparingImg.isDisplayed()||
                 homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed()||
                 homepage.studentsImg.isDisplayed()||homepage.nurturingImg.isDisplayed());
+        ReusableMethods.bekle(6);
 
     }
-    @Then("wait {int} seconds")
-    public void wait_seconds() {
-        ReusableMethods.bekle(5);
+    @Given("Verify that the images in the slider panel can be manually changed")
+    public void verify_that_the_images_in_the_slider_panel_can_be_manually_changed() {
+        homepage.sliderPanel.click();
+        ReusableMethods.bekle(4);
+        homepage.sliderPanel.click();
+        ReusableMethods.bekle(4);
+
 
     }
     @Then("user close the browser")
     public void user_close_the_browser() {
         Driver.closeDriver();
     }
+    // **********************************************************************************//
 
     @Then("The homepage was reached on the website")
     public void the_homepage_was_reached_on_the_website() throws InterruptedException {
@@ -241,6 +245,8 @@ public class HomepageStepdefinition {
 
          Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     }
+
+    //*********************************EMRE HOME PAGE STEP DEFINITIONS************************
     @Then("Verify that Login Button is visible")
     public void verify_that_login_button_is_visible() {
 
@@ -263,6 +269,36 @@ public class HomepageStepdefinition {
         Assert.assertEquals(expectedTitle,actualTitle);
 
     }
+    @And("Click Forgot Password Link")
+    public void clickForgotPasswordLink() {
+        homepage.userLoginForgotPasswordLink.click();
+    }
+    @And("Verify Forgot Password Link")
+    public void verifyForgotPasswordLink() {
+        Assert.assertTrue(homepage.userLoginForgotPasswordLink.isDisplayed());
+    }
+    @And("Enter Email Adress")
+    public void enterEmailAdress() {
+        homepage.userLoginForgotPasswordEmailTextBox.sendKeys(ConfigReader.getProperty("userloginemail"));
+    }
+    @And("Select Student Panel")
+    public void selectStudentPanel() {
+        homepage.userLoginForgotPasswordStudentRadioButton.click();
+    }
+    @And("Click Submit Button")
+    public void clickSubmitButton() {
+        homepage.UserLoginForgotPasswordSubmitButton.click();
+    }
+    @And("Verify that password reset email is sent")
+    public void verifyThatPasswordResetEmailIsSent() {
+        Assert.assertTrue(homepage.userLoginForgotPasswordInvalidCredentialsText.isDisplayed());
+    }
+    @And("Click the Front Site Link")
+    public void clickTheFrontSiteLink() {
+    homepage.userLoginFrontSiteLink.click();
+    }
+    //*************************************************************************************************
+
 
     @Given("go to home page")
     public void go_to_home_page() {
@@ -344,6 +380,9 @@ public class HomepageStepdefinition {
     }
 
 
+
+
+
     @Then("verify RadioBoxes under Guardian Details Section")
     public void verifyRadioBoxesUnderGuardianDetailsSection() {
         homepage.verifyRadioBoxesGuardianDetails();
@@ -358,6 +397,7 @@ public class HomepageStepdefinition {
     public void uploadADocumentOnUploadDocumentSectionAndVerifyThat() {
         homepage.uploadVerifyDocumentOnlineAdmissionPage();
     }
+
 
     @Then("click on Submit and verify Reference Number and Review entered Details and Status Page")
     public void clickOnSubmitAndVerifyReferenceNumberAndReviewEnteredDetailsAndStatusPage() {
@@ -383,6 +423,8 @@ public class HomepageStepdefinition {
     public void clickOnSubmitAndVerifyFormStatusAndSuccessAlert() {
         homepage.submitVerifyFormStatusAndAlert();
     }
+
+
 }
 
 
