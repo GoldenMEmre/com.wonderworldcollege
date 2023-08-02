@@ -420,6 +420,15 @@ public class HomepageStepdefinition {
     }
 
 
+    @Then("verify What people says section")
+    public void verifyWhatPeopleSaysSection() {
+        homepage.whatPeopleSaysSectionVerify();
+    }
+
+    @Then("verify that the comments are from different individuals")
+    public void verifyThatTheCommentsAreFromDifferentIndividuals() {
+        homepage.whatPeopleSaysCommentsVerification();
+    }
 }
 
 
