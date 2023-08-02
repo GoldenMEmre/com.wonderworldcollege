@@ -24,6 +24,10 @@ public class AdminStepdefinition {
 
     AdminPage adminPage = new AdminPage();
 
+
+  //************************************** Gulten Harrelson********************
+
+
     @Given("click admin login")
     public void click_admin_login() {
         adminPage.adminLoginButton.click();
@@ -144,6 +148,13 @@ public class AdminStepdefinition {
         Driver.closeDriver();
     }
 
+
+    //************************************** Gulten Harrelson********************
+
+
+
+
+
     @Given("Click on the Collect Fees button")
     public void click_on_the_collect_fees_button() {
         ReusableMethods.bekle(2);
@@ -226,6 +237,7 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(2);
     }
 
+
     @Given("Login to dashboard with admin name and admin password as admin")
     public void login_to_dashboard_with_admin_name_and_admin_password_as_admin() {
         Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
@@ -263,6 +275,8 @@ public class AdminStepdefinition {
         adminPage.adminDasbhoardChatPageMessageTextBox.sendKeys("Hello, this is a test message.");
 
 
+
+
     }
 
     @Then("The send icon becomes active")
@@ -285,6 +299,7 @@ public class AdminStepdefinition {
 
     }
 }
+
 
 
 

@@ -6,3 +6,10 @@ Feature: US_18 As an administrator (admin),I want to be able to log in to the ad
     And Verify that the title of the Admin Panel is displayed
     And Close the page.
 
+  Scenario:
+    
+    Given Go to "loginurl"
+    Then Verify that the title of the Admin Panel is displayed
+    And Click the Admin Login Button
+
+
