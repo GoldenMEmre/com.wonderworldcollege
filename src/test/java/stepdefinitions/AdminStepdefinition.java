@@ -4,6 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import org.openqa.selenium.By;
+
+
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
@@ -11,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.support.ui.Select;
+
 import pages.AdminPage;
 import pages.Base;
 import utilities.ConfigReader;
@@ -47,7 +51,13 @@ public class AdminStepdefinition {
 
     @Given("click sign in button")
     public void click_sign_in_button() {
+
+        ReusableMethods.waitForVisibility(adminPage.signInButton,1);
         adminPage.signInButton.click();
+
+
+        adminPage.signInButton.click();
+
     }
 
     @Given("Click fees collection")
@@ -165,6 +175,20 @@ public class AdminStepdefinition {
         Assert.assertTrue(feesPageElement.isDisplayed());
     }
 
+
+
+
+    @And("User logs as an admin")
+    public void userLogsAsAnAdmin() {
+
+        adminPage.adminLoginButton.click();
+        ReusableMethods.bekle(5);
+//        ReusableMethods.waitForVisibility(adminPage.adminUser,2);
+//        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+//        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+//
+//        adminPage.signInButton.click();
+
     @Given("Choose class button")
     public void choose_class_button() {
         WebElement dropdownMenuSelect = Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
@@ -173,7 +197,9 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(2);
         select.selectByVisibleText("Class 2");
         ReusableMethods.bekle(1);
+
     }
+}
 
     @Given("Choose section button")
     public void choose_section_button() {

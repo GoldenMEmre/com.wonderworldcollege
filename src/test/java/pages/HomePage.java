@@ -136,6 +136,27 @@ public class HomePage extends Base {
      public  WebElement sliderPanel;
 
 
+    @FindBy(xpath = "(//a[text()='Gallery'])[1]")
+    public WebElement galleryPage;
+    //// li[@class='active ']//a[normalize-space()='Gallery']
+
+    @FindBy(xpath = "//*[@id='postList']/div[1]/div[1]/div/a/div")
+    public WebElement artAndMusic;
+
+    @FindBy(xpath = "//*[@id='postList']/div[1]/div[2]/div/a/div")
+    public WebElement campus;
+
+    @FindBy(xpath = "//*[@id='postList']/div[1]/div[3]/div/a/div")
+    public WebElement activities;
+
+    @FindBy(xpath = "//*[@id='postList']/div[2]/div[1]/div/a/div")
+    public WebElement prePrimary;
+
+    @FindBy(xpath = "//*[@id='postList']/div[2]/div[2]/div/a/div")
+    public WebElement classrooms;
+
+    @FindBy(xpath = "//*[@id=\"postList\"]/div[2]/div[3]/div/a/div")
+    public WebElement sports;
 
 
     //--------------------------- Ogun Locates ----------------------------------------
