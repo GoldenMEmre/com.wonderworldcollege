@@ -12,6 +12,9 @@ Feature: As a user I want an Online Admission page on the homepage so that I can
     Then verify and fill the fields under Parent Details
     Then verify and fill the fields under Guardian Details Section
     Then verify that guardian photo has been uploaded
+    Then verify RadioBoxes under Guardian Details Section
+    Then verify and fill the fields under Miscellaneous Details
+    Then upload a document on Upload Document Section and verify that
 
 
 
