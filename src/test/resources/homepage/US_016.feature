@@ -33,12 +33,21 @@ Feature: US_016 As a user (student/parent), I want to have access to the login p
     Given user goes to url
     Then Click the Login Button
     And Verify Forgot Password Link
+    And Click Forgot Password Link
+    And Enter Email Adress
+    And Select Student Panel
+    And Click Submit Button
+    And Verify that password reset email is sent
+    And Close the page.
 
   Scenario: TC_04 Back to Front Site Test
 
     Given user goes to url
     Then Click the Login Button
     And Verify the Front Site Link
+    And Click the Front Site Link
+    And Close the page.
+
 
 
 

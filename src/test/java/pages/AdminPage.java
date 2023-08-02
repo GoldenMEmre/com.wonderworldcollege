@@ -115,6 +115,23 @@ public class AdminPage extends Base {
      @FindBy(xpath = "//*[text()='Student Fees']")
     public  WebElement StudentFeesLıstWrite;
 
+    //***********************************EMRE ADMINPAGE LOCATES***************************************
+    //Admin Login Panel
+    @FindBy(xpath = "//*[@class='messages']")
+    public WebElement adminPanelMessageBoard;
+
+    @FindBy(xpath = "//*[@class='forgot']")
+    public WebElement adminPanelForgotPasswordElement;
+
+    @FindBy(xpath = "//*[@class='loginright mCustomScrollbar _mCS_1']")
+    public WebElement adminUserPanelMessagePanel;
+
+    @FindBy(xpath = "//*[text()='Admin Login']")
+    public WebElement adminLoginText;
+
+    @FindBy(xpath = "//*[@class='forgot']")
+    public WebElement adminPasswordForgotLink;
+    //************************************************************************************************
 
 
 
