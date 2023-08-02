@@ -217,8 +217,6 @@ public class ParentStudentPage extends Base{
     //a[@href = 'https://qa.wonderworldcollege.com/']
     //*[@class='forgot pull-right']
 
-    @FindBy(xpath = "//a[@class='btn btn-lg btn-admin']")
-    public WebElement adminLoginButton;
 
 
 

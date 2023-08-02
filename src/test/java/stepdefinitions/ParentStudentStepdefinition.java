@@ -281,25 +281,12 @@ public class ParentStudentStepdefinition {
         Assert.assertTrue(parentStudentPage.userloginuserNameTextBoxElement.isEnabled());
     }
 
-
-
-    @Then("Verify Forgot Password Link")
-    public void verify_forgot_password_link() {
-        Assert.assertTrue(parentStudentPage.userLoginForgotPasswordLinkElement.isDisplayed());
-
-
-
-    }
-
     @And("Verify the Front Site Link")
     public void verifyTheFrontSiteLink() {
         Assert.assertTrue(parentStudentPage.userLoginFrontSiteLinkElement.isDisplayed());
 
     }
 
-    @And("Click the Admin Login Button")
-    public void clickTheAdminLoginButton() {
-        parentStudentPage.adminLoginButton.click();
-    }
+
 }
 

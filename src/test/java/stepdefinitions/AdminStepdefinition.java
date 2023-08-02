@@ -25,7 +25,7 @@ public class AdminStepdefinition {
     AdminPage adminPage = new AdminPage();
 
 
-  //************************************** Gulten Harrelson********************
+    //************************************** Gulten Harrelson********************
 
 
     @Given("click admin login")
@@ -155,6 +155,9 @@ public class AdminStepdefinition {
 
 
 
+
+
+
     @Given("Click on the Collect Fees button")
     public void click_on_the_collect_fees_button() {
         ReusableMethods.bekle(2);
@@ -238,6 +241,32 @@ public class AdminStepdefinition {
     }
 
 
+
+    //************************************EMRE ADMIN STEP DEFINITIONS********************************
+
+    @And("Click the Admin Login Button")
+    public void clickTheAdminLoginButton() {
+        adminPage.adminLoginButton.click();
+        ReusableMethods.bekle(3);
+    }
+    @And("Verify that message board is visible")
+    public void verifyThatMessageBoardIsVisible() {
+        Assert.assertTrue(adminPage.adminPanelMessageBoard.isDisplayed());
+    }
+    @And("Click the Forgot Password Link")
+    public void clickTheForgotPasswordLink() {
+        adminPage.adminPanelForgotPasswordElement.click();
+    }
+    @Then("Verify that Admin Login Panel is displayed")
+    public void verifyThatAdminLoginPanelIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginButton.isDisplayed());
+    }
+
+    @And("Verify that Admin Site Login Page is displayed")
+    public void verifyThatAdminSiteLoginPageIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginText.isDisplayed());
+    }
+
     @Given("Login to dashboard with admin name and admin password as admin")
     public void login_to_dashboard_with_admin_name_and_admin_password_as_admin() {
         Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
@@ -290,7 +319,13 @@ public class AdminStepdefinition {
     public void click_on_the_send_icon() {
         adminPage.adminDashboardMessageTextBoxSendButton.click();
 
+
+    @And("Verify that Forgot Password Link is active")
+    public void verifyThatForgotPasswordLinkIsActive() {
+        Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
     }
+    //*************************************************************************************************
+}
 
     @Then("The message is sent successfully")
     public void the_message_is_sent_successfully() {

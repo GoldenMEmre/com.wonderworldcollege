@@ -396,15 +396,15 @@ public class HomePage extends Base {
         onlineAdmissionPageLastNameTextBox.sendKeys("Lenk");
         Select select1 = new Select(onlineAdmissionPageGenderDropDown);
         select1.selectByIndex(1);
-        actions.click(onlineAdmissionPageDateOfBirth).perform();
-        actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.doubleClick(previousDateOfBirth).perform();
-        actions.click(mounthDateOfBirth).perform();
-        actions.click(dayDateOfBirth).perform();
+       // actions.click(onlineAdmissionPageDateOfBirth).perform();
+        //actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.doubleClick(previousDateOfBirth).perform();
+        //actions.click(mounthDateOfBirth).perform();
+        //actions.click(dayDateOfBirth).perform();
         onlineAdmissionPageMobileNumber.sendKeys("0123 456 78 90");
         onlineAdmissionPageEmail.sendKeys("muster.mustermann@gmail.com");
 
@@ -494,6 +494,26 @@ public class HomePage extends Base {
         actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
 
+
+    //******************************EMRE HOME PAGE LOCATES*****************************************
+    @FindBy(xpath = "//*[@class='forgot']")
+    public WebElement userLoginForgotPasswordLink;
+
+    @FindBy(xpath = "//*[@name='username']")
+    public WebElement userLoginForgotPasswordEmailTextBox;
+
+    @FindBy(xpath = "(//*[@type='radio'])[1]")
+    public WebElement userLoginForgotPasswordStudentRadioButton;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    public WebElement UserLoginForgotPasswordSubmitButton;
+
+    @FindBy(xpath = "//*[text()='Invalid Email Or User Type']")
+    public WebElement userLoginForgotPasswordInvalidCredentialsText;
+
+    @FindBy(xpath = "//*[@class='forgot pull-right']")
+    public WebElement userLoginFrontSiteLink;
+
     }
 
     // Verify Radio Boxes under Guardian Details
@@ -523,4 +543,6 @@ public class HomePage extends Base {
         ReusableMethods.bekle(2);
         Assert.assertTrue(uploadDocumentRemoveButton.isDisplayed());
     }
+
 }
+    //*******************************************************************************************

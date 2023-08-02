@@ -245,6 +245,8 @@ public class HomepageStepdefinition {
 
          Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     }
+
+    //*********************************EMRE HOME PAGE STEP DEFINITIONS************************
     @Then("Verify that Login Button is visible")
     public void verify_that_login_button_is_visible() {
 
@@ -267,6 +269,40 @@ public class HomepageStepdefinition {
         Assert.assertEquals(expectedTitle,actualTitle);
 
     }
+    @And("Click Forgot Password Link")
+    public void clickForgotPasswordLink() {
+        homepage.userLoginForgotPasswordLink.click();
+    }
+    @And("Verify Forgot Password Link")
+    public void verifyForgotPasswordLink() {
+        Assert.assertTrue(homepage.userLoginForgotPasswordLink.isDisplayed());
+    }
+    @And("Enter Email Adress")
+    public void enterEmailAdress() {
+        homepage.userLoginForgotPasswordEmailTextBox.sendKeys(ConfigReader.getProperty("userloginemail"));
+    }
+    @And("Select Student Panel")
+    public void selectStudentPanel() {
+        homepage.userLoginForgotPasswordStudentRadioButton.click();
+    }
+    @And("Click Submit Button")
+    public void clickSubmitButton() {
+        homepage.UserLoginForgotPasswordSubmitButton.click();
+    }
+    @And("Verify that password reset email is sent")
+    public void verifyThatPasswordResetEmailIsSent() {
+        Assert.assertTrue(homepage.userLoginForgotPasswordInvalidCredentialsText.isDisplayed());
+    }
+    @And("Click the Front Site Link")
+    public void clickTheFrontSiteLink() {
+    homepage.userLoginFrontSiteLink.click();
+    }
+    //*************************************************************************************************
+
+
+
+    }
+
 
     @Given("go to home page")
     public void go_to_home_page() {
@@ -348,6 +384,9 @@ public class HomepageStepdefinition {
     }
 
 
+
+
+
     @Then("verify RadioBoxes under Guardian Details Section")
     public void verifyRadioBoxesUnderGuardianDetailsSection() {
         homepage.verifyRadioBoxesGuardianDetails();
@@ -362,6 +401,7 @@ public class HomepageStepdefinition {
     public void uploadADocumentOnUploadDocumentSectionAndVerifyThat() {
         homepage.uploadVerifyDocumentOnlineAdmissionPage();
     }
+
 }
 
 
