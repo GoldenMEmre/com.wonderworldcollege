@@ -116,6 +116,30 @@ public class AdminPage extends Base {
     public  WebElement StudentFeesLıstWrite;
 
 
+    //--------------------------
+
+    //Admin dashboard/chat section
+
+    @FindBy(xpath = "//a[@class='todoicon']")
+    public WebElement adminDashboardChatButton;
+
+    @FindBy(xpath="//div[@class='messages']")
+    public WebElement adminDashboardChatPage;
+
+    @FindBy (xpath ="//input[@placeholder='Write Your Message...']")
+    public WebElement adminDasbhoardChatPageMessageTextBox;
+
+    @FindBy(xpath = "//i[@class='fa fa-paper-plane']")
+    public WebElement adminDashboardMessageTextBoxSendButton;
+
+    @FindBy(xpath = "//p[normalize-space()='Hello, this is a test message.']")
+    public WebElement getAdminDashboardSentMessageText;
+
+
+
+
+
+
 
 
 

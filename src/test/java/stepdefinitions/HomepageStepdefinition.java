@@ -29,7 +29,7 @@ public class HomepageStepdefinition {
     @Then("user verifies that the exam result page is opened")
     public void verifiesThatTheExamResultPageIsOpened() {
       
-        homepage.examResultText.isDisplayed();
+        Assert.assertTrue(homepage.examResultText.isDisplayed());
     }
     @And("User enters admission number")
     public void enterAdmissionNumber() {
@@ -49,7 +49,9 @@ public class HomepageStepdefinition {
 
     @And("user verifies that result text appears")
     public void examResultPageResultText() {
-        homepage.examResultPageResultText.isDisplayed();
+
+        Assert.assertTrue(homepage.examResultPageResultText.isDisplayed());
+
 
     }
 
