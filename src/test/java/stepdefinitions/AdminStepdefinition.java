@@ -1,6 +1,9 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import pages.AdminPage;
 import pages.Base;
 import utilities.ConfigReader;
@@ -32,6 +35,8 @@ public class AdminStepdefinition {
 
     @Given("click sign in button")
     public void click_sign_in_button() {
+        ReusableMethods.waitForVisibility(adminPage.signInButton,1);
+        adminPage.signInButton.click();
 
     }
 
@@ -46,7 +51,20 @@ public class AdminStepdefinition {
     }
 
 
+
+
+    @And("User logs as an admin")
+    public void userLogsAsAnAdmin() {
+
+        adminPage.adminLoginButton.click();
+        ReusableMethods.bekle(5);
+//        ReusableMethods.waitForVisibility(adminPage.adminUser,2);
+//        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+//        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+//
+//        adminPage.signInButton.click();
     }
+}
 
 
 
