@@ -535,11 +535,11 @@ public class HomePage extends Base {
         ReusableMethods.bekle(5);
     }
     //Verify that Guardian Photo has been uploaded
-    public void verifyGuardianPhotoUpload(){
+    public void verifyGuardianPhotoUpload() {
         actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
 
-
+    }
     //******************************EMRE HOME PAGE LOCATES*****************************************
     @FindBy(xpath = "//*[@class='forgot']")
     public WebElement userLoginForgotPasswordLink;
@@ -559,7 +559,7 @@ public class HomePage extends Base {
     @FindBy(xpath = "//*[@class='forgot pull-right']")
     public WebElement userLoginFrontSiteLink;
 
-    }
+
 
     // Verify Radio Boxes under Guardian Details
     public void verifyRadioBoxesGuardianDetails(){
