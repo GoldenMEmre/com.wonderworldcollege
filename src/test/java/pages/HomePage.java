@@ -112,7 +112,7 @@ public class HomePage extends Base {
   
     // **********************************************************//
   
-  // Homepage>SliderImg
+  // Homepage>SliderImg Gulten Harrelson**************************
   @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/top-banner2-2.jpg']")
   public  WebElement diverseImg;
     @FindBy(xpath = "//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner3-3.jpg']")
@@ -123,7 +123,7 @@ public class HomePage extends Base {
     public  WebElement nurturingImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
-    @FindBy(xpath="right carousel-control")
+    @FindBy(xpath = "(//*[@class='fa fa-angle-left'])[1]")
      public  WebElement sliderPanel;
 
 
