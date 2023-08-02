@@ -155,9 +155,49 @@ public class TeacherStepdefinition {
         Assert.assertTrue(teacherPage.addExamGroupText.isDisplayed());
         Assert.assertTrue(teacherPage.examGroupListText.isDisplayed());
 
+    }
+
+    @Given("Examinations, Exam Group link is clicked on the teacher panel, respectively")
+    public void examinations_exam_group_link_is_clicked_on_the_teacher_panel_respectively() {
+
+        teacherPage.examinations.click();
+        ReusableMethods.bekle(1);
+        teacherPage.examGroupLink.click();
+        ReusableMethods.bekle(1);
+
 
     }
-    // ***************************** Gulten Harrelson*****************************
+    @Given("Verify that the Name, Description textBoxes and Exam Type dropdown menu are visible in the Add Exam Group window")
+    public void verify_that_the_name_description_text_boxes_and_exam_type_dropdown_menu_are_visible_in_the_add_exam_group_window() {
+
+        Assert.assertTrue(teacherPage.addExamGroupNameTextbox.isDisplayed());
+        Assert.assertTrue(teacherPage.addExamGroupExamTypeDropdownMenu.isDisplayed());
+        Assert.assertTrue(teacherPage.addExamGroupDescriptionTextbox.isDisplayed());
+
+    }
+    @Given("The save button appears in the Add Exam Group window and it is verified that it is active")
+    public void the_save_button_appears_in_the_add_exam_group_window_and_it_is_verified_that_it_is_active() {
+
+        Assert.assertTrue(teacherPage.addExamGroupSaveButton.isDisplayed());
+        Assert.assertTrue(teacherPage.addExamGroupSaveButton.isEnabled());
+
+
+    }
+    @Given("After entering the Name in the Add Exam Group window and selecting the Exam Type, clicking the Save button will see that the new exam group has been registered")
+    public void after_entering_the_name_in_the_add_exam_group_window_and_selecting_the_exam_type_clicking_the_save_button_will_see_that_the_new_exam_group_has_been_registered() {
+
+        Select select=new Select(teacherPage.addExamGroupExamTypeDropdownMenu);
+        teacherPage.addExamGroupNameTextbox.sendKeys("sumeyra");
+        ReusableMethods.bekle(1);
+        select.selectByIndex(3);
+        ReusableMethods.bekle(1);
+        teacherPage.addExamGroupSaveButton.click();
+
+
+
+    }
+
+        // ***************************** Gulten Harrelson*****************************
 
 
 

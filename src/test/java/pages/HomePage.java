@@ -275,6 +275,23 @@ public class HomePage extends Base {
     @FindBy(xpath = "(//button[@class='dropify-clear'])[1]")
     private WebElement verifyGuardianPhotoUploaded;
 
+    @FindBy (xpath = "(//h2[@class='head-title'])[4]")
+    public WebElement ourExperiencedStaffsText;
+
+    @FindBy (xpath = "(//h3[text()='Anthony Carter'])[2]")
+    public WebElement ourExperiencedStaffsAnthonyCarter;
+
+    @FindBy (xpath = "(//h3[text()='Ava Turner'])[2]")
+    public WebElement ourExperiencedStaffsAvaTurner;
+
+    @FindBy (xpath = "(//h3[text()='David Morgan'])[2]")
+    public WebElement ourExperiencedStaffsDavidMorgan;
+
+    @FindBy (xpath = "(//h3[text()='Lily Peterson'])[2]")
+    public WebElement ourExperiencedStaffsLilyPeterson;
+
+
+
 
 
     //------------------------------ Ogun Methods -------------------------------

@@ -170,7 +170,7 @@ public class TeacherPage extends Base {
     public  WebElement OuizSegment;
 
 
-    //-------EXAMİNATİONS PAGE LOCATE---------
+    //-------EXAMINATIONS PAGE LOCATE---------
 
     @FindBy (xpath = "//span[text()='Examinations']")
     public WebElement examinations;
@@ -183,6 +183,19 @@ public class TeacherPage extends Base {
 
     @FindBy (className = "box-title titlefix" )
     public WebElement examGroupListText;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[1]")
+    public WebElement addExamGroupNameTextbox;
+
+    @FindBy (xpath = "//textarea[@class='form-control']")
+    public WebElement addExamGroupDescriptionTextbox;
+
+    @FindBy (xpath = "//select[@class='form-control']")
+    public WebElement addExamGroupExamTypeDropdownMenu;
+
+    @FindBy (className = "btn btn-info pull-right")
+    public WebElement addExamGroupSaveButton;
+
 
 
 
