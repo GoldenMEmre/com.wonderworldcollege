@@ -10,6 +10,10 @@ import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class HomePage extends Base {
     Actions actions = new Actions(Driver.getDriver());
     //Homepage>ExamResultButton
@@ -301,7 +305,47 @@ public class HomePage extends Base {
     //Uplaod Document Remove Button
     @FindBy(xpath = "(//button[@type='button'])[11]")
     private WebElement uploadDocumentRemoveButton;
+    //Review entered Deteails and Status Page Student Reference Number
+    @FindBy(xpath = "//div[5]/div[1]/div[1]/div[4]/div[3]/div[1]/ul/li[1]/span")
+    private WebElement referencenumberReviewEnteredDetails;
+    //Title Review entered Details and Status
+    @FindBy(xpath = "//*[text()='Review Entered Details and Status']")
+    private WebElement titleReviewEDaS;
+    //Form status REDaS
+    @FindBy(xpath = "//*[text()='Not Submitted']")
+    private WebElement formStatusREDaS;
+    //Application Date REDaS
+    @FindBy(xpath = "//*[text()='02/08/2023']")
+    private WebElement applicationDateREDaS;
+    //Date Of Birth after Submit
+    @FindBy(xpath = "//*[text()='26/10/2013']")
+    private WebElement controlDateOfBirth;
+    //Guardian Relation after Submit
+    @FindBy(xpath = "//*[text()='Brother']")
+    private WebElement controlGuardianRelation;
+    //Email after Submit
+    @FindBy(xpath = "//*[text()='muster.mustermann11@gmail.com']")
+    private WebElement controlEmail;
+    //CheckBox I Agree Terms
+    @FindBy(xpath = "//input[@id='checkterm']")
+    private WebElement checkBoxIAgreeTerms;
+   //Successful Alert REDaS
+    @FindBy(xpath = "//input[@id='checkterm']")
+    private WebElement successfulAlertREDaS;
+    //Form Status REDaS
+    @FindBy(xpath = "//input[@id='checkterm']")
+    private WebElement formstatusAfterSubmitREDaS;
+    //REDaS Submit Button
+    @FindBy(xpath = "//button[@id='submitbtn']")
+    private WebElement submitREDaS;
+    //REDaS Successful alert after submit
+    @FindBy(xpath = "//*[text()='Form Has Been Submitted Successfully..!! ']")
+    private WebElement successfulAlertAfterSubmitREDaS;
+    // REDaS Submitted Form Status
+    @FindBy(xpath = "//*[text()='Submitted']")
+    private WebElement submittedFormStatusREDaS;
 
+    private String eMail = "muster.mustermann11@gmail.com";
     //------------------------------ Ogun Methods -------------------------------
 
     // Verifies that Complain button is visible and enable, and clicks on it
@@ -391,7 +435,7 @@ public class HomePage extends Base {
         Assert.assertTrue(onlineAdmissionPageEmail.isEnabled());
 
         Select select = new Select(onlineAdmissionPageClassDropDown);
-        select.selectByIndex(1);
+        select.selectByIndex(14);
         onlineAdmissionPageFirstnameTextBox.sendKeys("Timur");
         onlineAdmissionPageLastNameTextBox.sendKeys("Lenk");
         Select select1 = new Select(onlineAdmissionPageGenderDropDown);
@@ -406,7 +450,8 @@ public class HomePage extends Base {
         //actions.click(mounthDateOfBirth).perform();
         //actions.click(dayDateOfBirth).perform();
         onlineAdmissionPageMobileNumber.sendKeys("0123 456 78 90");
-        onlineAdmissionPageEmail.sendKeys("muster.mustermann@gmail.com");
+
+        onlineAdmissionPageEmail.sendKeys(eMail);
 
         String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\com.wonderworldcollege" +
                 "\\src\\test\\java\\.jpg\\4432b9bcacc2ed45b9bef8d8475a6030.jpg";
@@ -541,8 +586,48 @@ public class HomePage extends Base {
                 "com.wonderworldcollege\\src\\test\\java\\.jpg\\Student.txt";
         uploadDocumentOnlineAdmissionPage.sendKeys(dosyaYolu);
         ReusableMethods.bekle(2);
+        actions.moveToElement(uploadDocumentOnlineAdmissionPage).perform();
+        ReusableMethods.bekle(1);
         Assert.assertTrue(uploadDocumentRemoveButton.isDisplayed());
     }
+
+    //Verifes Review Entered Details and Status Page and Student Reference No
+    public void verifyREDaS_ReferenceNo(){
+        onlineAdmissionPageSubmitButton.click();
+        Assert.assertTrue(titleReviewEDaS.isDisplayed());
+        Assert.assertTrue(referencenumberReviewEnteredDetails.isDisplayed());
+    }
+    //Verifies Form Status and Application Date
+    public void verifyFormStatusAndApplicationDate(){
+        String expectedStatus = "Not Submitted";
+        String actualStatus = formStatusREDaS.getText();
+        Assert.assertEquals(expectedStatus,actualStatus);
+
+        LocalDateTime ldt = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println(ldt.format(dateTimeFormatter));
+        Assert.assertEquals(applicationDateREDaS.getText(),ldt.format(dateTimeFormatter));
+    }
+    //verifies entered Informations
+    public void controlInformations(){
+        Assert.assertEquals(controlEmail.getText(),eMail);
+        Assert.assertEquals(controlDateOfBirth.getText(),"26/10/2013");
+        Assert.assertEquals(controlGuardianRelation.getText(),"Brother");
+    }
+    //verifies and clicks on I Agree To The terms And Conditions
+    public void checkBoxVerifyEnter(){
+        Assert.assertTrue(checkBoxIAgreeTerms.isDisplayed());
+        Assert.assertTrue(checkBoxIAgreeTerms.isEnabled());
+        checkBoxIAgreeTerms.click();
+    }
+    //clicks Submit and verifies Form Status And Succeddful Alert
+    public void submitVerifyFormStatusAndAlert(){
+        submitREDaS.click();
+        Assert.assertTrue(successfulAlertAfterSubmitREDaS.isDisplayed());
+        Assert.assertTrue(submittedFormStatusREDaS.isDisplayed());
+    }
+
+
 
 }
     //*******************************************************************************************
