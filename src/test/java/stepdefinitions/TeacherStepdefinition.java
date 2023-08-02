@@ -124,13 +124,6 @@ public class TeacherStepdefinition {
     }
     // ***************************** Gulten Harrelson*****************************1.Baslangic
 
-    @Given("click teacher login button")
-    public void click_teacher_login_button() {
-        teacherPage.teacherLoginButton.click();
-
-        ReusableMethods.bekle(2);
-        ReusableMethods.switchToWindow("Login : Wonder World College");
-    }
 
     @Given("enter  teacher username")
     public void enter_teacher_username() {

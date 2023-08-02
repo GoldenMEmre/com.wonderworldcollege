@@ -300,10 +300,6 @@ public class HomepageStepdefinition {
     //*************************************************************************************************
 
 
-
-    }
-
-
     @Given("go to home page")
     public void go_to_home_page() {
         ReusableMethods.goToHomePage();

@@ -318,7 +318,7 @@ public class AdminStepdefinition {
     @Then("Click on the send icon")
     public void click_on_the_send_icon() {
         adminPage.adminDashboardMessageTextBoxSendButton.click();
-
+    }
 
 
     @And("Verify that Forgot Password Link is active")
@@ -329,7 +329,7 @@ public class AdminStepdefinition {
 
 
     //*************************************************************************************************
-}
+
 
     @Then("The message is sent successfully")
     public void the_message_is_sent_successfully() {
@@ -341,7 +341,7 @@ public class AdminStepdefinition {
 
 }
 
-    }
+
 
 
 
