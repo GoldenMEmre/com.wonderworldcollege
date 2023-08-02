@@ -201,11 +201,16 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.preparingImg.isDisplayed()||
                 homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed()||
                 homepage.studentsImg.isDisplayed()||homepage.nurturingImg.isDisplayed());
+        ReusableMethods.bekle(6);
 
     }
-    @Then("wait {int} seconds")
-    public void wait_seconds() {
-        ReusableMethods.bekle(5);
+    @Given("Verify that the images in the slider panel can be manually changed")
+    public void verify_that_the_images_in_the_slider_panel_can_be_manually_changed() {
+        homepage.sliderPanel.click();
+        ReusableMethods.bekle(4);
+        homepage.sliderPanel.click();
+        ReusableMethods.bekle(4);
+
 
     }
     @Then("user close the browser")

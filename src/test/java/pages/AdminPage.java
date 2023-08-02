@@ -7,7 +7,11 @@ public class AdminPage extends Base {
 
 
 
-    // Admin fees collection section
+    // Admin fees collection section **************Gulten Harrelson***********************
+
+
+
+
     @FindBy(xpath = "//a[@class='btn btn-lg btn-admin']")
     public WebElement adminLoginButton;
     @FindBy(xpath ="//input[@placeholder='Username']")
@@ -64,6 +68,7 @@ public class AdminPage extends Base {
     public  WebElement editButton;
    @FindBy(xpath="(//i[@class='fa fa-remove'])[1]")
     public WebElement deleteButton;
+    // Admin fees collection section **************Gulten Harrelson***********************
 
 
 
