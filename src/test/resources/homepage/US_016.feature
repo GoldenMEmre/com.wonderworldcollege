@@ -34,6 +34,12 @@ Feature: US_016 As a user (student/parent), I want to have access to the login p
     Then Click the Login Button
     And Verify Forgot Password Link
 
+  Scenario: TC_04 Back to Front Site Test
+
+    Given user goes to url
+    Then Click the Login Button
+    And Verify the Front Site Link
+
 
 
     

@@ -290,5 +290,16 @@ public class ParentStudentStepdefinition {
 
 
     }
+
+    @And("Verify the Front Site Link")
+    public void verifyTheFrontSiteLink() {
+        Assert.assertTrue(parentStudentPage.userLoginFrontSiteLinkElement.isDisplayed());
+
+    }
+
+    @And("Click the Admin Login Button")
+    public void clickTheAdminLoginButton() {
+        parentStudentPage.adminLoginButton.click();
+    }
 }
 
