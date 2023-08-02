@@ -134,6 +134,10 @@ public class TeacherPage extends Base {
     private WebElement leavesListRecords;
 
     // ***************************Gulten Harrelson**************
+    @FindBy(xpath ="//button[@type='submit']")
+    public  WebElement teacherSignInButton;
+    @FindBy(xpath = "//a[@class='btn btn-default btn-lg']")
+    public WebElement teacherLoginButton;
     @FindBy(xpath ="//input[@placeholder='Username']")
     public  WebElement adminUser;
     @FindBy(xpath = "//input[@placeholder='Password']")

@@ -299,11 +299,6 @@ public class HomepageStepdefinition {
     }
     //*************************************************************************************************
 
-
-
-
-
-
     @Given("go to home page")
     public void go_to_home_page() {
         ReusableMethods.goToHomePage();
@@ -382,10 +377,6 @@ public class HomepageStepdefinition {
     public void verifyThatGuardianPhotoHasBeenUploaded() {
         homepage.verifyGuardianPhotoUpload();
     }
-
-
-
-
 
     @Then("verify RadioBoxes under Guardian Details Section")
     public void verifyRadioBoxesUnderGuardianDetailsSection() {
