@@ -152,12 +152,6 @@ public class AdminStepdefinition {
     //************************************** Gulten Harrelson********************
 
 
-
-
-
-
-
-
     @Given("Click on the Collect Fees button")
     public void click_on_the_collect_fees_button() {
         ReusableMethods.bekle(2);
@@ -241,7 +235,6 @@ public class AdminStepdefinition {
     }
 
 
-
     //************************************EMRE ADMIN STEP DEFINITIONS********************************
 
     @And("Click the Admin Login Button")
@@ -249,14 +242,17 @@ public class AdminStepdefinition {
         adminPage.adminLoginButton.click();
         ReusableMethods.bekle(3);
     }
+
     @And("Verify that message board is visible")
     public void verifyThatMessageBoardIsVisible() {
         Assert.assertTrue(adminPage.adminPanelMessageBoard.isDisplayed());
     }
+
     @And("Click the Forgot Password Link")
     public void clickTheForgotPasswordLink() {
         adminPage.adminPanelForgotPasswordElement.click();
     }
+
     @Then("Verify that Admin Login Panel is displayed")
     public void verifyThatAdminLoginPanelIsDisplayed() {
         Assert.assertTrue(adminPage.adminLoginButton.isDisplayed());
@@ -283,45 +279,46 @@ public class AdminStepdefinition {
     @When("click on a chat from the left bar")
     public void click_on_a_chat_from_the_left_bar() {
         adminPage.adminDashboardChatButton.click();
-
     }
 
     @Then("The message page is displayed on the right side")
     public void the_message_page_is_displayed_on_the_right_side() {
         Assert.assertTrue(adminPage.adminDashboardChatPage.isDisplayed());
-
     }
 
     @Then("The TextBox is visible")
     public void the_text_box_is_visible() {
         Assert.assertTrue(adminPage.adminDasbhoardChatPageMessageTextBox.isDisplayed());
-
-
     }
 
     @When("Type a message in the TextBox")
     public void type_a_message_in_the_text_box() {
         adminPage.adminDasbhoardChatPageMessageTextBox.sendKeys("Hello, this is a test message.");
-
-
-
-
     }
 
     @Then("The send icon becomes active")
     public void the_send_icon_becomes_active() {
         Assert.assertTrue(adminPage.adminDashboardMessageTextBoxSendButton.isDisplayed());
 
+    }
+
+    @And("Verify that Forgot Password Link is active")
+    public void verifyThatForgotPasswordLinkIsActive() {
+        Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
+
+
 
     }
+
+    //*************************************************************************************************
+
 
     @Then("Click on the send icon")
     public void click_on_the_send_icon() {
         adminPage.adminDashboardMessageTextBoxSendButton.click();
 
 
-    //*************************************************************************************************
-}
+    }
 
     @Then("The message is sent successfully")
     public void the_message_is_sent_successfully() {
@@ -329,8 +326,9 @@ public class AdminStepdefinition {
 
 
     }
+}
 
-    }
+
 
 
 
