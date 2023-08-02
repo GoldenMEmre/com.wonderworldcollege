@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         },
 
         features = {
-                "src/test/resources/adminpage",
+                "src/test/resources/teacherpage",
                 },
 
         glue = {"src/test/resources/homepage",
@@ -22,8 +22,11 @@ import org.junit.runner.RunWith;
                 "src/test/resources/teacherpage",
                 "src/test/resources/parent_studentpage"},
 
-        tags = "@ww",
+
+        tags = "@ab",
         dryRun = true
+
+
 
 
 )

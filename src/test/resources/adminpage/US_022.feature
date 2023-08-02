@@ -24,7 +24,7 @@ Feature: Multi Class student page test as admin
     * Verifies that students are listed according to the search criteria
     * Quit the page
 
-  @ww
+
   Scenario: TC03 A new class can be added, the class can be deleted and the changes made can be saved in the window of the selected student among the students listed on the Multi Class page.
 
     * Go to "loginurl"

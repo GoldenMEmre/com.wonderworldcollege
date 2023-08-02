@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.interactions.Actions;
 import pages.TeacherPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -14,67 +15,142 @@ public class TeacherStepdefinition {
 
     TeacherPage teacherPage = new TeacherPage();
     Actions actions = new Actions(Driver.getDriver());
+
     @Given("go to login page")
     public void go_to_login_page() {
         ReusableMethods.goToLoginPage();
     }
+
     @When("click teacher login button")
     public void click_teacher_login_button() {
         teacherPage.clickTeacherLoginButton();
         ReusableMethods.switchToWindow("Login : Wonder World College");
+        ReusableMethods.bekle(3);
     }
+
     @Then("enter {string} as username")
     public void enterAsUsername(String username) {
         teacherPage.enterUsername(username);
     }
+
     @Then("enter {string} as password")
     public void enterAsPassword(String pass) {
         teacherPage.enterPassword(pass);
     }
+
     @Then("click signin button")
     public void click_signin_button() {
-       teacherPage.clickSignIn();
+        teacherPage.clickSignIn();
+        ReusableMethods.bekle(3);
     }
 
     @Then("click human resources on side bar")
     public void click_human_resources_on_side_bar() {
         teacherPage.clickHumanResources();
     }
+
     @Then("click apply leave on side bar")
     public void click_apply_leave_on_side_bar() {
-       teacherPage.clickApplyLeaveHumanResources();
+        teacherPage.clickApplyLeaveHumanResources();
     }
+
     @Then("click on apply leave on leaves page")
     public void click_on_apply_leave_on_leaves_page() {
         teacherPage.clickApplyLeaveButtonLeavesPage();
     }
-    @Then("enter {string} on apply date")
-    public void enterOnApplyDate(String datum) {
-        teacherPage.enterApplyDateAddDetails(datum);
-    }
-    @Then("enter {string} on leave from date")
-    public void enterOnLeaveFromDate(String datum) {
-        teacherPage.enterLeaveFromDate(datum);
-    }
-    @Then("enter {string} on leave to date")
-    public void enterOnLeaveToDate(String datum) {
-        teacherPage.enterLeaveToDate(datum);
-    }
+
     @Then("select available leave")
     public void selectAvailableLeave() {
         teacherPage.selectAvailableLeave();
     }
+
     @Then("enter {string} as reason on reason textbox")
     public void enterAsReasonOnReasonTextbox(String grund) {
         teacherPage.entersReason(grund);
     }
+
     @Then("click on save button")
     public void clickOnSaveButton() {
         teacherPage.clickOnSaveAddDetails();
+        ReusableMethods.bekle(2);
     }
 
-    @Then("wait for {int} seconds")
-    public void waitForSeconds(int warte) {
-        ReusableMethods.bekle(warte);
+    @Then("enter date on leave from date")
+    public void enterDateOnLeaveFromDate() {
+        teacherPage.enterLeaveFromDate();
     }
-}
+
+    @Then("enter date on leave to date")
+    public void enterDateOnLeaveToDate() {
+        teacherPage.enterLeaveToDate();
+    }
+
+    @And("verify that leave request has been created")
+    public void verifyThatLeaveRequestHasBeenCreated() {
+        teacherPage.verifyLeaveRequest();
+    }
+
+    @Then("verify the columns on leaves list page")
+    public void verify_the_columns_on_leaves_list_page() {
+        teacherPage.verifyColumnsLeavesList();
+    }
+
+    @Then("verify the status of created leave request")
+    public void verify_the_status_of_created_leave_request() {
+        teacherPage.verifyStatusLeavesList();
+    }
+
+    @Then("verify view button and click on it")
+    public void verifyViewButtonAndClickOnIt() {
+        teacherPage.verifyViewButton();
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("verify that details window is accessible")
+    public void verifyThatDetailsWindowIsAccessible() {
+        teacherPage.verifyDetailsWindow();
+    }
+
+    @Then("verify that leave request has been deleted")
+    public void verifyThatLeaveRequestHasBeenDeleted() {
+
+    }
+
+    @Then("verify and click on delete button")
+    public void verifyAndClickOnDeleteButton() {
+        teacherPage.clickOnDeleteButtonLeavesPage();
+    }
+
+    @Then("close details window")
+    public void closeDetailsWindow() {
+        teacherPage.closeDetailsWindow();
+    }
+
+
+    @Given("Enter the valid username and password on the Teacher login panel")
+    public void enter_the_valid_username_and_password_on_the_teacher_login_panel() {
+
+  // tamamlanacak
+
+    }
+
+    @Given("On the sidebar of the teacher panel, the Examinations menu is clicked and it is verified that the Exam Group link is displayed")
+    public void on_the_sidebar_of_the_teacher_panel_the_examinations_menu_is_clicked_and_it_is_verified_that_the_exam_group_link_is_displayed() {
+
+
+    }
+    @Given("Click on the Exam Group link and verify that it is directed to the examgroup page")
+    public void click_on_the_exam_group_link_and_verify_that_it_is_directed_to_the_examgroup_page() {
+
+
+
+    }
+
+
+
+
+
+
+
+
+    }
