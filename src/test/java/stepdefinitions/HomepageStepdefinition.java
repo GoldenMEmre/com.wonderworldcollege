@@ -226,10 +226,15 @@ public class HomepageStepdefinition {
     }
     // **********************************************************************************//
 
+
+   @Then("The homepage was reached on the website")
+   public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+
    // @Then("The homepage was reached on the website")
     //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
 
        // Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
 
         Assert.assertTrue(homepage.CallUsText.isDisplayed());
 
@@ -248,13 +253,7 @@ public class HomepageStepdefinition {
         // Thread.sleep(5000);
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
-    }
-    //@And("Close the page.")
-    //public void close_the_page() {
-    //Driver.quitDriver();
 
-
-    //}
 
 
     }
