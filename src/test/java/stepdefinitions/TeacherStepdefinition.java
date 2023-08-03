@@ -140,7 +140,6 @@ public class TeacherStepdefinition {
     public void click_teacher_sign_in_button() {
         teacherPage.teacherSignInButton.click();
 
-
     }
 
     @Given("Click Attendance menu")
