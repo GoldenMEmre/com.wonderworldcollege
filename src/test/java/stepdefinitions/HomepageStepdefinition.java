@@ -3,7 +3,9 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import pages.HomePage;
 import utilities.ConfigReader;
@@ -224,13 +226,19 @@ public class HomepageStepdefinition {
     }
     // **********************************************************************************//
 
-    @Then("The homepage was reached on the website")
-    public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+   // @Then("The homepage was reached on the website")
+    //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
         Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
         Thread.sleep(2000);
     }
 
     @Then("The Achievements  section was displayed as the page was scrolled down.")
+
+         //Thread.sleep(2000);
+    }
+    //@Then("The Achievements  section was displayed as the page was scrolled down.")
+
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
         ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
         // Thread.sleep(5000);
@@ -241,7 +249,11 @@ public class HomepageStepdefinition {
     //public void close_the_page() {
     //Driver.quitDriver();
 
+
     //}
+
+
+    }
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
@@ -259,6 +271,30 @@ public class HomepageStepdefinition {
     @Then("Click the Login Button")
     public void click_the_login_button() {
         homepage.loginButonu.click();
+    }
+
+
+        //Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+   // }
+
+    @Given("User go to {string}")
+    public void user_go_to(String Url) {
+        Driver.getDriver().get(ConfigReader.getProperty("userurl"));
+    }
+    @When("Clicks on the {string}")
+    public void clicks_on_the(String string) {
+        //ReusableMethods.waitForClickablility(homepage.galleryPage,3);
+        ReusableMethods.waitForVisibility(homepage.galleryPage,3);
+        homepage.galleryPage.click();
+
+    }
+
+    @Then("Verifies redirecting to {string} , {string} , {string} , {string} , {string} , {string}")
+    public void verifies_redirecting_to(String string, String string2,
+                                        String string3, String string4,
+                                        String string5, String string6) {
+
+    }
     }
 
     @Then("Verify that there is a login window on the left side and information about {string} on the right side.")

@@ -7,10 +7,19 @@ import org.openqa.selenium.interactions.Actions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+
+
+import org.openqa.selenium.By;
+
+
+import io.cucumber.java.en.When;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
 import pages.AdminPage;
 import pages.Base;
 import utilities.ConfigReader;
@@ -43,7 +52,13 @@ public class AdminStepdefinition {
     }
     @Given("click sign in button")
     public void click_sign_in_button() {
+
+        ReusableMethods.waitForVisibility(adminPage.signInButton, 1);
         adminPage.signInButton.click();
+
+
+        adminPage.signInButton.click();
+
     }
     @Given("Click fees collection")
     public void click_fees_collection() {
@@ -234,7 +249,7 @@ public class AdminStepdefinition {
     adminPage.deleteButton.click();
         Driver.getDriver().switchTo().alert().accept();
         ReusableMethods.bekle(3);
-        Driver.closeDriver();
+
     }
 
     //************************************** Gulten Harrelson********************
@@ -253,15 +268,41 @@ public class AdminStepdefinition {
         WebElement feesPageElement =Driver.getDriver().findElement(By.xpath("//h3[@class='box-title']"));
         Assert.assertTrue(feesPageElement.isDisplayed());
     }
+
+
+
+
+    @And("User logs as an admin")
+    public void userLogsAsAnAdmin() {
+
+        adminPage.adminLoginButton.click();
+        ReusableMethods.bekle(5);
+//        ReusableMethods.waitForVisibility(adminPage.adminUser,2);
+//        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+//        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+//
+//        adminPage.signInButton.click();
+    }
+
+
     @Given("Choose class button")
     public void choose_class_button() {
         WebElement dropdownMenuSelect =Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
         ReusableMethods.bekle(2);
         Select select = new Select(dropdownMenuSelect);
         ReusableMethods.bekle(2);
+
          select.selectByVisibleText("Class 2");
          ReusableMethods.bekle(1);
     }
+
+        select.selectByVisibleText("Class 2");
+        ReusableMethods.bekle(1);
+
+    }
+
+
+
     @Given("Choose section button")
     public void choose_section_button() {
         WebElement dropDownMenuSection =Driver.getDriver().findElement(By.xpath("(//select[@class='form-control'])[2]"));
@@ -315,8 +356,178 @@ public class AdminStepdefinition {
 
 
 
+    //************************************EMRE ADMIN STEP DEFINITIONS********************************
+
+    @And("Click the Admin Login Button")
+    public void clickTheAdminLoginButton() {
+        adminPage.adminLoginButton.click();
+        ReusableMethods.bekle(3);
 
     }
+
+    @And("Verify that message board is visible")
+    public void verifyThatMessageBoardIsVisible() {
+        Assert.assertTrue(adminPage.adminPanelMessageBoard.isDisplayed());
+    }
+
+    @And("Click the Forgot Password Link")
+    public void clickTheForgotPasswordLink() {
+        adminPage.adminPanelForgotPasswordElement.click();
+    }
+
+    @Then("Verify that Admin Login Panel is displayed")
+    public void verifyThatAdminLoginPanelIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginButton.isDisplayed());
+    }
+
+    @And("Verify that Admin Site Login Page is displayed")
+    public void verifyThatAdminSiteLoginPageIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginText.isDisplayed());
+    }
+
+    @Given("Login to dashboard with admin name and admin password as admin")
+    public void login_to_dashboard_with_admin_name_and_admin_password_as_admin() {
+        Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
+        adminPage.adminLoginButton.sendKeys(ConfigReader.getProperty("adminMelike"));
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        adminPage.adminLoginButton.click();
+    }
+
+    @Then("Click the Chat page")
+    public void click_the_chat_page() {
+        adminPage.adminLoginButton.click();
+    }
+
+
+
+    }
+
+
+    @Then("The TextBox is visible")
+    public void the_text_box_is_visible() {
+        Assert.assertTrue(adminPage.adminDasbhoardChatPageMessageTextBox.isDisplayed());
+    }
+
+    @When("Type a message in the TextBox")
+    public void type_a_message_in_the_text_box() {
+        adminPage.adminDasbhoardChatPageMessageTextBox.sendKeys("Hello, this is a test message.");
+    }
+
+    @Then("The send icon becomes active")
+    public void the_send_icon_becomes_active() {
+        Assert.assertTrue(adminPage.adminDashboardMessageTextBoxSendButton.isDisplayed());
+
+    }
+
+    @And("Verify that Forgot Password Link is active")
+    public void verifyThatForgotPasswordLinkIsActive() {
+        Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
+    }
+
+    @And("Switch to window")
+    public void switchToWindow() {
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+    }
+
+    @And("Verify that Admin Login Username Box is diplayed")
+    public void verifyThatAdminLoginUsernameBoxIsDiplayed() {
+        Assert.assertTrue(adminPage.adminLoginUsernameTextBox.isDisplayed());
+
+    }
+
+    @And("Verify that Admin Login Password Box is displayed")
+    public void verifyThatAdminLoginPasswordBoxIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginPasswordTextBox.isDisplayed());
+    }
+
+    @And("Verify that Admin Login Submit Button is displayed")
+    public void verifyThatAdminLoginSubmitButtonIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginSubmitButton.isEnabled());
+    }
+
+    @And("Enter Forgot Password Email Adress")
+    public void enterForgotPasswordEmailAdress() {
+        adminPage.forgotPasswordEmailBox.sendKeys(ConfigReader.getProperty("userloginemail"));
+    }
+
+    @And("Click the Forgot Botton Submit Button")
+    public void clickTheForgotBottonSubmitButton() {
+        adminPage.forgotPasswordSubmitButton.click();
+    }
+
+    @And("Verify that Admin Login password reset email is sent")
+    public void verifyThatAdminLoginPasswordResetEmailIsSent() {
+        Assert.assertTrue(adminPage.forgotPasswordResetEmailAlert.isDisplayed());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Verify that Admin User Login Link is enabled")
+    public void verifyThatAdminUserLoginLinkIsEnabled() {
+        Assert.assertTrue(adminPage.adminPasswordForgotLink.isEnabled());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click the Admin User Login Link")
+    public void clickTheAdminUserLoginLink() {
+        adminPage.adminPasswordForgotLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click Forgot Password Admin Login Link")
+    public void clickForgotPasswordAdminLoginLink() {
+        adminPage.forgotPasswordAdminLoginLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click Site Login User Login Link")
+    public void clickSiteLoginUserLoginLink() {
+        adminPage.siteLoginUserLoginLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Verify that User Login Front Page Link is visible")
+    public void verifyThatUserLoginFrontPageLinkIsVisible() {
+        Assert.assertTrue(adminPage.userLoginFrontPageLink.isDisplayed());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click the User Login Front Page Link")
+    public void clickTheUserLoginFrontPageLink() {
+        adminPage.userLoginFrontPageLink.click();
+        ReusableMethods.bekle(3);
+    }
+    //*************************************************************************************************
+
+
+    @Then("Click on the send icon")
+    public void click_on_the_send_icon() {
+        adminPage.adminDashboardMessageTextBoxSendButton.click();
+    }
+
+
+    //*************************************************************************************************
+
+
+    @Then("The message is sent successfully")
+    public void the_message_is_sent_successfully() {
+        Assert.assertTrue(adminPage.getAdminDashboardSentMessageText.isDisplayed());
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
