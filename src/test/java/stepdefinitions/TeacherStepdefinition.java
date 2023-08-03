@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pages.AdminPage;
 import pages.TeacherPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -17,6 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 
 public class TeacherStepdefinition {
+    AdminPage adminPage=new AdminPage();
 
     TeacherPage teacherPage = new TeacherPage();
     Actions actions = new Actions(Driver.getDriver());
@@ -131,6 +133,7 @@ public class TeacherStepdefinition {
         teacherPage.closeDetailsWindow();
     }
 
+
     @Given("Enter the valid username and password on the Teacher login panel")
     public void enter_the_valid_username_and_password_on_the_teacher_login_panel() {
 
@@ -193,28 +196,61 @@ public class TeacherStepdefinition {
         ReusableMethods.bekle(1);
         teacherPage.addExamGroupSaveButton.click();
 
+    }
+
+    @Given("Verify that the Title, No Of Exams, Exam Type, Action titles are visible in the Exam Group List window")
+    public void verify_that_the_title_no_of_exams_exam_type_action_titles_are_visible_in_the_exam_group_list_window() {
+
+        Assert.assertTrue(teacherPage.examGroupListNameTitle.isDisplayed());
+        Assert.assertTrue(teacherPage.examGroupListNoOfExamsTitle.isDisplayed());
+        Assert.assertTrue(teacherPage.examGroupListExamTypeTitle.isDisplayed());
+        Assert.assertTrue(teacherPage.examGroupListActionTitle.isDisplayed());
+
+    }
+    @Given("Clicking the + icon under the Action title in the Exam Group List window confirms that it is directed to the add exam page")
+    public void clicking_the_icon_under_the_action_title_in_the_exam_group_list_window_confirms_that_it_is_directed_to_the_add_exam_page() {
+
+
+    }
+    @Given("Click the edit icon under the Action title in the Exam Group List window")
+    public void click_the_edit_icon_under_the_action_title_in_the_exam_group_list_window() {
+
+
+    }
+    @Given("Updates the Edit Exam Group window")
+    public void updates_the_edit_exam_group_window() {
+
+
+    }
+    @Given("Clicking the delete icon under the Action heading in the Exam Group List window confirms that the relevant exam group can be deleted")
+    public void clicking_the_delete_icon_under_the_action_heading_in_the_exam_group_list_window_confirms_that_the_relevant_exam_group_can_be_deleted() {
 
 
     }
 
-        // ***************************** Gulten Harrelson*****************************
+
+    // ***************************** Gulten Harrelson*****************************
+
+
+    // ***************************** Gulten Harrelson*****************************1.Baslangic
 
 
 
     @Given("enter  teacher username")
     public void enter_teacher_username() {
-
-        teacherPage.adminUser.sendKeys(ConfigReader.getProperty("teacherUserName"));
-
+        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
     }
     @Given("enter teacher password")
     public void enter_teacher_password() {
-        teacherPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+
+
     }
 
     @Given("click teacher sign in button")
     public void click_teacher_sign_in_button() {
-        teacherPage.signInButton.click();
+        teacherPage.teacherSignInButton.click();
+
 
     }
 
@@ -227,7 +263,7 @@ public class TeacherStepdefinition {
     public void verify_that_under_attendance_menu_the_period_attendance_by_date_is_visible_and_clickable() {
         teacherPage.periodAttendanceByDate.click();
         ReusableMethods.bekle(2);
-        assertTrue(teacherPage.periodAttendanceByDate.isEnabled());
+        assertTrue(teacherPage.periodAttendanceByDate.isDisplayed());
 
     }
 
@@ -306,7 +342,37 @@ public class TeacherStepdefinition {
         // **************************Gulten Harrelson *************************** 2.Sonu
 
 
+
+
+
+
+
+
+
+
+        //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
+
+        // daha calsimam lazim bu soru icin
+        //assertTrue(teacherPage.studentList.isDisplayed());
+
+        // **************************Gulten Harrelson *************************** 1.Sonu
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
