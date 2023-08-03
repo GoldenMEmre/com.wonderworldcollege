@@ -233,8 +233,13 @@ public class HomepageStepdefinition {
 
     // @Then("The homepage was reached on the website")
     //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+
     // Assert.assertTrue(homepage.CallUsText.isDisplayed());
     //Thread.sleep(2000);
+
+      //  Assert.assertTrue(homepage.CallUsText.isDisplayed());
+         //Thread.sleep(2000);
+
 
     //@Then("The Achievements  section was displayed as the page was scrolled down.")
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
