@@ -29,7 +29,7 @@ public class TeacherStepdefinition {
     @When("click teacher login button")
     public void click_teacher_login_button() {
         teacherPage.clickTeacherLoginButton();
-        ReusableMethods.switchToWindow("Login : Wonder World College");
+       ReusableMethods.switchToWindow("Login : Wonder World College");
         ReusableMethods.bekle(2);
     }
     @Then("enter {string} as username")
@@ -43,7 +43,7 @@ public class TeacherStepdefinition {
     @Then("click signin button")
     public void click_signin_button() {
        teacherPage.clickSignIn();
-        ReusableMethods.bekle(3);
+        //ReusableMethods.bekle(3);
     }
 
     @Then("click human resources on side bar")
@@ -180,12 +180,12 @@ public class TeacherStepdefinition {
 
     @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
     public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
-        Select select=new Select(teacherPage.classDropDown);
+        Select select = new Select(teacherPage.classDropDown);
         select.selectByIndex(1);
-        select=new Select(teacherPage.sectionDropDown);
+        select = new Select(teacherPage.sectionDropDown);
         select.selectByIndex(1);
         // select=new Select(teacherPage.dateDropDown);
-        JavascriptExecutor hadi =(JavascriptExecutor)Driver.getDriver();
+        JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
         teacherPage.dateDropDown.click();
 
         //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
@@ -194,10 +194,6 @@ public class TeacherStepdefinition {
         //assertTrue(teacherPage.studentList.isDisplayed());
 
         // **************************Gulten Harrelson *************************** 1.Sonu
-
-
-
-
     }
 
 
@@ -205,8 +201,51 @@ public class TeacherStepdefinition {
 
 
 
-
+    @Then("click and verify Reports and Hostel button on side bar")
+    public void clickAndVerifyReportsAndHostelButtonOnSideBar() {
+        teacherPage.reportsHostelsVerifyClick();
     }
+
+    @Then("verify student hostel details Page")
+    public void verifyStudentHostelDetailsPage() {
+        teacherPage.selectCriteriaVerifyPage();
+    }
+
+    @Then("verify Select Criteria Sections")
+    public void verifySelectCriteriaSections() {
+        teacherPage.dropdownMenuSearchButtonVerify();
+    }
+
+    @Then("make search")
+    public void makeSearch() {
+        teacherPage.searchStudentHostel();
+    }
+
+    @Then("verify Student Hostel List Reports columns")
+    public void verifyStudentHostelListReportsColumns() {
+        teacherPage.verifyColumnsunderStudentHostelReport();
+    }
+
+    @Then("click on a student name")
+    public void clickOnAStudentName() {
+        teacherPage.studentNameClick();
+    }
+
+    @Then("verify Student Profile Page")
+    public void verifyStudentProfilePage() {
+        teacherPage.redirectedPageVerify();
+    }
+
+    @Then("searchBox on Student Profile Page")
+    public void searchboxOnStudentProfilePage() {
+        teacherPage.searchBoxVerifyStudentProfile();
+    }
+
+    @Then("make filtering with different student informations")
+    public void makeFilteringWithDifferentStudentInformations() {
+        teacherPage.filterStudents();
+    }
+}
 
 
 

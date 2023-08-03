@@ -2,6 +2,7 @@ package pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 import javax.swing.*;
@@ -158,6 +160,7 @@ public class TeacherPage extends Base {
     public  WebElement classDropDown;
     @FindBy(xpath = "//select[@id='section_id']")
     public  WebElement sectionDropDown;
+
     @FindBy(xpath = "//*[@name='date']")
     public  WebElement dateDropDown;
    @FindBy(xpath="//button[@class='btn btn-primary btn-sm pull-right checkbox-toggle']")
@@ -175,21 +178,57 @@ public class TeacherPage extends Base {
     // student hostel details select Criteria Title
     @FindBy(xpath = "//*[text()=' Select Criteria']")
     private WebElement selectCriteriaTitleSHD;
-    // class dropbox under Select Criteria
-    @FindBy(xpath = "(//*[text()='Class'])[3]")
-    private WebElement classDropBoxUnderSelectCriteria;
-    // section dropbox under Select Criteria
-    @FindBy(xpath = "//*[text()='Section']")
-    private WebElement sectionDropBoxUnderSelectCriteria;
+
     // hostel name dropbox under Select Criteria
-    @FindBy(xpath = "(//*[text()='Hostel Name'])[1]")
+    @FindBy(xpath = "//select[@name='hostel_name']")
     private WebElement hostelNameDropBoxUnderSelectCriteria;
     //Search Button under Select Criteria
     @FindBy(xpath = "//*[text()=' Search']")
     private WebElement searchButtonUnderSelectCriteria;
-
-
-
+    //****Student Hostel Report Columns *****
+    //Class(Section)
+    @FindBy(xpath = "//tr[@role='row']/th[1]")
+    private WebElement c1ClassSectionColumn;
+    //Admission No
+    @FindBy(xpath = "//tr[@role='row']/th[2]")
+    private WebElement c2AdmissionNoColumn;
+    //Student Name
+    @FindBy(xpath = "//tr[@role='row']/th[3]")
+    private WebElement c3StudentNameColumn;
+    //Mobile Number
+    @FindBy(xpath = "//tr[@role='row']/th[4]")
+    private WebElement c4MobileNumberColumn;
+    //Guardian Phone
+    @FindBy(xpath = "//tr[@role='row']/th[5]")
+    private WebElement c5GuardianPhoneColumn;
+    //Hostel Name
+    @FindBy(xpath = "//tr[@role='row']/th[6]")
+    private WebElement c6CostelNameColumn;
+    //Room Number Name
+    @FindBy(xpath = "//tr[@role='row']/th[7]")
+    private WebElement c7RoomNumberNameColumn;
+    //Room Type
+    @FindBy(xpath = "//tr[@role='row']/th[8]")
+    private WebElement c8RoomTypeColumn;
+    //Cost Per Bed
+    @FindBy(xpath = "//tr[@role='row']/th[9]")
+    private WebElement c9CostPerBedColumn;
+    @FindBy(xpath = "//*[text()='Kavya Roy']")
+    private WebElement kavyaRoyStudentExample;
+    @FindBy(xpath = "//*[text()='Barcode']")
+    private WebElement barcodeStudentRedirectAfterClick;
+    @FindBy(xpath = "//input[@id='search_text1']")
+    private WebElement searchBoxStudentProfilPage;
+    @FindBy(xpath = "//*[text()='18009']")
+    private WebElement kavyaRoyAdmissionNo;
+    @FindBy(xpath = "//*[text()='18004']")
+    private WebElement lauraclintonAdmissionNo;
+    @FindBy(xpath = "//*[text()='65656546']")
+    private WebElement lauraClintonMobileNo;
+    @FindBy(xpath = "//*[text()='987654311']")
+    private WebElement kavyaRoyMobileNo;
+    @FindBy(xpath = "//input[@aria-controls='DataTables_Table_0']")
+    private WebElement searchTextBoxSHR;
 
 // ***************************Gulten Harrelson**************
 
@@ -337,4 +376,68 @@ public class TeacherPage extends Base {
     public void deleteTestLeaveRequest(){
         Assert.assertTrue(leavesListRecords.isDisplayed());
     }
+
+    public void reportsHostelsVerifyClick(){
+
+        reportsSideBarTeacherPage.click();
+        ReusableMethods.bekle(2);
+        actions.moveToElement(hostelSideBarTeacherPage).click().perform();
+
+        //hostelSideBarTeacherPage.click();
+    }
+    public void selectCriteriaVerifyPage(){
+        Assert.assertTrue(selectCriteriaTitleSHD.isDisplayed());
+    }
+    public void dropdownMenuSearchButtonVerify(){
+        Assert.assertTrue(classDropDown.isDisplayed());
+        Assert.assertTrue(sectionDropDown.isDisplayed());
+        Assert.assertTrue(hostelNameDropBoxUnderSelectCriteria.isDisplayed());
+        Assert.assertTrue(searchButtonUnderSelectCriteria.isDisplayed());
+    }
+    public void searchStudentHostel(){
+        Select select = new Select(classDropDown);
+        classDropDown.click();
+        select.selectByIndex(1);
+        ReusableMethods.bekle(1);
+        Select select1 = new Select(sectionDropDown);
+        sectionDropDown.click();
+        select1.selectByIndex(1);
+        ReusableMethods.bekle(1);
+        Select select2 = new Select(hostelNameDropBoxUnderSelectCriteria);
+        hostelNameDropBoxUnderSelectCriteria.click();
+        select2.selectByIndex(3);
+        searchButtonUnderSelectCriteria.click();
+    }
+    public void verifyColumnsunderStudentHostelReport(){
+        Assert.assertTrue(c1ClassSectionColumn.isDisplayed());
+        Assert.assertTrue(c2AdmissionNoColumn.isDisplayed());
+        Assert.assertTrue(c3StudentNameColumn.isDisplayed());
+        Assert.assertTrue(c4MobileNumberColumn.isDisplayed());
+        Assert.assertTrue(c5GuardianPhoneColumn.isDisplayed());
+        Assert.assertTrue(c6CostelNameColumn.isDisplayed());
+        Assert.assertTrue(c7RoomNumberNameColumn.isDisplayed());
+        Assert.assertTrue(c8RoomTypeColumn.isDisplayed());
+        Assert.assertTrue(c9CostPerBedColumn.isDisplayed());
+    }
+    public void studentNameClick(){
+        kavyaRoyStudentExample.click();
+    }
+    public void redirectedPageVerify(){
+        Assert.assertTrue(barcodeStudentRedirectAfterClick.isDisplayed());
+    }
+    public void searchBoxVerifyStudentProfile(){
+        Assert.assertTrue(searchBoxStudentProfilPage.isDisplayed());
+    }
+    public void filterStudents(){
+
+        searchTextBoxSHR.sendKeys(kavyaRoyAdmissionNo.getText(), Keys.ENTER);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(kavyaRoyAdmissionNo.isDisplayed());
+        searchTextBoxSHR.clear();
+        searchTextBoxSHR.sendKeys(kavyaRoyMobileNo.getText(), Keys.ENTER);
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(kavyaRoyMobileNo.isDisplayed());
+    }
+
 }
+
