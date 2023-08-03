@@ -15,13 +15,28 @@ import org.junit.runner.RunWith;
 
 
 
+
         features = {"src/test/resources/homepage",
 
 
                 "src/test/resources/homepage",
 
+
+
+  
+
+
+
+
+                "src/test/resources/adminpage",
+                },
+
+        glue = {"src/test/resources/homepage",
+
+
                 "src/test/resources/adminpage",
                 "src/test/resources/teacherpage",
+
 
                 "src/test/resources/student_parent_page",
 
@@ -29,11 +44,16 @@ import org.junit.runner.RunWith;
                 },
 
 
-        glue = {"stepdefinitions"},
 
-
-        tags = "@ab",
+        tags = "@ww",
         dryRun = true
+
+
+       // glue = "stepdefinitions",
+
+
+
+
 
 
 

@@ -132,6 +132,9 @@ public class HomePage extends Base {
     public  WebElement preparingImg;
 
 
+
+
+
    @FindBy(xpath = "//*[@id='navbar-collapse-3']")
     public WebElement homeBar;
 
@@ -140,6 +143,7 @@ public class HomePage extends Base {
 
    @FindBy(xpath="//a[@data-toggle='dropdown']")
     public WebElement academicsButton;
+
 
     @FindBy(xpath = "(//*[@class='fa fa-angle-left'])[1]")
      public  WebElement sliderPanel;
@@ -639,6 +643,8 @@ public class HomePage extends Base {
 
 
 
+
+
     @FindBy(xpath = "//a[text()='School Uniform']")
     public WebElement schoolUniformDropDown;
 
@@ -766,6 +772,20 @@ public class HomePage extends Base {
 
     @FindBy(xpath = "//a[text()='Teacher']")
     public WebElement teacherDropDown;
+
+
+
+    //@FindBy(xpath="right carousel-control")
+    // public  WebElement sliderPanel;
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+    //HomePage/User Login Page
+    @FindBy(xpath = "//*[text()='User Login']")
+    public WebElement userLoginText;
+
+    @FindBy(xpath = "//div[@class='messages']")
+    public WebElement userLoginMessages;
+
 
     @FindBy(xpath = "//*[@id=\"navbar-collapse-3\"]/ul/li[9]/a")
     public WebElement contackButton;
