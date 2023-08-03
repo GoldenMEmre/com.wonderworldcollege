@@ -1,23 +1,29 @@
 package pages;
 
+
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
+
 import org.bouncycastle.jcajce.provider.asymmetric.X509;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class AdminPage extends Base {
 
-
+    Actions actions = new Actions(Driver.getDriver());
 
     // Admin fees collection section **************Gulten Harrelson***********************
-
-
-
 
     @FindBy(xpath = "//a[@class='btn btn-lg btn-admin']")
     public WebElement adminLoginButton;
 
 
-    @FindBy(xpath ="//input[@id='form-username']")
+   // @FindBy(xpath ="//input[@id='form-username']")
       //@FindBy(xpath = "//input[@placeholder='Username']")
 
    // @FindBy(xpath ="//input[@placeholder='Username']")
@@ -77,12 +83,6 @@ public class AdminPage extends Base {
     public WebElement deleteButton;
     // Admin fees collection section **************Gulten Harrelson***********************
 
-
-
-
-
-
-
       //--------------------------
     // Admin Fees Collection > Collect Fees
     @FindBy(xpath ="(//*[text()='Collect Fees'])[2]")
@@ -138,6 +138,37 @@ public class AdminPage extends Base {
 
     @FindBy(xpath = "//*[@class='forgot']")
     public WebElement adminPasswordForgotLink;
+
+    @FindBy(xpath = "//*[@name='username']")
+    public WebElement adminLoginUsernameTextBox;
+
+    @FindBy(xpath = "//*[@name='password']")
+    public WebElement adminLoginPasswordTextBox;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    public WebElement adminLoginSubmitButton;
+
+    @FindBy(xpath = "//*[@name='email']")
+    public WebElement forgotPasswordEmailBox;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    public WebElement forgotPasswordSubmitButton;
+
+    @FindBy(xpath = "//*[@class='alert alert-success']")
+    public WebElement forgotPasswordResetEmailAlert;
+
+    @FindBy(xpath = "(//*[@target='_blank'])[1]")
+    public WebElement adminUserLoginLink;
+
+    @FindBy(xpath = "//*[@class='fa fa-key']")
+    public WebElement forgotPasswordAdminLoginLink;
+
+    @FindBy(xpath = "//*[@class='forgot pull-right']")
+    public WebElement siteLoginUserLoginLink;
+
+    @FindBy(xpath = "(//*[@class='forgot pull-right'])[1]")
+    public WebElement userLoginFrontPageLink;
+
     //************************************************************************************************
 
     //--------------------------
@@ -160,6 +191,136 @@ public class AdminPage extends Base {
     public WebElement getAdminDashboardSentMessageText;
 
 
+    //********************************* Ogun Locates **********************************************
+
+    //Admin Panel Side Bar Transport Section
+    @FindBy(xpath = "(//*[text()='Transport'])[2]")
+    private WebElement transportSideBarAdminPanel;
+
+    //Admin Panel Side Bar Routes Button under Transport Section
+    @FindBy(xpath = "(//*[text()='Routes'])[2]")
+    private WebElement routesUnderTransportAdminPanel;
+
+    //Routes Page Create Route Title
+    @FindBy(xpath = "//*[text()='Create Route']")
+    private WebElement createRouteVerifyRoutesPage;
+
+    //Routes Page Create Route TextBox
+    @FindBy(xpath = "//input[@id='route_title']")
+    private WebElement textBoxCreateRoute;
+
+    // Routes Page Save Button
+    @FindBy(xpath = "(//*[text()='Save'])[1]")
+    private WebElement saveButtonRoutesPage;
+
+    //Routes Page Create Route Success Alert
+    @FindBy(xpath = "//*[text()='Record Saved Successfully']")
+    private WebElement successAlertCreateRoute;
+
+    //Created Route Routes List
+    @FindBy(xpath = "//*[text()=' Bochum']")
+    private WebElement createdRouteRoutesList;
+
+    //Edited Route Routes List
+    @FindBy(xpath = "//*[text()=' Elazig']")
+    private WebElement editedRoute;
+
+    //Route Title Section Routes Page
+    @FindBy(xpath = "(//*[text()='Route Title'])[2]")
+    private WebElement routeTitleSectionRouteList;
+
+    //Action title Routes Page
+    @FindBy(xpath = "(//th[@aria-controls='DataTables_Table_0'])[2]")
+    private WebElement actionTitleUnderRouteList;
+
+    //Edit Button under Route List
+    @FindBy(xpath = "(//i[@class='fa fa-pencil'])[27]")
+    private WebElement editButtonCreatedRoute;
+
+    //******************************** Ogun Methods ***********************************************
+
+
+    //Enters username and password, afterward click on SignIn
+    public void enterUsernamePasswordAndClickSignIn(){
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+        adminUser.sendKeys(ConfigReader.getProperty("ogunAdminUserName"));
+        adminPassword.sendKeys(ConfigReader.getProperty("DGpassword"));
+        signInButton.click();
+    }
+
+    //verify and click on Transport and Routes on side bar
+    public void clickVerifyTransport(){
+        Assert.assertTrue(transportSideBarAdminPanel.isDisplayed());
+        Assert.assertTrue(transportSideBarAdminPanel.isEnabled());
+        transportSideBarAdminPanel.click();
+
+        Assert.assertTrue(routesUnderTransportAdminPanel.isDisplayed());
+        Assert.assertTrue(routesUnderTransportAdminPanel.isEnabled());
+        routesUnderTransportAdminPanel.click();
+    }
+    //verifies Route page and Create route Section, Route Title textbox and Save button
+    public void verifyTitleAndTextBoxesRoutePage(){
+        Assert.assertTrue(createRouteVerifyRoutesPage.isDisplayed());
+        Assert.assertTrue(routeTitleSectionRouteList.isDisplayed());
+        Assert.assertTrue(textBoxCreateRoute.isDisplayed());
+        Assert.assertTrue(textBoxCreateRoute.isEnabled());
+        Assert.assertTrue(saveButtonRoutesPage.isDisplayed());
+        Assert.assertTrue(saveButtonRoutesPage.isEnabled());
+    }
+    //Creates a route and verify created route
+    public void createVerifyRoute(){
+        textBoxCreateRoute.sendKeys(ConfigReader.getProperty("route1"));
+        saveButtonRoutesPage.click();
+        Assert.assertTrue(successAlertCreateRoute.isDisplayed());
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),createdRouteRoutesList);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue(createdRouteRoutesList.isDisplayed());
+    }
+
+    //Verify the column Route Title and Action
+    public void verifyColumnsRoutesPage(){
+        Assert.assertTrue(routeTitleSectionRouteList.isDisplayed());
+        Assert.assertTrue(actionTitleUnderRouteList.isDisplayed());
+    }
+
+    //edit Route and verify that
+    public void editVerifyRoute(){
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),createdRouteRoutesList);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        actions.click(createdRouteRoutesList)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.ENTER)
+                .perform();
+        textBoxCreateRoute.clear();
+        textBoxCreateRoute.sendKeys(ConfigReader.getProperty("route2"));
+        saveButtonRoutesPage.click();
+        ReusableMethods.bekle(2);
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),editedRoute);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue(editedRoute.isDisplayed());
+    }
+    //Delete the Route
+    public void deleteRoute(){
+        try {
+            ReusableMethods.scrollToElement(Driver.getDriver(),editedRoute);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        actions.click(editedRoute)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.ENTER)
+                .perform();
+    }
 
 
 
@@ -168,6 +329,46 @@ public class AdminPage extends Base {
 
 
 
+
+
+
+
+// Admin Student Information --> Multi Class Student
+    @FindBy (xpath = "//span[text()='Student Information']")
+    public WebElement studentInformation;
+
+    @FindBy (xpath = "(//a[@href=\"https://qa.wonderworldcollege.com/student/multiclass\"])[2]")
+    public WebElement multiClassStudentLink;
+
+    @FindBy (xpath = "//h3[@class='box-title']")
+    public WebElement multiClassStudentselectCriteriaText;
+
+    @FindBy (id = "class_id")
+    public WebElement multiClassStudentClassTexbox;
+
+    @FindBy (id = "section_id")
+    public WebElement multiClassStudentSectionTexbox;
+
+    @FindBy (xpath = "(//button[@type='submit'])[3]")
+    public WebElement multiClassStudentSearchButton;
+
+    @FindBy (xpath = "(//h3[@class='box-title'])[2]")
+    public WebElement multiClassStudentselectCriteriaText2;
+
+    @FindBy (xpath = "(//button[@class='btn btn-default btn-sm pull-right addrow addrow-mb2010'])[1]")
+    public WebElement multiClassStudentAddButton;
+
+    @FindBy (xpath = "(//select[@name='class_id_3'])[1]")
+    public WebElement multiClassStudentClassTexbox2;
+
+    @FindBy (xpath = "(//select[@name='section_id_3'])[1]")
+    public WebElement multiClassStudentSectionTexbox2;
+
+    @FindBy (xpath = "(//button[@type='submit'])[4]")
+    public WebElement multiClassStudentUpdateButton;
+
+    @FindBy(xpath = "(//button[@class='btn btn-sm btn-danger rmv_row'])[3]")
+    public WebElement multiClassStudentRemoveButton;
 
 
 
@@ -312,7 +513,6 @@ public class AdminPage extends Base {
 
     @FindBy(xpath = "//*[@id='passwordform']/div[4]/div/div/button")
     public WebElement passwordChangeButton;
-
 
 
 }

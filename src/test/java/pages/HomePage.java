@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -302,9 +301,29 @@ public class HomePage extends Base {
     @FindBy(xpath = "(//button[@type='button'])[10]")
     private WebElement verifyGuardianPhotoUploaded;
 
+
+    @FindBy (xpath = "(//h2[@class='head-title'])[4]")
+    public WebElement ourExperiencedStaffsText;
+
+    @FindBy (xpath = "(//h3[text()='Anthony Carter'])[2]")
+    public WebElement ourExperiencedStaffsAnthonyCarter;
+
+    @FindBy (xpath = "(//h3[text()='Ava Turner'])[2]")
+    public WebElement ourExperiencedStaffsAvaTurner;
+
+    @FindBy (xpath = "(//h3[text()='David Morgan'])[2]")
+    public WebElement ourExperiencedStaffsDavidMorgan;
+
+    @FindBy (xpath = "(//h3[text()='Lily Peterson'])[2]")
+    public WebElement ourExperiencedStaffsLilyPeterson;
+
+
+
+
     //Online Admission title
     @FindBy(xpath = "(//*[text()='Online Admission'])[2]")
     private WebElement onlineAdmissionTitle;
+
 
     //Guardian Details Radio Box Father
     @FindBy(xpath = "//div/div/div/label[2]/input")
@@ -477,7 +496,9 @@ public class HomePage extends Base {
         Assert.assertTrue(onlineAdmissionPageMobileNumber.isEnabled());
         Assert.assertTrue(onlineAdmissionPageEmail.isDisplayed());
         Assert.assertTrue(onlineAdmissionPageEmail.isEnabled());
-
+        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isDisplayed());
+        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isEnabled());
+        Actions actions=new Actions(Driver.getDriver());
         Select select = new Select(onlineAdmissionPageClassDropDown);
         select.selectByIndex(14);
         onlineAdmissionPageFirstnameTextBox.sendKeys("Timur");
@@ -582,11 +603,9 @@ public class HomePage extends Base {
     public void verifyGuardianPhotoUpload() {
         actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
-
-
     }
 
-    }
+
 
 
     //******************************EMRE HOME PAGE LOCATES*****************************************
@@ -715,6 +734,11 @@ public class HomePage extends Base {
             }
         }
     }
+    //*******************************************************************************************
 
 }
+
+
+
     //*******************************************************************************************
+
