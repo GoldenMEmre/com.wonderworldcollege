@@ -586,7 +586,7 @@ public class HomePage extends Base {
 
     }
 
-    }
+
 
 
     //******************************EMRE HOME PAGE LOCATES*****************************************

@@ -38,7 +38,7 @@ public class TeacherStepdefinition {
     }
     @Then("enter {string} as password")
     public void enterAsPassword(String pass) {
-        teacherPage.enterPassword(pass);
+            teacherPage.enterPassword(pass);
     }
     @Then("click signin button")
     public void click_signin_button() {
@@ -181,12 +181,12 @@ public class TeacherStepdefinition {
 
     @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
     public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
-        Select select=new Select(teacherPage.classDropDown);
+        Select select = new Select(teacherPage.classDropDown);
         select.selectByIndex(1);
-        select=new Select(teacherPage.sectionDropDown);
+        select = new Select(teacherPage.sectionDropDown);
         select.selectByIndex(1);
         // select=new Select(teacherPage.dateDropDown);
-        JavascriptExecutor hadi =(JavascriptExecutor)Driver.getDriver();
+        JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
         teacherPage.dateDropDown.click();
 
         //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
@@ -197,17 +197,87 @@ public class TeacherStepdefinition {
         // **************************Gulten Harrelson *************************** 1.Sonu
 
 
+    }
+    @Given("go to'loginurl'")
+    public void go_to_loginurl() {
+        ReusableMethods.goToLoginPage();
+    }
+    @Then("enter  teacher username1")
+    public void enter_teacher_username1() {
+        teacherPage.enterUsername(ConfigReader.getProperty("teacherName"));
+    }
+    @Then("enter teacher password2")
+    public void enter_teacher_password2() {
+       teacherPage.enterPassword(ConfigReader.getProperty("teacherPassword"));
+    }
 
+    @When("click teacher attendance")
+    public void click_teacher_attendance() {
+        teacherPage.sideBarAttendance.click();
+    }
+    @When("click period attendance")
+    public void click_period_attendance() {
+       teacherPage.periodAttendance.click();
+    }
+    @When("subject attendace page must be accessible")
+    public void subject_attendace_page_must_be_accessible() {
+        teacherPage.periodAttendancePage.isDisplayed();
+    }
+    @Given("class section subject dropdown date boc must be accessiblle")
+    public void classSectionSubjectDropdownDateBocMustBeAccessiblle() {
+    }
+    @Given("search text box must be accessible")
+    public void searchTextBoxMustBeAccessible() {
+    }
+
+
+    @Given("select class section date and subject")
+    public void selectClassSectionDateAndSubject() {
+        Select select = new Select(teacherPage.selectCriteriaClass);
+        select.selectByIndex(2);
+        Select select1 = new Select(teacherPage.selectCriteriaSection);
+        select1.selectByIndex(2);
+        Select select2 = new Select(teacherPage.selectCriteriaDate);
+        select2.selectByIndex(2);
+        Select select3 = new Select(teacherPage.selectCriteriasubject);
+        select3.selectByIndex(2);
 
     }
 
 
-
-
-
-
-
+    @Then("admission no roll number name attendance note must be accessible")
+    public void admissionNoRollNumberNameAttendanceNoteMustBeAccessible() {
+        teacherPage.admissionNo.isDisplayed();
+        teacherPage.rollNumber.isDisplayed();
+        teacherPage.attendanceName.isDisplayed();
+        teacherPage.attendance.isDisplayed();
+        teacherPage.note.isDisplayed();
+        
     }
+
+    @Given("click present late absent half day")
+    public void clickPresentLateAbsentHalfDay() {
+        teacherPage.attendancePresent.isDisplayed();
+        teacherPage.attendanceLate.isDisplayed();
+        teacherPage.attendanceAbsent.isDisplayed();
+        teacherPage.attendanceHalfDay.click();
+    }
+
+    @Then("click save attendance button")
+    public void clickSaveAttendanceButton() {
+        teacherPage.saveAttendance.click();
+    }
+
+    @Given("note text box must be accessible")
+    public void noteTextBoxMustBeAccessible() {
+        teacherPage.noteBox.isDisplayed();
+    }
+
+    @Given("mark as holiday button must be accessible")
+    public void markAsHolidayButtonMustBeAccessible() {
+        teacherPage.markAsHolidayButton.isDisplayed();
+    }
+}
 
 
 

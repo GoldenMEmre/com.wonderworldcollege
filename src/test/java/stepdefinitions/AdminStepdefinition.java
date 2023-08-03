@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import pages.AdminPage;
@@ -21,6 +22,11 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import javax.swing.*;
+
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -28,6 +34,7 @@ public class AdminStepdefinition {
 
     AdminPage adminPage = new AdminPage();
 
+    Actions action =new Actions(Driver.getDriver());
 
     //************************************** Gulten Harrelson********************
 
@@ -184,11 +191,188 @@ public class AdminStepdefinition {
         adminPage.adminLoginButton.click();
         ReusableMethods.bekle(5);
 //        ReusableMethods.waitForVisibility(adminPage.adminUser,2);
-//        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
-//        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+       adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+       adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
 //
-//        adminPage.signInButton.click();
+        adminPage.signInButton.click();
+    }
 
+    @Given("click profile icon")
+    public void click_profile_icon() {
+        adminPage.profileIcon.click();
+    }
+    @When("account holder name and role must be visible")
+    public void account_holder_name_and_role_must_be_visible() {
+        adminPage.adminText.isDisplayed();
+    }
+    @Then("profile, password and logout links must be accessible")
+    public void profile_password_and_logout_links_must_be_accessible() {
+        adminPage.profileButton.isDisplayed();
+        adminPage.passwordButton.isDisplayed();
+        adminPage.logOutButton.isDisplayed();
+    }
+
+    @Then("click profile button")
+    public void click_profile_button() {
+       adminPage.profileButton.click();
+    }
+
+    @When("click payroll leaves attendance and documents")
+    public void click_payroll_leaves_attendance_and_documents() {
+      adminPage.payrollButton.click();
+     ReusableMethods.bekle(2);
+     adminPage.leavesButton.click();
+     ReusableMethods.bekle(2);
+     adminPage.attendanceButton.click();
+     ReusableMethods.bekle(2);
+     adminPage.documentsButton.click();
+    }
+
+    @When("details must be accessible")
+    public void details_must_be_accessible() {
+        adminPage.profileText.click();
+        adminPage.generalDetailPart.isDisplayed();
+        adminPage.addressDetailsPart.isDisplayed();
+        adminPage.bankAccountDetailsPart.isDisplayed();
+        adminPage.socialMediaLinksPart.isDisplayed();
+    }
+    @Given("click payroll")
+    public void click_payroll() {
+       adminPage.payrollButton.click();
+    }
+    @Then("information boards must be accessible")
+    public void information_boards_must_be_accessible() {
+
+        adminPage.totalNetSallaryPaid.isDisplayed();
+        adminPage.totalGrossSallary.isDisplayed();
+        adminPage.totalEarning.isDisplayed();
+        adminPage.totalDeduction.isDisplayed();
+    }
+    @When("payslip list must be accessible")
+    public void payslip_list_must_be_accessible() {
+
+        adminPage.payslipList.isDisplayed();
+
+    }
+
+    @Then("click action")
+    public void clickAction() {
+        adminPage.payrollAction.click();
+    }
+
+    @Then("click search textbox")
+    public void clickSearchTextbox() {
+
+        adminPage.payrollSearchTextBox.isDisplayed();
+    }
+
+    @When("click view paylist")
+    public void clickViewPaylist() {
+        adminPage.viewPayslip.click();
+        adminPage.bordro.isDisplayed();
+    }
+    @And("close view payslip")
+    public void closeViewPayslip() {
+        adminPage.bordroClose.click();
+    }
+
+    @Given("click leaves")
+    public void clickLeaves() {
+        adminPage.leavesButton.click();
+
+    }
+
+    @Then("leave list menu must be accessible")
+    public void leaveListMenuMustBeAccessible() {
+        adminPage.leavesType.isDisplayed();
+        adminPage.leaveDate.isDisplayed();
+        adminPage.leaveDays.isDisplayed();
+        adminPage.applyDate.isDisplayed();
+        adminPage.status.isDisplayed();
+        adminPage.leavesAction.isDisplayed();
+    }
+
+    @Given("click leaves action")
+    public void clickLeavesAction() {
+     adminPage.leavesAction.click();
+    }
+    @Then("click view icon")
+    public void clickViewIcon() {
+    adminPage.viewIcon.click();
+    adminPage.viewIcon.isDisplayed();
+    }
+    @When("close view permisson page")
+    public void closeViewPermissonPage() {
+        adminPage.viewIconClose.click();
+    }
+    @Given("click attendance")
+    public void clickAttendance() {
+        adminPage.attendanceButton.click();
+    }
+
+    @Then("attendance information boards must be accessible")
+    public void attendanceInformationBoardsMustBeAccessible() {
+        adminPage.totalPresent.isDisplayed();
+        adminPage.totalLate.isDisplayed();
+        adminPage.totalAbsent.isDisplayed();
+        adminPage.totalHalfDay.isDisplayed();
+        adminPage.totalHoliday.isDisplayed();
+    }
+
+    @Given("year should be select")
+    public void yearShouldBeSelect() {
+        adminPage.attendanceYearSelect.isSelected();
+    }
+
+    @Then("descriptions of the letters should be accessible")
+    public void descriptionsOfTheLettersShouldBeAccessible() {
+        adminPage.attendanceLetters.isDisplayed();
+    }
+    @Given("relevant staff is listed by month and day in the Attendance List must be accessible")
+    public void relevantStaffIsListedByMonthAndDayInTheAttendanceListMustBeAccessible() {
+        adminPage.attendanceListStaff.isDisplayed();
+    }
+    @Given("click pasword button")
+    public void clickPaswordButton() {
+        adminPage.profileIcon.click();
+        adminPage.passwordButton.click();
+    }
+
+    @Then("textBoxes about the Password should be accessible")
+    public void textboxesAboutThePasswordShouldBeAccessible() {
+        adminPage.currentPassword.isDisplayed();
+        adminPage.confirmPassword.isDisplayed();
+        adminPage.newPassword.isDisplayed();
+        adminPage.passwordChangeButton.isDisplayed();
+    }
+
+    @Given("click current password and enter password")
+    public void clickCurrentPasswordAndEnterPassword() {
+        adminPage.currentPasswordTextBox.click();
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+
+    }
+
+    @Then("click new password and enter new password")
+    public void clickNewPasswordAndEnterNewPassword() {
+        adminPage.newPasswordTextBox.click();
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+
+    }
+    @When("click confirm password and enter password")
+    public void clickConfirmPasswordAndEnterPassword() {
+        adminPage.confirmPasswordTextBox.click();
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+    }
+    @And("{string} text must be accessible")
+    public void passwordChangedSuccessfullyTextMustBeAccessible() {
+        adminPage.passwordChangeSuccessfully.isDisplayed();
+    }
+    @When("click logout button")
+    public void clickLogoutButton() {
+        adminPage.logOutButton.click();
+    }
     @Given("Choose class button")
     public void choose_class_button() {
         WebElement dropdownMenuSelect = Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
@@ -199,7 +383,7 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(1);
 
     }
-}
+
 
     @Given("Choose section button")
     public void choose_section_button() {
@@ -328,13 +512,11 @@ public class AdminStepdefinition {
 
     }
 
-    @And("Verify that Forgot Password Link is active")
-    public void verifyThatForgotPasswordLinkIsActive() {
-        Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
 
 
 
-    }
+
+
 
     //*************************************************************************************************
 
@@ -353,7 +535,7 @@ public class AdminStepdefinition {
 
 
 
-    }
+
 
     //*************************************************************************************************
 
@@ -365,12 +547,15 @@ public class AdminStepdefinition {
 
 
     }
+
+
+
 }
 
 
 
 
-}
+
 
 
 

@@ -218,6 +218,12 @@ public class ParentStudentPage extends Base{
     //*[@class='forgot pull-right']
 
 
+    @FindBy(xpath = "//*[@id='alert']/nav/div[2]/div/div/ul/li/ul/li/div/div[4]/a[1]")
+    public WebElement passwordClick;
+
+    @FindBy(xpath = "/html/body/div[1]/div[1]/section[2]/div/div/div/ul/li[2]/a")
+    public WebElement changeUserNameButton;
+
 
 
 
