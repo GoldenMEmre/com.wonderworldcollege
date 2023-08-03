@@ -2,7 +2,7 @@ Feature: As a teacher, creating exam groups for students
 
   Scenario: Exam Group link is displayed under the Examinations menu on the teacher panel and when it is clicked, it is directed to the examgroup page.
 
-    * Go to "loginurl"
+    * Go to "adminLoginUrl"
     * click teacher login button
     * Enter the valid username and password on the Teacher login panel
     * click sign in button
