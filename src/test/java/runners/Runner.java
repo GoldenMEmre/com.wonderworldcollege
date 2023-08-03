@@ -13,22 +13,47 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt"
         },
 
-        features = {
+
+
+
+        features = {"src/test/resources/homepage",
+
+
                 "src/test/resources/homepage",
+
+
+
+  
+
+
+
+
+                "src/test/resources/adminpage",
+                },
+
+        glue = {"src/test/resources/homepage",
+
+
                 "src/test/resources/adminpage",
                 "src/test/resources/teacherpage",
 
-                "src/test/resources/student_parent_page"},
+
+                "src/test/resources/student_parent_page",
 
                 "src/test/resources/parent_studentpage"
                 },
 
 
-        glue = {"stepdefinitions"},
 
-
-        tags = "@ab",
+        tags = "@ww",
         dryRun = true
+
+
+       // glue = "stepdefinitions",
+
+
+
+
 
 
 

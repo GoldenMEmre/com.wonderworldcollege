@@ -4,6 +4,10 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+
+
+
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,11 +17,14 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 
 
+
 import io.cucumber.java.en.When;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+
 import org.openqa.selenium.support.ui.Select;
 
 import pages.AdminPage;
@@ -140,15 +147,12 @@ public class AdminStepdefinition {
         adminPage.multiClassStudentLink.click();
         ReusableMethods.bekle(1);
         Assert.assertTrue(adminPage.multiClassStudentselectCriteriaText.isDisplayed());
-
     }
-
     @Given("Student Information, Multi Class Student link is clicked on the admin panel, respectively")
     public void student_information_multi_class_student_link_is_clicked_on_the_admin_panel_respectively() {
 
         adminPage.studentInformation.click();
         adminPage.multiClassStudentLink.click();
-
     }
 
     @Given("It is verified that the Class and Section textBoxes and the Search button are displayed on the Multiclass page")
@@ -171,7 +175,6 @@ public class AdminStepdefinition {
         select.selectByIndex(1);
         ReusableMethods.bekle(2);
 
-
         adminPage.multiClassStudentSearchButton.click();
         ReusableMethods.bekle(2);
     }
@@ -180,9 +183,7 @@ public class AdminStepdefinition {
     public void verifies_that_students_are_listed_according_to_the_search_criteria() {
 
         Assert.assertTrue(adminPage.multiClassStudentselectCriteriaText2.isDisplayed());
-
     }
-
     @Given("A new class is added by clicking the + icon in the selected student's window")
     public void a_new_class_is_added_by_clicking_the_icon_in_the_selected_student_s_window() {
 
@@ -196,16 +197,12 @@ public class AdminStepdefinition {
         select = new Select(adminPage.multiClassStudentSectionTexbox2);
         select.selectByIndex(3);
         ReusableMethods.bekle(1);
-
-
     }
-
     @Given("Clicking the Update button saves the changes made")
     public void clicking_the_update_button_saves_the_changes_made() {
 
         adminPage.multiClassStudentUpdateButton.click();
         ReusableMethods.bekle(2);
-
     }
 
     @Given("Click the remove button of the class you want to delete in the selected student's window")
@@ -213,13 +210,12 @@ public class AdminStepdefinition {
 
         adminPage.multiClassStudentRemoveButton.click();
         ReusableMethods.bekle(2);
-
     }
-
     @Given("Quit the page")
     public void quit_the_page() {
         Driver.quitDriver();
     }
+
 
     @Given("Verify Record Saved Successfully displayed after clicking save button")
     public void verify_record_saved_successfully_displayed_after_clicking_save_button() {
@@ -228,6 +224,9 @@ public class AdminStepdefinition {
 
         if (expectedTitle.contains("Record Saved Successfully")) {
             System.out.print("Expected title test Passed");
+
+     //String expectedTitle="Record Saved Successfully";
+
 
         } else {
             System.out.print("Expected title test Failed");
@@ -296,6 +295,8 @@ public class AdminStepdefinition {
     }
 
 
+
+
     @Given("Choose class button")
     public void choose_class_button() {
         WebElement dropdownMenuSelect = Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
@@ -303,9 +304,21 @@ public class AdminStepdefinition {
         Select select = new Select(dropdownMenuSelect);
         ReusableMethods.bekle(2);
 
-        select.selectByVisibleText("Class 2");
-        ReusableMethods.bekle(1);
+
+         select.selectByVisibleText("Class 2");
+         ReusableMethods.bekle(1);
     }
+
+       // select.selectByVisibleText("Class 2");
+       // ReusableMethods.bekle(1);
+
+
+
+
+       // select.selectByVisibleText("Class 2");
+       // ReusableMethods.bekle(1);
+
+
 
 
 
@@ -431,6 +444,7 @@ public class AdminStepdefinition {
 
 
 
+
     @And("Switch to window")
     public void switchToWindow() {
         ReusableMethods.switchToWindow("Login : Wonder World College");
@@ -504,6 +518,7 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(3);
     }
 
+
     //*************************************************************************************************
 
 
@@ -514,10 +529,24 @@ public class AdminStepdefinition {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     @And("Verify that Forgot Password Link is active")
     public void verifyThatForgotPasswordLinkIsActive() {
         Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
     }
+
+
 
 
     //*************************************************************************************************
@@ -559,6 +588,9 @@ public class AdminStepdefinition {
         adminPage.verifyColumnsRoutesPage();
     }
 
+
+
+
     @Then("edit created Route and verify the changes")
     public void editCreatedRouteAndVerifyTheChanges() {
         adminPage.editVerifyRoute();
@@ -569,6 +601,9 @@ public class AdminStepdefinition {
         adminPage.deleteRoute();
     }
 }
+
+
+
 
 
 
