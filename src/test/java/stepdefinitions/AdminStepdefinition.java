@@ -4,6 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import org.openqa.selenium.By;
+
+
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
@@ -11,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.support.ui.Select;
+
 import pages.AdminPage;
 import pages.Base;
 import utilities.ConfigReader;
@@ -47,7 +51,13 @@ public class AdminStepdefinition {
 
     @Given("click sign in button")
     public void click_sign_in_button() {
+
+        ReusableMethods.waitForVisibility(adminPage.signInButton, 1);
         adminPage.signInButton.click();
+
+
+        adminPage.signInButton.click();
+
     }
 
     @Given("Click fees collection")
@@ -145,7 +155,7 @@ public class AdminStepdefinition {
         adminPage.deleteButton.click();
         Driver.getDriver().switchTo().alert().accept();
         ReusableMethods.bekle(3);
-        Driver.closeDriver();
+
     }
 
 
@@ -165,6 +175,19 @@ public class AdminStepdefinition {
         Assert.assertTrue(feesPageElement.isDisplayed());
     }
 
+
+    @And("User logs as an admin")
+    public void userLogsAsAnAdmin() {
+
+        adminPage.adminLoginButton.click();
+        ReusableMethods.bekle(5);
+//        ReusableMethods.waitForVisibility(adminPage.adminUser,2);
+//        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+//        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+//
+//        adminPage.signInButton.click();
+    }
+
     @Given("Choose class button")
     public void choose_class_button() {
         WebElement dropdownMenuSelect = Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
@@ -173,7 +196,9 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(2);
         select.selectByVisibleText("Class 2");
         ReusableMethods.bekle(1);
+
     }
+
 
     @Given("Choose section button")
     public void choose_section_button() {
@@ -241,6 +266,7 @@ public class AdminStepdefinition {
     public void clickTheAdminLoginButton() {
         adminPage.adminLoginButton.click();
         ReusableMethods.bekle(3);
+
     }
 
     @And("Verify that message board is visible")
@@ -302,6 +328,82 @@ public class AdminStepdefinition {
 
     }
 
+
+
+
+    @And("Switch to window")
+    public void switchToWindow() {
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+    }
+
+    @And("Verify that Admin Login Username Box is diplayed")
+    public void verifyThatAdminLoginUsernameBoxIsDiplayed() {
+        Assert.assertTrue(adminPage.adminLoginUsernameTextBox.isDisplayed());
+
+    }
+
+    @And("Verify that Admin Login Password Box is displayed")
+    public void verifyThatAdminLoginPasswordBoxIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginPasswordTextBox.isDisplayed());
+    }
+
+    @And("Verify that Admin Login Submit Button is displayed")
+    public void verifyThatAdminLoginSubmitButtonIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginSubmitButton.isEnabled());
+    }
+
+    @And("Enter Forgot Password Email Adress")
+    public void enterForgotPasswordEmailAdress() {
+        adminPage.forgotPasswordEmailBox.sendKeys(ConfigReader.getProperty("userloginemail"));
+    }
+
+    @And("Click the Forgot Botton Submit Button")
+    public void clickTheForgotBottonSubmitButton() {
+        adminPage.forgotPasswordSubmitButton.click();
+    }
+
+    @And("Verify that Admin Login password reset email is sent")
+    public void verifyThatAdminLoginPasswordResetEmailIsSent() {
+        Assert.assertTrue(adminPage.forgotPasswordResetEmailAlert.isDisplayed());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Verify that Admin User Login Link is enabled")
+    public void verifyThatAdminUserLoginLinkIsEnabled() {
+        Assert.assertTrue(adminPage.adminPasswordForgotLink.isEnabled());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click the Admin User Login Link")
+    public void clickTheAdminUserLoginLink() {
+        adminPage.adminPasswordForgotLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click Forgot Password Admin Login Link")
+    public void clickForgotPasswordAdminLoginLink() {
+        adminPage.forgotPasswordAdminLoginLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click Site Login User Login Link")
+    public void clickSiteLoginUserLoginLink() {
+        adminPage.siteLoginUserLoginLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Verify that User Login Front Page Link is visible")
+    public void verifyThatUserLoginFrontPageLinkIsVisible() {
+        Assert.assertTrue(adminPage.userLoginFrontPageLink.isDisplayed());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click the User Login Front Page Link")
+    public void clickTheUserLoginFrontPageLink() {
+        adminPage.userLoginFrontPageLink.click();
+        ReusableMethods.bekle(3);
+    }
+
     //*************************************************************************************************
 
 
@@ -311,6 +413,7 @@ public class AdminStepdefinition {
     }
 
 
+
     @And("Verify that Forgot Password Link is active")
     public void verifyThatForgotPasswordLinkIsActive() {
         Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
@@ -318,6 +421,10 @@ public class AdminStepdefinition {
 
 
     //*************************************************************************************************
+
+
+    //*************************************************************************************************
+
 
     @Then("The message is sent successfully")
     public void the_message_is_sent_successfully() {
@@ -341,6 +448,7 @@ public class AdminStepdefinition {
         adminPage.verifyTitleAndTextBoxesRoutePage();
     }
 
+
     @Then("enter required informations and click on save and verify created route")
     public void enterRequiredInformationsAndClickOnSaveAndVerifyCreatedRoute() {
         adminPage.createVerifyRoute();
@@ -361,6 +469,13 @@ public class AdminStepdefinition {
         adminPage.deleteRoute();
     }
 }
+
+
+
+
+
+
+
 
 
 
