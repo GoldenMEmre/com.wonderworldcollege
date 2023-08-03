@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/homepage",
                 "src/test/resources/adminpage",
                 "src/test/resources/teacherpage",
-                "src/test/resources/parent_studentpage"},
+                "src/test/resources/student_parent_page"},
 
         glue = {"stepdefinitions"},
 

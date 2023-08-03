@@ -302,14 +302,6 @@ public class AdminStepdefinition {
 
     }
 
-    @And("Verify that Forgot Password Link is active")
-    public void verifyThatForgotPasswordLinkIsActive() {
-        Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
-
-
-
-    }
-
     //*************************************************************************************************
 
 
@@ -325,13 +317,7 @@ public class AdminStepdefinition {
     }
 
 
-
-
-    }
-
     //*************************************************************************************************
-
-
 
     @Then("The message is sent successfully")
     public void the_message_is_sent_successfully() {
@@ -339,12 +325,45 @@ public class AdminStepdefinition {
 
 
     }
+
+    @Then("enter username and password afterward click on signin")
+    public void enterUsernameAndPasswordAfterwardClickOnSignin() {
+        adminPage.enterUsernamePasswordAndClickSignIn();
+    }
+
+    @Then("verify Transport and Routes Sections and click on them one by one")
+    public void verifyTransportAndRoutesSectionsAndClickOnThemOneByOne() {
+        adminPage.clickVerifyTransport();
+    }
+
+    @Then("verify the textbox and button")
+    public void verifyTheTextboxAndButton() {
+        adminPage.verifyTitleAndTextBoxesRoutePage();
+    }
+
+    @Then("enter required informations and click on save and verify created route")
+    public void enterRequiredInformationsAndClickOnSaveAndVerifyCreatedRoute() {
+        adminPage.createVerifyRoute();
+    }
+
+    @Then("verify the columns")
+    public void verifyTheColumns() {
+        adminPage.verifyColumnsRoutesPage();
+    }
+
+    @Then("edit created Route and verify the changes")
+    public void editCreatedRouteAndVerifyTheChanges() {
+        adminPage.editVerifyRoute();
+    }
+
+    @Then("delete the edited Route")
+    public void deleteTheEditedRoute() {
+        adminPage.deleteRoute();
+    }
 }
 
 
 
-
-}
 
 
 
