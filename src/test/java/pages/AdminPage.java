@@ -1,6 +1,6 @@
 package pages;
 
-git
+
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
