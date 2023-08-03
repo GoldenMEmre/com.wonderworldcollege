@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import pages.AdminPage;
 import pages.Base;
@@ -284,13 +285,126 @@ public class AdminStepdefinition {
 
 
     }
+
+    @Given("go to admin panel's sidebar")
+    public void go_to_admin_panel_s_sidebar() {
+        Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
+        adminPage.adminLoginButton.sendKeys(ConfigReader.getProperty("adminMelike"));
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        adminPage.adminLoginButton.click();
+        adminPage.adminPanelSideBarButton.click();
+
+
+    }
+
+    @When("click on the student information menu")
+    public void click_on_the_menu() {
+        adminPage.studentInformationSection.click();
+
+    }
+
+    @When("click on the online admisson link")
+    public void click_on_the_link() {
+        adminPage.onlineAdmissionSection.click();
+
+
+    }
+
+    @Then("should see the page with columns")
+    public void should_see_the_page_with_columns() {
+        Assert.assertTrue(adminPage.onlineAdmissionSectionReferenceNo.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionCategory.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionClass.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionCreatedAt.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionDateOfBirth.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionDateOfBirth.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionFather.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionEnrolled.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionFormStatus.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionGender.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionStudentMobileNumber.isDisplayed());
+        Assert.assertTrue(adminPage.onlineAdmissionSectionStudentName.isDisplayed());
+
+    }
+
+    @Given("go to the Online Student page")
+    public void go_to_the_online_student_page() {
+
+    }
+
+    @When("enter string in the search TextBox")
+    public void enter_in_the_search_text_box(String AyseMehmet) {
+        adminPage.onlineAdmissionSearchBox.sendKeys(AyseMehmet);
+
+    }
+
+    @Then("should see results String containing")
+    public void should_see_results_containing_in_the(String AyseMehmet) {
+        adminPage.onlineAdmissionSearchBox.sendKeys(AyseMehmet);
+        String expectedResult = "jhon";
+        String actualResult = adminPage.onlineAdmissionSearchResultText.getText();
+        Assert.assertEquals(expectedResult, actualResult);
+
+
+    }
+
+
+    @Given("go to the edit and enroll page for a student application")
+    public void goToThePage() {
+        adminPage.editAndEnrollPageButton.click();
+        Driver.getDriver().switchTo().alert().accept();
+
+
+    }
+
+    @Then("the {string} page should be displayed")
+    public void thePageShouldBeDisplayed(String arg0) {
+        Assert.assertTrue(adminPage.editOnlineAdmissionText.isDisplayed());
+
+    }
+
+
+    @When("click on the {string} icon for the first application in the list")
+    public void clickOnTheIconForTheFirstApplicationInTheList(String arg0) {
+        adminPage.editAndEnrollPageButton.click();
+    }
+
+    @And("the filled information from the Online Admission form should be displayed")
+    public void theFilledInformationFromTheOnlineAdmissionFormShouldBeDisplayed() {
+        Assert.assertTrue(adminPage.editOnlineAdmissionText.isDisplayed());
+    }
+
+    @Given("go to the {string} page for a student application with Admission No")
+    public void goToThePageForAStudentApplicationWithAdmissionNo(String arg0) {
+        adminPage.editAndEnrollPageAdmissionNo.sendKeys("315006");
+    }
+
+    @When("enter all required student information")
+    public void enterAllRequiredStudentInformation() {
+        adminPage.editAndEnrollPageFirstName.sendKeys("jhon");
+        adminPage.editAndEnrollPageLastName.sendKeys();
+        Select select= new Select(adminPage.editAndEnrollGender);
+        select.selectByVisibleText("male");
+        Assert.assertTrue(adminPage.editAndEnrollGender.isSelected());
+
+
+
+    }
+
+    @And("click the {string} button")
+    public void clickTheButton(String arg0) {
+        adminPage.editandEnrollPageSaveandEnrollButton.click();
+    }
+
+    @Then("the student's school enrollment should be completed successfully")
+    public void theStudentSSchoolEnrollmentShouldBeCompletedSuccessfully() {
+        String expectedResult="Record Updated Successfully";
+        String actualResult=adminPage.onlineAdmissionSearchResultText.getText();
+        Assert.assertEquals(expectedResult,actualResult);
+
+    }
+
 }
-
-
-
-
-
-
 
 
 
