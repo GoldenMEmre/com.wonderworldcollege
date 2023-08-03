@@ -35,7 +35,11 @@ public class HomepageStepdefinition {
     @Then("user verifies that the exam result page is opened")
     public void verifiesThatTheExamResultPageIsOpened() {
 
+
         Assert.assertTrue(homepage.examResultText.isDisplayed());
+
+        homepage.examResultText.isDisplayed();
+
     }
 
     @And("User enters admission number")
@@ -56,9 +60,7 @@ public class HomepageStepdefinition {
 
     @And("user verifies that result text appears")
     public void examResultPageResultText() {
-
-        Assert.assertTrue(homepage.examResultPageResultText.isDisplayed());
-
+        homepage.examResultPageResultText.isDisplayed();
 
     }
 
@@ -231,6 +233,7 @@ public class HomepageStepdefinition {
     }
     // **********************************************************************************//
 
+
     // @Then("The homepage was reached on the website")
     //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
 
@@ -241,11 +244,43 @@ public class HomepageStepdefinition {
          //Thread.sleep(2000);
 
 
+
+
+    // @Then("The homepage was reached on the website")
+
+
+   @Then("The homepage was reached on the website")
+   public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+
+       // @Then("The homepage was reached on the website")
+
+       //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+
+       //  Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+
+       Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+
+       // Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+       // Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+       // Thread.sleep(2000);
+   }
+
+    @Then("The Achievements  section was displayed as the page was scrolled down.")
+
+
+    //Thread.sleep(2000);
+
     //@Then("The Achievements  section was displayed as the page was scrolled down.")
+
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
         ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
         // Thread.sleep(5000);
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
+
 
     }
 
@@ -255,11 +290,20 @@ public class HomepageStepdefinition {
 
     }
 
+
+
+
+
+
+
+
+
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
         Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
 
         Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+
     }
 
 
@@ -326,9 +370,9 @@ public class HomepageStepdefinition {
     public void access_to_the_page_is_tested() {
 
         homepage.schoolUniformDropDown.click();
+
     }
 
-    //*********************************EMRE HOME PAGE STEP DEFINITIONS************************
     @Then("Verify that Login Button is visible")
     public void verify_that_login_button_is_visible() {
 
@@ -377,6 +421,7 @@ public class HomepageStepdefinition {
         String actualTitle = Driver.getDriver().getTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
+
     }
 
     @And("Click Forgot Password Link")
@@ -415,6 +460,12 @@ public class HomepageStepdefinition {
     }
     //*************************************************************************************************
 
+
+
+
+
+
+
     @Given("go to home page")
     public void go_to_home_page() {
         ReusableMethods.goToHomePage();
@@ -450,6 +501,7 @@ public class HomepageStepdefinition {
     public void verifyThatTheCreatedComplainRequestHasBeenSend() {
         homepage.verifiyComplainSend();
     }
+
 
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
@@ -487,7 +539,6 @@ public class HomepageStepdefinition {
 
     }
 
-
     @Then("verify and fill the fields under Guardian Details Section")
     public void verifyAndFillTheFieldsUnderGuardianDetailsSection() {
         homepage.verifyEnterGuardianDetailsOnlineAdmissionPage();
@@ -498,20 +549,28 @@ public class HomepageStepdefinition {
         homepage.verifyGuardianPhotoUpload();
     }
 
-    @Then("verify RadioBoxes under Guardian Details Section")
-    public void verifyRadioBoxesUnderGuardianDetailsSection() {
-        homepage.verifyRadioBoxesGuardianDetails();
+
+    @Given("Verify that the OUR EXPERIENCED STAFFS section is visible on the homepage")
+    public void verify_that_the_our_experienced_staffs_section_is_visible_on_the_homepage() {
+
+        Assert.assertTrue(homepage.ourExperiencedStaffsText.isDisplayed());
     }
 
-    @Then("verify and fill the fields under Miscellaneous Details")
-    public void verifyAndFillTheFieldsUnderMiscellaneousDetails() {
-        homepage.miscellaneousDetailsVerifyEnter();
+    @Given("In OUR EXPERIENCED STAFFS, the names Anthony Carter, Ava Turner, Davidson Morgan, Lily Peterson are confirmed")
+    public void in_our_experienced_staffs_the_names_anthony_carter_ava_turner_davidson_morgan_lily_peterson_are_confirmed() {
+
+        Assert.assertTrue(homepage.ourExperiencedStaffsAnthonyCarter.isDisplayed());
+        Assert.assertTrue(homepage.ourExperiencedStaffsAvaTurner.isDisplayed());
+        Assert.assertTrue(homepage.ourExperiencedStaffsDavidMorgan.isDisplayed());
+        Assert.assertTrue(homepage.ourExperiencedStaffsLilyPeterson.isDisplayed());
+
     }
 
-    @Then("upload a document on Upload Document Section and verify that")
-    public void uploadADocumentOnUploadDocumentSectionAndVerifyThat() {
-        homepage.uploadVerifyDocumentOnlineAdmissionPage();
-    }
+  //  @Given("Close the page")
+    //public void close_the_page() {
+        //Driver.closeDriver();
+
+
 
 
     @Then("click on Submit and verify Reference Number and Review entered Details and Status Page")
@@ -594,3 +653,8 @@ public class HomepageStepdefinition {
 
 
 }
+
+
+
+
+

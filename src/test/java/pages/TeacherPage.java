@@ -164,14 +164,80 @@ public class TeacherPage extends Base {
    public  WebElement periodAttendanceByDateSearchicon;
    @FindBy(xpath ="(//div[@class='box-header with-border'])[2]")
    public  WebElement studentList;
-   @FindBy(xpath="(//a[@href='#'])[8]")
-   public  WebElement onlineExaminations;
-    @FindBy(xpath="(//*[text()='Online Exam'])[2]")
-    public  WebElement onlineExam;
-    @FindBy(xpath="//*[text()='Exam']")
-    public  WebElement examSegment;
-    @FindBy(xpath="(//*[text()='Quiz'])[1]")
-    public  WebElement OuizSegment;
+
+
+    //Reports Side Bar Teacher Page
+    @FindBy(xpath = "//*[text()='Reports']")
+    private WebElement reportsSideBarTeacherPage;
+    //Hostel Side Bar Teacher Page
+    @FindBy(xpath = "(//*[text()='Hostel'])[2]")
+    private WebElement hostelSideBarTeacherPage;
+    // student hostel details select Criteria Title
+    @FindBy(xpath = "//*[text()=' Select Criteria']")
+    private WebElement selectCriteriaTitleSHD;
+    // class dropbox under Select Criteria
+    @FindBy(xpath = "(//*[text()='Class'])[3]")
+    private WebElement classDropBoxUnderSelectCriteria;
+    // section dropbox under Select Criteria
+    @FindBy(xpath = "//*[text()='Section']")
+    private WebElement sectionDropBoxUnderSelectCriteria;
+    // hostel name dropbox under Select Criteria
+    @FindBy(xpath = "(//*[text()='Hostel Name'])[1]")
+    private WebElement hostelNameDropBoxUnderSelectCriteria;
+    //Search Button under Select Criteria
+    @FindBy(xpath = "//*[text()=' Search']")
+    private WebElement searchButtonUnderSelectCriteria;
+
+
+    //-------EXAMINATIONS/EXAM GROUP PAGE LOCATE---------
+
+    @FindBy (xpath = "//span[text()='Examinations']")
+    public WebElement examinations;
+
+    @FindBy (xpath = "(//a[@href=\"https://qa.wonderworldcollege.com/admin/examgroup\"])[2]")
+    public WebElement examGroupLink;
+
+    @FindBy (xpath = "//h3[@class='box-title']")
+    public WebElement addExamGroupText;
+
+    @FindBy (className = "box-title titlefix" )
+    public WebElement examGroupListText;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[1]")
+    public WebElement addExamGroupNameTextbox;
+
+    @FindBy (xpath = "//textarea[@class='form-control']")
+    public WebElement addExamGroupDescriptionTextbox;
+
+    @FindBy (xpath = "//select[@class='form-control']")
+    public WebElement addExamGroupExamTypeDropdownMenu;
+
+    @FindBy (className = "btn btn-info pull-right")
+    public WebElement addExamGroupSaveButton;
+
+    @FindBy (xpath = "(//th[@class='sorting'])[1]")
+    public WebElement examGroupListNameTitle;
+
+    @FindBy (xpath = "(//th[@class='sorting'])[2]")
+    public WebElement examGroupListNoOfExamsTitle;
+
+    @FindBy (xpath = "//th[@class='sorting_desc']")
+    public WebElement examGroupListExamTypeTitle;
+
+    @FindBy (xpath = "//th[@class='text-right noExport sorting']")
+    public WebElement examGroupListActionTitle;
+
+    @FindBy ( xpath = "(//i[@class='fa fa-plus'])[1]")
+    public WebElement examGroupListAction;
+
+
+
+
+
+
+
+
+
 
 
 
