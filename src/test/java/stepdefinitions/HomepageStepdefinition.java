@@ -28,11 +28,13 @@ public class HomepageStepdefinition {
 
         homepage.examResultButton.click();
     }
+
     @Then("user verifies that the exam result page is opened")
     public void verifiesThatTheExamResultPageIsOpened() {
-      
-        Assert.assertTrue(homepage.examResultText.isDisplayed());
+
+        homepage.examResultText.isDisplayed();
     }
+
     @And("User enters admission number")
     public void enterAdmissionNumber() {
         homepage.admissionNoButton.sendKeys("18008");
@@ -51,9 +53,7 @@ public class HomepageStepdefinition {
 
     @And("user verifies that result text appears")
     public void examResultPageResultText() {
-
-        Assert.assertTrue(homepage.examResultPageResultText.isDisplayed());
-
+        homepage.examResultPageResultText.isDisplayed();
 
     }
 
@@ -64,7 +64,7 @@ public class HomepageStepdefinition {
     }
 
     @Given("Click the course menu title")
-    public void click_the_course_menu_title(){
+    public void click_the_course_menu_title() {
 
         homepage.coursePage.click();
 
@@ -84,32 +84,32 @@ public class HomepageStepdefinition {
     public void Verifies_that_the_English_and_Literature_Mathematics_Sciences_Social_Sciences_History_Arts_and_Music_Health_and_Exercise_Sciences_Foreign_Language_Computer_Science_course_titles_and_details_buttons_is_visible() {
 
 
-                Assert.assertTrue(homepage.coursePageEnglishAndLiteratureTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageEnglishAndLiteratureDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageEnglishAndLiteratureTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageEnglishAndLiteratureDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageMathematicsTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageMathematicsDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageMathematicsTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageMathematicsDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageSciencesTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageSciencesDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageSciencesTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageSciencesDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageSocialSciencesTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageSocialSciencesDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageSocialSciencesTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageSocialSciencesDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageHistoryTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageHistoryDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageHistoryTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageHistoryDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageArtsAndMusicTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageArtsAndMusicDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageArtsAndMusicTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageArtsAndMusicDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageHealthAndExerciseSciencesTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageHealthAndExerciseSciencesDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageHealthAndExerciseSciencesTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageHealthAndExerciseSciencesDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageForeignLanguageTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageForeignLanguageDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageForeignLanguageTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageForeignLanguageDetailsButton.isDisplayed());
 
-                Assert.assertTrue(homepage.coursePageComputerScienceTitle.isDisplayed());
-                Assert.assertTrue(homepage.coursePageComputerScienceDetailsButton.isDisplayed());
+        Assert.assertTrue(homepage.coursePageComputerScienceTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageComputerScienceDetailsButton.isDisplayed());
 
     }
 
@@ -121,93 +121,95 @@ public class HomepageStepdefinition {
 
         homepage.coursePageEnglishAndLiteratureDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="English and Literature";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "English and Literature";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
         Thread.sleep(500);
 
         homepage.coursePageMathematicsDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="Mathematics";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "Mathematics";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
         Thread.sleep(500);
 
         homepage.coursePageSciencesDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="Sciences";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "Sciences";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
 
         homepage.coursePageSocialSciencesDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="Social Sciences";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "Social Sciences";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
 
         homepage.coursePageHistoryDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="History";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "History";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
 
         homepage.coursePageArtsAndMusicDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="Arts and Music";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "Arts and Music";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
 
         homepage.coursePageHealthAndExerciseSciencesDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="Health and Exercise Sciences";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "Health and Exercise Sciences";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
 
         homepage.coursePageForeignLanguageDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="Foreign Language";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "Foreign Language";
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         Driver.getDriver().navigate().back();
 
         homepage.coursePageComputerScienceDetailsButton.click();
         Thread.sleep(1000);
-        actualTitle=Driver.getDriver().getTitle();
-        expectedTitle="Computer Science";
-        Assert.assertEquals(expectedTitle,actualTitle);
+        actualTitle = Driver.getDriver().getTitle();
+        expectedTitle = "Computer Science";
+        Assert.assertEquals(expectedTitle, actualTitle);
     }
 
 
-   //**********************************************************************//
+    //**********************************************************************//
 
     @Given("User go to Url")
-    public void user_go_to_Url (String Url) {
+    public void user_go_to_Url(String Url) {
 
         Driver.getDriver().get(ConfigReader.getProperty(Url));
     }
+
     @Then("user test if the images change at regular intervals")
     public void user_test_if_the_images_change_at_regular_intervals() {
-        Assert.assertTrue(homepage.preparingImg.isDisplayed()||
-                homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed()||
-                homepage.studentsImg.isDisplayed()||homepage.nurturingImg.isDisplayed());
+        Assert.assertTrue(homepage.preparingImg.isDisplayed() ||
+                homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed() ||
+                homepage.studentsImg.isDisplayed() || homepage.nurturingImg.isDisplayed());
         ReusableMethods.bekle(6);
 
     }
+
     @Given("Verify that the images in the slider panel can be manually changed")
     public void verify_that_the_images_in_the_slider_panel_can_be_manually_changed() {
         homepage.sliderPanel.click();
@@ -217,6 +219,7 @@ public class HomepageStepdefinition {
 
 
     }
+
     @Then("user close the browser")
     public void user_close_the_browser() {
         Driver.closeDriver();
@@ -226,33 +229,45 @@ public class HomepageStepdefinition {
    // @Then("The homepage was reached on the website")
     //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
         Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+        Thread.sleep(2000);
+    }
+
+    @Then("The Achievements  section was displayed as the page was scrolled down.")
+
          //Thread.sleep(2000);
     }
     //@Then("The Achievements  section was displayed as the page was scrolled down.")
+
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
-       ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
-       // Thread.sleep(5000);
+        ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
+        // Thread.sleep(5000);
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
     }
-    @And("Close the page.")
-    public void close_the_page() {
-           Driver.quitDriver();
+    //@And("Close the page.")
+    //public void close_the_page() {
+    //Driver.quitDriver();
+
+
+    //}
+
 
     }
+
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
-            Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+        Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
 
-         Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+        Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     }
 
-    //*********************************EMRE HOME PAGE STEP DEFINITIONS************************
     @Then("Verify that Login Button is visible")
     public void verify_that_login_button_is_visible() {
 
         Assert.assertTrue(homepage.loginButonu.isDisplayed());
     }
+
     @Then("Click the Login Button")
     public void click_the_login_button() {
         homepage.loginButonu.click();
@@ -284,63 +299,41 @@ public class HomepageStepdefinition {
 
     @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
     public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {
-    //Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
+        //Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
     }
+
     @Then("Verify that HomePage is accessible")
     public void verify_that_home_page_is_accessible() {
 
-        String expectedTitle="Home";
-        String actualTitle= Driver.getDriver().getTitle();
-        Assert.assertEquals(expectedTitle,actualTitle);
+        String expectedTitle = "Home";
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+
 
     }
-    @And("Click Forgot Password Link")
-    public void clickForgotPasswordLink() {
-        homepage.userLoginForgotPasswordLink.click();
-    }
-    @And("Verify Forgot Password Link")
-    public void verifyForgotPasswordLink() {
-        Assert.assertTrue(homepage.userLoginForgotPasswordLink.isDisplayed());
-    }
-    @And("Enter Email Adress")
-    public void enterEmailAdress() {
-        homepage.userLoginForgotPasswordEmailTextBox.sendKeys(ConfigReader.getProperty("userloginemail"));
-    }
-    @And("Select Student Panel")
-    public void selectStudentPanel() {
-        homepage.userLoginForgotPasswordStudentRadioButton.click();
-    }
-    @And("Click Submit Button")
-    public void clickSubmitButton() {
-        homepage.UserLoginForgotPasswordSubmitButton.click();
-    }
-    @And("Verify that password reset email is sent")
-    public void verifyThatPasswordResetEmailIsSent() {
-        Assert.assertTrue(homepage.userLoginForgotPasswordInvalidCredentialsText.isDisplayed());
-    }
-    @And("Click the Front Site Link")
-    public void clickTheFrontSiteLink() {
-    homepage.userLoginFrontSiteLink.click();
-    }
-    //*************************************************************************************************
+
 
     @Given("go to home page")
     public void go_to_home_page() {
         ReusableMethods.goToHomePage();
 
     }
+
     @Then("go to features section and click on Complain")
     public void goToFeaturesSectionAndClickOnComplain() {
         homepage.verifyClickComplain();
     }
+
     @Then("verify the textboxes on complain page")
     public void verify_the_textboxes_on_complain_page() {
         homepage.verifyTextBoxesComplainPage();
     }
+
     @Then("fill the required felds")
     public void fill_the_required_felds() {
         homepage.enterDataComplainPage();
     }
+
     @Then("click on submit")
     public void click_on_submit() {
         homepage.clickOnSubmitComplainPage();
@@ -355,6 +348,7 @@ public class HomepageStepdefinition {
     public void verifyThatTheCreatedComplainRequestHasBeenSend() {
         homepage.verifiyComplainSend();
     }
+
 
     @Then("click on online admission title")
     public void clickOnOnlineAdmissionTitle() {
@@ -392,7 +386,6 @@ public class HomepageStepdefinition {
     }
 
 
-
     @Then("verify and fill the fields under Guardian Details Section")
     public void verifyAndFillTheFieldsUnderGuardianDetailsSection() {
         homepage.verifyEnterGuardianDetailsOnlineAdmissionPage();
@@ -403,57 +396,29 @@ public class HomepageStepdefinition {
         homepage.verifyGuardianPhotoUpload();
     }
 
-    @Then("verify RadioBoxes under Guardian Details Section")
-    public void verifyRadioBoxesUnderGuardianDetailsSection() {
-        homepage.verifyRadioBoxesGuardianDetails();
+
+    @Given("Verify that the OUR EXPERIENCED STAFFS section is visible on the homepage")
+    public void verify_that_the_our_experienced_staffs_section_is_visible_on_the_homepage() {
+
+        Assert.assertTrue(homepage.ourExperiencedStaffsText.isDisplayed());
     }
 
-    @Then("verify and fill the fields under Miscellaneous Details")
-    public void verifyAndFillTheFieldsUnderMiscellaneousDetails() {
-        homepage.miscellaneousDetailsVerifyEnter();
+    @Given("In OUR EXPERIENCED STAFFS, the names Anthony Carter, Ava Turner, Davidson Morgan, Lily Peterson are confirmed")
+    public void in_our_experienced_staffs_the_names_anthony_carter_ava_turner_davidson_morgan_lily_peterson_are_confirmed() {
+
+        Assert.assertTrue(homepage.ourExperiencedStaffsAnthonyCarter.isDisplayed());
+        Assert.assertTrue(homepage.ourExperiencedStaffsAvaTurner.isDisplayed());
+        Assert.assertTrue(homepage.ourExperiencedStaffsDavidMorgan.isDisplayed());
+        Assert.assertTrue(homepage.ourExperiencedStaffsLilyPeterson.isDisplayed());
+
     }
 
-    @Then("upload a document on Upload Document Section and verify that")
-    public void uploadADocumentOnUploadDocumentSectionAndVerifyThat() {
-        homepage.uploadVerifyDocumentOnlineAdmissionPage();
-    }
-
-
-    @Then("click on Submit and verify Reference Number and Review entered Details and Status Page")
-    public void clickOnSubmitAndVerifyReferenceNumberAndReviewEnteredDetailsAndStatusPage() {
-        homepage.verifyREDaS_ReferenceNo();
-    }
-
-    @Then("verify form status and application Date")
-    public void verifyFormStatusAndApplicationDate() {
-        homepage.verifyFormStatusAndApplicationDate();
-    }
-
-    @Then("verifiy entered informations")
-    public void verifiyEnteredInformations() {
-        homepage.controlInformations();
-    }
-
-    @Then("verify and click on I agree to the terms and conditions checkbox")
-    public void verifyAndClickOnIAgreeToTheTermsAndConditionsCheckbox() {
-        homepage.checkBoxVerifyEnter();
-    }
-
-    @Then("click on submit and verify form status and success alert")
-    public void clickOnSubmitAndVerifyFormStatusAndSuccessAlert() {
-        homepage.submitVerifyFormStatusAndAlert();
+    @Given("Close the page")
+    public void close_the_page() {
+        Driver.closeDriver();
     }
 
 
-    @Then("verify What people says section")
-    public void verifyWhatPeopleSaysSection() {
-        homepage.whatPeopleSaysSectionVerify();
-    }
-
-    @Then("verify that the comments are from different individuals")
-    public void verifyThatTheCommentsAreFromDifferentIndividuals() {
-        homepage.whatPeopleSaysCommentsVerification();
-    }
 }
 
 
