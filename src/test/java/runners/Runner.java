@@ -17,8 +17,12 @@ import org.junit.runner.RunWith;
                 "src/test/resources/homepage",
                 "src/test/resources/adminpage",
                 "src/test/resources/teacherpage",
+
+                "src/test/resources/student_parent_page"},
+
                 "src/test/resources/parent_studentpage"
                 },
+
 
         glue = {"stepdefinitions"},
 

@@ -166,6 +166,28 @@ public class TeacherPage extends Base {
    public  WebElement studentList;
 
 
+    //Reports Side Bar Teacher Page
+    @FindBy(xpath = "//*[text()='Reports']")
+    private WebElement reportsSideBarTeacherPage;
+    //Hostel Side Bar Teacher Page
+    @FindBy(xpath = "(//*[text()='Hostel'])[2]")
+    private WebElement hostelSideBarTeacherPage;
+    // student hostel details select Criteria Title
+    @FindBy(xpath = "//*[text()=' Select Criteria']")
+    private WebElement selectCriteriaTitleSHD;
+    // class dropbox under Select Criteria
+    @FindBy(xpath = "(//*[text()='Class'])[3]")
+    private WebElement classDropBoxUnderSelectCriteria;
+    // section dropbox under Select Criteria
+    @FindBy(xpath = "//*[text()='Section']")
+    private WebElement sectionDropBoxUnderSelectCriteria;
+    // hostel name dropbox under Select Criteria
+    @FindBy(xpath = "(//*[text()='Hostel Name'])[1]")
+    private WebElement hostelNameDropBoxUnderSelectCriteria;
+    //Search Button under Select Criteria
+    @FindBy(xpath = "//*[text()=' Search']")
+    private WebElement searchButtonUnderSelectCriteria;
+
 
     //-------EXAMINATIONS/EXAM GROUP PAGE LOCATE---------
 
