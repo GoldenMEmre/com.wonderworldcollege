@@ -164,14 +164,7 @@ public class TeacherPage extends Base {
    public  WebElement periodAttendanceByDateSearchicon;
    @FindBy(xpath ="(//div[@class='box-header with-border'])[2]")
    public  WebElement studentList;
-   @FindBy(xpath="(//a[@href='#'])[8]")
-   public  WebElement onlineExaminations;
-    @FindBy(xpath="(//*[text()='Online Exam'])[2]")
-    public  WebElement onlineExam;
-    @FindBy(xpath="//*[text()='Exam']")
-    public  WebElement examSegment;
-    @FindBy(xpath="(//*[text()='Quiz'])[1]")
-    public  WebElement OuizSegment;
+
 
 
 

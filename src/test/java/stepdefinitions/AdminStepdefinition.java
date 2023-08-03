@@ -155,7 +155,7 @@ public class AdminStepdefinition {
         adminPage.deleteButton.click();
         Driver.getDriver().switchTo().alert().accept();
         ReusableMethods.bekle(3);
-        Driver.closeDriver();
+
     }
 
 
@@ -345,15 +345,11 @@ public class AdminStepdefinition {
     }
 
 
-    @And("Verify that Forgot Password Link is active")
-    public void verifyThatForgotPasswordLinkIsActive() {
-        Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
-    }
 
 
 
 
-    }
+
 
     //*************************************************************************************************
 
@@ -370,7 +366,7 @@ public class AdminStepdefinition {
 
 
 
-}
+
 
 
 
