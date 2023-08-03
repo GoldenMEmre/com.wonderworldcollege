@@ -131,6 +131,37 @@ public class AdminPage extends Base {
 
     @FindBy(xpath = "//*[@class='forgot']")
     public WebElement adminPasswordForgotLink;
+
+    @FindBy(xpath = "//*[@name='username']")
+    public WebElement adminLoginUsernameTextBox;
+
+    @FindBy(xpath = "//*[@name='password']")
+    public WebElement adminLoginPasswordTextBox;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    public WebElement adminLoginSubmitButton;
+
+    @FindBy(xpath = "//*[@name='email']")
+    public WebElement forgotPasswordEmailBox;
+
+    @FindBy(xpath = "//*[@type='submit']")
+    public WebElement forgotPasswordSubmitButton;
+
+    @FindBy(xpath = "//*[@class='alert alert-success']")
+    public WebElement forgotPasswordResetEmailAlert;
+
+    @FindBy(xpath = "(//*[@target='_blank'])[1]")
+    public WebElement adminUserLoginLink;
+
+    @FindBy(xpath = "//*[@class='fa fa-key']")
+    public WebElement forgotPasswordAdminLoginLink;
+
+    @FindBy(xpath = "//*[@class='forgot pull-right']")
+    public WebElement siteLoginUserLoginLink;
+
+    @FindBy(xpath = "(//*[@class='forgot pull-right'])[1]")
+    public WebElement userLoginFrontPageLink;
+
     //************************************************************************************************
 
     //--------------------------
