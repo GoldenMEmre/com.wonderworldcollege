@@ -10,7 +10,7 @@ Feature: As a teacher, creating exam groups for students
     * Click on the Exam Group link and verify that it is directed to the examgroup page
     * Quit the page
 
-@ab
+
   Scenario: A new exam group is created, saved and saved in the Add Exam Group window on the Examgroup page.
 
     * Go to "loginurl"
@@ -22,7 +22,7 @@ Feature: As a teacher, creating exam groups for students
     * The save button appears in the Add Exam Group window and it is verified that it is active
     * After entering the Name in the Add Exam Group window and selecting the Exam Type, clicking the Save button will see that the new exam group has been registered
     * Quit the page
-
+@ab
   Scenario:  Titles are displayed in the Exam Group List window and it is verified that the add, update and delete icons under the action title are active.
 
     * Go to "loginurl"

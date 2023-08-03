@@ -134,6 +134,10 @@ public class TeacherPage extends Base {
     private WebElement leavesListRecords;
 
     // ***************************Gulten Harrelson**************
+    @FindBy(xpath ="//button[@type='submit']")
+    public  WebElement teacherSignInButton;
+    @FindBy(xpath = "//a[@class='btn btn-default btn-lg']")
+    public WebElement teacherLoginButton;
     @FindBy(xpath ="//input[@placeholder='Username']")
     public  WebElement adminUser;
     @FindBy(xpath = "//input[@placeholder='Password']")
@@ -170,7 +174,7 @@ public class TeacherPage extends Base {
     public  WebElement OuizSegment;
 
 
-    //-------EXAMINATIONS PAGE LOCATE---------
+    //-------EXAMINATIONS/EXAM GROUP PAGE LOCATE---------
 
     @FindBy (xpath = "//span[text()='Examinations']")
     public WebElement examinations;
@@ -195,6 +199,27 @@ public class TeacherPage extends Base {
 
     @FindBy (className = "btn btn-info pull-right")
     public WebElement addExamGroupSaveButton;
+
+    @FindBy (xpath = "(//th[@class='sorting'])[1]")
+    public WebElement examGroupListNameTitle;
+
+    @FindBy (xpath = "(//th[@class='sorting'])[2]")
+    public WebElement examGroupListNoOfExamsTitle;
+
+    @FindBy (xpath = "//th[@class='sorting_desc']")
+    public WebElement examGroupListExamTypeTitle;
+
+    @FindBy (xpath = "//th[@class='text-right noExport sorting']")
+    public WebElement examGroupListActionTitle;
+
+    @FindBy ( xpath = "(//i[@class='fa fa-plus'])[1]")
+    public WebElement examGroupListAction;
+
+
+
+
+
+
 
 
 
