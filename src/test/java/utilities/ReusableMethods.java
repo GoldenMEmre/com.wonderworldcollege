@@ -154,7 +154,10 @@ public class ReusableMethods {
         Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
     }
 
-
+    // goes to home page
+    public static void goToHomePage(){
+        Driver.getDriver().get(ConfigReader.getProperty("userurl"));
+    }
 
        //Alert
 
@@ -162,6 +165,7 @@ public class ReusableMethods {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
+
 
 
 

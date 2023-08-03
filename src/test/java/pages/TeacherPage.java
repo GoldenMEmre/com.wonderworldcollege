@@ -130,11 +130,51 @@ public class TeacherPage extends Base {
     @FindBy(xpath = "//i[@class='fa fa-remove']")
     private WebElement leavesPageDeleteButton;
 
-    // Staff ID Leaves Page (For verifying Deletion of Leave Request)
-    @FindBy(xpath = "//*[text()='Staff ID: 9091']")
-    private WebElement leavesPageStaffID;
+    @FindBy(xpath = "//*[text()='Records: 0 to 0 of 0']")
+    private WebElement leavesListRecords;
 
-    //
+    // ***************************Gulten Harrelson**************
+    @FindBy(xpath ="//input[@placeholder='Username']")
+    public  WebElement adminUser;
+    @FindBy(xpath = "//input[@placeholder='Password']")
+    public  WebElement adminPassword;
+    @FindBy(xpath = "//button[@type='submit']")
+    public  WebElement signInButton;
+    @FindBy(xpath = "(//*[text()='Attendance'])[2]")
+    public  WebElement attendanceMenu;
+    @FindBy(xpath ="(//*[text()='Period Attendance By Date'])[2]")
+    public  WebElement periodAttendanceByDate;
+    @FindBy(xpath="(//label[@for='exampleInputEmail1'])[1]")
+    public  WebElement ClassIcon;
+    @FindBy(xpath="(//label[@for='exampleInputEmail1'])[2]")
+    public  WebElement sectionIcon;
+    @FindBy(xpath="(//label[@for='exampleInputEmail1'])[3]")
+    public  WebElement dateIcon;
+    @FindBy(xpath = "//select[@id='class_id']")
+    public  WebElement classDropDown;
+    @FindBy(xpath = "//select[@id='section_id']")
+    public  WebElement sectionDropDown;
+    @FindBy(xpath = "//*[@name='date']")
+    public  WebElement dateDropDown;
+   @FindBy(xpath="//button[@class='btn btn-primary btn-sm pull-right checkbox-toggle']")
+   public  WebElement periodAttendanceByDateSearchicon;
+   @FindBy(xpath ="(//div[@class='box-header with-border'])[2]")
+   public  WebElement studentList;
+   @FindBy(xpath="(//a[@href='#'])[8]")
+   public  WebElement onlineExaminations;
+    @FindBy(xpath="(//*[text()='Online Exam'])[2]")
+    public  WebElement onlineExam;
+    @FindBy(xpath="//*[text()='Exam']")
+    public  WebElement examSegment;
+    @FindBy(xpath="(//*[text()='Quiz'])[1]")
+    public  WebElement OuizSegment;
+
+
+
+
+// ***************************Gulten Harrelson**************
+
+
 
     //***************** METHODS ********************
 
@@ -276,6 +316,6 @@ public class TeacherPage extends Base {
     }
     //Verifies that created Leave Request has been deleted
     public void deleteTestLeaveRequest(){
-        Assert.assertFalse(leavesPageStaffID.isDisplayed());
+        Assert.assertTrue(leavesListRecords.isDisplayed());
     }
 }
