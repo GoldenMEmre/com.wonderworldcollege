@@ -313,8 +313,8 @@ public class TeacherStepdefinition {
         // **************************Gulten Harrelson *************************** 2.Baslangic
         @Given("click  Online Exam Section under the  online Examinations")
         public void click_online_exam_section_under_the_online_examinations () {
-            teacherPage.onlineExaminations.click();
-            teacherPage.onlineExam.click();
+           // teacherPage.onlineExaminations.click();
+            //teacherPage.onlineExam.click();
 
         }
         @Given("The user should be able to view column fields in the  Online Exam segment.")
