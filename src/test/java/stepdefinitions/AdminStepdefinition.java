@@ -188,7 +188,7 @@ public class AdminStepdefinition {
 //        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
 //
 //        adminPage.signInButton.click();
-
+    }
     @Given("Choose class button")
     public void choose_class_button() {
         WebElement dropdownMenuSelect = Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
@@ -199,7 +199,7 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(1);
 
     }
-}
+
 
     @Given("Choose section button")
     public void choose_section_button() {
@@ -345,15 +345,13 @@ public class AdminStepdefinition {
     }
 
 
-    @And("Verify that Forgot Password Link is active")
-    public void verifyThatForgotPasswordLinkIsActive() {
-        Assert.assertTrue(adminPage.adminPasswordForgotLink.isDisplayed());
-    }
 
 
 
 
-    }
+
+
+
 
     //*************************************************************************************************
 
@@ -370,7 +368,7 @@ public class AdminStepdefinition {
 
 
 
-}
+
 
 
 
