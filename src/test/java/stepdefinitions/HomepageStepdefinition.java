@@ -226,8 +226,8 @@ public class HomepageStepdefinition {
     }
     // **********************************************************************************//
 
-   // @Then("The homepage was reached on the website")
-    //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+   @Then("The homepage was reached on the website")
+   public void the_homepage_was_reached_on_the_website() throws InterruptedException {
         Assert.assertTrue(homepage.CallUsText.isDisplayed());
 
         Thread.sleep(2000);
@@ -236,7 +236,7 @@ public class HomepageStepdefinition {
     @Then("The Achievements  section was displayed as the page was scrolled down.")
 
          //Thread.sleep(2000);
-    }
+
     //@Then("The Achievements  section was displayed as the page was scrolled down.")
 
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
@@ -244,13 +244,7 @@ public class HomepageStepdefinition {
         // Thread.sleep(5000);
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
-    }
-    //@And("Close the page.")
-    //public void close_the_page() {
-    //Driver.quitDriver();
 
-
-    //}
 
 
     }
@@ -295,7 +289,7 @@ public class HomepageStepdefinition {
                                         String string5, String string6) {
 
     }
-    }
+
 
     @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
     public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {
