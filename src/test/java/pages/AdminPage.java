@@ -20,7 +20,7 @@ public class AdminPage extends Base {
     @FindBy(xpath ="//input[@id='form-username']")
       //@FindBy(xpath = "//input[@placeholder='Username']")
 
-    @FindBy(xpath ="//input[@placeholder='Username']")
+   // @FindBy(xpath ="//input[@placeholder='Username']")
 
     public  WebElement adminUser;
     @FindBy(xpath = "//input[@placeholder='Password']")
