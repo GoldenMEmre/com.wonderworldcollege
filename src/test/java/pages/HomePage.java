@@ -603,8 +603,6 @@ public class HomePage extends Base {
     public void verifyGuardianPhotoUpload() {
         actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
-
-
     }
 
 
