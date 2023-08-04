@@ -600,6 +600,118 @@ public class AdminStepdefinition {
     public void deleteTheEditedRoute() {
         adminPage.deleteRoute();
     }
+
+    @Given("login as admin")
+    public void login_as_admin() {
+        Driver.getDriver().get(ConfigReader.getProperty("loginurl"));
+        adminPage.adminUser.sendKeys("melike.eker@admin.wonderworldcollege");
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+        adminPage.adminLoginButton.click();
+
+
+    }
+    @Given("Click Student information menu in sidebar")
+    public void click_student_information_menu_in_sidebar() {
+        AdminPage.adminStudentInformationText.click();
+    }
+
+    @Given("Click the Online Admission in the open menu")
+    public void click_the_online_admission_in_the_open_menu() {
+        // JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        // jse.executeScript("arguments[0].click();",AdminPage.adminOnlineAdmissionText);
+        AdminPage.adminOnlineAdmissionText.click();
+    }
+
+    @Given("Verify this on the student list is displayed.")
+    public void verify_this_on_the_student_list_is_displayed() {
+        // verified student list area
+    }
+
+
+    @Given("Display all the columns in Student List")
+    public void display_all_the_columns_in_student_list() {
+        Actions actions=new Actions(Driver.getDriver());
+
+        AdminPage.adminOnlineAdmissionReferenceNoText.isDisplayed();
+        AdminPage.adminOnlineAdmissionReferenceNoText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionStudentNameText.isDisplayed();
+        AdminPage.adminOnlineAdmissionStudentNameText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionClassText.isDisplayed();
+        AdminPage.adminOnlineAdmissionClassText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionFatherNameText.isDisplayed();
+        AdminPage.adminOnlineAdmissionFatherNameText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionDAteOfBirthText.isDisplayed();
+        AdminPage.adminOnlineAdmissionDAteOfBirthText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionGenderText.isDisplayed();
+        AdminPage.adminOnlineAdmissionGenderText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionCategoryText.isDisplayed();
+        AdminPage.adminOnlineAdmissionGenderText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionCStudentMobileNumberText.isDisplayed();
+        AdminPage.adminOnlineAdmissionCStudentMobileNumberText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionFormStatusText.isDisplayed();
+        AdminPage.adminOnlineAdmissionFormStatusText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionEnrollText.isDisplayed();
+        AdminPage.adminOnlineAdmissionEnrollText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionCreatedAtText.isDisplayed();
+        AdminPage.adminOnlineAdmissionCreatedAtText.click();
+        ReusableMethods.bekle(1);
+        AdminPage.adminOnlineAdmissionActionText.isDisplayed();
+        AdminPage.adminOnlineAdmissionActionText.click();
+        ReusableMethods.bekle(1);
+        actions.perform();
+        ReusableMethods.bekle(1);
+
+    }
+    @Given("Filter on the Search area")
+    public void filter_on_the_search_area() {
+        AdminPage.adminComplaintsearchbox.click();
+        AdminPage.adminComplaintsearchbox.sendKeys("jhon");
+    }
+
+    @Given("Display under the Form Status check it Submitted and Not Submitted")
+    public void display_under_the_form_status_check_it_submitted_and_not_submitted() {
+
+        AdminPage.adminOnlineAdmissionFormStatusText.isDisplayed();
+        AdminPage.adminOnlineAdmissionFormStatusText.isSelected();
+        ReusableMethods.bekle(1);
+    }
+
+
+    @Given("Click the submit2 button")
+    public void click_the_submit2_button() {
+
+        AdminPage.onlineAdmissonSubmit2Button.click();
+    }
+
+
+    @Given("Display enroll list with \\(-) icon, enroll list with check icon.")
+    public void display_enroll_list_with_icon_enroll_list_with_check_icon() {
+        AdminPage.adminOnlineAdmissionEnrollText.isDisplayed();
+        AdminPage.adminOnlineAdmissionEnrollText.isSelected();
+
+    }
+    @Given("Save and enroll")
+    public void save_and_enroll() {
+        adminPage.editandEnrollPageSaveandEnrollButton.click();
+    }
+
+
+    @Given("Close the page")
+    public void close_the_page() {
+        Driver.closeDriver();
+    }
+
+
 }
 
 
