@@ -2,6 +2,7 @@ package pages;
 
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import org.bouncycastle.jcajce.provider.asymmetric.X509;
@@ -528,6 +529,152 @@ public class AdminPage extends Base {
 
     @FindBy(xpath = "//*[@id='passwordform']/div[4]/div/div/button")
     public WebElement passwordChangeButton;
+    @FindBy(xpath = "//span[normalize-space()='Student Information']")
+    public WebElement studentInformationSection;
+    @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Online Admission']")
+    public WebElement onlineAdmissionSection;
+    @FindBy(xpath = "//a[@role='button']")
+    public WebElement adminPanelSideBarButton;
+    @FindBy(xpath = "//table/thead/tr/th[1]")
+    public WebElement onlineAdmissionSectionReferenceNo;
+    @FindBy(xpath = "//table/thead/tr/th[2]")
+    public WebElement onlineAdmissionSectionStudentName;
+    @FindBy(xpath = "//table/thead/tr/th[3]")
+    public WebElement onlineAdmissionSectionClass;
+    @FindBy(xpath = "//table/thead/tr/th[4]")
+    public WebElement onlineAdmissionSectionFather;
+    @FindBy(xpath = "//table/thead/tr/th[5]")
+    public WebElement onlineAdmissionSectionDateOfBirth;
+    @FindBy(xpath = "//table/thead/tr/th[6]")
+    public WebElement onlineAdmissionSectionGender;
+    @FindBy(xpath = "//table/thead/tr/th[7]")
+    public WebElement onlineAdmissionSectionCategory;
+    @FindBy(xpath = "//table/thead/tr/th[8]")
+    public WebElement onlineAdmissionSectionStudentMobileNumber;
+    @FindBy(xpath = "//table/thead/tr/th[9]")
+    public WebElement onlineAdmissionSectionFormStatus;
+    @FindBy(xpath = "//table/thead/tr/th[10]")
+    public WebElement onlineAdmissionSectionEnrolled;
+    @FindBy(xpath = "//table/thead/tr/th[11]")
+    public WebElement onlineAdmissionSectionCreatedAt;
+    @FindBy(xpath = "//table/thead/tr/th[12]")
+    public WebElement onlineAdmissionSectionAction;
+
+    @FindBy(xpath = "//input[@placeholder='Search...']")
+    public WebElement onlineAdmissionSearchBox;
+    @FindBy(xpath = "//tr[@class='odd']//td[contains(text(),'AyseMehmet')]")
+    public WebElement onlineAdmissionSearchResultText;
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/" +
+            "div[2]/div[1]/div[1]/div[1]/div[4]/table[1]/tbody[1]/tr[5]/td[9]/span[1]"
+    )
+    public WebElement submittedStudent;
+    @FindBy(xpath = "//tbody/tr[2]/td[12]/a[2]/i[1]")
+    public WebElement editAndEnrollPageButton;
+    @FindBy(xpath = "//input[@id='admission_no']")
+    public WebElement editAndEnrollPageAdmissionNo;
+    @FindBy(xpath = "//input[@id='firstname']")
+    public WebElement editAndEnrollPageFirstName;
+    @FindBy(xpath = "//input[@id='lastname']")
+    public WebElement editAndEnrollPageLastName;
+    @FindBy(xpath = "//select[@id='class_id']")
+    public WebElement editandEnrollClass;
+    @FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]/h6[1]/a[1]")
+    public WebElement editandEnrollPlusSignButton;
+    @FindBy(xpath = "//button[@id='enrollbtn']")
+    public WebElement editandEnrollPageSaveandEnrollButton;
+    @FindBy(xpath = "//h3[@class='pagetitleh-whitebg']")
+    public WebElement editOnlineAdmissionText;
+    @FindBy(xpath = "//select[@name='gender']")
+    public WebElement editAndEnrollGender;
+    @FindBy(xpath = "//div[@class='alert alert-success text-left']")
+    public WebElement recordUpdatedSuccessfullyText;
+    @FindBy ( xpath= "//*[span='Student Information']")
+    public static WebElement adminStudentInformationText;
+
+
+    @FindBy ( xpath= "(//*[text()='Online Admission'])[3]")
+    public static WebElement adminOnlineAdmissionText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[1]")
+    public static WebElement adminOnlineAdmissionReferenceNoText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[2]")
+    public static WebElement adminOnlineAdmissionStudentNameText;
+
+
+    @FindBy ( xpath= "//*[@class ='white-space-nowrap sorting']")
+    public static WebElement adminOnlineAdmissionClassText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[3]")
+    public static WebElement adminOnlineAdmissionFatherNameText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[4]")
+    public static WebElement adminOnlineAdmissionDAteOfBirthText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[5]")
+    public static WebElement adminOnlineAdmissionGenderText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[6]")
+    public static WebElement adminOnlineAdmissionCategoryText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[7]")
+    public static WebElement adminOnlineAdmissionCStudentMobileNumberText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[8]")
+    public static WebElement adminOnlineAdmissionFormStatusText;
+
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[9]")
+    public static WebElement adminOnlineAdmissionEnrollText;
+
+    @FindBy ( xpath= "(//*[@class ='sorting'])[10]")
+    public static WebElement adminOnlineAdmissionCreatedAtText;
+
+
+    @FindBy ( xpath= "//*[@aria-label='Action']")
+    public static WebElement adminOnlineAdmissionActionText;
+
+
+    @FindBy ( xpath= "//input[@type ='search']")
+    public static WebElement adminOnlineAdmissionStudentListSearchbOX;
+
+
+    @FindBy ( xpath= "//*[@name='admission_no']")
+    public static WebElement adminOnlineAdmissionEditAdmissionNobOX;
+
+
+    @FindBy ( xpath= "//select [@id ='class_id']")
+    public static WebElement adminEditSelectBox;
+
+    @FindBy ( xpath= "//select [@id ='section_id']")
+    public static WebElement adminEditSelectionBox;
+
+
+    public static WebElement getColumnHeaderwithText(String header_name){
+        return Driver.getDriver().findElement(By.xpath("//th[starts-with(@aria-label,'"+header_name+"')]"));
+    }
+
+    @FindBy (xpath = "(//*[@type ='submit'])[6]")
+    public static WebElement onlineAdmissonSubmit2Button;
+
+
+    @FindBy(xpath = "(//*[@data-toggle='tooltip'])[9]")
+    public static WebElement adminEditAndRollbutton;
+
+
+    @FindBy(xpath = "//*[text()=' Save And Enroll']")
+    public static WebElement adminSaveAndEnrollbutton;
+    @FindBy (xpath = "//input[@type = 'search']")
+    public static WebElement adminComplaintsearchbox;
+
 
 
 }
