@@ -14,6 +14,7 @@ Feature: US_48 As a user, I should be able to access the "Online Exam" page and 
 
 
 
+
   @ac
   Scenario: TC02 A user may access and the "Online Exam" page ,when entering the Student Panel.
     * Go to "loginurl"
@@ -26,4 +27,5 @@ Feature: US_48 As a user, I should be able to access the "Online Exam" page and 
     * When the user enters the Closed Exam segment, they should be able to see the column fields
     * The user should be able to access the Exam View from the Action section within the Closed Exam segment and view the fields
     * user close the browser
+
 

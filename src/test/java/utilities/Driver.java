@@ -25,13 +25,6 @@ public class Driver {
 
             switch (browser) {
 
-                case "chrome": //güncelleme sorunu sonrası ekleme
-
-                    WebDriverManager.chromedriver().setup();
-                    ops.addArguments("--remote-allow-origins=*");
-                    driver = new ChromeDriver(ops);
-                    break;
-
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driver=new FirefoxDriver();

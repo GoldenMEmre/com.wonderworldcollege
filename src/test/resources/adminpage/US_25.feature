@@ -13,9 +13,10 @@ Scenario: : TC01 in the admin panel's side bar under the  Fees Collection relate
   * verify  all section title that related with Fees Master can be select by clicking
   * Verify Record Saved Successfully displayed after clicking save button
   * Verify that Fees Master List can be updated by clicking edit button
+  * user close the browser
 
 
-  Scenario: 2  Verify that Fees Master List can be updated by clicking edit button
+  Scenario: TC_02  Verify that Fees Master List can be updated by clicking edit button
     * Go to "loginurl"
     * click admin login
     * enter username
@@ -24,7 +25,8 @@ Scenario: : TC01 in the admin panel's side bar under the  Fees Collection relate
     * Click fees collection
     * Click fees master
     * Verify that Fees Master List can be updated by clicking edit button
-    Scenario: 3 Verify that the delete button is active
+    * user close the browser
+    Scenario: TC_03  Verify that the delete button is active
       * Go to "loginurl"
       * click admin login
       * enter username
@@ -33,6 +35,8 @@ Scenario: : TC01 in the admin panel's side bar under the  Fees Collection relate
       * Click fees collection
       * Click fees master
       * Verify that the delete button is functional
+      * user close the browser
+
 
 
 

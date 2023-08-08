@@ -78,6 +78,22 @@ public class StudentPage extends  Base {
     public  WebElement toDateButton;
     @FindBy(xpath="(//*[@class='fa fa-remove'])[1]")
     public  WebElement deleteButton;
+    @FindBy(xpath="(//*[text()='Attendance'])[1]")
+    public  WebElement attendanceButton;
+    @FindBy(xpath="//*[@id='dob']")
+    public  WebElement attendanceDateButton;
+    @FindBy(xpath="(//*[text()='1'])[1]")
+    public  WebElement date1Button;
+    @FindBy(xpath="//*[text()='Subject']")
+    public  WebElement subjectButton;
+    @FindBy(xpath="//*[text()='Time From']")
+    public  WebElement timeFromButton;
+    @FindBy(xpath="//*[text()='Time To']")
+    public  WebElement timetoButton;
+    @FindBy(xpath="//*[text()='Room No.']")
+    public  WebElement roomButton;
+    @FindBy(xpath="(//*[text()='Attendance'])[2]")
+    public  WebElement attendanceColumnButton;
     //********************Gulten Harrelson******************************
 
 

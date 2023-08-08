@@ -34,7 +34,7 @@ public class TeacherStepdefinition {
     @When("click teacher login button")
     public void click_teacher_login_button() {
         teacherPage.clickTeacherLoginButton();
-        ReusableMethods.switchToWindow("Login : Wonder World College");
+       ReusableMethods.switchToWindow("Login : Wonder World College");
         ReusableMethods.bekle(2);
     }
 
@@ -50,8 +50,16 @@ public class TeacherStepdefinition {
 
     @Then("click signin button")
     public void click_signin_button() {
+
+
+       teacherPage.clickSignIn();
+        //ReusableMethods.bekle(3);
+
+
+
         teacherPage.clickSignIn();
         ReusableMethods.bekle(3);
+
     }
 
     @Then("click human resources on side bar")
@@ -140,8 +148,8 @@ public class TeacherStepdefinition {
     @Given("Enter the valid username and password on the Teacher login panel")
     public void enter_the_valid_username_and_password_on_the_teacher_login_panel() {
 
-        teacherPage.adminUser.sendKeys(ConfigReader.getProperty("sumeyraTeacherUsername"));
-        teacherPage.adminPassword.sendKeys(ConfigReader.getProperty("sumeyraPassword"));
+       // teacherPage.adminUser.sendKeys(ConfigReader.getProperty("sumeyraTeacherUsername"));
+      //  teacherPage.adminPassword.sendKeys(ConfigReader.getProperty("sumeyraPassword"));
 
     }
 
@@ -257,28 +265,34 @@ public class TeacherStepdefinition {
 
 
 
-    // ***************************** Gulten Harrelson*****************************
-
-
-    // ***************************** Gulten Harrelson*****************************1.Baslangic
-
-
-
     @Given("enter  teacher username")
     public void enter_teacher_username() {
         adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
     }
-    @Given("enter teacher password")
-    public void enter_teacher_password() {
-        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
 
+    // ***************************** Gulten Harrelson*****************************1.Baslangic
 
+    @Given("click teacher login buttonG")
+    public void click_teacher_login_button_g() {
+        teacherPage.teacherLoginButton.click();
+
+        ReusableMethods.bekle(2);
+        ReusableMethods.switchToWindow("Login : Wonder World College");
     }
 
-    @Given("click teacher sign in button")
-    public void click_teacher_sign_in_button() {
-        teacherPage.teacherSignInButton.click();
+    @Given("enter  teacher usernameG")
+    public void enter_teacher_username_g() {
+        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+    }
 
+    @Given("enter teacher passwordG")
+    public void enter_teacher_password_g() {
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+    }
+
+    @Given("click teacher sign in buttonG")
+    public void click_teacher_sign_in_button_g() {
+        teacherPage.teacherSignInButton.click();
     }
 
     @Given("Click Attendance menu")
@@ -291,60 +305,55 @@ public class TeacherStepdefinition {
         teacherPage.periodAttendanceByDate.click();
         ReusableMethods.bekle(2);
         assertTrue(teacherPage.periodAttendanceByDate.isDisplayed());
+    }
 
+    @Given("verify all section titles that related with Select Criteria is active and visible")
+    public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible() {
+        assertTrue(teacherPage.ClassIcon.isDisplayed());
+        ReusableMethods.bekle(1);
+        assertTrue(teacherPage.sectionIcon.isDisplayed());
+        assertTrue(teacherPage.dateIcon.isDisplayed());
+        ReusableMethods.bekle(3);
+        Select select=new Select(teacherPage.classDropDown);
+        select.selectByIndex(2);
+        select=new Select(teacherPage.sectionDropDown);
+        select.selectByIndex(2);
+        teacherPage.dateDropDown.click();
+        ReusableMethods.bekle(2);
+        actions.moveToElement(teacherPage.teacherDate1).click().perform();
+        ReusableMethods.bekle(2);
+    }
+    @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
+    public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
+        Select select=new Select(teacherPage.classDropDown);
+        select.selectByIndex(2);
+        select=new Select(teacherPage.sectionDropDown);
+        select.selectByIndex(2);
+        teacherPage.dateDropDown.click();
+        ReusableMethods.bekle(2);
+        actions.moveToElement(teacherPage.teacherDate1).click().perform();
+        ReusableMethods.bekle(2);
+        teacherPage.teacherSearchButton.click();
+        ReusableMethods.bekle(2);
+        assertTrue(teacherPage.studentListBodySection.isDisplayed());
+        ReusableMethods.bekle(3);
     }
 
 
-        @Given("verify all section titles that related with Select Criteria is active and visible")
-        public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible () {
-            assertTrue(teacherPage.ClassIcon.isDisplayed());
-            assertTrue(teacherPage.ClassIcon.isEnabled());
-            ReusableMethods.bekle(1);
-            assertTrue(teacherPage.sectionIcon.isDisplayed());
-
-            assertTrue(teacherPage.dateIcon.isDisplayed());
-            ReusableMethods.bekle(3);
-            Select select = new Select(teacherPage.classDropDown);
-            select.selectByIndex(1);
-            select = new Select(teacherPage.sectionDropDown);
-            select.selectByIndex(1);
-            teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty(" Date"));
-            teacherPage.periodAttendanceByDateSearchicon.click();
+    // **************************Gulten Harrelson ***************************//
 
 
-        }
-        @Given("Click Period Attendance By Date")
-        public void click_period_attendance_by_date () {
-            teacherPage.periodAttendanceByDate.click();
-        }
-
-        @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
-        public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date
-        () {
-            Select select = new Select(teacherPage.classDropDown);
-            select.selectByIndex(1);
-            select = new Select(teacherPage.sectionDropDown);
-            select.selectByIndex(1);
-            // select=new Select(teacherPage.dateDropDown);
-            JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
-            teacherPage.dateDropDown.click();
-
-            //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
-
-            // daha calsimam lazim bu soru icin
-            //assertTrue(teacherPage.studentList.isDisplayed());
 
 
-        }
 
-        // **************************Gulten Harrelson *************************** 1.Sonu
-        // **************************Gulten Harrelson *************************** 2.Baslangic
+
         @Given("click  Online Exam Section under the  online Examinations")
         public void click_online_exam_section_under_the_online_examinations () {
            // teacherPage.onlineExaminations.click();
             //teacherPage.onlineExam.click();
 
         }
+
         @Given("The user should be able to view column fields in the  Online Exam segment.")
         public void the_user_should_be_able_to_view_column_fields_in_the_online_exam_segment () {
 
@@ -366,33 +375,39 @@ public class TeacherStepdefinition {
             // Write code here that turns the phrase above into concrete actions
             throw new io.cucumber.java.PendingException();
         }
-        // **************************Gulten Harrelson *************************** 2.Sonu
 
 
 
 
 
 
-
-
-
-
-        //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
-
-        // daha calsimam lazim bu soru icin
-        //assertTrue(teacherPage.studentList.isDisplayed());
-
-        // **************************Gulten Harrelson *************************** 1.Sonu
-
-
-
+    @Then("verify Student Hostel List Reports columns")
+    public void verifyStudentHostelListReportsColumns() {
+        teacherPage.verifyColumnsunderStudentHostelReport();
 
     }
 
+    @Then("click on a student name")
+    public void clickOnAStudentName() {
+        teacherPage.studentNameClick();
+    }
+
+    @Then("verify Student Profile Page")
+    public void verifyStudentProfilePage() {
+        teacherPage.redirectedPageVerify();
+    }
+
+    @Then("searchBox on Student Profile Page")
+    public void searchboxOnStudentProfilePage() {
+        teacherPage.searchBoxVerifyStudentProfile();
+    }
 
 
-
-
+    @Then("make filtering with different student informations")
+    public void makeFilteringWithDifferentStudentInformations() {
+        teacherPage.filterStudents();
+    }
+}
 
 
 
