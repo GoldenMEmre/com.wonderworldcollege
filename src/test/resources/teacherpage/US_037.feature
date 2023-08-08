@@ -16,7 +16,7 @@ Feature:As an administrator (teacher),
     Then enter "Sick Leave" as reason on reason textbox
     Then click on save button
     And verify that leave request has been created
-    And Close the page.
+    And user close the browser
 
   Scenario: TC_002 'Leaves'(Teacher) Page - Visibility, Enability and Leave Request Status Tests
       Given go to login page
@@ -28,7 +28,7 @@ Feature:As an administrator (teacher),
       And click apply leave on side bar
       Then verify the columns on leaves list page
       Then verify the status of created leave request
-      Then Close the page.
+      Then user close the browser
 
   Scenario: TC_003 'Leaves List'(Teacher) Section - Visibility, Viewing Details and Deleting of a Leave Requests Test
       Given go to login page
@@ -43,6 +43,6 @@ Feature:As an administrator (teacher),
       Then close details window
       Then verify and click on delete button
       Then verify that leave request has been deleted
-      And Close the page.
+      And user close the browser
 
 

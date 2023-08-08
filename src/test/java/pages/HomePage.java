@@ -374,7 +374,7 @@ public class HomePage extends Base {
 
     @FindBy(xpath = "//*[text()='04/08/2023']")
 
-    @FindBy(xpath = "//*[text()='03/08/2023']")
+
 
     private WebElement applicationDateREDaS;
     //Date Of Birth after Submit
@@ -385,7 +385,6 @@ public class HomePage extends Base {
     private WebElement controlGuardianRelation;
     //Email after Submit
 
-    @FindBy(xpath = "//*[text()='muster.mustermann17@gmail.com']")
 
     @FindBy(xpath = "//*[text()='muster.mustermann23@gmail.com']")
 

@@ -300,26 +300,7 @@ public class HomepageStepdefinition {
     // **********************************************************************************//
 
 
-    // @Then("The homepage was reached on the website")
-    //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
 
-
-       // Assert.assertTrue(homepage.CallUsText.isDisplayed());
-
-        Assert.assertTrue(homepage.CallUsText.isDisplayed());
-
-        Thread.sleep(2000);
-
-    // Assert.assertTrue(homepage.CallUsText.isDisplayed());
-    //Thread.sleep(2000);
-
-    //  Assert.assertTrue(homepage.CallUsText.isDisplayed());
-    //Thread.sleep(2000);
-
-
-    // @Then("The homepage was reached on the website")
-
-}
     @Then("The homepage was reached on the website")
     public void the_homepage_was_reached_on_the_website() throws InterruptedException {
 
@@ -353,29 +334,6 @@ public class HomepageStepdefinition {
 
     }
 
-   
-
-
-    
-
-    @Then("The visibility of the boards in the Achievements section has been confirmed.")
-    public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
-        Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
-
-        Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
-    }
-
-
-
-    @And("Close the page.")
-    public void close_the_page() {
-        Driver.quitDriver();
-
-    }
-
-
-
-
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
@@ -384,14 +342,6 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
 
     }
-
-
-
-
-   
-
-
-
 
 
     @Then("Verify that Login Button is visible")
@@ -404,10 +354,7 @@ public class HomepageStepdefinition {
     public void click_the_login_button() {
         homepage.loginButonu.click();
     }
-    @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
-    public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {
-    Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
-    }
+
     //@Then("Verify that HomePage is accessible")
    // public void verify_that_home_page_is_accessible() {
 
@@ -422,7 +369,6 @@ public class HomepageStepdefinition {
 
         Assert.assertTrue(homepage.homeBar.isDisplayed());
     }
-
 
 
         @Then("Headings in the top bar are clicked")

@@ -177,10 +177,7 @@ public class AdminStepdefinition {
 
     }
 
-    @Given("Select the class from the Class tab, select the section from the Section tab and click the search button")
-    public void select_the_class_from_the_class_tab_select_the_section_from_the_section_tab_and_click_the_search_button(){
 
-    }
     @Given("Select the class from the Class tab, select the section from the Section tab and click the search button")
     public void select_the_class_from_the_class_tab_select_the_section_from_the_section_tab_and_click_the_search_button() {
 

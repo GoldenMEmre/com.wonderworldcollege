@@ -11,4 +11,4 @@ Feature: As a user  I should be able to access the Examinations page
     Then verify the columns on exam schedule page
     Then click on view button and verify exam details page
     Then verify the columns on exam details page
-    Then Close the page.
+    Then user close the browser

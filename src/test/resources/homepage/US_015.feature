@@ -3,4 +3,4 @@ Feature: As a user, I want to see comments from users who have made comments abo
     Given go to home page
     Then verify What people says section
     Then verify that the comments are from different individuals
-    Then Close the page.
+    Then user close the browser

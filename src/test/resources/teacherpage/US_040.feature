@@ -10,7 +10,7 @@ Feature: As an administrator (teacher)  I want a Hostel page to access students 
     Then verify Select Criteria Sections
     Then make search
     Then verify Student Hostel List Reports columns
-    Then Close the page.
+    Then user close the browser
 
     Scenario: TC_002 US_040] 'Student Hostel Report List'(Teacher) Page - Search Box Perform Test
       Given go to login page
@@ -25,7 +25,7 @@ Feature: As an administrator (teacher)  I want a Hostel page to access students 
       Then click on a student name
       Then verify Student Profile Page
       Then searchBox on Student Profile Page
-      Then Close the page.
+      Then user close the browser
 
       Scenario: TC_003 'Student Hostel Report List'(Teacher) Page - Filtering Based on the Column Test
         Given go to login page
