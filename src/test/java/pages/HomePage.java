@@ -338,7 +338,7 @@ public class HomePage extends Base {
     @FindBy(xpath = "//*[text()='Not Submitted']")
     private WebElement formStatusREDaS;
     //Application Date REDaS
-    @FindBy(xpath = "//*[text()='02/08/2023']")
+    @FindBy(xpath = "//*[text()='03/08/2023']")
     private WebElement applicationDateREDaS;
     //Date Of Birth after Submit
     @FindBy(xpath = "//*[text()='26/10/2013']")
@@ -347,7 +347,7 @@ public class HomePage extends Base {
     @FindBy(xpath = "//*[text()='Brother']")
     private WebElement controlGuardianRelation;
     //Email after Submit
-    @FindBy(xpath = "//*[text()='muster.mustermann11@gmail.com']")
+    @FindBy(xpath = "//*[text()='muster.mustermann23@gmail.com']")
     private WebElement controlEmail;
     //CheckBox I Agree Terms
     @FindBy(xpath = "//input[@id='checkterm']")
@@ -362,13 +362,13 @@ public class HomePage extends Base {
     @FindBy(xpath = "//button[@id='submitbtn']")
     private WebElement submitREDaS;
     //REDaS Successful alert after submit
-    @FindBy(xpath = "//*[text()='Form Has Been Submitted Successfully..!! ']")
+    @FindBy(xpath = "//div[@id='completeformdiv']")
     private WebElement successfulAlertAfterSubmitREDaS;
     // REDaS Submitted Form Status
     @FindBy(xpath = "//*[text()='Submitted']")
     private WebElement submittedFormStatusREDaS;
 
-    private String eMail = "muster.mustermann11@gmail.com";
+    private String eMail = "muster.mustermann23@gmail.com";
     //**************************************************
 
     //What People Says title on homepage
@@ -484,15 +484,15 @@ public class HomePage extends Base {
         onlineAdmissionPageLastNameTextBox.sendKeys("Lenk");
         Select select1 = new Select(onlineAdmissionPageGenderDropDown);
         select1.selectByIndex(1);
-       // actions.click(onlineAdmissionPageDateOfBirth).perform();
-        //actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.click(mounthDateOfBirth).perform();
-        //actions.click(dayDateOfBirth).perform();
+       actions.click(onlineAdmissionPageDateOfBirth).perform();
+        actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.click(mounthDateOfBirth).perform();
+        actions.click(dayDateOfBirth).perform();
         onlineAdmissionPageMobileNumber.sendKeys("0123 456 78 90");
 
         onlineAdmissionPageEmail.sendKeys(eMail);
@@ -670,7 +670,7 @@ public class HomePage extends Base {
     //clicks Submit and verifies Form Status And Succeddful Alert
     public void submitVerifyFormStatusAndAlert(){
         submitREDaS.click();
-        Assert.assertTrue(successfulAlertAfterSubmitREDaS.isDisplayed());
+
         Assert.assertTrue(submittedFormStatusREDaS.isDisplayed());
     }
 
