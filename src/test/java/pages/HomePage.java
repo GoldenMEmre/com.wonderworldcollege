@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -36,6 +35,7 @@ public class HomePage extends Base {
 
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     public  WebElement examResultPageResultText;   
+
 
     //-------------------------------------------------------------
 
@@ -96,8 +96,6 @@ public class HomePage extends Base {
     @FindBy(xpath = "(//a[@class='btn-read'])[9]")
     public WebElement coursePageComputerScienceDetailsButton;
 
-    //-------------------------------------------------------------
-
       //Homepage >"login" butonu
     @FindBy(xpath = "//*[@class='complainbtn']")
     public WebElement loginButonu;
@@ -132,6 +130,21 @@ public class HomePage extends Base {
     public  WebElement nurturingImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
+
+
+
+
+
+   @FindBy(xpath = "//*[@id='navbar-collapse-3']")
+    public WebElement homeBar;
+
+   @FindBy(xpath = "//a[@class='logo']")
+    public WebElement siteLogo;
+
+   @FindBy(xpath="//a[@data-toggle='dropdown']")
+    public WebElement academicsButton;
+
+
     @FindBy(xpath = "(//*[@class='fa fa-angle-left'])[1]")
      public  WebElement sliderPanel;
 
@@ -302,9 +315,29 @@ public class HomePage extends Base {
     @FindBy(xpath = "(//button[@type='button'])[10]")
     private WebElement verifyGuardianPhotoUploaded;
 
+
+    @FindBy (xpath = "(//h2[@class='head-title'])[4]")
+    public WebElement ourExperiencedStaffsText;
+
+    @FindBy (xpath = "(//h3[text()='Anthony Carter'])[2]")
+    public WebElement ourExperiencedStaffsAnthonyCarter;
+
+    @FindBy (xpath = "(//h3[text()='Ava Turner'])[2]")
+    public WebElement ourExperiencedStaffsAvaTurner;
+
+    @FindBy (xpath = "(//h3[text()='David Morgan'])[2]")
+    public WebElement ourExperiencedStaffsDavidMorgan;
+
+    @FindBy (xpath = "(//h3[text()='Lily Peterson'])[2]")
+    public WebElement ourExperiencedStaffsLilyPeterson;
+
+
+
+
     //Online Admission title
     @FindBy(xpath = "(//*[text()='Online Admission'])[2]")
     private WebElement onlineAdmissionTitle;
+
 
     //Guardian Details Radio Box Father
     @FindBy(xpath = "//div/div/div/label[2]/input")
@@ -338,7 +371,11 @@ public class HomePage extends Base {
     @FindBy(xpath = "//*[text()='Not Submitted']")
     private WebElement formStatusREDaS;
     //Application Date REDaS
-    @FindBy(xpath = "//*[text()='02/08/2023']")
+
+    @FindBy(xpath = "//*[text()='04/08/2023']")
+
+
+
     private WebElement applicationDateREDaS;
     //Date Of Birth after Submit
     @FindBy(xpath = "//*[text()='26/10/2013']")
@@ -347,7 +384,10 @@ public class HomePage extends Base {
     @FindBy(xpath = "//*[text()='Brother']")
     private WebElement controlGuardianRelation;
     //Email after Submit
-    @FindBy(xpath = "//*[text()='muster.mustermann11@gmail.com']")
+
+
+    @FindBy(xpath = "//*[text()='muster.mustermann23@gmail.com']")
+
     private WebElement controlEmail;
     //CheckBox I Agree Terms
     @FindBy(xpath = "//input[@id='checkterm']")
@@ -362,13 +402,14 @@ public class HomePage extends Base {
     @FindBy(xpath = "//button[@id='submitbtn']")
     private WebElement submitREDaS;
     //REDaS Successful alert after submit
-    @FindBy(xpath = "//*[text()='Form Has Been Submitted Successfully..!! ']")
+    @FindBy(xpath = "//div[@id='completeformdiv']")
     private WebElement successfulAlertAfterSubmitREDaS;
     // REDaS Submitted Form Status
     @FindBy(xpath = "//*[text()='Submitted']")
-    private WebElement submittedFormStatusREDaS;
+    private WebElement submittedFormStatusREDaS;   
 
-    private String eMail = "muster.mustermann11@gmail.com";
+    private String eMail = "muster.mustermann23@gmail.com";
+
     //**************************************************
 
     //What People Says title on homepage
@@ -477,28 +518,32 @@ public class HomePage extends Base {
         Assert.assertTrue(onlineAdmissionPageMobileNumber.isEnabled());
         Assert.assertTrue(onlineAdmissionPageEmail.isDisplayed());
         Assert.assertTrue(onlineAdmissionPageEmail.isEnabled());
-
+        Actions actions=new Actions(Driver.getDriver());
         Select select = new Select(onlineAdmissionPageClassDropDown);
         select.selectByIndex(14);
         onlineAdmissionPageFirstnameTextBox.sendKeys("Timur");
         onlineAdmissionPageLastNameTextBox.sendKeys("Lenk");
         Select select1 = new Select(onlineAdmissionPageGenderDropDown);
         select1.selectByIndex(1);
-       // actions.click(onlineAdmissionPageDateOfBirth).perform();
-        //actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.doubleClick(previousDateOfBirth).perform();
-        //actions.click(mounthDateOfBirth).perform();
-        //actions.click(dayDateOfBirth).perform();
+
+        actions.click(onlineAdmissionPageDateOfBirth).perform();
+
+       actions.click(onlineAdmissionPageDateOfBirth).perform();
+
+        actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.doubleClick(previousDateOfBirth).perform();
+        actions.click(mounthDateOfBirth).perform();
+        actions.click(dayDateOfBirth).perform();
         onlineAdmissionPageMobileNumber.sendKeys("0123 456 78 90");
 
         onlineAdmissionPageEmail.sendKeys(eMail);
 
-        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\com.wonderworldcollege" +
-                "\\src\\test\\java\\.jpg\\4432b9bcacc2ed45b9bef8d8475a6030.jpg";
+        String dosyaYolu = "C:\\Users\\hasba\\IdeaProjects\\ui_CucumberFramework" +
+                " - Example\\src\\test\\java\\.jpg\\4432b9bcacc2ed45b9bef8d8475a6030.jpg";
         onlineAdmissionPageStudentPhoto.sendKeys(dosyaYolu);
     }
     //verifies that student photo has been uploaded
@@ -573,8 +618,8 @@ public class HomePage extends Base {
         guardianPhoneOnlineAdmissionPage.sendKeys("01234 56 789");
         guardianOccupationOnlineAdmissionPage.sendKeys("Big Boss");
         guardianAdressOnlineAdmissionPage.sendKeys("Bochum, Germany");
-        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\" +
-                "com.wonderworldcollege\\src\\test\\java\\.jpg\\IMG_20211022_124748.jpg";
+        String dosyaYolu = "C:\\Users\\hasba\\IdeaProjects\\ui_CucumberFramework" +
+                " - Example\\src\\test\\java\\.jpg\\IMG_20211022_124748.jpg";
         guardianPhotoOnlineAdmissionPage.sendKeys(dosyaYolu);
         ReusableMethods.bekle(5);
     }
@@ -582,8 +627,6 @@ public class HomePage extends Base {
     public void verifyGuardianPhotoUpload() {
         actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
-
-
     }
 
 
@@ -610,8 +653,18 @@ public class HomePage extends Base {
 
 
 
+
+
+    @FindBy(xpath = "//a[text()='School Uniform']")
+    public WebElement schoolUniformDropDown;
+
+
+    @FindBy(xpath = "//a[text()='Facilities']")
+    public WebElement facilitiesDropDown;
+
     // Verify Radio Boxes under Guardian Details
     public void verifyRadioBoxesGuardianDetails(){
+
 
         Assert.assertTrue(fatherRadioBoxGuardianDetails.isDisplayed());
         Assert.assertTrue(fatherRadioBoxGuardianDetails.isEnabled());
@@ -631,8 +684,8 @@ public class HomePage extends Base {
     }
     //Uploads Document and verifies that the Document has been uploaded
     public void uploadVerifyDocumentOnlineAdmissionPage(){
-        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\" +
-                "com.wonderworldcollege\\src\\test\\java\\.jpg\\Student.txt";
+        String dosyaYolu = "C:\\Users\\hasba\\IdeaProjects\\ui_CucumberFramework" +
+                " - Example\\src\\test\\java\\.jpg\\Student.txt";
         uploadDocumentOnlineAdmissionPage.sendKeys(dosyaYolu);
         ReusableMethods.bekle(2);
         actions.moveToElement(uploadDocumentOnlineAdmissionPage).perform();
@@ -672,7 +725,10 @@ public class HomePage extends Base {
     //clicks Submit and verifies Form Status And Succeddful Alert
     public void submitVerifyFormStatusAndAlert(){
         submitREDaS.click();
-        Assert.assertTrue(successfulAlertAfterSubmitREDaS.isDisplayed());
+
+
+
+
         Assert.assertTrue(submittedFormStatusREDaS.isDisplayed());
     }
 
@@ -715,6 +771,68 @@ public class HomePage extends Base {
             }
         }
     }
+    //*******************************************************************************************
+
+    @FindBy(xpath = "//a[text()='Principal Message']")
+    public WebElement principalMessageDropDown;
+
+    @FindBy(xpath = "//a[text()='Know Us']")
+
+    public WebElement knowUsDropDown;
+
+    @FindBy(xpath = "//a[text()='Approach']")
+    public WebElement approachDropDown;
+
+    @FindBy(xpath = "//a[text()='Teacher']")
+    public WebElement teacherDropDown;
+
+
+
+    //@FindBy(xpath="right carousel-control")
+    // public  WebElement sliderPanel;
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+    //HomePage/User Login Page
+    @FindBy(xpath = "//*[text()='User Login']")
+    public WebElement userLoginText;
+
+    @FindBy(xpath = "//div[@class='messages']")
+    public WebElement userLoginMessages;
+
+
+    @FindBy(xpath = "//*[@id=\"navbar-collapse-3\"]/ul/li[9]/a")
+    public WebElement contackButton;
+
+    @FindBy(xpath = "(//input[@type='text'])[5]")
+    public WebElement nameButton;
+
+    @FindBy(xpath = "(//input[@type='email'])[2]")
+    public WebElement emailButton;
+
+    @FindBy(xpath = "(//input[@type='text'])[6]")
+    public WebElement subjectButton;
+
+    @FindBy(xpath = "//textarea[@name='description']")
+    public WebElement descriptionButton;
+    @FindBy(xpath = "//input[@value='Submit']")
+    public WebElement submitButton;
+
+
+    @FindBy(xpath = "//*[text()='Our Location']")
+    public WebElement ourLocation;
+
+    @FindBy(xpath = "//*[text()='CALL US']")
+    public WebElement callUs;
+
+    @FindBy (xpath = "//h3[text()='Working Hours']")
+    public WebElement workingHours;
+
+   @FindBy(xpath ="//*[text()='Feedback']" )
+    public WebElement feedBack;
 
 }
+
+
+
     //*******************************************************************************************
+

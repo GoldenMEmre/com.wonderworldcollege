@@ -8,7 +8,7 @@
       Then   Enter Correct password "DGpassword"
       Then   Click on the Sign In button
       Then   The My Profile button was displayed
-      And    Close the page.
+      And    user close the browser
 
 
     Scenario:Through the User Profile button, access is provided to the Profile, Fees, Exams, and Documents buttons.
@@ -23,7 +23,7 @@
       Then   The Exam button was clicked and displayed.
       Then   The Documents button was clicked and displayed.
       Then   The Fees button was clicked and displayed.
-      And    Close the page.
+      And    user close the browser
 
 
 
@@ -39,7 +39,7 @@
       Then   The Exam button was clicked and the relevant sections were displayed.
       Then   The Document button was clicked and the relevant sections were displayed.
       Then   The Fees button was clicked and the relevant sections were displayed.
-      And    Close the page.
+      And    user close the browser
 
 
 

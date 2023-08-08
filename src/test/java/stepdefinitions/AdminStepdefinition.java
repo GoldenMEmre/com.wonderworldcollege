@@ -1,19 +1,40 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.Given;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
+
+
+
+
+
+
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+
+
 import org.openqa.selenium.By;
+
 
 
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+
 import org.openqa.selenium.interactions.Actions;
+
+
+
+
+
+
 import org.openqa.selenium.support.ui.Select;
 
 import pages.AdminPage;
@@ -22,10 +43,13 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -36,52 +60,45 @@ public class AdminStepdefinition {
 
     Actions action =new Actions(Driver.getDriver());
 
-    //************************************** Gulten Harrelson********************
+  //************************************** Gulten Harrelson********************
 
 
     @Given("click admin login")
     public void click_admin_login() {
         adminPage.adminLoginButton.click();
 
-        ReusableMethods.switchToWindow("Login : Wonder World College");
+       ReusableMethods.switchToWindow("Login : Wonder World College");
     }
-
     @Given("enter username")
     public void enter_username() {
         adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
     }
-
     @Given("enter password")
     public void enter_password() {
         adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
     }
-
     @Given("click sign in button")
     public void click_sign_in_button() {
 
-        ReusableMethods.waitForVisibility(adminPage.signInButton,1);
+        ReusableMethods.waitForVisibility(adminPage.signInButton, 1);
         adminPage.signInButton.click();
 
 
         adminPage.signInButton.click();
 
     }
-
     @Given("Click fees collection")
     public void click_fees_collection() {
         adminPage.feesCollection.click();
     }
-
     @Given("Click fees master")
     public void click_fees_master() {
         adminPage.feesMasterButton.click();
     }
-
     @Given("verify that fees Master  displayed")
     public void verify_that_fees_master_displayed() {
         assertTrue(adminPage.feesCollection.isDisplayed());
     }
-
     @Given("verify  all title that related with Fees Master are displayed")
     public void verify_all_title_that_related_with_fees_master_are_displayed() {
 
@@ -98,7 +115,6 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(2);
         assertTrue(adminPage.searchBox.isEnabled());
     }
-
     @Given("Verify that the title of the Admin Panel is displayed")
     public void verify_that_the_title_of_the_admin_panel_is_displayed() {
         Assert.assertTrue(adminPage.adminLoginButton.isDisplayed());
@@ -106,39 +122,188 @@ public class AdminStepdefinition {
 
     @Given("verify  all section title that related with Fees Master can be select by clicking")
     public void verify_all_section_title_that_related_with_fees_master_can_be_select_by_clicking() {
-        Select select = new Select(adminPage.feesGroupDropDown);
+        Select select=new Select(adminPage.feesGroupDropDown);
         select.selectByIndex(1);
-        select = new Select(adminPage.feesTypeDropDown);
+        select=new Select(adminPage.feesTypeDropDown);
         select.selectByIndex(1);
-        adminPage.dueDateDropDown.sendKeys(ConfigReader.getProperty("Date"));
-        ReusableMethods.bekle(2);
-        adminPage.amountDropdown.sendKeys(ConfigReader.getProperty("Amount"));
-        ReusableMethods.bekle(1);
+            adminPage.dueDateDropDown.sendKeys(ConfigReader.getProperty("Date"));
+            ReusableMethods.bekle(2);
+           adminPage.amountDropdown.sendKeys(ConfigReader.getProperty("Amount"));
+           ReusableMethods.bekle(1);
         adminPage.radioPercentageButton.click();
-        adminPage.percentageSelect.sendKeys(ConfigReader.getProperty("Percentage"));
-        adminPage.fixAmountSelect.click();
+       adminPage.percentageSelect.sendKeys(ConfigReader.getProperty("Percentage"));
+       adminPage.fixAmountSelect.click();
         adminPage.saveButton.click();
     }
+
+
+
+
+
+
+    @Given("Enter the valid username and password on the Admin login panel")
+    public void enter_the_valid_username_and_password_on_the_admin_login_panel() {
+
+        adminPage.adminUser.sendKeys(ConfigReader.getProperty("sumeyraAdminUsername"));
+        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("sumeyraPassword"));
+    }
+
+    @Given("Click the Student Information menu on the sidebar in the admin panel and verify that the Multi Class Student link is displayed")
+    public void click_the_student_information_menu_on_the_sidebar_in_the_admin_panel_and_verify_that_the_multi_class_student_link_is_displayed() {
+
+        adminPage.studentInformation.click();
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(adminPage.multiClassStudentLink.isDisplayed());
+
+    }
+
+    @Given("Click on the Multi Class Student link and confirm that the multiclass page is displayed")
+    public void click_on_the_multi_class_student_link_and_confirm_that_the_multiclass_page_is_displayed() {
+
+        adminPage.multiClassStudentLink.click();
+        ReusableMethods.bekle(1);
+        Assert.assertTrue(adminPage.multiClassStudentselectCriteriaText.isDisplayed());
+
+
+    }
+
+
+    
+
+    @Given("Student Information, Multi Class Student link is clicked on the admin panel, respectively")
+    public void student_information_multi_class_student_link_is_clicked_on_the_admin_panel_respectively() {
+
+        adminPage.studentInformation.click();
+        ReusableMethods.bekle(1);
+        adminPage.multiClassStudentLink.click();
+
+
+    }
+
+    
+
+
+    @Given("It is verified that the Class and Section textBoxes and the Search button are displayed on the Multiclass page")
+    public void it_is_verified_that_the_class_and_section_text_boxes_and_the_search_button_are_displayed_on_the_multiclass_page() {
+
+        Assert.assertTrue(adminPage.multiClassStudentClassTexbox.isDisplayed());
+        Assert.assertTrue(adminPage.multiClassStudentSectionTexbox.isDisplayed());
+        Assert.assertTrue(adminPage.multiClassStudentSearchButton.isDisplayed());
+
+    }
+
+
+    @Given("Select the class from the Class tab, select the section from the Section tab and click the search button")
+    public void select_the_class_from_the_class_tab_select_the_section_from_the_section_tab_and_click_the_search_button() {
+
+
+        Select select = new Select(adminPage.multiClassStudentClassTexbox);
+        select.selectByIndex(3);
+        ReusableMethods.bekle(2);
+
+        select = new Select(adminPage.multiClassStudentSectionTexbox);
+        select.selectByIndex(1);
+        ReusableMethods.bekle(2);
+
+        adminPage.multiClassStudentSearchButton.click();
+        ReusableMethods.bekle(2);
+      adminPage.multiClassStudentSearchButton.click();
+        ReusableMethods.bekle(2);
+    }
+
+        
+    
+
+
+    @Given("Verifies that students are listed according to the search criteria")
+    public void verifies_that_students_are_listed_according_to_the_search_criteria() {
+
+        Assert.assertTrue(adminPage.multiClassStudentselectCriteriaText2.isDisplayed());
+
+
+    }
+
+
+    
+
+    @Given("A new class is added by clicking the + icon in the selected student's window")
+    public void a_new_class_is_added_by_clicking_the_icon_in_the_selected_student_s_window() {
+
+        adminPage.multiClassStudentAddButton.click();
+        ReusableMethods.bekle(1);
+
+        Select select = new Select(adminPage.multiClassStudentClassTexbox2);
+        select.selectByIndex(2);
+        ReusableMethods.bekle(1);
+
+        select = new Select(adminPage.multiClassStudentSectionTexbox2);
+        select.selectByIndex(3);
+        ReusableMethods.bekle(1);
+
+
+
+    }
+
+
+    
+
+    @Given("Clicking the Update button saves the changes made")
+    public void clicking_the_update_button_saves_the_changes_made() {
+
+        adminPage.multiClassStudentUpdateButton.click();
+        ReusableMethods.bekle(2);
+
+
+    }
+
+  
+
+
+    @Given("Click the remove button of the class you want to delete in the selected student's window")
+    public void click_the_remove_button_of_the_class_you_want_to_delete_in_the_selected_student_s_window() {
+
+        adminPage.multiClassStudentRemoveButton.click();
+        ReusableMethods.bekle(2);
+
+
+    }
+
+
+    
+
+    @Given("Quit the page")
+    public void quit_the_page() {
+        Driver.quitDriver();
+    }
+
+
+
+
 
     @Given("Verify Record Saved Successfully displayed after clicking save button")
     public void verify_record_saved_successfully_displayed_after_clicking_save_button() {
 
-        String expectedTitle = "Record Saved Successfully";
+        String expectedTitle="Record Saved Successfully";
 
-        if (expectedTitle.contains("Record Saved Successfully")) {
-            System.out.print("Expected title test Passed");
+       if(expectedTitle.contains("Record Saved Successfully")){
+           System.out.print("Expected title test Passed");
 
-        } else {
-            System.out.print("Expected title test Failed");
-        }
+
+       }else{
+           System.out.print("Expected title test Failed");
+       }
+
+     //String expectedTitle="Record Saved Successfully";
+
+
+      
     }
-
     @Given("Verify that Fees Master List can be updated by clicking edit button")
     public void verify_that_fees_master_list_can_be_updated_by_clicking_edit_button() {
         adminPage.editButton.click();
-        Select select = new Select(adminPage.feesGroupDropDown);
+        Select select=new Select(adminPage.feesGroupDropDown);
         select.selectByIndex(2);
-        select = new Select(adminPage.feesTypeDropDown);
+        select=new Select(adminPage.feesTypeDropDown);
         select.selectByIndex(1);
         adminPage.dueDateDropDown.sendKeys(ConfigReader.getProperty("Date"));
         ReusableMethods.bekle(2);
@@ -147,38 +312,37 @@ public class AdminStepdefinition {
         adminPage.percentageSelect.sendKeys(ConfigReader.getProperty("Percentage"));
         adminPage.saveButton.click();
         adminPage.saveButton.click();
-        String expectedTitle = "Record Updated  Successfully";
+        String expectedTitle="Record Updated  Successfully";
 
-        if (expectedTitle.contains("Record Updated  Successfully")) {
+        if(expectedTitle.contains("Record Updated  Successfully")){
             System.out.print("Expected title test Passed");
 
-        } else {
+        }else{
             System.out.print("Expected title test Failed");
         }
     }
-
     @Given("Verify that the delete button is functional")
     public void verify_that_the_delete_button_is_functional() {
-        adminPage.deleteButton.click();
+    adminPage.deleteButton.click();
         Driver.getDriver().switchTo().alert().accept();
         ReusableMethods.bekle(3);
-        Driver.closeDriver();
-    }
 
+    }
 
     //************************************** Gulten Harrelson********************
 
 
+
+
     @Given("Click on the Collect Fees button")
     public void click_on_the_collect_fees_button() {
-        ReusableMethods.bekle(2);
+       ReusableMethods.bekle(2);
         adminPage.collectFees.click();
         ReusableMethods.bekle(2);
     }
-
     @Given("The Student Fees page was displayed")
     public void the_student_fees_page_was_displayed() {
-        WebElement feesPageElement = Driver.getDriver().findElement(By.xpath("//h3[@class='box-title']"));
+        WebElement feesPageElement =Driver.getDriver().findElement(By.xpath("//h3[@class='box-title']"));
         Assert.assertTrue(feesPageElement.isDisplayed());
     }
 
@@ -190,6 +354,7 @@ public class AdminStepdefinition {
 
         adminPage.adminLoginButton.click();
         ReusableMethods.bekle(5);
+
 //        ReusableMethods.waitForVisibility(adminPage.adminUser,2);
         ReusableMethods.switchToWindow("Login : Wonder World College");
        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
@@ -253,6 +418,20 @@ public class AdminStepdefinition {
     public void payslip_list_must_be_accessible() {
 
         adminPage.payslipList.isDisplayed();
+
+    //   ReusableMethods.waitForVisibility(adminPage.adminUser,2);
+     //   adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+       // adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+
+       // adminPage.signInButton.click();
+    }
+
+
+
+
+
+
+
 
     }
 
@@ -375,68 +554,70 @@ public class AdminStepdefinition {
     }
     @Given("Choose class button")
     public void choose_class_button() {
-        WebElement dropdownMenuSelect = Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
+        WebElement dropdownMenuSelect =Driver.getDriver().findElement(By.xpath("//select[@name='class_id']"));
         ReusableMethods.bekle(2);
         Select select = new Select(dropdownMenuSelect);
         ReusableMethods.bekle(2);
-        select.selectByVisibleText("Class 2");
-        ReusableMethods.bekle(1);
+
+
+         select.selectByVisibleText("Class 2");
+         ReusableMethods.bekle(1);
+
 
     }
+
+
+
+
+
+
+
 
 
     @Given("Choose section button")
     public void choose_section_button() {
-        WebElement dropDownMenuSection = Driver.getDriver().findElement(By.xpath("(//select[@class='form-control'])[2]"));
+        WebElement dropDownMenuSection =Driver.getDriver().findElement(By.xpath("(//select[@class='form-control'])[2]"));
         ReusableMethods.bekle(2);
-        Select select = new Select(dropDownMenuSection);
+        Select select =new Select(dropDownMenuSection);
         ReusableMethods.bekle(2);
         select.selectByVisibleText("A");
         ReusableMethods.bekle(2);
     }
-
     @Given("Click  on  the Seach button")
     public void click_on_the_seach_button() {
-        adminPage.searchButton.click();
+          adminPage.searchButton.click();
     }
-
     @Given("Click on the Collect Fees")
     public void click_on_the_collect_fees() {
         adminPage.collectFeesChoose.click();
     }
-
     @Given("It has been confirmed that the sudent fee list is displayed with columns")
     public void ıt_has_been_confirmed_that_the_sudent_fee_list_is_displayed_with_columns() {
-        Assert.assertTrue(adminPage.studentFeesWrite.isDisplayed());
+            Assert.assertTrue(adminPage.studentFeesWrite.isDisplayed());
     }
-
     @Given("When the Currency button is clicked, change the currency")
     public void when_the_currency_button_is_clicked_change_the_currency() {
-        WebElement euro = Driver.getDriver().findElement(By.xpath("(//*[@class='filter-option pull-left'])[1]"));
+        WebElement  euro=Driver.getDriver().findElement(By.xpath("(//*[@class='filter-option pull-left'])[1]"));
 
         euro.click();
         ReusableMethods.bekle(8);
         adminPage.uSDCurrency.click();
         ReusableMethods.bekle(9);
     }
-
     @Given("Click on the + Sign under the Action column")
     public void click_on_the_sign_under_the_action_column() {
         adminPage.addFessButonu.click();
         ReusableMethods.bekle(2);
     }
-
     @Given("Verify that the Transport Fees popup is visible.")
     public void verify_that_the_transport_fees_popup_is_visible() {
         adminPage.collectFeesPayButton.click();
         ReusableMethods.bekle(1);
     }
-
     @Given("Click on the Revert icon under the Action column to revert the payment")
     public void click_on_the_revert_icon_under_the_action_column_to_revert_the_payment() {
         adminPage.revertButton.click();
     }
-
     @Given("Status section was viewed and the students Fees list section displayed their payment histories")
     public void status_section_was_viewed_and_the_students_fees_list_section_displayed_their_payment_histories() {
         ReusableMethods.bekle(2);
@@ -445,12 +626,20 @@ public class AdminStepdefinition {
     }
 
 
+
+
+
+
+
+
+
     //************************************EMRE ADMIN STEP DEFINITIONS********************************
 
     @And("Click the Admin Login Button")
     public void clickTheAdminLoginButton() {
         adminPage.adminLoginButton.click();
         ReusableMethods.bekle(3);
+
     }
 
     @And("Verify that message board is visible")
@@ -484,20 +673,14 @@ public class AdminStepdefinition {
     @Then("Click the Chat page")
     public void click_the_chat_page() {
         adminPage.adminLoginButton.click();
+
+
     }
 
-    @When("click on a chat from the left bar")
-    public void click_on_a_chat_from_the_left_bar() {
-        adminPage.adminDashboardChatButton.click();
-    }
-
-    @Then("The message page is displayed on the right side")
-    public void the_message_page_is_displayed_on_the_right_side() {
-        Assert.assertTrue(adminPage.adminDashboardChatPage.isDisplayed());
-    }
 
     @Then("The TextBox is visible")
     public void the_text_box_is_visible() {
+
         Assert.assertTrue(adminPage.adminDasbhoardChatPageMessageTextBox.isDisplayed());
     }
 
@@ -518,6 +701,83 @@ public class AdminStepdefinition {
 
 
 
+
+    @And("Switch to window")
+    public void switchToWindow() {
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+    }
+
+    @And("Verify that Admin Login Username Box is diplayed")
+    public void verifyThatAdminLoginUsernameBoxIsDiplayed() {
+        Assert.assertTrue(adminPage.adminLoginUsernameTextBox.isDisplayed());
+
+    }
+
+    @And("Verify that Admin Login Password Box is displayed")
+    public void verifyThatAdminLoginPasswordBoxIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginPasswordTextBox.isDisplayed());
+    }
+
+
+    @And("Verify that Admin Login Submit Button is displayed")
+    public void verifyThatAdminLoginSubmitButtonIsDisplayed() {
+        Assert.assertTrue(adminPage.adminLoginSubmitButton.isEnabled());
+
+    }
+
+    @And("Enter Forgot Password Email Adress")
+    public void enterForgotPasswordEmailAdress() {
+        adminPage.forgotPasswordEmailBox.sendKeys(ConfigReader.getProperty("userloginemail"));
+    }
+
+    @And("Click the Forgot Botton Submit Button")
+    public void clickTheForgotBottonSubmitButton() {
+        adminPage.forgotPasswordSubmitButton.click();
+    }
+
+    @And("Verify that Admin Login password reset email is sent")
+    public void verifyThatAdminLoginPasswordResetEmailIsSent() {
+        Assert.assertTrue(adminPage.forgotPasswordResetEmailAlert.isDisplayed());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Verify that Admin User Login Link is enabled")
+    public void verifyThatAdminUserLoginLinkIsEnabled() {
+        Assert.assertTrue(adminPage.adminPasswordForgotLink.isEnabled());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click the Admin User Login Link")
+    public void clickTheAdminUserLoginLink() {
+        adminPage.adminPasswordForgotLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click Forgot Password Admin Login Link")
+    public void clickForgotPasswordAdminLoginLink() {
+        adminPage.forgotPasswordAdminLoginLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click Site Login User Login Link")
+    public void clickSiteLoginUserLoginLink() {
+        adminPage.siteLoginUserLoginLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Verify that User Login Front Page Link is visible")
+    public void verifyThatUserLoginFrontPageLinkIsVisible() {
+        Assert.assertTrue(adminPage.userLoginFrontPageLink.isDisplayed());
+        ReusableMethods.bekle(3);
+    }
+
+    @And("Click the User Login Front Page Link")
+    public void clickTheUserLoginFrontPageLink() {
+        adminPage.userLoginFrontPageLink.click();
+        ReusableMethods.bekle(3);
+    }
+
+
     //*************************************************************************************************
 
 
@@ -525,6 +785,11 @@ public class AdminStepdefinition {
     public void click_on_the_send_icon() {
         adminPage.adminDashboardMessageTextBoxSendButton.click();
     }
+
+
+
+
+
 
 
     @And("Verify that Forgot Password Link is active")
@@ -537,8 +802,13 @@ public class AdminStepdefinition {
 
 
 
+
+
+
     //*************************************************************************************************
 
+
+    //*************************************************************************************************
 
 
     @Then("The message is sent successfully")
@@ -550,7 +820,55 @@ public class AdminStepdefinition {
 
 
 
+
 }
+
+@Then("enter username and password afterward click on signin")
+    public void enterUsernameAndPasswordAfterwardClickOnSignin() {
+        adminPage.enterUsernamePasswordAndClickSignIn();
+    }
+
+    @Then("verify Transport and Routes Sections and click on them one by one")
+    public void verifyTransportAndRoutesSectionsAndClickOnThemOneByOne() {
+        adminPage.clickVerifyTransport();
+    }
+
+    @Then("verify the textbox and button")
+    public void verifyTheTextboxAndButton() {
+        adminPage.verifyTitleAndTextBoxesRoutePage();
+    }
+
+
+
+    @Then("enter required informations and click on save and verify created route")
+    public void enterRequiredInformationsAndClickOnSaveAndVerifyCreatedRoute() {
+        adminPage.createVerifyRoute();
+    }
+
+    @Then("verify the columns")
+    public void verifyTheColumns() {
+        adminPage.verifyColumnsRoutesPage();
+    }
+
+
+
+
+
+
+    @Then("edit created Route and verify the changes")
+    public void editCreatedRouteAndVerifyTheChanges() {
+        adminPage.editVerifyRoute();
+    }
+
+    @Then("delete the edited Route")
+    public void deleteTheEditedRoute() {
+        adminPage.deleteRoute();
+    }
+}
+
+
+
+
 
 
 

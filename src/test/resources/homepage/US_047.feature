@@ -9,7 +9,7 @@
    Then   Enter Correct password "DGpassword"
    Then   Click on the Sign In button
    Then   The 'Homework' button was displayed.
-   Then   Close the page.
+   Then   user close the browser
 
 
 
@@ -21,7 +21,7 @@
     Then   Click on the Sign In button
     Then  Click on the Homework button.
     Then  The Upcoming Homeworkbutton was clicked and the relevant sections were displayed.
-    And   Close the page.
+    And   user close the browser
 
 
 
@@ -37,7 +37,7 @@
       Then  Click on the Action section.
       Then  The homework details page was displayed.
       Then  Sent message.
-      Then  Close the page.
+      Then  user close the browser
 
 
 
@@ -53,7 +53,7 @@
         Then  click on the   Action section in the Closed Homework section.
         Then  The homework details section in the Closed Homework section is displayed.
         Then  Sent message.
-        Then  Close the page.
+        Then  user close the browser
 
 
 
@@ -67,7 +67,7 @@
         Then   Click on the Daily Assignment button.
         Then   The Add Daily Assignment page was displayed
         Then   A new assignment has been created.
-         And   Close the page.
+         And   user close the browser
 
 
 
@@ -83,7 +83,7 @@
           Then   The Add Daily Assignment page was displayed
           Then   Click on the Edit
           Then   Click on the Delete
-          And    Close the page.
+          And    user close the browser
 
 
        Scenario: TC 007 It should validate the column fields on the "Daily Assignment List" page from the Daily Assignment section.
@@ -96,7 +96,7 @@
          Then  Click on the Homework button.
          Then   Click on the Daily Assignment button.
          Then   The Add Daily Assignment page was displayedd
-         And     Close the page.
+         And     user close the browser
 
 
 
