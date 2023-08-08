@@ -15,7 +15,7 @@ Feature: As a user I want an Online Admission page on the homepage so that I can
     Then verify RadioBoxes under Guardian Details Section
     Then verify and fill the fields under Miscellaneous Details
     Then upload a document on Upload Document Section and verify that
-    And Close the page.
+    And Close the page
 
     Scenario: TC_002 'Review Entered Details and Status' Page-Redirection, Visibility, Enability and Verification Tests
       Given go to home page
@@ -37,7 +37,7 @@ Feature: As a user I want an Online Admission page on the homepage so that I can
       Then verifiy entered informations
       Then verify and click on I agree to the terms and conditions checkbox
       Then click on submit and verify form status and success alert
-      And Close the page.
+      And Close the page
 
 
 
