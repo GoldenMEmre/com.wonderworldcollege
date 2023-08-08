@@ -38,6 +38,6 @@ Feature: As an administrator (teacher)  I want a Hostel page to access students 
         Then verify Select Criteria Sections
         Then make search
         Then make filtering with different student informations
-        Then Close the page.
+        Then user close the browser
 
 
