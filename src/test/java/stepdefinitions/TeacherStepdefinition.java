@@ -48,8 +48,11 @@ public class TeacherStepdefinition {
     @Then("click signin button")
     public void click_signin_button() {
 
+
        teacherPage.clickSignIn();
         //ReusableMethods.bekle(3);
+
+
 
         teacherPage.clickSignIn();
         ReusableMethods.bekle(3);
@@ -297,8 +300,38 @@ public class TeacherStepdefinition {
 
 
 
+
         // **************************Gulten Harrelson *************************** 1.Sonu
         // **************************Gulten Harrelson *************************** 2.Baslangic
+
+
+        @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
+        public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date
+        () {
+            Select select = new Select(teacherPage.classDropDown);
+            select.selectByIndex(1);
+            select = new Select(teacherPage.sectionDropDown);
+            select.selectByIndex(1);
+            // select=new Select(teacherPage.dateDropDown);
+            JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
+            teacherPage.dateDropDown.click();
+
+            //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
+
+            // daha calsimam lazim bu soru icin
+            //assertTrue(teacherPage.studentList.isDisplayed());
+
+
+        }
+
+        // **************************Gulten Harrelson *************************** 1.Sonu
+        // **************************Gulten Harrelson *************************** 2.Baslangic
+        @Given("click  Online Exam Section under the  online Examinations")
+        public void click_online_exam_section_under_the_online_examinations () {
+           // teacherPage.onlineExaminations.click();
+            //teacherPage.onlineExam.click();
+
+        }
 
         @Given("The user should be able to view column fields in the  Online Exam segment.")
         public void the_user_should_be_able_to_view_column_fields_in_the_online_exam_segment () {
@@ -324,14 +357,6 @@ public class TeacherStepdefinition {
         // **************************Gulten Harrelson *************************** 2.Sonu
 
 
-
-
-
-
-
-
-
-
     @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
     public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
         Select select = new Select(teacherPage.classDropDown);
@@ -347,24 +372,16 @@ public class TeacherStepdefinition {
 
         // daha calsimam lazim bu soru icin
         //assertTrue(teacherPage.studentList.isDisplayed());
-
-        // **************************Gulten Harrelson *************************** 1.Sonu
+   Assert.assertTrue(homepage.ourExperiencedStaffsText.isDisplayed());
     }
-
-
-
-
-
+        // **************************Gulten Harrelson *************************** 1.Sonu
+    
 
 
     @Then("click and verify Reports and Hostel button on side bar")
     public void clickAndVerifyReportsAndHostelButtonOnSideBar() {
         teacherPage.reportsHostelsVerifyClick();
     }
-
-
-
-
 
 
     @Then("verify student hostel details Page")
@@ -402,11 +419,16 @@ public class TeacherStepdefinition {
         teacherPage.searchBoxVerifyStudentProfile();
     }
 
+
     @Then("make filtering with different student informations")
     public void makeFilteringWithDifferentStudentInformations() {
         teacherPage.filterStudents();
     }
 }
+
+
+
+
 
 
 

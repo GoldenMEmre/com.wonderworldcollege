@@ -289,6 +289,57 @@ public class TeacherPage extends Base {
 
 
 
+    //-------EXAMINATIONS/EXAM GROUP PAGE LOCATE---------
+
+    @FindBy (xpath = "//span[text()='Examinations']")
+    public WebElement examinations;
+
+    @FindBy (xpath = "(//a[@href=\"https://qa.wonderworldcollege.com/admin/examgroup\"])[2]")
+    public WebElement examGroupLink;
+
+    @FindBy (xpath = "//h3[@class='box-title']")
+    public WebElement addExamGroupText;
+
+    @FindBy (className = "box-title titlefix" )
+    public WebElement examGroupListText;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[1]")
+    public WebElement addExamGroupNameTextbox;
+
+    @FindBy (xpath = "//textarea[@class='form-control']")
+    public WebElement addExamGroupDescriptionTextbox;
+
+    @FindBy (xpath = "//select[@class='form-control']")
+    public WebElement addExamGroupExamTypeDropdownMenu;
+
+    @FindBy (className = "btn btn-info pull-right")
+    public WebElement addExamGroupSaveButton;
+
+    @FindBy (xpath = "(//th[@class='sorting'])[1]")
+    public WebElement examGroupListNameTitle;
+
+    @FindBy (xpath = "(//th[@class='sorting'])[2]")
+    public WebElement examGroupListNoOfExamsTitle;
+
+    @FindBy (xpath = "//th[@class='sorting_desc']")
+    public WebElement examGroupListExamTypeTitle;
+
+    @FindBy (xpath = "//th[@class='text-right noExport sorting']")
+    public WebElement examGroupListActionTitle;
+
+    @FindBy ( xpath = "(//i[@class='fa fa-plus'])[1]")
+    public WebElement examGroupListAction;
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ***************************Gulten Harrelson**************
