@@ -275,7 +275,28 @@ public class TeacherPage extends Base {
     public WebElement examGroupListActionTitle;
 
     @FindBy ( xpath = "(//i[@class='fa fa-plus'])[1]")
-    public WebElement examGroupListAction;
+    public WebElement examGroupListActionPlusIcon;
+
+    @FindBy ( xpath = "(//i[@class='fa fa-pencil'])[1]")
+    public WebElement examGroupListActionEditIcon;
+
+    @FindBy ( xpath = "(//i[@class='fa fa-remove'])[1]")
+    public WebElement examGroupListActionDeleteIcon;
+
+    @FindBy (xpath = "//a[@class='btn btn-primary btn-sm']")
+    public WebElement examListNewExamButton;
+
+    @FindBy (xpath = "//select[@name='exam_type']")
+    public WebElement editExamGroupExamTypeDropdown;
+
+    @FindBy (xpath = "//div[@class='alert alert-success text-left']")
+    public WebElement updateAlert;
+
+    @FindBy (xpath = "//a[@href=\"../site/login\"]")
+    public WebElement teacherLogin;
+
+
+
 
 
 

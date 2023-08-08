@@ -377,10 +377,10 @@ public class AdminPage extends Base {
     @FindBy (xpath = "(//button[@class='btn btn-default btn-sm pull-right addrow addrow-mb2010'])[1]")
     public WebElement multiClassStudentAddButton;
 
-    @FindBy (xpath = "(//select[@name='class_id_3'])[1]")
+    @FindBy (xpath = "(//select[@name='class_id_2'])[1]")
     public WebElement multiClassStudentClassTexbox2;
 
-    @FindBy (xpath = "(//select[@name='section_id_3'])[1]")
+    @FindBy (xpath = "(//select[@name='section_id_2'])[1]")
     public WebElement multiClassStudentSectionTexbox2;
 
     @FindBy (xpath = "(//button[@type='submit'])[4]")

@@ -160,6 +160,7 @@ public class AdminStepdefinition {
     public void student_information_multi_class_student_link_is_clicked_on_the_admin_panel_respectively() {
 
         adminPage.studentInformation.click();
+        ReusableMethods.bekle(1);
         adminPage.multiClassStudentLink.click();
 
 
@@ -183,7 +184,7 @@ public class AdminStepdefinition {
 
 
         Select select = new Select(adminPage.multiClassStudentClassTexbox);
-        select.selectByIndex(2);
+        select.selectByIndex(3);
         ReusableMethods.bekle(2);
 
         select = new Select(adminPage.multiClassStudentSectionTexbox);
@@ -218,7 +219,7 @@ public class AdminStepdefinition {
         ReusableMethods.bekle(1);
 
         Select select = new Select(adminPage.multiClassStudentClassTexbox2);
-        select.selectByIndex(1);
+        select.selectByIndex(2);
         ReusableMethods.bekle(1);
 
         select = new Select(adminPage.multiClassStudentSectionTexbox2);

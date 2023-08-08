@@ -80,6 +80,7 @@ public class HomepageStepdefinition {
     public void go_to_url(String Url) {
 
         Driver.getDriver().get(ConfigReader.getProperty(Url));
+        ReusableMethods.bekle(1);
     }
 
     @Given("Click the course menu title")
@@ -641,11 +642,22 @@ public class HomepageStepdefinition {
         homepage.miscellaneousDetailsVerifyEnter();
     }
 
+
+    //@Given("Close the page")
+    //public void close_the_page() {
+       // Driver.closeDriver();
+    //}
+
+
+
+
+
     @Then("upload a document on Upload Document Section and verify that")
     public void uploadADocumentOnUploadDocumentSectionAndVerifyThat() {
         homepage.uploadVerifyDocumentOnlineAdmissionPage();
     }
-    @Then("click on Submit and verify Reference Number and Review entered Details and Status Page")
+
+  @Then("click on Submit and verify Reference Number and Review entered Details and Status Page")
     public void clickOnSubmitAndVerifyReferenceNumberAndReviewEnteredDetailsAndStatusPage() {
         homepage.verifyREDaS_ReferenceNo();
     }

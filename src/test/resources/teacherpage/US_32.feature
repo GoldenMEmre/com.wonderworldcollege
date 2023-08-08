@@ -3,7 +3,7 @@ Feature: As a teacher, creating exam groups for students
   Scenario: Exam Group link is displayed under the Examinations menu on the teacher panel and when it is clicked, it is directed to the examgroup page.
 
     * Go to "loginurl"
-    * click teacher login button
+    * Click the teacher login button
     * Enter the valid username and password on the Teacher login panel
     * click sign in button
     * On the sidebar of the teacher panel, the Examinations menu is clicked and it is verified that the Exam Group link is displayed
@@ -14,7 +14,7 @@ Feature: As a teacher, creating exam groups for students
   Scenario: A new exam group is created, saved and saved in the Add Exam Group window on the Examgroup page.
 
     * Go to "loginurl"
-    * click teacher login button
+    * Click the teacher login button
     * Enter the valid username and password on the Teacher login panel
     * click sign in button
     * Examinations, Exam Group link is clicked on the teacher panel, respectively
@@ -26,7 +26,7 @@ Feature: As a teacher, creating exam groups for students
   Scenario:  Titles are displayed in the Exam Group List window and it is verified that the add, update and delete icons under the action title are active.
 
     * Go to "loginurl"
-    * click teacher login button
+    * Click the teacher login button
     * Enter the valid username and password on the Teacher login panel
     * click sign in button
     * Examinations, Exam Group link is clicked on the teacher panel, respectively
