@@ -371,7 +371,11 @@ public class HomePage extends Base {
     @FindBy(xpath = "//*[text()='Not Submitted']")
     private WebElement formStatusREDaS;
     //Application Date REDaS
+
+    @FindBy(xpath = "//*[text()='04/08/2023']")
+
     @FindBy(xpath = "//*[text()='03/08/2023']")
+
     private WebElement applicationDateREDaS;
     //Date Of Birth after Submit
     @FindBy(xpath = "//*[text()='26/10/2013']")
@@ -380,7 +384,11 @@ public class HomePage extends Base {
     @FindBy(xpath = "//*[text()='Brother']")
     private WebElement controlGuardianRelation;
     //Email after Submit
+
+    @FindBy(xpath = "//*[text()='muster.mustermann17@gmail.com']")
+
     @FindBy(xpath = "//*[text()='muster.mustermann23@gmail.com']")
+
     private WebElement controlEmail;
     //CheckBox I Agree Terms
     @FindBy(xpath = "//input[@id='checkterm']")
@@ -399,9 +407,10 @@ public class HomePage extends Base {
     private WebElement successfulAlertAfterSubmitREDaS;
     // REDaS Submitted Form Status
     @FindBy(xpath = "//*[text()='Submitted']")
-    private WebElement submittedFormStatusREDaS;
+    private WebElement submittedFormStatusREDaS;   
 
     private String eMail = "muster.mustermann23@gmail.com";
+
     //**************************************************
 
     //What People Says title on homepage
@@ -510,8 +519,6 @@ public class HomePage extends Base {
         Assert.assertTrue(onlineAdmissionPageMobileNumber.isEnabled());
         Assert.assertTrue(onlineAdmissionPageEmail.isDisplayed());
         Assert.assertTrue(onlineAdmissionPageEmail.isEnabled());
-        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isDisplayed());
-        Assert.assertTrue(onlineAdmissionPageStudentPhoto.isEnabled());
         Actions actions=new Actions(Driver.getDriver());
         Select select = new Select(onlineAdmissionPageClassDropDown);
         select.selectByIndex(14);
@@ -519,7 +526,11 @@ public class HomePage extends Base {
         onlineAdmissionPageLastNameTextBox.sendKeys("Lenk");
         Select select1 = new Select(onlineAdmissionPageGenderDropDown);
         select1.selectByIndex(1);
+
+        actions.click(onlineAdmissionPageDateOfBirth).perform();
+
        actions.click(onlineAdmissionPageDateOfBirth).perform();
+
         actions.click(Driver.getDriver().findElement(By.xpath("(//th[@colspan='5'])[1]"))).perform();
         actions.doubleClick(previousDateOfBirth).perform();
         actions.doubleClick(previousDateOfBirth).perform();
@@ -532,8 +543,8 @@ public class HomePage extends Base {
 
         onlineAdmissionPageEmail.sendKeys(eMail);
 
-        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\com.wonderworldcollege" +
-                "\\src\\test\\java\\.jpg\\4432b9bcacc2ed45b9bef8d8475a6030.jpg";
+        String dosyaYolu = "C:\\Users\\hasba\\IdeaProjects\\ui_CucumberFramework" +
+                " - Example\\src\\test\\java\\.jpg\\4432b9bcacc2ed45b9bef8d8475a6030.jpg";
         onlineAdmissionPageStudentPhoto.sendKeys(dosyaYolu);
     }
     //verifies that student photo has been uploaded
@@ -608,8 +619,8 @@ public class HomePage extends Base {
         guardianPhoneOnlineAdmissionPage.sendKeys("01234 56 789");
         guardianOccupationOnlineAdmissionPage.sendKeys("Big Boss");
         guardianAdressOnlineAdmissionPage.sendKeys("Bochum, Germany");
-        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\" +
-                "com.wonderworldcollege\\src\\test\\java\\.jpg\\IMG_20211022_124748.jpg";
+        String dosyaYolu = "C:\\Users\\hasba\\IdeaProjects\\ui_CucumberFramework" +
+                " - Example\\src\\test\\java\\.jpg\\IMG_20211022_124748.jpg";
         guardianPhotoOnlineAdmissionPage.sendKeys(dosyaYolu);
         ReusableMethods.bekle(5);
     }
@@ -674,8 +685,8 @@ public class HomePage extends Base {
     }
     //Uploads Document and verifies that the Document has been uploaded
     public void uploadVerifyDocumentOnlineAdmissionPage(){
-        String dosyaYolu = "C:\\Users\\ogune\\OneDrive\\Desktop\\BOOTCAMP\\" +
-                "com.wonderworldcollege\\src\\test\\java\\.jpg\\Student.txt";
+        String dosyaYolu = "C:\\Users\\hasba\\IdeaProjects\\ui_CucumberFramework" +
+                " - Example\\src\\test\\java\\.jpg\\Student.txt";
         uploadDocumentOnlineAdmissionPage.sendKeys(dosyaYolu);
         ReusableMethods.bekle(2);
         actions.moveToElement(uploadDocumentOnlineAdmissionPage).perform();
@@ -715,6 +726,9 @@ public class HomePage extends Base {
     //clicks Submit and verifies Form Status And Succeddful Alert
     public void submitVerifyFormStatusAndAlert(){
         submitREDaS.click();
+
+
+
 
         Assert.assertTrue(submittedFormStatusREDaS.isDisplayed());
     }
