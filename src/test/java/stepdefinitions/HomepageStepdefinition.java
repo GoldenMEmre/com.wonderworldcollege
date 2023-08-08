@@ -282,6 +282,9 @@ public class HomepageStepdefinition {
         ReusableMethods.bekle(4);
 
 
+        // **********************************************************************************//
+
+
         Assert.assertTrue(homepage.preparingImg.isDisplayed() ||
                 homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed() ||
                 homepage.studentsImg.isDisplayed() || homepage.nurturingImg.isDisplayed());
@@ -291,13 +294,20 @@ public class HomepageStepdefinition {
     public void wait_seconds() {
         ReusableMethods.bekle(5);
 
+
     }
 
-    @Then("user close the browser")
-    public void user_close_the_browser() {
-        Driver.closeDriver();
-    }
+
     // **********************************************************************************//
+
+
+  /* // @Then("The homepage was reached on the website")
+    //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
+      //  Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+       // Thread.sleep(2000);
+
+   */
 
 
 
@@ -314,13 +324,19 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.CallUsText.isDisplayed());
 
 
+
         // Assert.assertTrue(homepage.CallUsText.isDisplayed());
 
         // Assert.assertTrue(homepage.CallUsText.isDisplayed());
 
         // Thread.sleep(2000);
 
+
+         //Thread.sleep(2000);
+
+
     }
+
 
   
 
@@ -333,6 +349,11 @@ public class HomepageStepdefinition {
 
 
     }
+
+
+
+
+
 
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
@@ -397,6 +418,10 @@ public class HomepageStepdefinition {
 
 
 
+        //Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+
+
+
         homepage.facilitiesDropDown.click();
         ReusableMethods.bekle(2);
         homepage.academicsButton.click();
@@ -441,6 +466,7 @@ public class HomepageStepdefinition {
     //Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
     // }
 
+
     @Given("User go to {string}")
     public void user_go_to(String Url) {
         Driver.getDriver().get(ConfigReader.getProperty("userurl"));
@@ -460,6 +486,8 @@ public class HomepageStepdefinition {
                                         String string5, String string6) {
 
     }
+
+
 
 
 

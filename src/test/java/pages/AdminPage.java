@@ -26,8 +26,12 @@ public class AdminPage extends Base {
 
 
 
+
+
+
    // @FindBy(xpath ="//input[@id='form-username']")
       //@FindBy(xpath = "//input[@placeholder='Username']")
+
 
 
 

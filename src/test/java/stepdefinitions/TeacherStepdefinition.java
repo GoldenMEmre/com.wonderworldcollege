@@ -237,10 +237,6 @@ public class TeacherStepdefinition {
     }
 
 
-    // ***************************** Gulten Harrelson*****************************
-
-
-    // ***************************** Gulten Harrelson*****************************1.Baslangic
 
 
 
@@ -254,10 +250,16 @@ public class TeacherStepdefinition {
 
 
     }
+    // ***************************** Gulten Harrelson*****************************1.Baslangic
+
+
+
+
 
     @Given("click teacher sign in button")
     public void click_teacher_sign_in_button() {
         teacherPage.teacherSignInButton.click();
+
 
     }
 
@@ -271,6 +273,10 @@ public class TeacherStepdefinition {
         teacherPage.periodAttendanceByDate.click();
         ReusableMethods.bekle(2);
         assertTrue(teacherPage.periodAttendanceByDate.isDisplayed());
+
+
+
+    }
 
     }
 
@@ -361,15 +367,34 @@ public class TeacherStepdefinition {
     
 
 
+    @Given("verify all section titles that related with Select Criteria is active and visible")
+    public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible() {
+        assertTrue(teacherPage.ClassIcon.isDisplayed());
+        ReusableMethods.bekle(1);
+        assertTrue(teacherPage.sectionIcon.isDisplayed());
+        assertTrue(teacherPage.dateIcon.isDisplayed());
+        ReusableMethods.bekle(3);
+        Select select=new Select(teacherPage.classDropDown);
+        select.selectByIndex(2);
+        select=new Select(teacherPage.sectionDropDown);
+        select.selectByIndex(2);
+        teacherPage.dateDropDown.click();
+        ReusableMethods.bekle(2);
+        actions.moveToElement(teacherPage.teacherDate1).click().perform();
+        ReusableMethods.bekle(2);
+
     @Then("click and verify Reports and Hostel button on side bar")
     public void clickAndVerifyReportsAndHostelButtonOnSideBar() {
         teacherPage.reportsHostelsVerifyClick();
     }
 
 
+
+
     @Then("verify student hostel details Page")
     public void verifyStudentHostelDetailsPage() {
         teacherPage.selectCriteriaVerifyPage();
+
     }
 
     @Then("verify Select Criteria Sections")
@@ -382,9 +407,35 @@ public class TeacherStepdefinition {
         teacherPage.searchStudentHostel();
     }
 
+
+    @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
+    public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
+        Select select=new Select(teacherPage.classDropDown);
+        select.selectByIndex(2);
+        select=new Select(teacherPage.sectionDropDown);
+        select.selectByIndex(2);
+        teacherPage.dateDropDown.click();
+        ReusableMethods.bekle(2);
+        actions.moveToElement(teacherPage.teacherDate1).click().perform();
+        ReusableMethods.bekle(2);
+        teacherPage.teacherSearchButton.click();
+        ReusableMethods.bekle(2);
+        assertTrue(teacherPage.studentListBodySection.isDisplayed());
+        ReusableMethods.bekle(3);
+
+
+
+
+    }
+
+    // *******************************Gulten Harrelson **********************************//
+
+
+
     @Then("verify Student Hostel List Reports columns")
     public void verifyStudentHostelListReportsColumns() {
         teacherPage.verifyColumnsunderStudentHostelReport();
+
     }
 
     @Then("click on a student name")
