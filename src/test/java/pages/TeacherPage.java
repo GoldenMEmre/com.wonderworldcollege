@@ -136,16 +136,12 @@ public class TeacherPage extends Base {
     private WebElement leavesListRecords;
 
     // ***************************Gulten Harrelson**************
+
+    @FindBy(xpath="//*[text()='Teacher Login '] ")
+    public  WebElement teacherLoginButton;
+
     @FindBy(xpath ="//button[@type='submit']")
     public  WebElement teacherSignInButton;
-    @FindBy(xpath = "//a[@class='btn btn-default btn-lg']")
-    public WebElement teacherLoginButton;
-    @FindBy(xpath ="//input[@placeholder='Username']")
-    public  WebElement adminUser;
-    @FindBy(xpath = "//input[@placeholder='Password']")
-    public  WebElement adminPassword;
-    @FindBy(xpath = "//button[@type='submit']")
-    public  WebElement signInButton;
     @FindBy(xpath = "(//*[text()='Attendance'])[2]")
     public  WebElement attendanceMenu;
     @FindBy(xpath ="(//*[text()='Period Attendance By Date'])[2]")
@@ -160,7 +156,6 @@ public class TeacherPage extends Base {
     public  WebElement classDropDown;
     @FindBy(xpath = "//select[@id='section_id']")
     public  WebElement sectionDropDown;
-
     @FindBy(xpath = "//*[@name='date']")
     public  WebElement dateDropDown;
 
@@ -170,9 +165,8 @@ public class TeacherPage extends Base {
     @FindBy(xpath ="(//*[@type='submit'])[3]")
     public  WebElement   teacherSearchButton ;
     @FindBy(xpath ="(//*[@class='box-body'])[2]")
-    public  WebElement   studentListBodySection; ;
-
-    // *******************************Gulten Harrelson **********************************//
+    public  WebElement   studentListBodySection;
+    // ***************************Gulten Harrelson**************
 
     //Reports Side Bar Teacher Page
     @FindBy(xpath = "//*[text()='Reports']")
@@ -286,6 +280,10 @@ public class TeacherPage extends Base {
 
 
 // ***************************Gulten Harrelson**************
+
+
+
+
 
 
 

@@ -23,7 +23,7 @@ Feature: US_49  As a user, I should be able to access the "Apply Leave" page, ma
       * click user sign in button
       * The should be able to access the Apply leave page
       * The user should be able to click on the Add button add a new leave and see a success message confirming the addition
-      * Close the page
+      * user close the browser
   Scenario: TC03 A user may delete  the "Apply for Leave" page ,when entering the Student Panel.
     * Go to "loginurl"
     * click user login button
@@ -32,4 +32,5 @@ Feature: US_49  As a user, I should be able to access the "Apply Leave" page, ma
     * click user sign in button
     * The should be able to access the Apply leave page
     * The user should be able to delete a leave from the Action section and see a success message confirming the deletion
+    * user close the browser
 

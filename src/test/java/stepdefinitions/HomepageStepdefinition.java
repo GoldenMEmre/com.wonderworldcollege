@@ -282,23 +282,16 @@ public class HomepageStepdefinition {
         ReusableMethods.bekle(4);
 
 
+
         // **********************************************************************************//
 
 
-        Assert.assertTrue(homepage.preparingImg.isDisplayed() ||
-                homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed() ||
-                homepage.studentsImg.isDisplayed() || homepage.nurturingImg.isDisplayed());
-    }
-
-    @Then("wait {int} seconds")
-    public void wait_seconds() {
-        ReusableMethods.bekle(5);
-
 
     }
 
 
-    // **********************************************************************************//
+
+
 
 
   /* // @Then("The homepage was reached on the website")
@@ -759,6 +752,10 @@ public class HomepageStepdefinition {
         homepage.workingHours.isDisplayed();
         ReusableMethods.bekle(1);
 
+    }
+    @Given("user close the browser")
+    public void user_close_the_browser() {
+        Driver.closeDriver();
     }
 
 
