@@ -45,7 +45,7 @@ public class TeacherStepdefinition {
 
     @Then("enter {string} as password")
     public void enterAsPassword(String pass) {
-        teacherPage.enterPassword(pass);
+            teacherPage.enterPassword(pass);
     }
 
     @Then("click signin button")
@@ -325,10 +325,19 @@ public class TeacherStepdefinition {
     }
     @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
     public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
+
+        Select select = new Select(teacherPage.classDropDown);
+        select.selectByIndex(1);
+        select = new Select(teacherPage.sectionDropDown);
+        select.selectByIndex(1);
+        // select=new Select(teacherPage.dateDropDown);
+        JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
+
         Select select=new Select(teacherPage.classDropDown);
         select.selectByIndex(2);
         select=new Select(teacherPage.sectionDropDown);
         select.selectByIndex(2);
+
         teacherPage.dateDropDown.click();
         ReusableMethods.bekle(2);
         actions.moveToElement(teacherPage.teacherDate1).click().perform();
@@ -344,6 +353,55 @@ public class TeacherStepdefinition {
 
 
 
+    }
+    @Given("go to'loginurl'")
+    public void go_to_loginurl() {
+        ReusableMethods.goToLoginPage();
+    }
+    @Then("enter  teacher username1")
+    public void enter_teacher_username1() {
+        teacherPage.enterUsername(ConfigReader.getProperty("teacherName"));
+    }
+    @Then("enter teacher password2")
+    public void enter_teacher_password2() {
+       teacherPage.enterPassword(ConfigReader.getProperty("teacherPassword"));
+    }
+
+
+    @When("click teacher attendance")
+    public void click_teacher_attendance() {
+        teacherPage.sideBarAttendance.click();
+    }
+    @When("click period attendance")
+    public void click_period_attendance() {
+       teacherPage.periodAttendance.click();
+    }
+    @When("subject attendace page must be accessible")
+    public void subject_attendace_page_must_be_accessible() {
+        teacherPage.periodAttendancePage.isDisplayed();
+    }
+    @Given("class section subject dropdown date boc must be accessiblle")
+    public void classSectionSubjectDropdownDateBocMustBeAccessiblle() {
+        teacherPage.dateDropDown.isDisplayed();
+    }
+    @Given("search text box must be accessible")
+    public void searchTextBoxMustBeAccessible() {
+        teacherPage.selectCriteriaSearchButtton.isDisplayed();
+    }
+
+
+    @Given("select class section date and subject")
+    public void selectClassSectionDateAndSubject() {
+        Select select = new Select(teacherPage.selectCriteriaClass);
+        select.selectByIndex(2);
+        Select select1 = new Select(teacherPage.selectCriteriaSection);
+        select1.selectByIndex(2);
+        Select select2 = new Select(teacherPage.selectCriteriaDate);
+        select2.selectByIndex(2);
+        Select select3 = new Select(teacherPage.selectCriteriasubject);
+        select3.selectByIndex(2);
+
+    }
 
 
 
@@ -362,12 +420,24 @@ public class TeacherStepdefinition {
         @Given("The user should be able to access the Exam View from the Action section and view the fields.")
         public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_and_view_the_fields () {
 
+
         }
         @Given("When the user enters the Closed Exam segment, they should be able to see the column fields.")
         public void when_the_user_enters_the_closed_exam_segment_they_should_be_able_to_see_the_column_fields () {
             // Write code here that turns the phrase above into concrete actions
             throw new io.cucumber.java.PendingException();
         }
+
+
+    @Then("admission no roll number name attendance note must be accessible")
+    public void admissionNoRollNumberNameAttendanceNoteMustBeAccessible() {
+        teacherPage.admissionNo.isDisplayed();
+        teacherPage.rollNumber.isDisplayed();
+        teacherPage.attendanceName.isDisplayed();
+        teacherPage.attendance.isDisplayed();
+        teacherPage.note.isDisplayed();
+        
+    }
 
         @Given("The user should be able to access the Exam View from the Action section within the Closed Exam segment and view the fields.")
         public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_within_the_closed_exam_segment_and_view_the_fields
@@ -377,7 +447,30 @@ public class TeacherStepdefinition {
         }
 
 
+    @Given("click present late absent half day")
+    public void clickPresentLateAbsentHalfDay() {
+        teacherPage.attendancePresent.isDisplayed();
+        teacherPage.attendanceLate.isDisplayed();
+        teacherPage.attendanceAbsent.isDisplayed();
+        teacherPage.attendanceHalfDay.click();
+    }
 
+    @Then("click save attendance button")
+    public void clickSaveAttendanceButton() {
+        teacherPage.saveAttendance.click();
+    }
+
+    @Given("note text box must be accessible")
+    public void noteTextBoxMustBeAccessible() {
+        teacherPage.noteBox.isDisplayed();
+    }
+
+
+    @Given("mark as holiday button must be accessible")
+    public void markAsHolidayButtonMustBeAccessible() {
+        teacherPage.markAsHolidayButton.isDisplayed();
+    }
+}
 
 
 
@@ -408,6 +501,7 @@ public class TeacherStepdefinition {
         teacherPage.filterStudents();
     }
 }
+
 
 
 

@@ -33,6 +33,9 @@ public class AdminPage extends Base {
       //@FindBy(xpath = "//input[@placeholder='Username']")
 
 
+    //@FindBy(xpath ="//input[@placeholder='Username']")
+
+
 
 
     //@FindBy(xpath ="//input[@placeholder='Username']")
@@ -45,6 +48,7 @@ public class AdminPage extends Base {
 
 
     @FindBy(xpath ="//input[@placeholder='Username']")
+
 
 
     public  WebElement adminUser;
@@ -395,6 +399,9 @@ public class AdminPage extends Base {
     @FindBy(xpath = "//*[@id='alert']/nav/div[2]/div/div/ul/li[5]/a/img")
     public WebElement profileIcon;
 
+    @FindBy(xpath = "//*[@id=\"alert\"]/nav/div[2]/div/div/ul/li[5]/ul/li/div/div[2]/h5")
+    public WebElement adminText; //profil icon altındaki
+
     @FindBy(xpath = "//*[@id='alert']/nav/div[2]/div/div/ul/li[5]/ul/li/div/div[4]/a[1]")
     public WebElement profileButton;
 
@@ -415,6 +422,9 @@ public class AdminPage extends Base {
 
     @FindBy(xpath = "/html/body/div[1]/div[1]/section/div/div[2]/div/ul/li[5]/a")
     public WebElement documentsButton;
+
+    @FindBy(xpath = "/html/body/div[1]/div[1]/section/div/div[2]/div/ul/li[1]/a")
+    public WebElement profileText;
 
     @FindBy(xpath = "//*[@id='activity']/div[1]/div")
     public WebElement generalDetailPart;
@@ -440,38 +450,30 @@ public class AdminPage extends Base {
     @FindBy(xpath = "//*[@id='payroll']/div[1]/div[4]/div")
     public WebElement totalDeduction;
 
-    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[1]")
-    public WebElement paySlip;
+    @FindBy(xpath = "//*[@id='DataTables_Table_0_filter']/label/input")
+    public WebElement payrollSearchTextBox;
 
-    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[2]")
-    public WebElement monthYear;
-
-    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[3]")
-    public WebElement date;
-
-    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[4]")
-    public WebElement mode;
+    @FindBy(xpath = "//*[@id='DataTables_Table_0_wrapper']")
+    public WebElement payslipList;
 
     @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[5]")
     public WebElement status;
 
-    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[6]")
-    public WebElement netSallary;
 
     @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[7]")
     public WebElement payrollAction;
 
-    @FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[1]/td[7]/a")
+    //@FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[1]/td[7]/a")
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[3]/td[7]/a")
     public WebElement viewPayslip;
+
 
     @FindBy(xpath = "//*[@id='testdata']")
     public WebElement bordro;
 
-    @FindBy(xpath = "//*[@id='DataTables_Table_0_filter']/label/input")
-    public WebElement searchTextBox;
+    @FindBy(xpath = "//*[@id='payslipview']/div/div/div[1]/button")
+    public WebElement bordroClose;
 
-    @FindBy(xpath = "//*[@id='DataTables_Table_0_wrapper']/div[1]/a[6]/span/i")
-    public WebElement columns;
 
     @FindBy(xpath = "//*[@id='DataTables_Table_1']/thead/tr/th[1]")
     public WebElement leavesType;
@@ -491,11 +493,11 @@ public class AdminPage extends Base {
     @FindBy(xpath = "//*[@id='DataTables_Table_1']/thead/tr/th[6]")
     public WebElement leavesAction;
 
-    @FindBy(xpath = "//*[@id='DataTables_Table_1']/tbody/tr[1]/td[6]")
+    @FindBy(xpath = "//*[@id='DataTables_Table_1']/tbody/tr[2]/td[6]/a")
     public WebElement viewIcon;
 
-    @FindBy(xpath = "//*[@id='leavedetails']/div/div")
-    public WebElement leaveInformation;
+    @FindBy(xpath = "//*[@id='leavedetails']/div/div/div/div[1]/button")
+    public WebElement viewIconClose;
 
     @FindBy(xpath = "//*[@id='attendance']/div[1]/div[1]/div")
     public WebElement totalPresent;
@@ -524,14 +526,25 @@ public class AdminPage extends Base {
     @FindBy(xpath = "//*[@id='passwordform']/div[1]/div/input")
     public WebElement currentPassword;
 
+    @FindBy(xpath = "//*[@id='passwordform']/div[1]/div/input")
+    public WebElement currentPasswordTextBox;
+
     @FindBy(xpath = "//*[@id='passwordform']/div[2]/div/input")
     public WebElement newPassword;
+
+    @FindBy(xpath = "//*[@id='passwordform']/div[2]/div/input")
+    public WebElement newPasswordTextBox;
 
     @FindBy(xpath = "//*[@id='confirm_pass']")
     public WebElement confirmPassword;
 
+    @FindBy(xpath = "//*[@id='confirm_pass']")
+    public WebElement confirmPasswordTextBox;
+
     @FindBy(xpath = "//*[@id='passwordform']/div[4]/div/div/button")
     public WebElement passwordChangeButton;
 
+    @FindBy(xpath = "//*[@id='passwordform']/div[1]")
+    public WebElement passwordChangeSuccessfully;
 
 }

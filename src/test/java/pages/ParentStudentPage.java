@@ -221,6 +221,67 @@ public class ParentStudentPage extends Base{
     //a[@href = 'https://qa.wonderworldcollege.com/']
     //*[@class='forgot pull-right']
 
+
+ @FindBy(xpath = "//*[@id='alert']/nav/div[2]/div/div/ul/li[5]/a/img")
+ public WebElement profileIcon;
+
+    @FindBy(xpath = "//*[@id='alert']/nav/div[2]/div/div/ul/li/ul/li/div/div[4]/a[1]")
+    public WebElement passwordClick;
+
+    @FindBy(xpath = "/html/body/div[1]/div[1]/section[2]/div/div/div/ul/li[2]/a")
+    public WebElement changeUserNameButton;
+
+
+
+
+    @FindBy(xpath = "//*[@id='alert']/nav/div[2]/div/div/ul/li/ul/li/div/div[4]/a[1]")
+    public WebElement studentChangePasswordButton;
+
+    @FindBy(xpath = "//*[@id='passwordform']/div[1]/div/input")
+    public WebElement studentCurrentPasswordBox;
+
+    @FindBy(xpath = "//*[@id='passwordform']/div[2]/div/input")
+    public WebElement StudentNewPasswordBox;
+
+    @FindBy(xpath = "//*[@id='confirm_pass>']")
+    public WebElement studentConfirmPasswordBox;
+
+    @FindBy(xpath = "//*[@id='passwordform']/div[4]/div/div/button")
+    public WebElement studentPasswordSaveButton;
+
+    @FindBy(xpath = "//*[@id='alert']/nav/div[2]/div/div/ul/li[5]/ul/li/div/div[4]/a[1]")
+    public WebElement parentChangePasswordButton;
+
+    @FindBy(xpath = "/html/body/div[1]/div[1]/section[2]/div/div/div/ul/li[2]/a")
+    public WebElement parentChangeUsernameText;
+
+    @FindBy(xpath = "//*[@id='passwordform']/div[1]/div/input")
+    public WebElement parentCurrentUsername;
+
+    @FindBy(xpath = "//*[@id='passwordform']/div[2]/div/input")
+    public WebElement parentNewUsername;
+
+    @FindBy(xpath = "//*[@id='confirm_username']")
+    public WebElement parentConfirmUsername;
+
+    @FindBy(xpath = "//*[@id='passwordform']/div[4]/div/div/button")
+    public WebElement parentUsernameSaveButton;
+
+
+    @FindBy(xpath ="//*[@name='username']")
+    public  WebElement studentUserName;
+    @FindBy(xpath ="//input[@name='password']")
+    public  WebElement studentPassword;
+
+
+
+
+
+
+
+
+
+
     //******************************** Ogun Locates ***************************************
 
     //Login button on home page
@@ -474,5 +535,6 @@ private String negativeChangePassword = "ogunerd23";
   saveButtonChangePasswordParentPage.click();
   Assert.assertTrue(usernameTextBoxElement.isDisplayed());
  }
+
 
 }

@@ -451,6 +451,67 @@ public class TeacherPage extends Base {
         Assert.assertTrue(leavesListRecords.isDisplayed());
     }
 
+
+    @FindBy(xpath = "//*[@id='sibe-box']/ul[2]/li[3]/a")
+    public WebElement sideBarAttendance;
+
+    @FindBy(xpath = "//*[@id='sibe-box']/ul[2]/li[3]/ul/li[2]/a")
+    public WebElement periodAttendance;
+
+    @FindBy(xpath = "/html/body/div[1]/div[1]/section[2]/div/div")
+    public WebElement periodAttendancePage;
+
+    @FindBy(xpath = "//*[@id='class_id']")
+    public WebElement selectCriteriaClass;
+
+    @FindBy(xpath = "//*[@id='section_id']")
+    public WebElement selectCriteriaSection;
+
+    @FindBy(xpath = "//*[@id='form1']/div/div/div[3]/div/input")
+    public WebElement selectCriteriaDate;
+
+    @FindBy(xpath = "//*[@id='subject_timetable_id']")
+    public WebElement selectCriteriasubject;
+
+    @FindBy(xpath = "//*[@id='form1']/div/div/div[5]/div/button")
+    public WebElement selectCriteriaSearchButtton;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[2]")
+    public WebElement admissionNo;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[3]")
+    public WebElement rollNumber;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[4]")
+    public WebElement attendanceName;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[5]")
+    public WebElement attendance;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/thead/tr/th[6]")
+    public WebElement note;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[1]/td[5]/div[1]")
+    public WebElement attendancePresent;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[1]/td[5]/div[2]")
+    public WebElement attendanceLate;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[1]/td[5]/div[3]")
+    public WebElement attendanceAbsent;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[1]/td[5]/div[4]")
+    public WebElement attendanceHalfDay;
+
+    @FindBy(xpath = "/html/body/div[1]/div[1]/section[2]/div/div/div/div[2]/div[3]/form/div[1]/div/button")
+    public WebElement saveAttendance;
+
+    @FindBy(xpath = "//*[@id='DataTables_Table_0']/tbody/tr[1]/td[6]/input")
+    public WebElement noteBox;
+
+    @FindBy(xpath = "/html/body/div[1]/div[1]/section[2]/div/div/div/div[2]/div[3]/form/div[1]/span/button")
+    public WebElement markAsHolidayButton;
+
     public void reportsHostelsVerifyClick(){
 
         reportsSideBarTeacherPage.click();
@@ -512,6 +573,7 @@ public class TeacherPage extends Base {
         ReusableMethods.bekle(2);
         Assert.assertTrue(kavyaRoyMobileNo.isDisplayed());
     }
+
 
 }
 

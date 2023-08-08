@@ -288,6 +288,49 @@ public class ParentStudentStepdefinition {
     }
 
 
+
+    @Then("click student login")
+    public void clickStudentLogin() {
+        parentStudentPage.userLoginButonu.click();
+        ReusableMethods.bekle(2);
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+    }
+
+    @Then("enter student name")
+    public void enterStudentName() {
+ parentStudentPage.studentUserName.sendKeys(ConfigReader.getProperty("studentName"));
+
+    }
+
+    @Then("enter student password")
+    public void enterStudentPassword() {
+        parentStudentPage.studentPassword.sendKeys(ConfigReader.getProperty("studentPassword"));
+    }
+
+    @Given("click student password")
+    public void clickStudentPassword() {
+        parentStudentPage.profileIcon.click();
+        parentStudentPage.passwordClick.click();
+    }
+
+    @Then("click student username change")
+    public void clickStudentUsernameChange() {
+        parentStudentPage.changeUserNameButton.click();
+    }
+
+    @Given("user name must be min {int} char")
+    public void userNameMustBeMinChar(int arg0) {
+    }
+
+    @Given("should give {string} warning when user enters wrong username")
+    public void shouldGiveUsernameMustContainAMinumumCharactersWarningWhenUserEntersWrongUsername(int arg0) {
+
+    }
+
+    @Given("{string} should be written when the user enters the correct combination")
+    public void usernameHasBeenChangedSuccessfullyShouldBeWrittenWhenTheUserEntersTheCorrectCombination() {
+        parentStudentPage.saveButton.click();
+
     @Then("click and verify examinations and exam schedule buttons on side bar")
     public void clickAndVerifyExaminationsAndExamScheduleButtonsOnSideBar() {
         parentStudentPage.examinationsExamScheduleClickverify();
@@ -397,6 +440,7 @@ public class ParentStudentStepdefinition {
     public void clickOnSignInButton() {
 
         parentStudentPage.signInButtonclickUserLogin();
+
     }
 }
 
