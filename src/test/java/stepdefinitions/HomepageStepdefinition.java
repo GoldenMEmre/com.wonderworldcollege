@@ -217,27 +217,26 @@ public class HomepageStepdefinition {
         homepage.sliderPanel.click();
         ReusableMethods.bekle(4);
 
-
+        // **********************************************************************************//
     }
 
-    @Then("user close the browser")
-    public void user_close_the_browser() {
-        Driver.closeDriver();
-    }
+
     // **********************************************************************************//
 
-   // @Then("The homepage was reached on the website")
+  /* // @Then("The homepage was reached on the website")
     //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
-        Assert.assertTrue(homepage.CallUsText.isDisplayed());
+      //  Assert.assertTrue(homepage.CallUsText.isDisplayed());
 
-        Thread.sleep(2000);
-    }
+       // Thread.sleep(2000);
+
+   */
+
 
     @Then("The Achievements  section was displayed as the page was scrolled down.")
 
          //Thread.sleep(2000);
-    }
-    //@Then("The Achievements  section was displayed as the page was scrolled down.")
+
+
 
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
         ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
@@ -245,15 +244,10 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.acheıvementsSection.isDisplayed());
 
     }
-    //@And("Close the page.")
-    //public void close_the_page() {
-    //Driver.quitDriver();
 
 
-    //}
 
 
-    }
 
     @Then("The visibility of the boards in the Achievements section has been confirmed.")
     public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
@@ -275,7 +269,7 @@ public class HomepageStepdefinition {
 
 
         //Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
-   // }
+
 
     @Given("User go to {string}")
     public void user_go_to(String Url) {
@@ -295,7 +289,7 @@ public class HomepageStepdefinition {
                                         String string5, String string6) {
 
     }
-    }
+
 
     @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
     public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {

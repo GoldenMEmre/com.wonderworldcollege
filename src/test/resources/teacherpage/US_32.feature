@@ -21,7 +21,7 @@ Feature: As a teacher, creating exam groups for students
     * Verify that the Name, Description textBoxes and Exam Type dropdown menu are visible in the Add Exam Group window
     * The save button appears in the Add Exam Group window and it is verified that it is active
     * After entering the Name in the Add Exam Group window and selecting the Exam Type, clicking the Save button will see that the new exam group has been registered
-    * Quit the page
+
 @ab
   Scenario:  Titles are displayed in the Exam Group List window and it is verified that the add, update and delete icons under the action title are active.
 
@@ -35,5 +35,5 @@ Feature: As a teacher, creating exam groups for students
     * Click the edit icon under the Action title in the Exam Group List window
     * Updates the Edit Exam Group window
     * Clicking the delete icon under the Action heading in the Exam Group List window confirms that the relevant exam group can be deleted
-    * Quit the page
+
 

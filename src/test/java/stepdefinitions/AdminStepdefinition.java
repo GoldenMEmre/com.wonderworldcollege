@@ -277,11 +277,11 @@ public class AdminStepdefinition {
 
         adminPage.adminLoginButton.click();
         ReusableMethods.bekle(5);
-//        ReusableMethods.waitForVisibility(adminPage.adminUser,2);
-//        adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
-//        adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
-//
-//        adminPage.signInButton.click();
+    //   ReusableMethods.waitForVisibility(adminPage.adminUser,2);
+     //   adminPage.adminUser.sendKeys(ConfigReader.getProperty("adminName"));
+       // adminPage.adminPassword.sendKeys(ConfigReader.getProperty("adminPassword"));
+
+       // adminPage.signInButton.click();
     }
 
 
@@ -294,12 +294,11 @@ public class AdminStepdefinition {
 
          select.selectByVisibleText("Class 2");
          ReusableMethods.bekle(1);
-    }
-
-        select.selectByVisibleText("Class 2");
-        ReusableMethods.bekle(1);
 
     }
+
+
+
 
 
 
@@ -396,7 +395,7 @@ public class AdminStepdefinition {
     @Then("Click the Chat page")
     public void click_the_chat_page() {
         adminPage.adminLoginButton.click();
-    }
+
 
 
 
@@ -405,6 +404,7 @@ public class AdminStepdefinition {
 
     @Then("The TextBox is visible")
     public void the_text_box_is_visible() {
+
         Assert.assertTrue(adminPage.adminDasbhoardChatPageMessageTextBox.isDisplayed());
     }
 
@@ -515,6 +515,7 @@ public class AdminStepdefinition {
 
     }
 }
+
 
 
 

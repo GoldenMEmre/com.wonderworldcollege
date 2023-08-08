@@ -160,11 +160,16 @@ public class TeacherPage extends Base {
     public  WebElement sectionDropDown;
     @FindBy(xpath = "//*[@name='date']")
     public  WebElement dateDropDown;
-   @FindBy(xpath="//button[@class='btn btn-primary btn-sm pull-right checkbox-toggle']")
-   public  WebElement periodAttendanceByDateSearchicon;
-   @FindBy(xpath ="(//div[@class='box-header with-border'])[2]")
-   public  WebElement studentList;
 
+    @FindBy(xpath ="(//*[text()='1'])[1]")
+    public  WebElement   teacherDate1;
+
+    @FindBy(xpath ="(//*[@type='submit'])[3]")
+    public  WebElement   teacherSearchButton ;
+    @FindBy(xpath ="(//*[@class='box-body'])[2]")
+    public  WebElement   studentListBodySection; ;
+
+    // *******************************Gulten Harrelson **********************************//
 
 
     //-------EXAMINATIONS/EXAM GROUP PAGE LOCATE---------

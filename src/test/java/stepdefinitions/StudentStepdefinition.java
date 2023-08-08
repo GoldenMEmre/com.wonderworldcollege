@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 import pages.StudentPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -13,6 +14,8 @@ import static org.junit.Assert.assertTrue;
 public class StudentStepdefinition {
 
     StudentPage studentPage = new StudentPage();
+    Actions actions=new Actions(Driver.getDriver());
+
 
     // ****************** Gulten Harrelson ***************************
     @Given("click user login button")
@@ -39,14 +42,12 @@ public class StudentStepdefinition {
     public void click_user_sign_in_button() {
         studentPage.studentSignInButton.click();
     }
-
     @Given("user click Online Exam")
     public void user_click_online_exam() {
         studentPage.onlineExam.click();
         ReusableMethods.bekle(3);
 
     }
-
     @Given("The user should be able to view column fields in the Online Exam segment")
     public void the_user_should_be_able_to_view_column_fields_in_the_online_exam_segment() {
         studentPage.examSegment.click();
@@ -65,7 +66,6 @@ public class StudentStepdefinition {
 
 
     }
-
     @Given("The user should be able to access the Exam View from the Action section and view the fields")
     public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_and_view_the_fields() {
         studentPage.eyeButton.click();
@@ -84,6 +84,7 @@ public class StudentStepdefinition {
         assertTrue(studentPage.closedExamBody.isDisplayed());
 
 
+
     }
 
     @Given("The user should be able to access the Exam View from the Action section within the Closed Exam segment and view the fields")
@@ -92,7 +93,6 @@ public class StudentStepdefinition {
         ReusableMethods.bekle(2);
         assertTrue(studentPage.closedExamEyeBody.isDisplayed());
     }
-
     @Given("The should be able to access the Apply leave page")
     public void the_should_be_able_to_access_the_apply_leave_page() {
         studentPage.applyLeaveButton.click();
@@ -102,12 +102,12 @@ public class StudentStepdefinition {
 
     @Given("The user should be able to see the Leave List header text")
     public void the_user_should_be_able_to_see_the_leave_list_header_text() {
-        String expectedTitle = "Leave List";
-        if (expectedTitle.contains("Leave List")) {
+        String expectedTitle="Leave List";
+        if(expectedTitle.contains("Leave List")){
             System.out.print("Expected Title PASSED");
 
 
-        } else {
+        }else{
             System.out.print("Expected Title FAILED");
 
 
@@ -152,6 +152,7 @@ public class StudentStepdefinition {
         studentPage.saveButton.click();
         ReusableMethods.bekle(4);
 
+
     }
 
 
@@ -171,8 +172,46 @@ public class StudentStepdefinition {
 
     @Given("The user should be able to delete a leave from the Action section and see a success message confirming the deletion")
     public void the_user_should_be_able_to_delete_a_leave_from_the_action_section_and_see_a_success_message_confirming_the_deletion() {
+
         studentPage.deleteButton.click();
         Driver.getDriver().switchTo().alert().accept();
+    }
+    @Given("The user should be able to access the Attendance page")
+    public void the_user_should_be_able_to_access_the_attendance_page() {
+        studentPage.attendanceButton.click();
+        ReusableMethods.bekle(2);
+    }
+    @Given("The user should be able to see the Attendance header text")
+    public void the_user_should_be_able_to_see_the_attendance_header_text() {
+        String expectedTitle="Attendance";
+        if(expectedTitle.contains("Attendance")){
+            System.out.print("Expected Title PASSED");
+
+
+        }else{
+            System.out.print("Expected Title FAILED");
+
+
+        }
+
+    }
+    @Given("The user should be able to select a date and list the attendances for that date")
+    public void the_user_should_be_able_to_select_a_date_and_list_the_attendances_for_that_date() {
+
+
+        studentPage.attendanceDateButton.click();
+        actions.moveToElement(studentPage.date1Button).click().perform();
+        ReusableMethods.bekle(5);
+
+
+
+    }
+    @Given("The user should be to view column fields")
+    public void the_user_should_be_to_view_column_fields() {
+
+
+        assertTrue(studentPage.subjectButton.isDisplayed());
+        assertTrue(studentPage.attendanceColumnButton.isDisplayed());
 
 
     }
