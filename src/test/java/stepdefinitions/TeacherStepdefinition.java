@@ -31,7 +31,7 @@ public class TeacherStepdefinition {
     @When("click teacher login button")
     public void click_teacher_login_button() {
         teacherPage.clickTeacherLoginButton();
-        ReusableMethods.switchToWindow("Login : Wonder World College");
+       ReusableMethods.switchToWindow("Login : Wonder World College");
         ReusableMethods.bekle(2);
     }
 
@@ -47,8 +47,16 @@ public class TeacherStepdefinition {
 
     @Then("click signin button")
     public void click_signin_button() {
+
+
+       teacherPage.clickSignIn();
+        //ReusableMethods.bekle(3);
+
+
+
         teacherPage.clickSignIn();
         ReusableMethods.bekle(3);
+
     }
 
     @Then("click human resources on side bar")
@@ -267,7 +275,97 @@ public class TeacherStepdefinition {
         assertTrue(teacherPage.periodAttendanceByDate.isDisplayed());
 
 
+
     }
+
+    }
+
+
+        @Given("verify all section titles that related with Select Criteria is active and visible")
+        public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible () {
+            assertTrue(teacherPage.ClassIcon.isDisplayed());
+            assertTrue(teacherPage.ClassIcon.isEnabled());
+            ReusableMethods.bekle(1);
+            assertTrue(teacherPage.sectionIcon.isDisplayed());
+
+            assertTrue(teacherPage.dateIcon.isDisplayed());
+            ReusableMethods.bekle(3);
+            Select select = new Select(teacherPage.classDropDown);
+            select.selectByIndex(1);
+            select = new Select(teacherPage.sectionDropDown);
+            select.selectByIndex(1);
+            teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty(" Date"));
+            teacherPage.periodAttendanceByDateSearchicon.click();
+
+
+        }
+        @Given("Click Period Attendance By Date")
+        public void click_period_attendance_by_date () {
+            teacherPage.periodAttendanceByDate.click();
+        }
+
+
+
+
+        // **************************Gulten Harrelson *************************** 1.Sonu
+        // **************************Gulten Harrelson *************************** 2.Baslangic
+
+
+        @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
+        public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date
+        () {
+            Select select = new Select(teacherPage.classDropDown);
+            select.selectByIndex(1);
+            select = new Select(teacherPage.sectionDropDown);
+            select.selectByIndex(1);
+            // select=new Select(teacherPage.dateDropDown);
+            JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
+            teacherPage.dateDropDown.click();
+
+            //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
+
+            // daha calsimam lazim bu soru icin
+            //assertTrue(teacherPage.studentList.isDisplayed());
+
+
+        }
+
+        // **************************Gulten Harrelson *************************** 1.Sonu
+        // **************************Gulten Harrelson *************************** 2.Baslangic
+        @Given("click  Online Exam Section under the  online Examinations")
+        public void click_online_exam_section_under_the_online_examinations () {
+           // teacherPage.onlineExaminations.click();
+            //teacherPage.onlineExam.click();
+
+        }
+
+        @Given("The user should be able to view column fields in the  Online Exam segment.")
+        public void the_user_should_be_able_to_view_column_fields_in_the_online_exam_segment () {
+
+        }
+
+        @Given("The user should be able to access the Exam View from the Action section and view the fields.")
+        public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_and_view_the_fields () {
+
+        }
+        @Given("When the user enters the Closed Exam segment, they should be able to see the column fields.")
+        public void when_the_user_enters_the_closed_exam_segment_they_should_be_able_to_see_the_column_fields () {
+            // Write code here that turns the phrase above into concrete actions
+            throw new io.cucumber.java.PendingException();
+        }
+
+        @Given("The user should be able to access the Exam View from the Action section within the Closed Exam segment and view the fields.")
+        public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_within_the_closed_exam_segment_and_view_the_fields
+        () {
+            // Write code here that turns the phrase above into concrete actions
+            throw new io.cucumber.java.PendingException();
+        }
+        // **************************Gulten Harrelson *************************** 2.Sonu
+
+
+        // **************************Gulten Harrelson *************************** 1.Sonu
+    
+
 
     @Given("verify all section titles that related with Select Criteria is active and visible")
     public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible() {
@@ -285,10 +383,29 @@ public class TeacherStepdefinition {
         actions.moveToElement(teacherPage.teacherDate1).click().perform();
         ReusableMethods.bekle(2);
 
+    @Then("click and verify Reports and Hostel button on side bar")
+    public void clickAndVerifyReportsAndHostelButtonOnSideBar() {
+        teacherPage.reportsHostelsVerifyClick();
+    }
 
+
+
+
+    @Then("verify student hostel details Page")
+    public void verifyStudentHostelDetailsPage() {
+        teacherPage.selectCriteriaVerifyPage();
 
     }
 
+    @Then("verify Select Criteria Sections")
+    public void verifySelectCriteriaSections() {
+        teacherPage.dropdownMenuSearchButtonVerify();
+    }
+
+    @Then("make search")
+    public void makeSearch() {
+        teacherPage.searchStudentHostel();
+    }
 
 
     @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
@@ -314,12 +431,34 @@ public class TeacherStepdefinition {
     // *******************************Gulten Harrelson **********************************//
 
 
+
+    @Then("verify Student Hostel List Reports columns")
+    public void verifyStudentHostelListReportsColumns() {
+        teacherPage.verifyColumnsunderStudentHostelReport();
+
+    }
+
+    @Then("click on a student name")
+    public void clickOnAStudentName() {
+        teacherPage.studentNameClick();
+    }
+
+    @Then("verify Student Profile Page")
+    public void verifyStudentProfilePage() {
+        teacherPage.redirectedPageVerify();
+    }
+
+    @Then("searchBox on Student Profile Page")
+    public void searchboxOnStudentProfilePage() {
+        teacherPage.searchBoxVerifyStudentProfile();
     }
 
 
-
-
-
+    @Then("make filtering with different student informations")
+    public void makeFilteringWithDifferentStudentInformations() {
+        teacherPage.filterStudents();
+    }
+}
 
 
 
