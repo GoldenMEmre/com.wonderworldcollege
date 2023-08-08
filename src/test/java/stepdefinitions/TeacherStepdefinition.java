@@ -22,38 +22,50 @@ public class TeacherStepdefinition {
 
     TeacherPage teacherPage = new TeacherPage();
     Actions actions = new Actions(Driver.getDriver());
+
     @Given("go to login page")
     public void go_to_login_page() {
         ReusableMethods.goToLoginPage();
     }
+
     @When("click teacher login button")
     public void click_teacher_login_button() {
         teacherPage.clickTeacherLoginButton();
        ReusableMethods.switchToWindow("Login : Wonder World College");
         ReusableMethods.bekle(2);
     }
+
     @Then("enter {string} as username")
     public void enterAsUsername(String username) {
         teacherPage.enterUsername(username);
     }
+
     @Then("enter {string} as password")
     public void enterAsPassword(String pass) {
         teacherPage.enterPassword(pass);
     }
+
     @Then("click signin button")
     public void click_signin_button() {
+
        teacherPage.clickSignIn();
         //ReusableMethods.bekle(3);
+
+        teacherPage.clickSignIn();
+        ReusableMethods.bekle(3);
+
     }
 
     @Then("click human resources on side bar")
     public void click_human_resources_on_side_bar() {
         teacherPage.clickHumanResources();
     }
+
     @Then("click apply leave on side bar")
     public void click_apply_leave_on_side_bar() {
-       teacherPage.clickApplyLeaveHumanResources();
+        teacherPage.clickApplyLeaveHumanResources();
     }
+
     @Then("click on apply leave on leaves page")
     public void click_on_apply_leave_on_leaves_page() {
         teacherPage.clickApplyLeaveButtonLeavesPage();
@@ -63,10 +75,12 @@ public class TeacherStepdefinition {
     public void selectAvailableLeave() {
         teacherPage.selectAvailableLeave();
     }
+
     @Then("enter {string} as reason on reason textbox")
     public void enterAsReasonOnReasonTextbox(String grund) {
         teacherPage.entersReason(grund);
     }
+
     @Then("click on save button")
     public void clickOnSaveButton() {
         teacherPage.clickOnSaveAddDetails();
@@ -90,8 +104,9 @@ public class TeacherStepdefinition {
 
     @Then("verify the columns on leaves list page")
     public void verify_the_columns_on_leaves_list_page() {
-            teacherPage.verifyColumnsLeavesList();
+        teacherPage.verifyColumnsLeavesList();
     }
+
     @Then("verify the status of created leave request")
     public void verify_the_status_of_created_leave_request() {
         teacherPage.verifyStatusLeavesList();
@@ -122,7 +137,108 @@ public class TeacherStepdefinition {
     public void closeDetailsWindow() {
         teacherPage.closeDetailsWindow();
     }
+
+
+    @Given("Enter the valid username and password on the Teacher login panel")
+    public void enter_the_valid_username_and_password_on_the_teacher_login_panel() {
+
+        teacherPage.adminUser.sendKeys(ConfigReader.getProperty("sumeyraTeacherUsername"));
+        teacherPage.adminPassword.sendKeys(ConfigReader.getProperty("sumeyraPassword"));
+
+    }
+
+    @Given("On the sidebar of the teacher panel, the Examinations menu is clicked and it is verified that the Exam Group link is displayed")
+    public void on_the_sidebar_of_the_teacher_panel_the_examinations_menu_is_clicked_and_it_is_verified_that_the_exam_group_link_is_displayed() {
+
+        teacherPage.examinations.click();
+        ReusableMethods.bekle(1);
+        Assert.assertTrue(teacherPage.examGroupLink.isDisplayed());
+
+    }
+    @Given("Click on the Exam Group link and verify that it is directed to the examgroup page")
+    public void click_on_the_exam_group_link_and_verify_that_it_is_directed_to_the_examgroup_page() {
+
+        teacherPage.examGroupLink.click();
+        ReusableMethods.bekle(1);
+        Assert.assertTrue(teacherPage.addExamGroupText.isDisplayed());
+        Assert.assertTrue(teacherPage.examGroupListText.isDisplayed());
+
+    }
+
+    @Given("Examinations, Exam Group link is clicked on the teacher panel, respectively")
+    public void examinations_exam_group_link_is_clicked_on_the_teacher_panel_respectively() {
+
+        teacherPage.examinations.click();
+        ReusableMethods.bekle(1);
+        teacherPage.examGroupLink.click();
+        ReusableMethods.bekle(1);
+
+
+    }
+    @Given("Verify that the Name, Description textBoxes and Exam Type dropdown menu are visible in the Add Exam Group window")
+    public void verify_that_the_name_description_text_boxes_and_exam_type_dropdown_menu_are_visible_in_the_add_exam_group_window() {
+
+        Assert.assertTrue(teacherPage.addExamGroupNameTextbox.isDisplayed());
+        Assert.assertTrue(teacherPage.addExamGroupExamTypeDropdownMenu.isDisplayed());
+        Assert.assertTrue(teacherPage.addExamGroupDescriptionTextbox.isDisplayed());
+
+    }
+    @Given("The save button appears in the Add Exam Group window and it is verified that it is active")
+    public void the_save_button_appears_in_the_add_exam_group_window_and_it_is_verified_that_it_is_active() {
+
+        Assert.assertTrue(teacherPage.addExamGroupSaveButton.isDisplayed());
+        Assert.assertTrue(teacherPage.addExamGroupSaveButton.isEnabled());
+
+
+    }
+    @Given("After entering the Name in the Add Exam Group window and selecting the Exam Type, clicking the Save button will see that the new exam group has been registered")
+    public void after_entering_the_name_in_the_add_exam_group_window_and_selecting_the_exam_type_clicking_the_save_button_will_see_that_the_new_exam_group_has_been_registered() {
+
+        Select select=new Select(teacherPage.addExamGroupExamTypeDropdownMenu);
+        teacherPage.addExamGroupNameTextbox.sendKeys("sumeyra");
+        ReusableMethods.bekle(1);
+        select.selectByIndex(3);
+        ReusableMethods.bekle(1);
+        teacherPage.addExamGroupSaveButton.click();
+
+    }
+
+    @Given("Verify that the Title, No Of Exams, Exam Type, Action titles are visible in the Exam Group List window")
+    public void verify_that_the_title_no_of_exams_exam_type_action_titles_are_visible_in_the_exam_group_list_window() {
+
+        Assert.assertTrue(teacherPage.examGroupListNameTitle.isDisplayed());
+        Assert.assertTrue(teacherPage.examGroupListNoOfExamsTitle.isDisplayed());
+        Assert.assertTrue(teacherPage.examGroupListExamTypeTitle.isDisplayed());
+        Assert.assertTrue(teacherPage.examGroupListActionTitle.isDisplayed());
+
+    }
+    @Given("Clicking the + icon under the Action title in the Exam Group List window confirms that it is directed to the add exam page")
+    public void clicking_the_icon_under_the_action_title_in_the_exam_group_list_window_confirms_that_it_is_directed_to_the_add_exam_page() {
+
+
+    }
+    @Given("Click the edit icon under the Action title in the Exam Group List window")
+    public void click_the_edit_icon_under_the_action_title_in_the_exam_group_list_window() {
+
+
+    }
+    @Given("Updates the Edit Exam Group window")
+    public void updates_the_edit_exam_group_window() {
+
+
+    }
+    @Given("Clicking the delete icon under the Action heading in the Exam Group List window confirms that the relevant exam group can be deleted")
+    public void clicking_the_delete_icon_under_the_action_heading_in_the_exam_group_list_window_confirms_that_the_relevant_exam_group_can_be_deleted() {
+
+
+    }
+
+
+    // ***************************** Gulten Harrelson*****************************
+
+
     // ***************************** Gulten Harrelson*****************************1.Baslangic
+
 
 
     @Given("enter  teacher username")
@@ -153,30 +269,68 @@ public class TeacherStepdefinition {
         ReusableMethods.bekle(2);
         assertTrue(teacherPage.periodAttendanceByDate.isDisplayed());
 
-
     }
 
-    @Given("verify all section titles that related with Select Criteria is active and visible")
-    public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible() {
-        assertTrue(teacherPage.ClassIcon.isDisplayed());
-        ReusableMethods.bekle(1);
-        assertTrue(teacherPage.sectionIcon.isDisplayed());
-        assertTrue(teacherPage.dateIcon.isDisplayed());
-        ReusableMethods.bekle(3);
-        Select select=new Select(teacherPage.classDropDown);
-        select.selectByIndex(2);
-        select=new Select(teacherPage.sectionDropDown);
-        select.selectByIndex(2);
-        teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("Date"));
-        teacherPage.periodAttendanceByDateSearchicon.click();
+
+        @Given("verify all section titles that related with Select Criteria is active and visible")
+        public void verify_all_section_titles_that_related_with_select_criteria_is_active_and_visible () {
+            assertTrue(teacherPage.ClassIcon.isDisplayed());
+            assertTrue(teacherPage.ClassIcon.isEnabled());
+            ReusableMethods.bekle(1);
+            assertTrue(teacherPage.sectionIcon.isDisplayed());
+
+            assertTrue(teacherPage.dateIcon.isDisplayed());
+            ReusableMethods.bekle(3);
+            Select select = new Select(teacherPage.classDropDown);
+            select.selectByIndex(1);
+            select = new Select(teacherPage.sectionDropDown);
+            select.selectByIndex(1);
+            teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty(" Date"));
+            teacherPage.periodAttendanceByDateSearchicon.click();
+
+
+        }
+        @Given("Click Period Attendance By Date")
+        public void click_period_attendance_by_date () {
+            teacherPage.periodAttendanceByDate.click();
+        }
 
 
 
-    }
-    @Given("Click Period Attendance By Date")
-    public void click_period_attendance_by_date() {
-        teacherPage.periodAttendanceByDate.click();
-    }
+        // **************************Gulten Harrelson *************************** 1.Sonu
+        // **************************Gulten Harrelson *************************** 2.Baslangic
+
+        @Given("The user should be able to view column fields in the  Online Exam segment.")
+        public void the_user_should_be_able_to_view_column_fields_in_the_online_exam_segment () {
+
+        }
+
+        @Given("The user should be able to access the Exam View from the Action section and view the fields.")
+        public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_and_view_the_fields () {
+
+        }
+        @Given("When the user enters the Closed Exam segment, they should be able to see the column fields.")
+        public void when_the_user_enters_the_closed_exam_segment_they_should_be_able_to_see_the_column_fields () {
+            // Write code here that turns the phrase above into concrete actions
+            throw new io.cucumber.java.PendingException();
+        }
+
+        @Given("The user should be able to access the Exam View from the Action section within the Closed Exam segment and view the fields.")
+        public void the_user_should_be_able_to_access_the_exam_view_from_the_action_section_within_the_closed_exam_segment_and_view_the_fields
+        () {
+            // Write code here that turns the phrase above into concrete actions
+            throw new io.cucumber.java.PendingException();
+        }
+        // **************************Gulten Harrelson *************************** 2.Sonu
+
+
+
+
+
+
+
+
+
 
     @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
     public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
@@ -187,6 +341,7 @@ public class TeacherStepdefinition {
         // select=new Select(teacherPage.dateDropDown);
         JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
         teacherPage.dateDropDown.click();
+
 
         //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
 
@@ -201,10 +356,16 @@ public class TeacherStepdefinition {
 
 
 
+
     @Then("click and verify Reports and Hostel button on side bar")
     public void clickAndVerifyReportsAndHostelButtonOnSideBar() {
         teacherPage.reportsHostelsVerifyClick();
     }
+
+
+
+
+
 
     @Then("verify student hostel details Page")
     public void verifyStudentHostelDetailsPage() {
