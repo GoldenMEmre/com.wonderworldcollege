@@ -164,14 +164,29 @@ public class TeacherPage extends Base {
    public  WebElement periodAttendanceByDateSearchicon;
    @FindBy(xpath ="(//div[@class='box-header with-border'])[2]")
    public  WebElement studentList;
-   @FindBy(xpath="(//a[@href='#'])[8]")
-   public  WebElement onlineExaminations;
-    @FindBy(xpath="(//*[text()='Online Exam'])[2]")
-    public  WebElement onlineExam;
-    @FindBy(xpath="//*[text()='Exam']")
-    public  WebElement examSegment;
-    @FindBy(xpath="(//*[text()='Quiz'])[1]")
-    public  WebElement OuizSegment;
+
+
+    //Reports Side Bar Teacher Page
+    @FindBy(xpath = "//*[text()='Reports']")
+    private WebElement reportsSideBarTeacherPage;
+    //Hostel Side Bar Teacher Page
+    @FindBy(xpath = "(//*[text()='Hostel'])[2]")
+    private WebElement hostelSideBarTeacherPage;
+    // student hostel details select Criteria Title
+    @FindBy(xpath = "//*[text()=' Select Criteria']")
+    private WebElement selectCriteriaTitleSHD;
+    // class dropbox under Select Criteria
+    @FindBy(xpath = "(//*[text()='Class'])[3]")
+    private WebElement classDropBoxUnderSelectCriteria;
+    // section dropbox under Select Criteria
+    @FindBy(xpath = "//*[text()='Section']")
+    private WebElement sectionDropBoxUnderSelectCriteria;
+    // hostel name dropbox under Select Criteria
+    @FindBy(xpath = "(//*[text()='Hostel Name'])[1]")
+    private WebElement hostelNameDropBoxUnderSelectCriteria;
+    //Search Button under Select Criteria
+    @FindBy(xpath = "//*[text()=' Search']")
+    private WebElement searchButtonUnderSelectCriteria;
 
 
     //-------EXAMINATIONS/EXAM GROUP PAGE LOCATE---------
@@ -220,6 +235,21 @@ public class TeacherPage extends Base {
 
     @FindBy ( xpath = "(//i[@class='fa fa-remove'])[1]")
     public WebElement examGroupListActionDeleteIcon;
+
+    @FindBy (xpath = "//a[@class='btn btn-primary btn-sm']")
+    public WebElement examListNewExamButton;
+
+    @FindBy (xpath = "//select[@name='exam_type']")
+    public WebElement editExamGroupExamTypeDropdown;
+
+    @FindBy (xpath = "//div[@class='alert alert-success text-left']")
+    public WebElement updateAlert;
+
+    @FindBy (xpath = "//a[@href=\"../site/login\"]")
+    public WebElement teacherLogin;
+
+
+
 
 
 

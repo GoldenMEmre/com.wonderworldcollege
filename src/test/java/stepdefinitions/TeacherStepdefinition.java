@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.eo.Se;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -13,6 +14,8 @@ import pages.TeacherPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
 
@@ -210,23 +213,48 @@ public class TeacherStepdefinition {
     @Given("Clicking the + icon under the Action title in the Exam Group List window confirms that it is directed to the add exam page")
     public void clicking_the_icon_under_the_action_title_in_the_exam_group_list_window_confirms_that_it_is_directed_to_the_add_exam_page() {
 
+        teacherPage.examGroupListActionPlusIcon.click();
+        Assert.assertTrue(teacherPage.examListNewExamButton.isDisplayed());
 
     }
     @Given("Click the edit icon under the Action title in the Exam Group List window")
     public void click_the_edit_icon_under_the_action_title_in_the_exam_group_list_window() {
 
+        teacherPage.examGroupListActionEditIcon.click();
+        ReusableMethods.bekle(1);
 
     }
     @Given("Updates the Edit Exam Group window")
     public void updates_the_edit_exam_group_window() {
+
+        Select select=new Select(teacherPage.editExamGroupExamTypeDropdown);
+        select.selectByIndex(2);
+        ReusableMethods.bekle(1);
+        teacherPage.addExamGroupSaveButton.click();
+        ReusableMethods.bekle(1);
 
 
     }
     @Given("Clicking the delete icon under the Action heading in the Exam Group List window confirms that the relevant exam group can be deleted")
     public void clicking_the_delete_icon_under_the_action_heading_in_the_exam_group_list_window_confirms_that_the_relevant_exam_group_can_be_deleted() {
 
+        teacherPage.examGroupListActionDeleteIcon.click();
+        Driver.getDriver().switchTo().alert().accept();
+        ReusableMethods.bekle(1);
 
     }
+
+    @When("Click the teacher login button")
+    public void click_the_teacher_login_button() {
+
+        teacherPage.teacherLogin.click();
+
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+    }
+
+
+
+
 
 
     // ***************************** Gulten Harrelson*****************************
@@ -250,7 +278,6 @@ public class TeacherStepdefinition {
     @Given("click teacher sign in button")
     public void click_teacher_sign_in_button() {
         teacherPage.teacherSignInButton.click();
-
 
     }
 
@@ -314,8 +341,8 @@ public class TeacherStepdefinition {
         // **************************Gulten Harrelson *************************** 2.Baslangic
         @Given("click  Online Exam Section under the  online Examinations")
         public void click_online_exam_section_under_the_online_examinations () {
-            teacherPage.onlineExaminations.click();
-            teacherPage.onlineExam.click();
+           // teacherPage.onlineExaminations.click();
+            //teacherPage.onlineExam.click();
 
         }
         @Given("The user should be able to view column fields in the  Online Exam segment.")

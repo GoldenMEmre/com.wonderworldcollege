@@ -3,7 +3,7 @@ Feature: Multi Class student page test as admin
 
   Scenario: TC01 When you click on the Multi Class Student page link in the admin panel, the multiclass page is displayed.
 
-    * Go to "adminLoginUrl"
+    * Go to "loginurl"
     * click admin login
     * Enter the valid username and password on the Admin login panel
     * click sign in button
@@ -14,7 +14,7 @@ Feature: Multi Class student page test as admin
 
   Scenario: TC02 On the Multiclass page, the students in the school are searched and the students are listed according to the search criteria.
 
-    * Go to "adminLoginUrl"
+    * Go to "loginurl"
     * click admin login
     * Enter the valid username and password on the Admin login panel
     * click sign in button
@@ -27,7 +27,7 @@ Feature: Multi Class student page test as admin
 
   Scenario: TC03 A new class can be added, the class can be deleted and the changes made can be saved in the window of the selected student among the students listed on the Multi Class page.
 
-    * Go to "adminLoginUrl"
+    * Go to "loginurl"
     * click admin login
     * Enter the valid username and password on the Admin login panel
     * click sign in button

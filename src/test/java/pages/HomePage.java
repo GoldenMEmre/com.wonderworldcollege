@@ -36,6 +36,7 @@ public class HomePage extends Base {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     public  WebElement examResultPageResultText;   
 
+
     //-------------------------------------------------------------
 
     @FindBy(xpath = "(//a[text()='Course'])[1]")
@@ -95,8 +96,6 @@ public class HomePage extends Base {
     @FindBy(xpath = "(//a[@class='btn-read'])[9]")
     public WebElement coursePageComputerScienceDetailsButton;
 
-    //-------------------------------------------------------------
-
       //Homepage >"login" butonu
     @FindBy(xpath = "//*[@class='complainbtn']")
     public WebElement loginButonu;
@@ -131,10 +130,46 @@ public class HomePage extends Base {
     public  WebElement nurturingImg;
     @FindBy(xpath ="//img[@src='https://qa.wonderworldcollege.com/uploads/gallery/media/v-4banner4.jpg']")
     public  WebElement preparingImg;
+
+
+
+
+
+   @FindBy(xpath = "//*[@id='navbar-collapse-3']")
+    public WebElement homeBar;
+
+   @FindBy(xpath = "//a[@class='logo']")
+    public WebElement siteLogo;
+
+   @FindBy(xpath="//a[@data-toggle='dropdown']")
+    public WebElement academicsButton;
+
+
     @FindBy(xpath = "(//*[@class='fa fa-angle-left'])[1]")
      public  WebElement sliderPanel;
 
 
+    @FindBy(xpath = "(//a[text()='Gallery'])[1]")
+    public WebElement galleryPage;
+    //// li[@class='active ']//a[normalize-space()='Gallery']
+
+    @FindBy(xpath = "//*[@id='postList']/div[1]/div[1]/div/a/div")
+    public WebElement artAndMusic;
+
+    @FindBy(xpath = "//*[@id='postList']/div[1]/div[2]/div/a/div")
+    public WebElement campus;
+
+    @FindBy(xpath = "//*[@id='postList']/div[1]/div[3]/div/a/div")
+    public WebElement activities;
+
+    @FindBy(xpath = "//*[@id='postList']/div[2]/div[1]/div/a/div")
+    public WebElement prePrimary;
+
+    @FindBy(xpath = "//*[@id='postList']/div[2]/div[2]/div/a/div")
+    public WebElement classrooms;
+
+    @FindBy(xpath = "//*[@id=\"postList\"]/div[2]/div[3]/div/a/div")
+    public WebElement sports;
 
 
     //--------------------------- Ogun Locates ----------------------------------------
@@ -582,8 +617,6 @@ public class HomePage extends Base {
     public void verifyGuardianPhotoUpload() {
         actions.moveToElement(verifyGuardianPhotoUploaded).perform();
         Assert.assertTrue(verifyGuardianPhotoUploaded.isDisplayed());
-
-
     }
 
 
@@ -610,8 +643,18 @@ public class HomePage extends Base {
 
 
 
+
+
+    @FindBy(xpath = "//a[text()='School Uniform']")
+    public WebElement schoolUniformDropDown;
+
+
+    @FindBy(xpath = "//a[text()='Facilities']")
+    public WebElement facilitiesDropDown;
+
     // Verify Radio Boxes under Guardian Details
     public void verifyRadioBoxesGuardianDetails(){
+
 
         Assert.assertTrue(fatherRadioBoxGuardianDetails.isDisplayed());
         Assert.assertTrue(fatherRadioBoxGuardianDetails.isEnabled());
@@ -715,8 +758,68 @@ public class HomePage extends Base {
             }
         }
     }
+    //*******************************************************************************************
+
+    @FindBy(xpath = "//a[text()='Principal Message']")
+    public WebElement principalMessageDropDown;
+
+    @FindBy(xpath = "//a[text()='Know Us']")
+
+    public WebElement knowUsDropDown;
+
+    @FindBy(xpath = "//a[text()='Approach']")
+    public WebElement approachDropDown;
+
+    @FindBy(xpath = "//a[text()='Teacher']")
+    public WebElement teacherDropDown;
+
+
+
+    //@FindBy(xpath="right carousel-control")
+    // public  WebElement sliderPanel;
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+    //HomePage/User Login Page
+    @FindBy(xpath = "//*[text()='User Login']")
+    public WebElement userLoginText;
+
+    @FindBy(xpath = "//div[@class='messages']")
+    public WebElement userLoginMessages;
+
+
+    @FindBy(xpath = "//*[@id=\"navbar-collapse-3\"]/ul/li[9]/a")
+    public WebElement contackButton;
+
+    @FindBy(xpath = "(//input[@type='text'])[5]")
+    public WebElement nameButton;
+
+    @FindBy(xpath = "(//input[@type='email'])[2]")
+    public WebElement emailButton;
+
+    @FindBy(xpath = "(//input[@type='text'])[6]")
+    public WebElement subjectButton;
+
+    @FindBy(xpath = "//textarea[@name='description']")
+    public WebElement descriptionButton;
+    @FindBy(xpath = "//input[@value='Submit']")
+    public WebElement submitButton;
+
+
+    @FindBy(xpath = "//*[text()='Our Location']")
+    public WebElement ourLocation;
+
+    @FindBy(xpath = "//*[text()='CALL US']")
+    public WebElement callUs;
+
+    @FindBy (xpath = "//h3[text()='Working Hours']")
+    public WebElement workingHours;
+
+   @FindBy(xpath ="//*[text()='Feedback']" )
+    public WebElement feedBack;
 
 }
 
 
+
     //*******************************************************************************************
+

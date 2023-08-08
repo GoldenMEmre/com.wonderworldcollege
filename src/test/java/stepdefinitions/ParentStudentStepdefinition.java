@@ -288,5 +288,115 @@ public class ParentStudentStepdefinition {
     }
 
 
+    @Then("click and verify examinations and exam schedule buttons on side bar")
+    public void clickAndVerifyExaminationsAndExamScheduleButtonsOnSideBar() {
+        parentStudentPage.examinationsExamScheduleClickverify();
+    }
+
+    @Then("verify exam schedule page")
+    public void verifyExamSchedulePage() {
+        parentStudentPage.examScheduleHeaderTextVerify();
+    }
+
+    @Then("search an exam on search box and verify that")
+    public void searchAnExamOnSearchBoxAndVerifyThat() {
+        parentStudentPage.filterExamVerify();
+    }
+
+    @Then("verify the columns on exam schedule page")
+    public void verifyTheColumnsOnExamSchedulePage() {
+        parentStudentPage.columnsVerificationExamSchedule();
+    }
+
+    @Then("click on view button and verify exam details page")
+    public void clickOnViewButtonAndVerifyExamDetailsPage() {
+        parentStudentPage.examDetailsPageVerify();
+    }
+
+    @Then("verify the columns on exam details page")
+    public void verifyTheColumnsOnExamDetailsPage() {
+        parentStudentPage.examDetailsPageColumnsVerification();
+    }
+
+    @Then("click on login button")
+    public void clickOnLoginButton() {
+        parentStudentPage.clickLoginButtonHomePage();
+    }
+
+    @Then("enter username and password")
+    public void enterUsernameAndPassword() {
+        parentStudentPage.enterUserNameAndPassword();
+    }
+
+    @Then("click and verify teacher reviews button on side bar")
+    public void clickAndVerifyTeacherReviewsButtonOnSideBar() {
+        parentStudentPage.teachersReviewsClickVerify();
+    }
+
+    @Then("verify teacher review header text")
+    public void verifyTeacherReviewHeaderText() {
+        parentStudentPage.teacherReviewsHeaderTextVerify();
+    }
+
+    @Then("click on rate button")
+    public void clickOnRateButton() {
+        parentStudentPage.clickOnRatebutton();
+    }
+
+    @Then("rate teacher and write a command afterward click on save button")
+    public void rateTeacherAndWriteACommandAfterwardClickOnSaveButton() {
+        parentStudentPage.rateTeacher();
+    }
+
+    @Then("enter username and password for a parent login")
+    public void enterUsernameAndPasswordForAParentLogin() {
+        parentStudentPage.enterUserNameAndPasswordParent();
+    }
+
+    @Then("verify and click profile image button")
+    public void verifyAndClickProfileImageButton() {
+        parentStudentPage.profileImageClickVerify();
+    }
+
+    @Then("verify and click change password button")
+    public void verifyAndClickChangePasswordButton() {
+        parentStudentPage.changePasswordButtonclickVerify();
+    }
+
+    @Then("verify redirection after clicking change password button")
+    public void verifyRedirectionAfterClickingChangePasswordButton() {
+        parentStudentPage.changePasswordPageRedirectionverify();
+    }
+
+    @Then("make positive change password text")
+    public void makePositiveChangePasswordText() {
+        parentStudentPage.positiveChangePasswordTest();
+    }
+
+    @Then("enter username and new password")
+    public void enterUsernameAndNewPassword() {
+        parentStudentPage.loginAfterPositiveChangePassword();
+    }
+
+    @Then("make negative change password test")
+    public void makeNegativeChangePasswordTest() {
+        parentStudentPage.negativeChangePasswordText();
+    }
+
+    @Then("log out from parent page")
+    public void logOutFromParentPage() {
+        parentStudentPage.logOutParentPage();
+    }
+
+    @Then("make a log in with username and negative password")
+    public void makeALogInWithUsernameAndNegativePassword() {
+        parentStudentPage.verificationNegativeLoginTest();
+    }
+
+    @Then("click on SignIn Button")
+    public void clickOnSignInButton() {
+
+        parentStudentPage.signInButtonclickUserLogin();
+    }
 }
 
