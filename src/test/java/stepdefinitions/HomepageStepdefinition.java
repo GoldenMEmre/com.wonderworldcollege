@@ -36,9 +36,13 @@ public class HomepageStepdefinition {
     public void verifiesThatTheExamResultPageIsOpened() {
 
 
+        homepage.examResultText.isDisplayed();
+
+
         Assert.assertTrue(homepage.examResultText.isDisplayed());
 
         homepage.examResultText.isDisplayed();
+
 
     }
 
@@ -62,6 +66,10 @@ public class HomepageStepdefinition {
     public void examResultPageResultText() {
 
         homepage.examResultPageResultText.isDisplayed();
+
+
+        homepage.examResultPageResultText.isDisplayed();
+
 
 
         Assert.assertTrue(homepage.examResultPageResultText.isDisplayed());
@@ -96,6 +104,29 @@ public class HomepageStepdefinition {
         Assert.assertTrue(homepage.coursePageEnglishAndLiteratureTitle.isDisplayed());
         Assert.assertTrue(homepage.coursePageEnglishAndLiteratureDetailsButton.isDisplayed());
 
+
+        Assert.assertTrue(homepage.coursePageMathematicsTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageMathematicsDetailsButton.isDisplayed());
+
+        Assert.assertTrue(homepage.coursePageSciencesTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageSciencesDetailsButton.isDisplayed());
+
+        Assert.assertTrue(homepage.coursePageSocialSciencesTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageSocialSciencesDetailsButton.isDisplayed());
+
+        Assert.assertTrue(homepage.coursePageHistoryTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageHistoryDetailsButton.isDisplayed());
+
+        Assert.assertTrue(homepage.coursePageArtsAndMusicTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageArtsAndMusicDetailsButton.isDisplayed());
+
+        Assert.assertTrue(homepage.coursePageHealthAndExerciseSciencesTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageHealthAndExerciseSciencesDetailsButton.isDisplayed());
+
+        Assert.assertTrue(homepage.coursePageForeignLanguageTitle.isDisplayed());
+        Assert.assertTrue(homepage.coursePageForeignLanguageDetailsButton.isDisplayed());
+
+
         Assert.assertTrue(homepage.coursePageEnglishAndLiteratureTitle.isDisplayed());
         Assert.assertTrue(homepage.coursePageEnglishAndLiteratureDetailsButton.isDisplayed());
 
@@ -124,6 +155,7 @@ public class HomepageStepdefinition {
 
         Assert.assertTrue(homepage.coursePageComputerScienceTitle.isDisplayed());
         Assert.assertTrue(homepage.coursePageComputerScienceDetailsButton.isDisplayed());
+
 
 
         Assert.assertTrue(homepage.coursePageComputerScienceTitle.isDisplayed());
@@ -213,11 +245,14 @@ public class HomepageStepdefinition {
 
     //**********************************************************************//
 
+
+
     //@Given("Close the page")
     //public void close_the_page() {
 
     //  Driver.closeDriver();
     //}
+
 
 
     @Given("User go to Url")
@@ -228,6 +263,9 @@ public class HomepageStepdefinition {
 
     @Then("user test if the images change at regular intervals")
     public void user_test_if_the_images_change_at_regular_intervals() {
+
+
+
 
         Assert.assertTrue(homepage.preparingImg.isDisplayed() ||
                 homepage.diverseImg.isDisplayed() || homepage.wonderImg.isDisplayed() ||
@@ -265,6 +303,13 @@ public class HomepageStepdefinition {
     // @Then("The homepage was reached on the website")
     //public void the_homepage_was_reached_on_the_website() throws InterruptedException {
 
+
+       // Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+        Assert.assertTrue(homepage.CallUsText.isDisplayed());
+
+        Thread.sleep(2000);
+
     // Assert.assertTrue(homepage.CallUsText.isDisplayed());
     //Thread.sleep(2000);
 
@@ -274,7 +319,7 @@ public class HomepageStepdefinition {
 
     // @Then("The homepage was reached on the website")
 
-
+}
     @Then("The homepage was reached on the website")
     public void the_homepage_was_reached_on_the_website() throws InterruptedException {
 
@@ -293,15 +338,13 @@ public class HomepageStepdefinition {
         // Assert.assertTrue(homepage.CallUsText.isDisplayed());
 
         // Thread.sleep(2000);
+
     }
 
+  
+
+
     @Then("The Achievements  section was displayed as the page was scrolled down.")
-
-
-    //Thread.sleep(2000);
-
-    //@Then("The Achievements  section was displayed as the page was scrolled down.")
-
     public void the_achievements_section_was_displayed_as_the_page_was_scrolled_down() throws InterruptedException {
         ReusableMethods.scrollToElement(Driver.getDriver(), homepage.acheıvementsSection);
         // Thread.sleep(5000);
@@ -309,6 +352,20 @@ public class HomepageStepdefinition {
 
 
     }
+
+   
+
+
+    
+
+    @Then("The visibility of the boards in the Achievements section has been confirmed.")
+    public void theVisibilityOfTheBoardsInTheAchievementsSectionHasBeenConfirmed() {
+        Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+
+        Assert.assertTrue(homepage.studentCampusesBoard.isDisplayed());
+    }
+
+
 
     @And("Close the page.")
     public void close_the_page() {
@@ -331,10 +388,7 @@ public class HomepageStepdefinition {
 
 
 
-    //@And("Close the page.")
-    //public void close_the_page() {
-           //Driver.quitDriver();
-    //}
+   
 
 
 
@@ -345,6 +399,7 @@ public class HomepageStepdefinition {
 
         Assert.assertTrue(homepage.loginButonu.isDisplayed());
     }
+
     @Then("Click the Login Button")
     public void click_the_login_button() {
         homepage.loginButonu.click();
@@ -367,13 +422,6 @@ public class HomepageStepdefinition {
 
         Assert.assertTrue(homepage.homeBar.isDisplayed());
     }
-
-
-
-
-
-
-
 
 
 
@@ -469,6 +517,13 @@ public class HomepageStepdefinition {
 
 
 
+    @Then("Verify that there is a login window on the left side and information about {string} on the right side.")
+    public void verify_that_there_is_a_login_window_on_the_left_side_and_information_about_on_the_right_side(String string) {
+        //Assert.assertTrue(homepage.userLoginMessages.isDisplayed());
+    }
+
+
+
 
 
     @Then("Verify that HomePage is accessible")
@@ -480,6 +535,8 @@ public class HomepageStepdefinition {
 
 
     }
+
+
 
     @And("Click Forgot Password Link")
     public void clickForgotPasswordLink() {
@@ -516,6 +573,7 @@ public class HomepageStepdefinition {
         homepage.userLoginFrontSiteLink.click();
     }
     //*************************************************************************************************
+
 
 
 
@@ -596,6 +654,7 @@ public class HomepageStepdefinition {
 
     }
 
+
     @Then("verify and fill the fields under Guardian Details Section")
     public void verifyAndFillTheFieldsUnderGuardianDetailsSection() {
         homepage.verifyEnterGuardianDetailsOnlineAdmissionPage();
@@ -623,37 +682,13 @@ public class HomepageStepdefinition {
 
     }
 
-  //  @Given("Close the page")
-    //public void close_the_page() {
-        //Driver.closeDriver();
 
-
-
-
-    @Then("click on Submit and verify Reference Number and Review entered Details and Status Page")
-    public void clickOnSubmitAndVerifyReferenceNumberAndReviewEnteredDetailsAndStatusPage() {
-        homepage.verifyREDaS_ReferenceNo();
+    @Given("Close the page")
+    public void close_the_page() {
+        Driver.closeDriver();
     }
 
-    @Then("verify form status and application Date")
-    public void verifyFormStatusAndApplicationDate() {
-        homepage.verifyFormStatusAndApplicationDate();
-    }
 
-    @Then("verifiy entered informations")
-    public void verifiyEnteredInformations() {
-        homepage.controlInformations();
-    }
-
-    @Then("verify and click on I agree to the terms and conditions checkbox")
-    public void verifyAndClickOnIAgreeToTheTermsAndConditionsCheckbox() {
-        homepage.checkBoxVerifyEnter();
-    }
-
-    @Then("click on submit and verify form status and success alert")
-    public void clickOnSubmitAndVerifyFormStatusAndSuccessAlert() {
-        homepage.submitVerifyFormStatusAndAlert();
-    }
 
 
     @Then("verify What people says section")
@@ -707,6 +742,7 @@ public class HomepageStepdefinition {
         ReusableMethods.bekle(1);
 
     }
+
 
 
 
