@@ -357,23 +357,6 @@ public class TeacherStepdefinition {
         // **************************Gulten Harrelson *************************** 2.Sonu
 
 
-    @Given("verify that the Student List is displayed and active when searching  for the attendance records of all students for the specified date")
-    public void verify_that_the_student_list_is_displayed_and_active_when_searching_for_the_attendance_records_of_all_students_for_the_specified_date() {
-        Select select = new Select(teacherPage.classDropDown);
-        select.selectByIndex(1);
-        select = new Select(teacherPage.sectionDropDown);
-        select.selectByIndex(1);
-        // select=new Select(teacherPage.dateDropDown);
-        JavascriptExecutor hadi = (JavascriptExecutor) Driver.getDriver();
-        teacherPage.dateDropDown.click();
-
-
-        //teacherPage.dateDropDown.sendKeys(ConfigReader.getProperty("DateTeacher"));
-
-        // daha calsimam lazim bu soru icin
-        //assertTrue(teacherPage.studentList.isDisplayed());
-   Assert.assertTrue(homepage.ourExperiencedStaffsText.isDisplayed());
-    }
         // **************************Gulten Harrelson *************************** 1.Sonu
     
 

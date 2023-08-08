@@ -9,4 +9,4 @@ Feature: As a user, I should be able to access the Teacher Reviews page and view
     Then verify teacher review header text
     Then click on rate button
     Then rate teacher and write a command afterward click on save button
-    Then Close the page.
+    Then user close the browser

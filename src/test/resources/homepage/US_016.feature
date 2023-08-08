@@ -38,7 +38,7 @@ Feature: US_016 As a user (student/parent), I want to have access to the login p
     And Select Student Panel
     And Click Submit Button
     And Verify that password reset email is sent
-    And Close the page.
+    And user close the browser
 
   Scenario: TC_04 Back to Front Site Test
 
@@ -46,7 +46,7 @@ Feature: US_016 As a user (student/parent), I want to have access to the login p
     Then Click the Login Button
     And Verify the Front Site Link
     And Click the Front Site Link
-    And Close the page.
+    And user close the browser
 
 
 

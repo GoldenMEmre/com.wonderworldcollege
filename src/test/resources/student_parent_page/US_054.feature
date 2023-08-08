@@ -9,7 +9,7 @@ Feature: As a user, I should be able to change my password
     Then verify and click change password button
     Then verify redirection after clicking change password button
     Then make positive change password text
-    Then Close the page.
+    Then user close the browser
 
     Scenario: 'Change Password'(Parent) Page - Negative Change Password Test
       Given go to home page
@@ -21,4 +21,4 @@ Feature: As a user, I should be able to change my password
       Then make negative change password test
       Then log out from parent page
       Then make a log in with username and negative password
-      Then Close the page.
+      Then user close the browser
