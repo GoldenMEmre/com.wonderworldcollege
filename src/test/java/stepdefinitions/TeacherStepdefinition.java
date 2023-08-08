@@ -225,9 +225,11 @@ public class TeacherStepdefinition {
     }
     @Given("class section subject dropdown date boc must be accessiblle")
     public void classSectionSubjectDropdownDateBocMustBeAccessiblle() {
+        teacherPage.dateDropDown.isDisplayed();
     }
     @Given("search text box must be accessible")
     public void searchTextBoxMustBeAccessible() {
+        teacherPage.selectCriteriaSearchButtton.isDisplayed();
     }
 
 
