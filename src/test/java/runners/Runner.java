@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt"
         },
 
+
         features = {
                 "src/test/resources/homepage",
                 "src/test/resources/adminpage",
@@ -20,8 +21,13 @@ import org.junit.runner.RunWith;
 
                 "src/test/resources/student_parent_page",
 
-                "src/test/resources/parent_studentpage"
-                },
+
+
+
+
+      
+        
+
 
 
         glue = {"stepdefinitions"},
@@ -29,6 +35,19 @@ import org.junit.runner.RunWith;
 
         tags = "@ab",
         dryRun = true
+
+
+
+        tags = "@ww",
+        dryRun = true
+
+
+       // glue = "stepdefinitions",
+
+
+
+
+
 
 
 
